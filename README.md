@@ -8,7 +8,27 @@ requests and issues are welcome.**
 
 ## Features
 
--
+- Windows 11 22621.1265 based on Enterprise
+- No system requirements
+- HEVC/HEIFI codec extension
+- No Telemetry/Logging
+- Error reporting removed
+- Windows Update removed (accessable via debug)
+- Set up Windows with a local account
+- Clean desktop & Start menu experience out of the box.
+- Simplified settings app menu
+- Education themes
+- Low OS footprint
+- Reduced Services/RAM idle usage
+- APP (Install programs, drivers and more)
+- Windows AMOLED Dark Mode preset
+- Desktop stickers
+- New & improved system tray
+- Snipping Tool recording feature
+- New search bar design
+- Improved file explorer search
+- Energy recommendations 
+- Notepad tabs
 
 ## System Requirements
 **Technically none but:**
