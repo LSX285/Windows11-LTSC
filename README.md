@@ -21,7 +21,7 @@ requests and issues are welcome.**
 ## Known issues
 
 
-- Booting into **Safe Mode** will display a **hard error** message. You can ignore it.
+- Safe Mode boot displays a **hard error** message which can be ignored.
 - Programs installed via **APP** may not uninstall successfully on first login. To resolve this, restart Windows.
   
 ## Development Roadmap
