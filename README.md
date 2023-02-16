@@ -8,18 +8,17 @@ requests and issues are welcome.**
 
 ## Features
 
--
+- **Storage:** 15GB
 -
 -
 
 ## System Requirements
-
+**Technically none but:**
 -
 -
 -
 
 ## Known issues
-
 
 - Safe Mode boot displays a **hard error** message which can be ignored.
 - Programs installed via **APP** may not uninstall successfully on first login. To resolve this, restart Windows.
