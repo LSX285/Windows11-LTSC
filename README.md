@@ -10,7 +10,7 @@ requests and issues are welcome.**
 
 - **Processor:** 64bit Processor
 - **Storage:** 15GB
-- **RAM:** 1-2GB
+- **RAM:** 1GB
 
 ## System Requirements
 **Technically none but:**
