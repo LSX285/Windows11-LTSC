@@ -24,5 +24,4 @@ requests and issues are welcome.**
   
 ## Development Roadmap
 
-- [ ] Test
-- [ ] Test 2
+- [ ] Hosts file blocking thirtd party telemetry/data collection
