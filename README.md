@@ -8,15 +8,13 @@ requests and issues are welcome.**
 
 ## Features
 
-- **Processor:** 64bit Processor
-- **Storage:** 15GB
-- **RAM:** 1GB
+-
 
 ## System Requirements
 **Technically none but:**
--
--
--
+- **Processor:** 64bit Processor
+- **Storage:** 15GB
+- **RAM:** 1GB
 
 ## Known issues
 
