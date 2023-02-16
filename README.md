@@ -22,7 +22,7 @@ requests and issues are welcome.**
 
 
 - Booting into **Safe Mode** will display a **hard error** message. You can ignore it.
-- Uninstalling some programs on the first login when installing via APP might not work. **Workaround**: Restart Windows.
+- Programs installed via **APP** may not uninstall successfully on first login. To resolve this, restart Windows.
   
 ## Development Roadmap
 
