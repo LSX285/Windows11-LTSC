@@ -15,6 +15,7 @@ requests and issues are welcome.**
 - **Processor:** 64bit Processor
 - **Storage:** 15GB
 - **RAM:** 1GB
+- **USB Drive:** 4GB
 
 ## Known issues
 
