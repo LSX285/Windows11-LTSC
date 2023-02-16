@@ -21,9 +21,8 @@ requests and issues are welcome.**
 ## Known issues
 
 
--
--
--
+- Booting into **Safe Mode** will display a **hard error** message. You can ignore it.
+- Uninstalling some programs on the first login when installing via APP might not work. **Workaround**: Restart Windows.
   
 ## Development Roadmap
 
