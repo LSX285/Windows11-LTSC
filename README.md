@@ -7,7 +7,7 @@ Windows 11 LTSC is an unofficial heavily inspired distro of Windows 10 LTSC that
 **All kinds of contributions will be appreciated. All suggestions, pull 
 requests and issues are welcome.**
 
-## Features
+![github_hero_features](https://user-images.githubusercontent.com/96759883/219661176-d969a7a6-777f-4632-aa0c-c9b718d900b1.png)
 
 - Windows 11 22623.1325 based on Enterprise
 - No system requirements
