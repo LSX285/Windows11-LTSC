@@ -1,4 +1,4 @@
-@echo off
+@echo off TESTING
 >nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
 if '%errorlevel%' NEQ '0' (GOTO askAdmin)
 GOTO gotAdmin
