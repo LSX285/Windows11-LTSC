@@ -32,7 +32,8 @@ requests and issues are welcome.**
 - Energy recommendations 
 - Notepad tabs
 
-## System Requirements
+![github_hero_systemrequirements](https://user-images.githubusercontent.com/96759883/219661540-e1db9e9a-f3c0-425d-b90e-0bf8439a0db0.png)
+
 **Technically none but:**
 - **Processor:** 64bit Processor
 - **Storage:** 15GB
