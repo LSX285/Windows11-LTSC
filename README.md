@@ -1,4 +1,4 @@
-![windows11ltsc](https://user-images.githubusercontent.com/96759883/219671250-3f47a231-73c0-4c37-a8da-977d8b116e87.png)
+![github_hero_windows11ltsc-modified](https://user-images.githubusercontent.com/96759883/219671772-8375985c-22c0-4ade-935e-d82758872f99.png)
 
 Windows 11 LTSC is an unofficial heavily inspired distro of Windows 10 LTSC that prioritizes security and long-term dependability over frequent feature updates. It provides a user-friendly interface and is ideal for specialized systems and mission-critical applications that require maximum uptime and minimal interruptions. Unlike regular Windows 11 editions, LTSC can be updated only when needed and comes out of the box with a small footprint.
 
