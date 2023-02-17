@@ -8,14 +8,14 @@ requests and issues are welcome.**
 
 ## Features
 
-- Windows 11 22621.1265 based on Enterprise
+- Windows 11 22621.1325 based on Enterprise
 - No system requirements
 - HEVC/HEIFI codec extension
 - No Telemetry/Logging
 - Error reporting removed
 - Windows Update removed (accessable via debug)
-- Set up Windows with a local account
-- Clean desktop & Start menu experience out of the box.
+- Short OOBE only asking for your name
+- Clean desktop & Start menu experience out of the box
 - Simplified settings app menu
 - Education themes
 - Low OS footprint
