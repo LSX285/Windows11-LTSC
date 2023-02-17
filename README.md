@@ -46,6 +46,7 @@ requests and issues are welcome.**
 ## Development Roadmap
 
 - [ ] Hosts file blocking thirtd party telemetry/data collection
+- [ ] UI for APP
 
 ## Building your own LTSC experience
 
