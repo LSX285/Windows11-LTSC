@@ -55,7 +55,7 @@ dism /Online /Set-ReservedStorageState /State:Disabled >nul 2>&1
 :: Note - Turn off Hibernation
 powercfg /h off >nul 2>&1
 
-:: Note - Set network to "private"
+:: Note - Set network profile to "private"
 PowerShell -ExecutionPolicy Unrestricted -Command Set-NetConnectionProfile -Name 'Network' -NetworkCategory Private >nul 2>&1
 
 :: Note - ViveTool IDs to enable the new Search settings and Design
@@ -165,7 +165,7 @@ PowerShell -ExecutionPolicy Unrestricted -Command "Get-WindowsCapability -Online
 PowerShell -ExecutionPolicy Unrestricted -Command "Get-WindowsCapability -Online -Name 'Print.Fax.Scan*' | Remove-WindowsCapability -Online" >nul 2>&1
 PowerShell -ExecutionPolicy Unrestricted -Command "Get-WindowsCapability -Online -Name 'Print.Management.Console*' | Remove-WindowsCapability -Online" >nul 2>&1
 
-:: Note - Get latest VC Redist
+:: Note - Install VC Redist
 "C:\windows\web\LTSC\Apps\vc_redist.x64.exe" /install /quiet /norestart
 
 :: Note - Remove Apps
@@ -264,6 +264,6 @@ attrib -r -s -h /S /D C:\Windows\Web\Wallpaper\Education >nul 2>&1
 :: Note - Delete PS Folder which is automaticallly created when installing PSWindowsUpdate components.
 rmdir /S /Q "C:\Users\%USERNAME%\Documents\WindowsPowerShell" >nul 2>&1
 
-:: Note - Restarting Windows to apply all changes by this script.
+:: Note - Restarting Windows to apply all changes made by this script.
 timeout 20 >nul 2>&1
 shutdown -r -t 0 -f >nul 2>&1
