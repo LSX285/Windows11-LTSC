@@ -50,4 +50,6 @@ requests and issues are welcome.**
 
 ## Building your own LTSC experience
 
-**Coming Soon**
+- Download a Windows 11 Enterprise ISO from Microsoft
+- Place the autoattend.xml file into the root directory 
+- Place the %OEM% folder into sources directory
