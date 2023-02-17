@@ -8,16 +8,3 @@ Windows 11 LTSC is an unofficial heavily inspired distro of Windows 10 LTSC that
 
 - Safe Boot displays a **hard error** message which can be ignored.
 - Programs installed via **APP** may not uninstall successfully on first login. To resolve this, restart Windows.
-  
-![github_hero_developmentroadmap-modified](https://user-images.githubusercontent.com/96759883/219674201-a05ff4e3-4204-4da7-a05c-2a3904173605.png)
-
-- [ ] Hosts file blocking thirtd party telemetry/data collection
-- [ ] UI/UX for APP
-
-![github_hero_buildingltsc-modified](https://user-images.githubusercontent.com/96759883/219674453-48c91dd6-65e7-493b-81c6-732e8a84d0d5.png)
-
-**If you want to build LTSC yourself, here are the instructions:**
-
-- Download a Windows 11 Enterprise ISO from Microsoft
-- Place the autoattend.xml file into the root directory 
-- Place the %OEM% folder into sources directory
