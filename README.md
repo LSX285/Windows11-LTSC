@@ -45,7 +45,7 @@ requests and issues are welcome.**
 - Safe Boot displays a **hard error** message which can be ignored.
 - Programs installed via **APP** may not uninstall successfully on first login. To resolve this, restart Windows.
   
-## Development Roadmap
+![github_hero_developmentroadmap](https://user-images.githubusercontent.com/96759883/219663351-9bcb80e4-8f78-4cba-a94c-75f7a50b400a.png)
 
 - [ ] Hosts file blocking thirtd party telemetry/data collection
 - [ ] UI/UX for APP
