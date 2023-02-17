@@ -7,7 +7,7 @@ Windows 11 LTSC is an unofficial heavily inspired distro of Windows 10 LTSC that
 **All kinds of contributions will be appreciated. All suggestions, pull 
 requests and issues are welcome.**
 
-![github_hero_features](https://user-images.githubusercontent.com/96759883/219661176-d969a7a6-777f-4632-aa0c-c9b718d900b1.png)
+![github_hero_features-modified](https://user-images.githubusercontent.com/96759883/219673272-7c1fdd5e-1874-4e0a-83c1-88b13eb6e6ad.png)
 
 - Windows 11 22623.1325 based on Enterprise
 - No system requirements
@@ -32,7 +32,7 @@ requests and issues are welcome.**
 - Energy recommendations 
 - Notepad tabs
 
-![github_hero_systemrequirements](https://user-images.githubusercontent.com/96759883/219661540-e1db9e9a-f3c0-425d-b90e-0bf8439a0db0.png)
+![github_hero_systemrequirements-modified](https://user-images.githubusercontent.com/96759883/219673498-bdd57c5a-95a5-43c7-8afd-e1a0507fc59b.png)
 
 **Technically none but:**
 - **Processor:** 64bit Processor
@@ -40,17 +40,17 @@ requests and issues are welcome.**
 - **RAM:** 2GB
 - **USB Drive:** 8GB
 
-![github_hero_knownissues](https://user-images.githubusercontent.com/96759883/219661914-95301525-96c9-4ce4-86f4-761774f26c1c.png)
+![github_hero_knownissues-modified](https://user-images.githubusercontent.com/96759883/219673927-2c6d506b-3e0f-4ab2-8a9f-1e0036e613e0.png)
 
 - Safe Boot displays a **hard error** message which can be ignored.
 - Programs installed via **APP** may not uninstall successfully on first login. To resolve this, restart Windows.
   
-![github_hero_developmentroadmap](https://user-images.githubusercontent.com/96759883/219663351-9bcb80e4-8f78-4cba-a94c-75f7a50b400a.png)
+![github_hero_developmentroadmap-modified](https://user-images.githubusercontent.com/96759883/219674201-a05ff4e3-4204-4da7-a05c-2a3904173605.png)
 
 - [ ] Hosts file blocking thirtd party telemetry/data collection
 - [ ] UI/UX for APP
 
-![github_hero_buildingltsc](https://user-images.githubusercontent.com/96759883/219663814-828c3fb3-89a2-4409-8172-bfb067065f00.png)
+![github_hero_buildingltsc-modified](https://user-images.githubusercontent.com/96759883/219674453-48c91dd6-65e7-493b-81c6-732e8a84d0d5.png)
 
 **If you want to build LTSC yourself, here are the instructions:**
 
