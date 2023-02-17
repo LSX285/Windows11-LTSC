@@ -7,30 +7,7 @@ Windows 11 LTSC is an unofficial heavily inspired distro of Windows 10 LTSC that
 **All kinds of contributions will be appreciated. All suggestions, pull 
 requests and issues are welcome.**
 
-![github_hero_features-modified](https://user-images.githubusercontent.com/96759883/219673272-7c1fdd5e-1874-4e0a-83c1-88b13eb6e6ad.png)
-
-- Windows 11 22623.1325 based on Enterprise
-- No system requirements
-- HEVC/HEIFI codec extension
-- No Telemetry/Logging
-- Error reporting removed
-- Windows Update removed (accessable via debug)
-- Short OOBE only asking for your name
-- Clean desktop & Start menu experience out of the box
-- Most inbox-apps removed
-- Simplified settings app menu
-- Education themes
-- Low OS footprint
-- Reduced Services/RAM idle usage
-- APP (Install programs, drivers and more)
-- Windows AMOLED Dark Mode preset
-- Desktop stickers
-- New & improved system tray
-- Snipping Tool recording feature
-- New search bar design
-- Improved file explorer search
-- Energy recommendations 
-- Notepad tabs
+![windows11ltsc](https://user-images.githubusercontent.com/96759883/219713402-be82fdc0-01cd-4ff3-8e10-91dd59e4bf49.png)
 
 ![github_hero_systemrequirements-modified](https://user-images.githubusercontent.com/96759883/219673498-bdd57c5a-95a5-43c7-8afd-e1a0507fc59b.png)
 
