@@ -1414,7 +1414,7 @@ GOTO GraphicsMenu
 
 :IntelArc
 ECHO [-] Downloading Driver ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://downloadmirror.intel.com/767293/gfx_win_101.4091.exe', 'C:\Users\%USERNAME%\Desktop\Intel_ARC.exe')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://downloadmirror.intel.com/768896/gfx_win_101.4125.exe', 'C:\Users\%USERNAME%\Desktop\Intel_ARC.exe')" >nul 2>&1
 ECHO [-] Done.
 timeout 5 >nul 2>&1
 GOTO GraphicsMenu
