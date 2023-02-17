@@ -50,7 +50,9 @@ requests and issues are welcome.**
 - [ ] Hosts file blocking thirtd party telemetry/data collection
 - [ ] UI/UX for APP
 
-## Building your own LTSC experience
+![github_hero_buildingltsc](https://user-images.githubusercontent.com/96759883/219663814-828c3fb3-89a2-4409-8172-bfb067065f00.png)
+
+**If you want to build LTSC yourself, here are the instructions:**
 
 - Download a Windows 11 Enterprise ISO from Microsoft
 - Place the autoattend.xml file into the root directory 
