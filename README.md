@@ -40,7 +40,7 @@ requests and issues are welcome.**
 - **RAM:** 2GB
 - **USB Drive:** 8GB
 
-## Known issues
+![github_hero_knownissues](https://user-images.githubusercontent.com/96759883/219661914-95301525-96c9-4ce4-86f4-761774f26c1c.png)
 
 - Safe Boot displays a **hard error** message which can be ignored.
 - Programs installed via **APP** may not uninstall successfully on first login. To resolve this, restart Windows.
