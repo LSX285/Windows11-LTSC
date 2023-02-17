@@ -8,7 +8,7 @@ requests and issues are welcome.**
 
 ## Features
 
-- Windows 11 22621.1325 based on Enterprise
+- Windows 11 22623.1325 based on Enterprise
 - No system requirements
 - HEVC/HEIFI codec extension
 - No Telemetry/Logging
