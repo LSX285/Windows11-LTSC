@@ -48,4 +48,4 @@ requests and issues are welcome.**
 
 ## Building your own LTSC experience
 
-** Coming Soon**
+**Coming Soon**
