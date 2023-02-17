@@ -16,6 +16,7 @@ requests and issues are welcome.**
 - Windows Update removed (accessable via debug)
 - Short OOBE only asking for your name
 - Clean desktop & Start menu experience out of the box
+- Most inbox-apps removed
 - Simplified settings app menu
 - Education themes
 - Low OS footprint
