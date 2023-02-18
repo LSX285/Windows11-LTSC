@@ -49,6 +49,7 @@ powershell -command "wget 'https://github.com/LSX285/Windows11-LTSC/raw/main/LTS
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://aka.ms/vs/17/release/vc_redist.x64.exe', 'C:\Users\%USERNAME%\Desktop\vc_redist.x64.exe')" >nul 2>&1
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/activate.cmd', 'C:\Program Files\LTSC\Scripts\activate.cmd')" >nul 2>&1
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/tweaks.reg', 'C:\Program Files\LTSC\tweaks.reg')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/hosts', 'C:\Windows\System32\drivers\etc\hosts')" >nul 2>&1
 
 :: Note - Removing Edge
 start cmd.exe @cmd /C "C:\windows\web\LTSC\Scripts\Edge_Uninstall.bat" >nul 2>&1
