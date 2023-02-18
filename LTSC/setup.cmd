@@ -52,7 +52,7 @@ powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.github
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/hosts', 'C:\Windows\System32\drivers\etc\hosts')" >nul 2>&1
 
 :: Note - Removing Edge
-start cmd.exe @cmd /C "C:\windows\web\LTSC\Scripts\Edge_Uninstall.bat" >nul 2>&1
+start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\Edge_Uninstall.bat" >nul 2>&1
 
 :: Note - Don't autoinstall Microsoft Teams
 Reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Communications" /v "ConfigureChatAutoInstall" /t REG_DWORD /d "0" /f >nul 2>&1
