@@ -1248,8 +1248,9 @@ ECHO [-] Turning Windows Defender off ...
 timeout 2 >nul 2>&1
 ECHO [!] Please go into Virus and Threat protection settings and
 ECHO [!] turn off Tamper Protection. Press any Key to continue.
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/AntiDefender.cmd', 'C:\Program Files\LTSC\Scripts\AntiDefender.cmd')" >nul 2>&1
 pause >nul 2>&1
-start cmd.exe @cmd /C "C:\windows\web\LTSC\Scripts\AntiDefender.cmd" >nul 2>&1
+start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\AntiDefender.cmd" >nul 2>&1
 ECHO [+] Done.
 timeout 5 >nul 2>&1
 GOTO SettingsMenu
@@ -1257,7 +1258,8 @@ GOTO SettingsMenu
 
 :EnableDefender
 ECHO [-] Turning Windows Defender back on ...
-start cmd.exe @cmd /C "C:\windows\web\LTSC\Scripts\AntiDefenderUndo.cmd" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/AntiDefenderUndo.cmd', 'C:\Program Files\LTSC\Scripts\AntiDefenderUndo.cmd')" >nul 2>&1
+start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\AntiDefenderUndo.cmd" >nul 2>&1
 ECHO [+] Done.
 timeout 5 >nul 2>&1
 GOTO SettingsMenu
@@ -1298,14 +1300,16 @@ GOTO SettingsMenu
 
 :EnablePhotoViewer
 ECHO [-] Turning legacy Photo Viewer on ...
-regedit /s "C:\Windows\web\LTSC\Scripts\EnablePhotoViewer.reg" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/EnablePhotoViewer.reg', 'C:\Program Files\LTSC\Scripts\EnablePhotoViewer.reg')" >nul 2>&1
+regedit /s "C:\Program Files\LTSC\Scripts\EnablePhotoViewer.reg" >nul 2>&1
 ECHO [+] Done. You might have to restart.
 timeout 5 >nul 2>&1
 GOTO SettingsMenu
 
 :DisablePhotoViewer
 ECHO [-] Turning legacy Photo Viewer back off ...
-regedit /s "C:\Windows\web\LTSC\Scripts\DisablePhotoViewer.reg" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/DisablePhotoViewer.reg', 'C:\Program Files\LTSC\Scripts\DisablePhotoViewer.reg')" >nul 2>&1
+regedit /s "C:\Program Files\LTSC\Scripts\DisablePhotoViewer.reg" >nul 2>&1
 ECHO [+] Done. You might have to restart.
 timeout 5 >nul 2>&1
 GOTO SettingsMenu
@@ -1340,14 +1344,16 @@ GOTO SettingsMenu
 
 :EnableWindowsAmoled
 ECHO [-] Turning on AMOLED setting ...
-regedit /s "C:\Windows\web\LTSC\Scripts\EnableAMOLED.reg" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/EnableAMOLED.reg', 'C:\Program Files\LTSC\Scripts\EnableAMOLED.reg')" >nul 2>&1
+regedit /s "C:\Program Files\LTSC\Scripts\EnableAMOLED.reg" >nul 2>&1
 ECHO [+] Done.
 timeout 5 >nul 2>&1
 GOTO SettingsMenu
 
 :DisableWindowsAmoled
 ECHO [-] Undoing AMOLED changes ...
-regedit /s "C:\Windows\web\LTSC\Scripts\UndoAMOLED.reg" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/DisableAMOLED.reg', 'C:\Program Files\LTSC\Scripts\DisableAMOLED.reg')" >nul 2>&1
+regedit /s "C:\Program Files\LTSC\Scripts\DisableAMOLED.reg" >nul 2>&1
 ECHO [+] Done.
 timeout 5 >nul 2>&1
 GOTO SettingsMenu
@@ -1941,21 +1947,22 @@ GOTO DebugMenu
 :RepairWindowsAdvanced
 ECHO [-] Trying to repair Windows ...
 timeout 2 >nul 2>&1
-ECHO [!] Copy install.wim file to C:\Windows\Web\LTSC\AdditionalFiles\RepairWin
+ECHO [!] Copy install.wim file to C:\Program Files\LTSC\AdditionalFiles\RepairWin
 ECHO [!] Press any key to continue.
 pause >nul 2>&1
 SFC /Scannow >nul 2>&1
 DISM /Online /Cleanup-Image /CheckHealth >nul 2>&1
 DISM /Online /Cleanup-Image /ScanHealth >nul 2>&1
 DISM /Online /Cleanup-Image /RestoreHealth >nul 2>&1
-DISM /Online /Cleanup-Image /RestoreHealth /Source:C:\Windows\Web\LTSC\AdditionalFiles\RepairWin\install.wim
+DISM /Online /Cleanup-Image /RestoreHealth /Source:C:\Program Files\LTSC\AdditionalFiles\RepairWin\install.wim
 ECHO [+] Done. Please restart Windows.
 timeout 5 >nul 2>&1
 GOTO DebugMenu
 
 :CleanTempFiles
 ECHO [-] Cleaning Windows ...
-start cmd.exe @cmd /C "C:\windows\web\LTSC\Scripts\Clean Temp Files.cmd" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/CleanFiles.cmd', 'C:\Program Files\LTSC\Scripts\CleanFiles.cmd')" >nul 2>&1
+start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\CleanFiles.cmd" >nul 2>&1
 timeout 10 >nul 2>&1
 GOTO DebugMenu
 
@@ -1967,13 +1974,15 @@ timeout 5 >nul 2>&1
 GOTO DebugMenu
 
 :MSActivation
-start cmd.exe @cmd /C "C:\windows\web\LTSC\Scripts\KMS_VL_ALL_AIO.cmd" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/KMS_VL_ALL_AIO.cmd', 'C:\Program Files\LTSC\Scripts\KMS_VL_ALL_AIO.cmd')" >nul 2>&1
+start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\KMS_VL_ALL_AIO.cmd" >nul 2>&1
 timeout 5 >nul 2>&1
 GOTO DebugMenu
 
 :UpdateAPP
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/UpdateAPP.cmd', 'C:\Program Files\LTSC\Scripts\UpdateAPP.cmd')" >nul 2>&1
 ECHO [-] Updating APP ...
-start cmd.exe @cmd /C "C:\windows\web\LTSC\Scripts\UpdateAPP.cmd" >nul 2>&1
+start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\UpdateAPP.cmd" >nul 2>&1
 exit
 
 :RebuildIconCache
@@ -2045,7 +2054,8 @@ GOTO DebugMenu
 
 :ReapplyLTSC
 ECHO [-] Re-applying LTSC scripts ...
-start cmd.exe @cmd /C "C:\windows\web\LTSC\Setup.cmd" >nul 2>&1
+powershell -command "wget 'https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/setup.cmd' -outfile 'C:\Program Files\LTSC\Setup.cmd'" >nul 2>&1
+start cmd.exe @cmd /C "C:\Program Files\LTSC\Setup.cmd" >nul 2>&1
 ECHO [+] Done.
 timeout 5 >nul 2>&1
 GOTO DebugMenu
