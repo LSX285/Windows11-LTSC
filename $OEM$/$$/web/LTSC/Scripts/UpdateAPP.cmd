@@ -1,5 +1,10 @@
-timeout 3 >nul 2>&1
+@echo off
+timeout 3
 ECHO [-] Updating APP ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/windows11-ltsc-assets/main/App.bat', 'C:\Windows\Web\LTSC\App.bat')" >nul 2>&1
-timeout 3 >nul 2>&1
+attrib -r C:\Windows\Web\LTSC\App.bat
+powershell -command "wget https://raw.githubusercontent.com/LSX285/windows11-ltsc-assets/main/App.bat -outfile C:\Windows\Web\LTSC\App.bat"
+ECHO [+] Done. Open APP again.
+timeout 3
 exit
+
+
