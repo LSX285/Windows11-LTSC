@@ -1,0 +1,340 @@
+Windows Registry Editor Version 5.00
+
+;Networking Tweaks Part 1
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters]
+"TCP1323Opts"=dword:00000001
+"MaxFreeTcbs"=dword:00065536
+"MaxUserPort"=dword:00065534
+"GlobalMaxTcpWindowSize"=dword:00065535
+
+;Networking Tweaks Part 2
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters]
+"IRPStackSize"=dword:00000032
+"SizReqBuf"=dword:00017424
+"DefaultTTL"=dword:00000030
+
+;Hide hardware compatibility watermark
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Control Panel\UnsupportedHardwareNotificationCache]
+"SV2"=dword:00000000
+
+;Allow future OS upgrades without compatible CPU and without TPM
+[HKEY_LOCAL_MACHINE\SYSTEM\Setup\MoSetup]
+"AllowUpgradesWithUnsupportedTPMOrCPU"=dword:00000001
+
+;Turn off Search Highlights
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Search]
+"EnableDynamicContentInWSB"=dword:00000000
+
+;Turn off delivery optimization
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization]
+"SystemSettingsDownloadMode"=dword:00000000
+"OptInOOBE"=dword:00000000
+
+;Turn off delivery optimization
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config]
+"DODownloadMode"=dword:00000000
+
+;Turn off auto updates
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech_OneCore\Preferences]
+"VoiceActivationDefaultOn"=dword:00000000
+"ModelDownloadAllowed"=dword:00000000
+
+;Turn off auto updates
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsStore\WindowsUpdate]
+"AutoDownload"=dword:00000005
+
+;Turn off auto updates
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings]
+"HideMCTLink"=dword:00000001
+
+;Turn off auto updates
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Speech]
+"AllowSpeechModelUpdate"=dword:00000000
+
+;Turn off delivery optimization
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeliveryOptimization]
+"DODownloadMode"=dword:00000000
+
+;Prevent Windows from sending your device name in reports
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Device Metadata]
+"PreventDeviceMetadataFromNetwork"=dword:00000001
+
+;Dont let Windows Updates search for drivers
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DriverSearching]
+"DontSearchWindowsUpdate"=dword:00000001
+"DriverUpdateWizardWuSearchEnabled"=dword:00000000
+"SearchOrderConfig"=dword:00000001
+"DontPromptForWindowsUpdate"=dword:00000001
+
+;Remove Start Menu Pins
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager]
+"OemPreInstalledAppsEnabled"=dword:00000000
+"PreInstalledAppsEnabled"=dword:00000000
+"SilentInstalledAppsEnabled"=dword:00000000
+
+;Disable cloud content
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CloudContent]
+"DisableCloudOptimizedContent"=dword:00000001
+"DisableConsumerAccountStateContent"=dword:00000001
+"DisableSoftLanding"=dword:00000001
+"DisableWindowsConsumerFeatures"=dword:00000001
+
+;Add Education SKU Themes
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\current\device\Education]
+"EnableEduThemes"=dword:00000001
+
+;Stickers on Desktop
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\current\device\Stickers]
+"EnableStickers"=dword:00000001
+
+;Remove all pins
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\current\device\Start]
+"ConfigureStartPins"="{\"pinnedList\": [{}]}"
+"ConfigureStartPins_ProviderSet"=dword:00000000
+
+;Reduced the waiting time to kill services when shutdown
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control]
+"WaitToKillServiceTimeout"="1000"
+
+;Hides UAC promt when launching APP
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System]
+"ConsentPromptBehaviorAdmin"=dword:00000000
+"PromptOnSecureDesktop"=dword:00000000
+
+;Add LTSC branding to Windows
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation]
+"Model"="Windows 11 LTSC"
+"Manufacturer"="Windows 11 LTSC 22H2"
+"SupportURL"="https://github.com/LSX285/Windows11-LTSC"
+
+;Turn off Windows Update automatic upgrade Serivce
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\wuauserv]
+"Start"=dword:00000003
+
+;Turn off automatic upgrades
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU]
+"AlwaysAutoRebootAtScheduledTime"=dword:00000000
+"NoAutoUpdate"=dword:00000001
+"AUOptions"=dword:00000002
+"AutomaticMaintenanceEnabled"=dword:00000000
+"AllowMUUpdateService"=dword:00000000
+"UseWUServer"=dword:00000001
+
+;Turn off automatic upgrade service
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Services\7971F918-A847-4430-9279-4A52D1EFE18D]
+"RegisteredWithAU"=dword:00000000
+
+;Turn off Device update agent service
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Channels\Microsoft-Windows-DeviceUpdateAgent/Operational]
+"Enabled"=dword:00000000
+
+;Turn off windows update service
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Channels\Microsoft-Windows-WindowsUpdateClient/Operational]
+"Enabled"=dword:00000000
+
+;Turn off windows updates
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate]
+"DoNotConnectToWindowsUpdateInternetLocations"=dword:00000000
+"AllowAutoWindowsUpdateDownloadOverMeteredNetwork"=dword:00000000
+"SetUpdateNotificationLevel"=dword:00000001
+"UpdateNotificationLevel"=dword:00000001
+"NoUpdateNotificationsDuringActiveHours"=dword:00000001
+"ExcludeWUDriversInQualityUpdate"=dword:00000001
+"SetDisableUXWUAccess"=dword:00000001
+
+;Turn off online tips and hide useless settings pages
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer]
+"AllowOnlineTips"=dword:00000000
+"SettingsPageVisibility"="hide:quiethours;crossdevice;troubleshoot;project;remotedesktop;activation;multitasking;mobile-devices;pen;usb;autoplay;network-dialup;network-proxy;network-vpn;personalization-textinput;maps;appsforwebsites;sync;ms-settings;otherusers;speech;gaming-gamebar;gaming-gamedvr;gaming-gamemode;easeofaccess-eyecontrol;easeofaccess-narrator;easeofaccess-highcontrast;easeofaccess-magnifier;easeofaccess-cursor;easeofaccess-colorfilter;privacy-feedback;findmydevice;windowsdefender;privacy-speech;privacy-speechtyping;windowsupdate;cortana-windowssearch"
+
+;Remove recommended section
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer]
+"HideRecommendedSection"=dword:00000001
+
+;Disable logging and telemetry
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection]
+"AllowTelemetry"=dword:00000000
+"LimitDiagnosticLogCollection"=dword:00000001
+"LimitDumpCollection"=dword:00000001
+"DoNotShowFeedbackNotifications"=dword:00000001
+
+;Turn off windows game recording
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\GameDVR]
+"AllowGameDVR"=dword:00000000
+
+;Turn off sensors/geo services
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors]
+"DisableWindowsLocationProvider"=dword:00000001
+"DisableLocation"=dword:00000001
+"DisableLocationScripting"=dword:00000001
+"DisableSensors"=dword:00000001
+
+;Turn off traffic for Maps
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Maps]
+"AllowUntriggeredNetworkTrafficOnSettingsPage"=dword:00000000
+"AutoDownloadAndUpdateMapData"=dword:00000000
+
+;Turn off diagnostics
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\ScriptedDiagnostics]
+"EnableDiagnostics"=dword:00000000
+
+;Turn off troubleshoot
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\ScriptedDiagnosticsProvider\Policy]
+"DisableQueryRemoteServer"=dword:00000000
+"EnableQueryRemoteServer"=dword:00000000
+
+;Turn off troubleshoot
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Troubleshooting\AllowRecommendations]
+"TroubleshootingAllowRecommendations"=dword:00000000
+
+;Turn off troubleshoot
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WDI]
+"ScenarioExecutionEnabled"=dword:00000001
+"EnabledScenarioExecutionLevel"=dword:00000001
+
+;Remove Chat icon
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Chat]
+"ChatIcon"=dword:00000002
+
+;Turn off error reporting logging
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting]
+"AutoApproveOSDumps"=dword:00000000
+"Disabled"=dword:00000001
+"LoggingDisabled"=dword:00000001
+"DontSendAdditionalData"=dword:00000001
+
+;Turn off Microsoft Store auto updates
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsStore]
+"AutoDownload"=dword:00000004
+
+;Turn off find my
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Settings\FindMyDevice]
+"LocationSyncEnabled"=dword:00000000
+
+;Dont let Onedrive phone home unless the user signs in
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\OneDrive]
+"PreventNetworkTrafficPreUserSignIn"=dword:00000001
+
+;Turn off active help
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Assistance\Client\1.0]
+"NoActiveHelp"=dword:00000001
+
+;Allow widgets
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Dsh]
+"AllowNewsAndInterests"=dword:00000001
+
+;Turn off error reporting
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\PCHealth\ErrorReporting]
+"ForceQueueMode"=dword:00000000
+"AllOrNone"=dword:00000000
+"IncludeMicrosoftApps"=dword:00000000
+"IncludeWindowsApps"=dword:00000000
+
+;Turn off error reporting
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\PCHealth\ErrorReporting\DW]
+"DWNoExternalURL"=dword:00000001
+"DWNoFileCollection"=dword:00000001
+"DWNoSecondLevelCollection"=dword:00000001
+"DWFileTreeRoot"=""
+"DWReporteeName"=""
+
+;Turn on Clipboard History
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System]
+"AllowClipboardHistory"=dword:00000001
+
+;Set the new Wallpaper, disable JPEG compression and autocolor
+[HKEY_CURRENT_USER\Control Panel\Desktop]
+"WallPaper"="C:\\Windows\\Web\\Wallpaper\\ThemeD\\img32.jpg"
+"JPEGImportQuality"=dword:00000064
+"AutoColorization"=dword:00000001
+
+;Turn off Search Highlights
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\SearchSettings]
+"IsDynamicSearchBoxEnabled"=dword:00000000
+
+;Turn off Chat icon and preconfigure File Explorer
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"Hidden"=dword:00000001
+"HideFileExt"=dword:00000000
+"ShowSyncProviderNotifications"=dword:00000000
+"SharingWizardOn"=dword:00000000
+"Start_TrackProgs"=dword:00000000
+"ShowTaskViewButton"=dword:00000000
+"TaskbarMn"=dword:00000000
+"TaskbarDa"=dword:00000000
+
+;Remove shortcut name when creating new shortcut
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\NamingTemplates]
+"ShortcutNameTemplate"="\"%s.lnk\""
+
+;Once Windows is done setting up let App run on reboot
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\RunOnce]
+"RunItOnce"="\"C:\\Windows\\Web\\LTSC\\App.bat\""
+
+;Hide useless settings pages
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer]
+"NoSearchInternetInStartMenu"=dword:00000001
+"HideSCAMeetNow"=dword:00000001
+"SettingsPageVisibility"="hide:quiethours;crossdevice;troubleshoot;project;remotedesktop;activation;multitasking;mobile-devices;pen;usb;autoplay;network-dialup;network-proxy;network-vpn;personalization-textinput;maps;appsforwebsites;sync;ms-settings;otherusers;speech;gaming-gamebar;gaming-gamedvr;gaming-gamemode;easeofaccess-eyecontrol;easeofaccess-narrator;easeofaccess-highcontrast;easeofaccess-magnifier;easeofaccess-cursor;easeofaccess-colorfilter;privacy-feedback;findmydevice;windowsdefender;privacy-speech;privacy-speechtyping;windowsupdate;cortana-windowssearch"
+
+;Hide recommended section and dont show notifications for new windows features
+[HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Explorer]
+"HideRecommendedSection"=dword:00000001
+"NoBalloonFeatureAdvertisements"=dword:00000001
+"NoPinningStoreToTaskbar"=dword:00000001
+"DisableSearchBoxSuggestions"=dword:00000001
+
+;Disable cloud content
+[HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\CloudContent]
+"DisableSpotlightCollectionOnDesktop"=dword:00000001
+"DisableTailoredExperiencesWithDiagnosticData"=dword:00000001
+"DisableThirdPartySuggestions"=dword:00000001
+"DisableWindowsSpotlightFeatures"=dword:00000001
+"DisableWindowsSpotlightOnActionCenter"=dword:00000001
+"DisableWindowsSpotlightOnSettings"=dword:00000001
+"DisableWindowsSpotlightWindowsWelcomeExperience"=dword:00000001
+
+;Disable Telemetry and Logging
+[HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\DataCollection]
+"AllowTelemetry"=dword:00000000
+
+;Dont search for driver updates
+[HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\DriverSearching]
+"DontPromptForWindowsUpdate"=dword:00000001
+
+;Disable Location/Geo services and sensors
+[HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\LocationAndSensors]
+"DisableLocationScripting"=dword:00000001
+"DisableLocation"=dword:00000001
+"DisableSensors"=dword:00000001
+
+;Disable logging & error reporting
+[HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Windows Error Reporting]
+"AutoApproveOSDumps"=dword:00000000
+"Disabled"=dword:00000001
+"LoggingDisabled"=dword:00000001
+"DontSendAdditionalData"=dword:00000001
+
+;Install unsigned drivers
+[HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows NT\Driver Signing]
+"BehaviorOnFailedVerify"=dword:00000000
+
+;Turn on clipboard history
+[HKEY_CURRENT_USER\Software\Microsoft\Clipboard]
+"EnableClipboardHistory"=dword:00000001
+
+;Turn off Sticky Keys by default
+[HKEY_CURRENT_USER\Control Panel\Accessibility\StickyKeys]
+"Flags"="506"
+
+;Disable Narrator shortcut
+[HKEY_CURRENT_USER\Software\Microsoft\Narrator\NoRoam]
+"WinEnterLaunchEnabled"=dword:00000000
+
+;Dont let Websites access your language list
+[HKEY_CURRENT_USER\Control Panel\International\User Profile]
+"HttpAcceptLanguageOptOut"=dword:00000001
+
+;Turn off safe search mode in windows search
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\SearchSettings]
+"SafeSearchMode"=dword:00000000
