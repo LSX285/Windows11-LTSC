@@ -40,7 +40,7 @@ REG Add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V Prom
 :: Note - Welcome Page
 :Welcome
 mode con: cols=76 lines=20
-Title [V1.0.0] - LTSC
+Title APP
 @ECHO OFF
 CLS
 @ECHO.   
@@ -53,12 +53,13 @@ ECHO    [A] Install Apps     [B] More Debloat      [C] Drivers    [D] Settings
 ECHO.
 @ECHO ____________________________________________________________________________
 ECHO.
-ECHO    [X] Exit                                                  [Z] Debug
-CHOICE /C:abcdxz /N /M ""
+ECHO    [X] Exit   [U] Update APP                                 [Z] Debug
+CHOICE /C:abcduxz /N /M ""
 
 :: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 6 GOTO Debug
-IF ERRORLEVEL 5 GOTO exit
+IF ERRORLEVEL 7 GOTO Debug
+IF ERRORLEVEL 6 GOTO exit
+IF ERRORLEVEL 5 GOTO UpdateAPP
 IF ERRORLEVEL 4 GOTO Settings
 IF ERRORLEVEL 3 GOTO Drivers
 IF ERRORLEVEL 2 GOTO Debloat
@@ -75,6 +76,12 @@ GOTO SettingsMenu
 
 :Drivers
 GOTO DriversMenu
+
+:UpdateAPP
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/UpdateAPP.cmd', 'C:\Program Files\LTSC\Scripts\UpdateAPP.cmd')" >nul 2>&1
+ECHO [-] Updating APP ...
+start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\UpdateAPP.cmd" >nul 2>&1
+exit
 
 :Debug
 GOTO DebugMenu
