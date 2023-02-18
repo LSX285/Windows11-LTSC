@@ -1092,7 +1092,7 @@ IF ERRORLEVEL 1 GOTO MicrosoftStore
 
 :MicrosoftStore
 ECHO [-] Installing Microsoft Store ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/windows11-ltsc-assets/raw/main/Microsoft_Store.msix', 'C:\Users\%USERNAME%\Desktop\Microsoft_Store.msix')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Apps/Microsoft_Store.msix', 'C:\Users\%USERNAME%\Desktop\Microsoft_Store.msix')" >nul 2>&1
 PowerShell -ExecutionPolicy Unrestricted -Command "add-appxpackage -path 'C:\Users\%USERNAME%\Desktop\Microsoft_Store.msix'" >nul 2>&1
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://cdn.discordapp.com/attachments/1073475667905224714/1076434344106803261/Services_Store.Engagement.Appx', 'C:\Users\%USERNAME%\Desktop\Services_Store.Engagement.Appx')" >nul 2>&1
 PowerShell -ExecutionPolicy Unrestricted -Command "add-appxpackage -path 'C:\Users\%USERNAME%\Desktop\Services_Store.Engagement.Appx'" >nul 2>&1
