@@ -24,6 +24,8 @@ CD /D "%~dp0"
 mkdir "C:\Program Files\LTSC" >nul 2>&1
 mkdir "C:\Program Files\LTSC\Scripts" >nul 2>&1
 mkdir "C:\Program Files\LTSC\Scripts\Vivetool" >nul 2>&1
+mkdir "C:\Program Files\LTSC\AdditionalFiles" >nul 2>&1
+mkdir "C:\Program Files\LTSC\AdditionalFiles\RepairWin" >nul 2>&1
 
 :: download latest setup & app
 powershell -command "wget 'https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/setup.cmd' -outfile 'C:\Program Files\LTSC\Setup.cmd'" >nul 2>&1
