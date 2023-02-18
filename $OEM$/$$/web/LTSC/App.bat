@@ -1058,8 +1058,8 @@ CLS
 @ECHO.
 @ECHO ____________________________________________________________________________
 @ECHO.
-ECHO          [A] Microsoft Store   [F] Terminal          [K] Placeholder
-ECHO          [B] MS Store Buy App  [G] Xbox ID Provider  [L] Placeholder
+ECHO          [A] Microsoft Store   [F] Xbox ID Provider  [K] Placeholder
+ECHO          [B] MS Store Buy App  [G] Placeholder       [L] Placeholder
 ECHO          [C] Snipping Tool     [H] Placeholder       [M] Placeholder
 ECHO          [D] Notepad           [I] Placeholder       [N] Placeholder
 ECHO          [E] Nanazip           [J] Placeholder       [O] Placeholder
@@ -1082,8 +1082,8 @@ IF ERRORLEVEL 11 GOTO Placeholder
 IF ERRORLEVEL 10 GOTO Placeholder
 IF ERRORLEVEL 9 GOTO Placeholder
 IF ERRORLEVEL 8 GOTO Placeholder
-IF ERRORLEVEL 7 GOTO XboxIdentityProvider
-IF ERRORLEVEL 6 GOTO Terminal
+IF ERRORLEVEL 7 GOTO Placeholder
+IF ERRORLEVEL 6 GOTO XboxIdentityProvider
 IF ERRORLEVEL 5 GOTO Nanazip
 IF ERRORLEVEL 4 GOTO Notepad
 IF ERRORLEVEL 3 GOTO SnippingTool
@@ -1132,15 +1132,6 @@ GOTO More6
 :Nanazip
 ECHO [-] Installing Nanazip ...
 winget install M2Team.NanaZip --accept-source-agreements --accept-package-agreements >nul 2>&1
-ECHO [+] Done.
-timeout 5 >nul 2>&1
-GOTO More6
-
-:WindowsTerminal
-ECHO [-] Installing Windows Terminal ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://cdn.discordapp.com/attachments/1073475667905224714/1076434377438937098/WindowsTerminal.msix', 'C:\Users\%USERNAME%\Desktop\WindowsTerminal.msix')" >nul 2>&1
-PowerShell -ExecutionPolicy Unrestricted -Command "add-appxpackage -path 'C:\Users\%USERNAME%\Desktop\WindowsTerminal.msix'" >nul 2>&1
-del /f "C:\Users\%USERNAME%\Desktop\WindowsTerminal.msix" >nul 2>&1
 ECHO [+] Done.
 timeout 5 >nul 2>&1
 GOTO More6
