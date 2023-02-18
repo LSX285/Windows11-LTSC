@@ -122,3 +122,8 @@
 0.0.0.0 pre.footprintpredict.com
 0.0.0.0 vortex-bn2.metron.live.com.nsatc.net
 0.0.0.0 vortex-cy2.metron.live.com.nsatc.net
+0.0.0.0 gfswl.geforce.com
+0.0.0.0 telemetry.nvidia.com
+0.0.0.0 ssl.google-analytics.com
+0.0.0.0 telemetry-dce.gfe.nvidia.com
+0.0.0.0 events-dc1.gfe.nvidia.com
