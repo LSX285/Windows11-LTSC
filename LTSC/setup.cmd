@@ -40,6 +40,16 @@ echo          Windows will automatically restart.
 echo.
 echo ___________________________________________________
 
+:: Note - Download files
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/Edge_Uninstall.bat', 'C:\Program Files\LTSC\Scripts\Edge_Uninstall.bat')" >nul 2>&1
+powershell -command "wget 'https://github.com/LSX285/Windows11-LTSC/raw/main/LTSC/Scripts/ViveTool/Albacore.ViVe.dll' -outfile 'C:\Program Files\LTSC\Scripts/ViveTool/Albacore.ViVe.dll'" >nul 2>&1
+powershell -command "wget 'https://github.com/LSX285/Windows11-LTSC/raw/main/LTSC/Scripts/ViveTool/FeatureDictionary.pfs' -outfile 'C:\Program Files\LTSC\Scripts/ViveTool/FeatureDictionary.pfs'" >nul 2>&1
+powershell -command "wget 'https://github.com/LSX285/Windows11-LTSC/raw/main/LTSC/Scripts/ViveTool/Newtonsoft.Json.dll' -outfile 'C:\Program Files\LTSC\Scripts/ViveTool/Newtonsoft.Json.dll'" >nul 2>&1
+powershell -command "wget 'https://github.com/LSX285/Windows11-LTSC/raw/main/LTSC/Scripts/ViveTool/ViVeTool.exe' -outfile 'C:\Program Files\LTSC\Scripts/ViveTool/ViVeTool.exe'" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://aka.ms/vs/17/release/vc_redist.x64.exe', 'C:\Users\%USERNAME%\Desktop\vc_redist.x64.exe')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/activate.cmd', 'C:\Program Files\LTSC\Scripts\activate.cmd')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/tweaks.reg', 'C:\Program Files\LTSC\tweaks.reg')" >nul 2>&1
+
 :: Note - Removing Edge
 start cmd.exe @cmd /C "C:\windows\web\LTSC\Scripts\Edge_Uninstall.bat" >nul 2>&1
 
@@ -59,11 +69,11 @@ powercfg /h off >nul 2>&1
 PowerShell -ExecutionPolicy Unrestricted -Command Set-NetConnectionProfile -Name 'Network' -NetworkCategory Private >nul 2>&1
 
 :: Note - ViveTool IDs to enable the new Search settings and Design
-"C:\windows\web\LTSC\Vivetool\ViVeTool.exe" /enable /id:40887771 >nul 2>&1
-"C:\windows\web\LTSC\Vivetool\ViVeTool.exe" /enable /id:38937525 >nul 2>&1
-"C:\windows\web\LTSC\Vivetool\ViVeTool.exe" /enable /id:40887771 >nul 2>&1
-"C:\windows\web\LTSC\Vivetool\ViVeTool.exe" /enable /id:39281392 >nul 2>&1
-"C:\windows\web\LTSC\Vivetool\ViVeTool.exe" /enable /id:41314201 >nul 2>&1
+"C:\Program Files\LTSC\Scripts/ViveTool/ViVeTool.exe" /enable /id:40887771 >nul 2>&1
+"C:\Program Files\LTSC\Scripts/ViveTool/ViVeTool.exe" /enable /id:38937525 >nul 2>&1
+"C:\Program Files\LTSC\Scripts/ViveTool/ViVeTool.exe" /enable /id:40887771 >nul 2>&1
+"C:\Program Files\LTSC\Scripts/ViveTool/ViVeTool.exe" /enable /id:39281392 >nul 2>&1
+"C:\Program Files\LTSC\Scripts/ViveTool/ViVeTool.exe" /enable /id:41314201 >nul 2>&1
 
 :: Note - Setting Services to Demand/Manual
 sc config HomeGroupListener start=demand >nul 2>&1
@@ -182,8 +192,7 @@ PowerShell -ExecutionPolicy Unrestricted -Command "Get-WindowsCapability -Online
 PowerShell -ExecutionPolicy Unrestricted -Command "Get-WindowsCapability -Online -Name 'Print.Fax.Scan*' | Remove-WindowsCapability -Online" >nul 2>&1
 PowerShell -ExecutionPolicy Unrestricted -Command "Get-WindowsCapability -Online -Name 'Print.Management.Console*' | Remove-WindowsCapability -Online" >nul 2>&1
 
-:: Note - Get latest VCRedist
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://aka.ms/vs/17/release/vc_redist.x64.exe', 'C:\Users\%USERNAME%\Desktop\vc_redist.x64.exe')" >nul 2>&1
+:: Note - Install VCRedist
 "C:\Users\%USERNAME%\Desktop\vc_redist.x64.exe" /install /quiet /norestart
 del /f "C:\Users\%USERNAME%\Desktop\vc_redist.x64.exe"
 
@@ -248,17 +257,13 @@ rmdir /S /Q "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Accessibility"
 del /f "C:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Administrative Tools.lnk"
 
 :: Note - Activating Windows
-start cmd.exe @cmd /C "C:\windows\web\LTSC\Scripts\activate.cmd" >nul 2>&1
+start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\activate.cmd" >nul 2>&1
 
 :: Note - Set Windows Drive Label to OS
 label c: OS >nul 2>&1
 
 :: Note - Applying Registry Changes
-regedit /s "C:\Windows\web\LTSC\tweaks.reg"
-
-:: Note - Fix LTSC Files Perms 
-attrib -r -s -h /S /D C:\Windows\Web\LTSC >nul 2>&1
-attrib -r -s -h /S /D C:\Windows\Web\Wallpaper\Education >nul 2>&1
+regedit /s "C:\Program Files\LTSC\tweaks.reg"
 
 :: Note - Delete PS Folder which is automaticallly created when installing PSWindowsUpdate components.
 rmdir /S /Q "C:\Users\%USERNAME%\Documents\WindowsPowerShell" >nul 2>&1
