@@ -4,4 +4,5 @@ Windows 11 LTSC is an unofficial but highly sought-after operating system inspir
 
 It features a user-friendly interface and comes with a small footprint, making it a lightweight option for those who prioritize efficiency. Unlike regular Windows 11 editions, LTSC can be updated only when needed, reducing the risk of compatibility issues and ensuring a stable system.
 
+### [Windows 11 LTSC FAQ](https://github.com/LSX285/Windows11-LTSC/discussions/1)
 **This project is not associated with Microsoft or the upcoming official Windows 11 Enterprise/IoT LTSC in any way.**
