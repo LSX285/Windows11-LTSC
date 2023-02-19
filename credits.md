@@ -33,5 +33,15 @@ This project is made possible by the community surrounding it and especially the
 </details>
 
 
+### [Microsoft](https://Microsoft.com)
+
+<details>
+  <summary>Windows</summary>
+
+   For making Windows what it is today.
+
+</details>
+
+
 
 
