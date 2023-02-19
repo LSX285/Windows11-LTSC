@@ -8,5 +8,5 @@ It features a user-friendly interface and comes with a small footprint, making i
 
 ![github_hero_knownissues](https://user-images.githubusercontent.com/96759883/219740391-ad685e52-3fb2-4485-b90d-b02411422253.png)
 
-- Safe Boot displays a **hard error** message which can be ignored.
+- Booting into **Safe Boot** displays a **unknown hard error** message which can be ignored.
 - Programs installed via **APP** may not uninstall successfully on first login. To resolve this, restart Windows.
