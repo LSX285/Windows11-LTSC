@@ -1354,7 +1354,8 @@ timeout 5 >nul 2>&1
 GOTO SettingsMenu
 
 :EnableEduThemes
-ECHO [-] Turning Windows Education SKU Themes on ...
+ECHO [-] Turning Windows Education SKU Themes on ... This may display a hard error
+ECHO [-] whenever you boot into Windows Safe Boot. it has no impact or whatsoever.
 REG add "HKLM\SOFTWARE\Microsoft\PolicyManager\current\device\Education" /v "EnableEduThemes" /t REG_DWORD /d "1" /f >nul 2>&1
 ECHO [+] Done.
 timeout 5 >nul 2>&1
