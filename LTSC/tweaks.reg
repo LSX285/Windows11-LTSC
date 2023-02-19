@@ -1,17 +1,32 @@
 Windows Registry Editor Version 5.00
 
-;Networking Tweaks Part 1
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters]
-"TCP1323Opts"=dword:00000001
-"MaxFreeTcbs"=dword:00065536
-"MaxUserPort"=dword:00065534
-"GlobalMaxTcpWindowSize"=dword:00065535
+;Stickers on Desktop
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\current\device\Stickers]
+"EnableStickers"=dword:00000001
 
-;Networking Tweaks Part 2
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters]
-"IRPStackSize"=dword:00000032
-"SizReqBuf"=dword:00017424
-"DefaultTTL"=dword:00000030
+;Add Education SKU Themes
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\current\device\Education]
+"EnableEduThemes"=dword:00000001
+
+;Remove all pins
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\current\device\Start]
+"ConfigureStartPins"="{\"pinnedList\": [{}]}"
+"ConfigureStartPins_ProviderSet"=dword:00000000
+
+;Reduced the waiting time to kill services when shutdown
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control]
+"WaitToKillServiceTimeout"="1000"
+
+;Hides UAC promt when launching APP
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System]
+"ConsentPromptBehaviorAdmin"=dword:00000000
+"PromptOnSecureDesktop"=dword:00000000
+
+;Add LTSC branding to Windows
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation]
+"Model"="Windows 11 LTSC"
+"Manufacturer"="Windows 11 LTSC 22H2"
+"SupportURL"="https://github.com/LSX285/Windows11-LTSC"
 
 ;Hide hardware compatibility watermark
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Control Panel\UnsupportedHardwareNotificationCache]
@@ -78,30 +93,6 @@ Windows Registry Editor Version 5.00
 "DisableConsumerAccountStateContent"=dword:00000001
 "DisableSoftLanding"=dword:00000001
 "DisableWindowsConsumerFeatures"=dword:00000001
-
-;Stickers on Desktop
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\current\device\Stickers]
-"EnableStickers"=dword:00000001
-
-;Remove all pins
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\current\device\Start]
-"ConfigureStartPins"="{\"pinnedList\": [{}]}"
-"ConfigureStartPins_ProviderSet"=dword:00000000
-
-;Reduced the waiting time to kill services when shutdown
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control]
-"WaitToKillServiceTimeout"="1000"
-
-;Hides UAC promt when launching APP
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System]
-"ConsentPromptBehaviorAdmin"=dword:00000000
-"PromptOnSecureDesktop"=dword:00000000
-
-;Add LTSC branding to Windows
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation]
-"Model"="Windows 11 LTSC"
-"Manufacturer"="Windows 11 LTSC 22H2"
-"SupportURL"="https://github.com/LSX285/Windows11-LTSC"
 
 ;Turn off Windows Update automatic upgrade Serivce
 [HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\wuauserv]
