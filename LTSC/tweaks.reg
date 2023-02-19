@@ -4,10 +4,6 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\current\device\Stickers]
 "EnableStickers"=dword:00000001
 
-;Add Education SKU Themes
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\current\device\Education]
-"EnableEduThemes"=dword:00000001
-
 ;Remove all pins
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\current\device\Start]
 "ConfigureStartPins"="{\"pinnedList\": [{}]}"
