@@ -1111,7 +1111,7 @@ GOTO More6
 
 :MicrosoftStorePurchaseApp
 ECHO [-] Installing Microsoft Store Purchase App ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://cdn.discordapp.com/attachments/1073475667905224714/1076434306051878984/Microsoft_Store-PurchaseApp.Msixbundle', 'C:\Users\%USERNAME%\Desktop\Microsoft_Store-PurchaseApp.Msixbundle')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Apps/Microsoft_Store-PurchaseApp.Msixbundle', 'C:\Users\%USERNAME%\Desktop\Microsoft_Store-PurchaseApp.Msixbundle')" >nul 2>&1
 PowerShell -ExecutionPolicy Unrestricted -Command "add-appxpackage -path 'C:\Users\%USERNAME%\Desktop\Microsoft_Store-PurchaseApp.Msixbundle'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Microsoft_Store-PurchaseApp.Msixbundle" >nul 2>&1
 ECHO [+] Done.
@@ -1119,19 +1119,15 @@ timeout 5 >nul 2>&1
 GOTO More6
 
 :SnippingTool
-ECHO [-] Installing Snipping Tool ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://cdn.discordapp.com/attachments/1073475667905224714/1076434358229008404/SnippingTool.msix', 'C:\Users\%USERNAME%\Desktop\SnippingTool.msix')" >nul 2>&1
-PowerShell -ExecutionPolicy Unrestricted -Command "add-appxpackage -path 'C:\Users\%USERNAME%\Desktop\SnippingTool.msix'" >nul 2>&1
-del /f "C:\Users\%USERNAME%\Desktop\SnippingTool.msix" >nul 2>&1
+ECHO [-] Installing Snipping Tool ... MS Store required.
+winget install 9MZ95KL8MR0L --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [+] Done.
 timeout 5 >nul 2>&1
 GOTO More6
 
 :Notepad
-ECHO [-] Installing Notepad ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://cdn.discordapp.com/attachments/1073475667905224714/1076434332958330970/Notepad.msix', 'C:\Users\%USERNAME%\Desktop\Notepad.msix')" >nul 2>&1
-PowerShell -ExecutionPolicy Unrestricted -Command "add-appxpackage -path 'C:\Users\%USERNAME%\Desktop\Notepad.msix'" >nul 2>&1
-del /f "C:\Users\%USERNAME%\Desktop\Notepad.msix" >nul 2>&1
+ECHO [-] Installing Notepad ... MS Store required.
+winget install 9MSMLRH6LZF3 --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [+] Done.
 timeout 5 >nul 2>&1
 GOTO More6
@@ -1144,8 +1140,8 @@ timeout 5 >nul 2>&1
 GOTO More6
 
 :XboxIdentityProvider
-ECHO [-] Installing Windows Terminal ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://cdn.discordapp.com/attachments/1073475667905224714/1076434414466248744/XboxIdentityProvider.appx', 'C:\Users\%USERNAME%\Desktop\XboxIdentityProvider.appx')" >nul 2>&1
+ECHO [-] Installing Xbox Identity Provider ...
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Apps/XboxIdentityProvider.appx', 'C:\Users\%USERNAME%\Desktop\XboxIdentityProvider.appx')" >nul 2>&1
 PowerShell -ExecutionPolicy Unrestricted -Command "add-appxpackage -path 'C:\Users\%USERNAME%\Desktop\XboxIdentityProvider.appx'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\XboxIdentityProvider.appx" >nul 2>&1
 ECHO [+] Done.
@@ -1178,7 +1174,7 @@ CLS
 @ECHO.
 @ECHO ____________________________________________________________________________
 @ECHO.
-ECHO      [A] Remove all preinstalled Apps
+ECHO                                      WIP
 ECHO.
 @ECHO ____________________________________________________________________________
 ECHO.
@@ -1187,20 +1183,10 @@ CHOICE /C:ax /N /M ""
 
 :: Note - list ERRORLEVELS in decreasing order
 IF ERRORLEVEL 2 GOTO GoBack
-IF ERRORLEVEL 1 GOTO RemoveAll
+IF ERRORLEVEL 1 GOTO WIP
 
-:RemoveAll
-ECHO [-] Removing Snipping Tool ...
-powershell -command "Get-AppxPackage *sketch* | Remove-AppxPackage" >nul 2>&1
-ECHO [-] Removing Nanazip ...
-powershell -command "Get-AppxPackage *nanazip* | Remove-AppxPackage" >nul 2>&1
-ECHO [-] Removing Windows Terminal ...
-powershell -command "Get-AppxPackage *terminal* | Remove-AppxPackage" >nul 2>&1
-ECHO [-] Removing Windows Notepad ...
-powershell -command "Get-AppxPackage *notepad* | Remove-AppxPackage" >nul 2>&1
-ECHO [-] Removing Xbox  ...
-powershell -command "Get-AppxPackage *xbox* | Remove-AppxPackage" >nul 2>&1
-ECHO [+] Done.
+:WIP
+ECHO [-] WIP ...
 timeout 5 >nul 2>&1
 GOTO DebloatMenu
 
