@@ -1210,16 +1210,18 @@ ECHO       [C] Enable  Windows Dark Theme       [K] Disable Firewall
 ECHO       [D] Enable  Windows Light Theme      [L] Enable  Firewall
 ECHO       [E] Modernized classic context Menu  [M] Enable  Windows AMOLED
 ECHO       [F] Back to Windows 11 Context Menu  [N] Disable Windows AMOLED
-ECHO       [G] Enable  Photo Viewer [Legacy]
-ECHO       [H] Disable Photo Viewer [Legacy]
+ECHO       [G] Enable  Photo Viewer [Legacy]    [O] Enable Education Themes
+ECHO       [H] Disable Photo Viewer [Legacy]    [P] Disable Education Themes
 @ECHO.
 @ECHO ____________________________________________________________________________
 ECHO.
 ECHO       [X] Go back
-CHOICE /C:abcdefghijklmnx /N /M ""
+CHOICE /C:abcdefghijklmnopx /N /M ""
 
 :: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 15 GOTO GoBack
+IF ERRORLEVEL 17 GOTO GoBack
+IF ERRORLEVEL 16 GOTO DisableEduThemes
+IF ERRORLEVEL 15 GOTO EnableEduThemes
 IF ERRORLEVEL 14 GOTO DisableWindowsAmoled
 IF ERRORLEVEL 13 GOTO EnableWindowsAmoled
 IF ERRORLEVEL 12 GOTO EnableFirewall
@@ -1347,6 +1349,20 @@ GOTO SettingsMenu
 ECHO [-] Undoing AMOLED changes ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/DisableAMOLED.reg', 'C:\Program Files\LTSC\Scripts\DisableAMOLED.reg')" >nul 2>&1
 regedit /s "C:\Program Files\LTSC\Scripts\DisableAMOLED.reg" >nul 2>&1
+ECHO [+] Done.
+timeout 5 >nul 2>&1
+GOTO SettingsMenu
+
+:EnableEduThemes
+ECHO [-] Turning Windows Education SKU Themes on ...
+REG add "HKLM\SOFTWARE\Microsoft\PolicyManager\current\device\Education" /v "EnableEduThemes" /t REG_DWORD /d "1" /f >nul 2>&1
+ECHO [+] Done.
+timeout 5 >nul 2>&1
+GOTO SettingsMenu
+
+:DisableEduThemes
+ECHO [-] Turning Windows Education SKU Themes off ...
+REG add "HKLM\SOFTWARE\Microsoft\PolicyManager\current\device\Education" /v "EnableEduThemes" /t REG_DWORD /d "0" /f >nul 2>&1
 ECHO [+] Done.
 timeout 5 >nul 2>&1
 GOTO SettingsMenu
