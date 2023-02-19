@@ -72,7 +72,6 @@ PowerShell -ExecutionPolicy Unrestricted -Command Set-NetConnectionProfile -Name
 :: Note - ViveTool IDs to enable the new Search settings and Design
 "C:\Program Files\LTSC\Scripts/ViveTool/ViVeTool.exe" /enable /id:40887771 >nul 2>&1
 "C:\Program Files\LTSC\Scripts/ViveTool/ViVeTool.exe" /enable /id:38937525 >nul 2>&1
-"C:\Program Files\LTSC\Scripts/ViveTool/ViVeTool.exe" /enable /id:41314201 >nul 2>&1
 
 :: Note - Setting Services to Demand/Manual
 sc config HomeGroupListener start=demand >nul 2>&1
