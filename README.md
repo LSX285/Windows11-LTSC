@@ -10,3 +10,9 @@ It features a user-friendly interface and comes with a small footprint, making i
 
 - Booting into **Safe Boot** displays a **unknown hard error** message which can be ignored.
 - Programs installed via **APP** may not uninstall successfully on first login. To resolve this, restart Windows.
+
+
+
+
+
+**This project is not associated with Microsoft or the upcoming official Windows 11 Enterprise/IoT LTSC in any way.**
