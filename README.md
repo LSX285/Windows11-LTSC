@@ -1,5 +1,4 @@
-[![LTSC HERO](https://user-images.githubusercontent.com/96759883/220214912-6fc32527-1f8e-4e20-9602-89aa6cfe3fe5.png)](https://github.com/LSX285/Windows11-LTSC/discussions/1)
-
+[![LTSC HERO](https://user-images.githubusercontent.com/96759883/220215087-9db90bc9-a16d-4db0-827e-310a53411c7d.png)](https://github.com/LSX285/Windows11-LTSC/discussions/1)
 
 
 <p align="center">
