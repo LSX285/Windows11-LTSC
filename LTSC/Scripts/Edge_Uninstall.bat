@@ -2,9 +2,9 @@
 #:: double-click to run or just copy-paste into powershell - it's a standalone hybrid script
 sp 'HKCU:\Volatile Environment' 'Edge_Removal' @'
 
-$also_remove_webview = 1
+$also_remove_webview = 0
 
-$host.ui.RawUI.WindowTitle = 'Edge Replace'
+$host.ui.RawUI.WindowTitle = 'Edge Uninstall'
 ## targets
 $remove_win32 = @("Microsoft Edge","Microsoft Edge Update"); $remove_appx = @("MicrosoftEdge")
 if ($also_remove_webview -eq 1) {$remove_win32 += "Microsoft EdgeWebView"; $remove_appx += "Win32WebViewHost"}
