@@ -1984,8 +1984,8 @@ timeout 5 >nul 2>&1
 GOTO DebugMenu
 
 :MSActivation
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/KMS_VL_ALL_AIO.cmd', 'C:\Program Files\LTSC\Scripts\KMS_VL_ALL_AIO.cmd')" >nul 2>&1
-start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\KMS_VL_ALL_AIO.cmd" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/activate.cmd', 'C:\Program Files\LTSC\Scripts\activate.cmd')" >nul 2>&1
+start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\activate.cmd" >nul 2>&1
 timeout 5 >nul 2>&1
 GOTO DebugMenu
 
