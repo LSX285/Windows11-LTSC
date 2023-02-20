@@ -90,7 +90,6 @@ sc config XblAuthManager start=demand >nul 2>&1
 sc config XblGameSave start=demand >nul 2>&1
 sc config XboxNetApiSvc start=demand >nul 2>&1
 sc config XboxGipSvc start=demand >nul 2>&1
-sc config ndu start=auto >nul 2>&1
 sc config WerSvc start=demand >nul 2>&1
 sc config Fax start=demand >nul 2>&1
 sc config fhsvc start=demand >nul 2>&1
