@@ -353,6 +353,10 @@ ff02::3 ip6-allhosts
 0.0.0.0 fw.adsafeprotected.com
 0.0.0.0 googleads4.g.doubleclick.net
 0.0.0.0 mobileads.msn.com
+0.0.0.0 geo.prod.do.dsp.mp.microsoft.com
+0.0.0.0 tunnel.cfw.trustedsource.org
+0.0.0.0 sb.scorecardresearch.com
+0.0.0.0 privacyportal.onetrust.com
 
 ::1 ca.telemetry.microsoft.com
 ::1 df.telemetry.microsoft.com
@@ -424,3 +428,7 @@ ff02::3 ip6-allhosts
 ::1 fw.adsafeprotected.com
 ::1 googleads4.g.doubleclick.net
 ::1 mobileads.msn.com
+::1 geo.prod.do.dsp.mp.microsoft.com
+::1 tunnel.cfw.trustedsource.org
+::1 sb.scorecardresearch.com
+::1 privacyportal.onetrust.com
