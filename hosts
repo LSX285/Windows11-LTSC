@@ -357,6 +357,8 @@ ff02::3 ip6-allhosts
 0.0.0.0 tunnel.cfw.trustedsource.org
 0.0.0.0 sb.scorecardresearch.com
 0.0.0.0 privacyportal.onetrust.com
+0.0.0.0 projects.eclipse.org
+0.0.0.0 newsroom.eclipse.org
 
 ::1 ca.telemetry.microsoft.com
 ::1 df.telemetry.microsoft.com
@@ -432,3 +434,5 @@ ff02::3 ip6-allhosts
 ::1 tunnel.cfw.trustedsource.org
 ::1 sb.scorecardresearch.com
 ::1 privacyportal.onetrust.com
+::1 projects.eclipse.org
+::1 newsroom.eclipse.org
