@@ -1,3 +1,22 @@
+### Defines local host environment
+
+127.0.0.1 localhost
+127.0.0.1 localhost.localdomain
+127.0.0.1 local
+255.255.255.255 broadcasthost
+::1 localhost
+::1 ip6-localhost
+::1 ip6-loopback
+fe80::1%lo0 localhost
+ff00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+ff02::3 ip6-allhosts
+0.0.0.0 0.0.0.0
+
+### Blocking hosts
+
 0.0.0.0 v10.events.data.microsoft.com
 0.0.0.0 umwatsonc.events.data.microsoft.com
 0.0.0.0 ceuswatcab01.blob.core.windows.net
@@ -129,6 +148,8 @@
 0.0.0.0 events-dc1.gfe.nvidia.com
 0.0.0.0 elb-telemetry-prod-external-1332413525.us-west-2.elb.amazonaws.com
 0.0.0.0 telemetry.malwarebytes.com
+
+### Latest addition, might mess with some services perhaps? WIP.
 
 0.0.0.0 ca.telemetry.microsoft.com
 0.0.0.0 df.telemetry.microsoft.com
