@@ -250,11 +250,11 @@ rmdir /S /Q "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Accessibility"
 del /f "C:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Administrative Tools.lnk"
 
 :: Note - ViveTool IDs to enable the new Search design, task manager search bar, new  system tray and widgets access without MS account
-"C:\Program Files\LTSC\Scripts/ViveTool/ViVeTool.exe" /enable /id:40887771 >nul 2>&1
-"C:\Program Files\LTSC\Scripts/ViveTool/ViVeTool.exe" /enable /id:38937525 >nul 2>&1
-"C:\Program Files\LTSC\Scripts/ViveTool/ViVeTool.exe" /enable /id:39281392 >nul 2>&1
-"C:\Program Files\LTSC\Scripts/ViveTool/ViVeTool.exe" /enable /id:41561445 >nul 2>&1
-"C:\Program Files\LTSC\Scripts/ViveTool/ViVeTool.exe" /enable /id:41561454 >nul 2>&1
+#"C:\Program Files\LTSC\Scripts/ViveTool/ViVeTool.exe" /enable /id:40887771 >nul 2>&1
+#"C:\Program Files\LTSC\Scripts/ViveTool/ViVeTool.exe" /enable /id:38937525 >nul 2>&1
+#"C:\Program Files\LTSC\Scripts/ViveTool/ViVeTool.exe" /enable /id:39281392 >nul 2>&1
+#"C:\Program Files\LTSC\Scripts/ViveTool/ViVeTool.exe" /enable /id:41561445 >nul 2>&1
+#"C:\Program Files\LTSC\Scripts/ViveTool/ViVeTool.exe" /enable /id:41561454 >nul 2>&1
 
 :: Note - Activating Windows
 start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\activate.cmd" >nul 2>&1
