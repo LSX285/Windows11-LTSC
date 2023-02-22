@@ -1531,7 +1531,7 @@ GOTO GraphicsMenu
 
 :AMDRadeon4007000
 ECHO [-] Downloading Driver ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://www.mediafire.com/file/krpbxjxgayxzxki/whql-amd-software-adrenalin-edition-23.2.1-win10-win11-feb14-VideoCardz.com.exe', 'C:\Users\%USERNAME%\Desktop\AMD_Radeon.exe')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://www.mediafire.com/file/5f04vdbqt02dz4c/whql-amd-software-adrenalin-edition-23.2.2-win10-win11-feb22-VideoCardz.com.exe', 'C:\Users\%USERNAME%\Desktop\AMD_Radeon.exe')" >nul 2>&1
 ECHO [-] Done.
 timeout 5 >nul 2>&1
 GOTO GraphicsMenu
