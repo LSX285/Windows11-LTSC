@@ -134,63 +134,63 @@ IF ERRORLEVEL 2 GOTO Discord
 IF ERRORLEVEL 1 GOTO Chrome
 
 :Chrome
-ECHO [[93m-[0m] Installing Chrome ...
+ECHO [[93m-[0m] Installing [93mChrome[0m ...
 winget install Google.Chrome --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO AppDLMenu
 
 :Discord
-ECHO [[93m-[0m] Installing Discord ...
+ECHO [[93m-[0m] Installing [93mDiscord[0m ...
 winget install Discord.Discord --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO AppDLMenu
 
 :Spotify
-ECHO [[93m-[0m] Downloading Spotify ...
+ECHO [[93m-[0m] Downloading [93mSpotify[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://download.scdn.co/SpotifySetup.exe', 'C:\Users\%USERNAME%\Desktop\SpotifySetup.exe')" >nul 2>&1
 ECHO [[91m![0m] You have to run the Setup manually.
 timeout 3 >nul 2>&1
 GOTO AppDLMenu
 
 :Steam
-ECHO [[93m-[0m] Installing Steam ...
+ECHO [[93m-[0m] Installing [93mSteam[0m ...
 winget install Valve.Steam --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO AppDLMenu
 
 :EpicGames
-ECHO [[93m-[0m] Installing Epic Games Launcher ...
+ECHO [[93m-[0m] Installing [93mEpic Games Launcher[0m ...
 winget install EpicGames.EpicGamesLauncher --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO AppDLMenu
 
 :Mullvad
-ECHO [[93m-[0m] Installing Mullvad ...
+ECHO [[93m-[0m] Installing [93mMullvad[0m ...
 winget install MullvadVPN.MullvadVPN --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO AppDLMenu
 
 :Wireguard
-ECHO [[93m-[0m] Installing Wireguard ...
+ECHO [[93m-[0m] Installing [93mWireguard[0m ...
 winget install WireGuard.WireGuard --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO AppDLMenu
 
 :LibreOffice
-ECHO [[93m-[0m] Installing LibreOffice ...
+ECHO [[93m-[0m] Installing [93mLibreOffice[0m ...
 winget install TheDocumentFoundation.LibreOffice --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO AppDLMenu
 
 :Paintnet
-ECHO [[93m-[0m] Downloading Paint.net ...
+ECHO [[93m-[0m] Downloading [93mPaint.net[0m ...
 winget install dotPDNLLC.paintdotnet --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
@@ -198,18 +198,18 @@ GOTO AppDLMenu
 
 
 :VlcPlayer
-ECHO [[93m-[0m] Installing VLC Media Player ...
+ECHO [[93m-[0m] Installing [93mVLC Media Player[0m ...
 winget install VideoLAN.VLC --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO AppDLMenu
 
 :MSIAfterburner
-ECHO [[93m-[0m] Downloading MSI Afterburner ...
+ECHO [[93m-[0m] Downloading [93mMSI Afterburner[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://ftp.nluug.nl/pub/games/PC/guru3d/afterburner/[Guru3D.com]-MSIAfterburnerSetup465Beta4Build16358.zip', 'C:\Users\%USERNAME%\Desktop\MSIAfterburner.zip')" >nul 2>&1
-ECHO [[93m-[0m] Extracting MSI Afterburner ...
+ECHO [[93m-[0m] Extracting [93mMSI Afterburner[0m ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\MSIAfterburner.zip' 'C:\Users\%USERNAME%\Desktop'"
-ECHO [[93m-[0m] Installing MSI Afterburner ...
+ECHO [[93m-[0m] Installing [93mMSI Afterburner[0m ...
 "C:\Users\%USERNAME%\Desktop\MSIAfterburnerSetup465Beta4.exe" /S
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
@@ -221,28 +221,28 @@ rmdir /S /Q "C:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu\Pr
 GOTO AppDLMenu
 
 :NZXTCam
-ECHO [[93m-[0m] Installing NZXT Cam ...
+ECHO [[93m-[0m] Installing [93mNZXT CAM[0m ...
 winget install NZXT.CAM --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO AppDLMenu
 
 :VSCode
-ECHO [[93m-[0m] Installing Visual Studio Code ...
+ECHO [[93m-[0m] Installing [93mVisual Studio Code[0m ...
 winget install Microsoft.VisualStudioCode --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO AppDLMenu
 
 :Blender
-ECHO [[93m-[0m] Installing Blender ...
+ECHO [[93m-[0m] Installing [93mBlender[0m ...
 winget install BlenderFoundation.Blender --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO AppDLMenu
 
 :Hwinfo
-ECHO [[93m-[0m] Downloading HwInfo64 ...
+ECHO [[93m-[0m] Downloading [93mHwInfo64[0m ...
 winget install REALiX.HWiNFO --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
@@ -301,37 +301,37 @@ IF ERRORLEVEL 2 GOTO Brave
 IF ERRORLEVEL 1 GOTO OperaGX
 
 :OperaGX
-ECHO [[93m-[0m] Installing Opera GX ...
+ECHO [[93m-[0m] Installing [93mOpera GX[0m ...
 winget install Opera.OperaGX --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More
 
 :Brave
-ECHO [[93m-[0m] Installing Brave ...
+ECHO [[93m-[0m] Installing [93mBrave[0m ...
 winget install Brave.Brave --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More
 
 :EADesktop
-ECHO [[93m-[0m] Installing EA Desktop ...
+ECHO [[93m-[0m] Installing [93mEA Desktop[0m ...
 winget install ElectronicArts.EADesktop --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More
 
 :GOGGalaxy
-ECHO [[93m-[0m] Installing GOG Galaxy ...
+ECHO [[93m-[0m] Installing [93mGoG Galaxy[0m ...
 winget install GOG.Galaxy --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More
 
 :BattleNet
-ECHO [[93m-[0m] Downloading Battle.net ...
+ECHO [[93m-[0m] Downloading [93mBattle.net[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://www.battle.net/download/getInstallerForGame?os=win&gameProgram=BATTLENET_APP&version=Live&id=undefined', 'C:\Users\%USERNAME%\Desktop\Battle.net-Setup.exe')" >nul 2>&1
-ECHO [[93m-[0m] Installing Battle.net ...
+ECHO [[93m-[0m] Installing [93mBattle.net[0m ...
 "C:\Users\%USERNAME%\Desktop\Battle.net-Setup.exe" --lang=enUS --installpath="C:\Program Files (x86)\Battle.net"
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
@@ -339,70 +339,70 @@ del /f "C:\Users\%USERNAME%\Desktop\Battle.net-Setup.exe" >nul 2>&1
 GOTO More
 
 :UbisoftConnect
-ECHO [[93m-[0m] Installing Ubisoft Connect ...
+ECHO [[93m-[0m] Installing [93mUbisoft Connect[0m ...
 winget install Ubisoft.Connect --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More
 
 :GIMP 
-ECHO [[93m-[0m] Installing GIMP ...
+ECHO [[93m-[0m] Installing [93mGIMP[0m ...
 winget install GIMP.GIMP --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More
 
 :GPUZ
-ECHO [[93m-[0m] Installing GPU-Z ...
+ECHO [[93m-[0m] Installing [93mGPU-Z[0m ...
 winget install TechPowerUp.GPU-Z --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More
 
 :OneDrive
-ECHO [[93m-[0m] Installing OneDrive ...
+ECHO [[93m-[0m] Installing [93mOneDrive[0m ...
 winget install  Microsoft.OneDrive --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More
 
 :OBSStudio
-ECHO [[93m-[0m] Installing OBS Studio ...
+ECHO [[93m-[0m] Installing [93mOBS Studio[0m ...
 winget install OBSProject.OBSStudio --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More
 
 :GeforceExperience
-ECHO [[93m-[0m] Installing GeForce Experience ...
+ECHO [[93m-[0m] Installing [93mGeforce Experience[0m ...
 winget install Nvidia.GeForceExperience --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More
 
 :GeforceNOW
-ECHO [[93m-[0m] Downloading GeForce NOW ...
+ECHO [[93m-[0m] Downloading [93mGeforce Now[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://download.nvidia.com/gfnpc/GeForceNOW-release.exe', 'C:\Users\%USERNAME%\Desktop\GeForceNOW-Setup.exe')" >nul 2>&1
 ECHO [[91m![0m] Due to how the installer works, you have to run it manually.
 timeout 3 >nul 2>&1
 GOTO More
 
 :PostgreSQL
-ECHO [[93m-[0m] Installing PostgreSQL ...
+ECHO [[93m-[0m] Installing [93mPostgreSQL[0m ...
 winget install PostgreSQL.PostgreSQL --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More
 
 :Dropbox
-ECHO [[93m-[0m] Installing Dropbox ...
+ECHO [[93m-[0m] Installing [93mDropbox[0m ...
 winget install Dropbox.Dropbox --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More
 
 :Teams
-ECHO [[93m-[0m] Installing Microsoft Teams ...
+ECHO [[93m-[0m] Installing [93mMicrosoft Teams[0m ...
 winget install Microsoft.Teams --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
@@ -461,105 +461,105 @@ IF ERRORLEVEL 2 GOTO SublimeText
 IF ERRORLEVEL 1 GOTO Zoom
 
 :Zoom
-ECHO [[93m-[0m] Installing Zoom ...
+ECHO [[93m-[0m] Installing [93mZoom[0m ...
 winget install Zoom.Zoom --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More2
 
 :SublimeText
-ECHO [[93m-[0m] Installing Sublime Text ...
+ECHO [[93m-[0m] Installing [93mSublime Text[0m ...
 winget install SublimeHQ.SublimeText.4 --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More2
 
 :Notepadplusplus
-ECHO [[93m-[0m] Installing Notepad ++ ...
+ECHO [[93m-[0m] Installing [93mNotepad ++[0m ...
 winget install Notepad++.Notepad++ --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More2
 
 :Corsairicue
-ECHO [[93m-[0m] Installing Corsair iCUE ...
+ECHO [[93m-[0m] Installing [93mCorsair iCUE[0m ...
 winget install Corsair.iCUE.4 --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More2
 
 :Firefox
-ECHO [[93m-[0m] Installing Firefox ...
+ECHO [[93m-[0m] Installing [93mFirefox[0m ...
 winget install Mozilla.Firefox --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More2
 
 :VisualStudio
-ECHO [[93m-[0m] Installing Visual Studio 2022 Community ...
+ECHO [[93m-[0m] Installing [93mVisual Studio 2022 Community[0m ...
 winget install Microsoft.VisualStudio.2022.Community --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More2
 
 :Radiograph
-ECHO [[93m-[0m] Installing Radiograph ...
+ECHO [[93m-[0m] Installing [93mRadiograph[0m ... Microsoft Store required.
 winget install 9NH1P86H06CG --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More2
 
 :qBittorrent
-ECHO [[93m-[0m] Installing qBittorrent ...
+ECHO [[93m-[0m] Installing [93mqBittorrent[0m ...
 winget install qBittorrent.qBittorrent --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More2
 
 :Picotorrent
-ECHO [[93m-[0m] Installing Picotorrent ...
+ECHO [[93m-[0m] Installing [93mPicotorrent[0m ...
 winget install PicoTorrent.PicoTorrent --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More2
 
 :GooglePlayGames
-ECHO [[93m-[0m] Installing Google Play Games ...
+ECHO [[93m-[0m] Installing [93mGoogle Play Games[0m ...
 winget install Google.PlayGames.Beta --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More2
 
 :Audacity
-ECHO [[93m-[0m] Installing Audacity ...
+ECHO [[93m-[0m] Installing [93mAudacity[0m ...
 winget install Audacity.Audacity --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More2
 
 :Cinebench
-ECHO [[93m-[0m] Installing Cinebench ...
+ECHO [[93m-[0m] Installing [93mCinebench[0m ...
 winget install 9PGZKJC81Q7J --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More2
 
 :iTunes
-ECHO [[93m-[0m] Installing iTunes ...
+ECHO [[93m-[0m] Installing [93miTunes[0m ...
 winget install Apple.iTunes --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More2
 
 :Rufus
-ECHO [[93m-[0m] Installing Rufus ...
+ECHO [[93m-[0m] Installing [93mRufus[0m ...
 winget install Rufus.Rufus --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More2
 
 :Aida64
-ECHO [[93m-[0m] Installing Aida64 ...
+ECHO [[93m-[0m] Installing [93mAida64[0m ...
 winget install FinalWire.AIDA64.Extreme --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
@@ -618,105 +618,105 @@ IF ERRORLEVEL 2 GOTO ExpressVPN
 IF ERRORLEVEL 1 GOTO NordVPN
 
 :NordVPN
-ECHO [[93m-[0m] Installing NordVPN ...
+ECHO [[93m-[0m] Installing [93mNordVPN[0m ...
 winget install NordVPN.NordVPN --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More3
 
 :ExpressVPN
-ECHO [[93m-[0m] Installing ExpressVPN ...
+ECHO [[93m-[0m] Installing [93mExpressVPN[0m ...
 winget install ExpressVPN.ExpressVPN --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More3
 
 :Surfshark
-ECHO [[93m-[0m] Installing Surfshark ...
+ECHO [[93m-[0m] Installing [93mSurfshark[0m ...
 winget install Surfshark.Surfshark --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More3
 
 :WinSCP
-ECHO [[93m-[0m] Installing WinSCP ...
+ECHO [[93m-[0m] Installing [93mWinSCP[0m ...
 winget install WinSCP.WinSCP --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More3
 
 :WindowsTerminal
-ECHO [[93m-[0m] Installing Windows Terminal ...
+ECHO [[93m-[0m] Installing [93mWindows Terminal[0m ...
 winget install Microsoft.WindowsTerminal --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More3
 
 :LogitechGHUB
-ECHO [[93m-[0m] Installing Logitech G HUB ...
+ECHO [[93m-[0m] Installing [93mLogitech G Hub[0m ...
 winget install Logitech.GHUB --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More3
 
 :VSCodium
-ECHO [[93m-[0m] Installing VSCodium ...
+ECHO [[93m-[0m] Installing [93mVS Codium[0m ...
 winget install VSCodium.VSCodium --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More3
 
 :NVCleanstall
-ECHO [[93m-[0m] Installing NVCleanstall ...
+ECHO [[93m-[0m] Installing [93mNVCleanstall[0m ...
 winget install TechPowerUp.NVCleanstall --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More3
 
 :BlueStacks
-ECHO [[93m-[0m] Installing BlueStacks ...
+ECHO [[93m-[0m] Installing [93mBluestacks[0m ...
 winget install BlueStack.BlueStacks --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More3
 
 :Powershell
-ECHO [[93m-[0m] Installing Powershell ...
+ECHO [[93m-[0m] Installing [93mPowershell[0m ...
 winget install Microsoft.PowerShell --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More3
 
 :Teamviewer
-ECHO [[93m-[0m] Installing Teamviewer ...
+ECHO [[93m-[0m] Installing [93mTeamViewer[0m ...
 winget install TeamViewer.TeamViewer --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More3
 
 :Parsec
-ECHO [[93m-[0m] Installing Parsec ...
+ECHO [[93m-[0m] Installing [93mParsec[0m ...
 winget install Parsec.Parsec --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More3
 
 :Vivaldi
-ECHO [[93m-[0m] Installing Vivaldi ...
+ECHO [[93m-[0m] Installing [93mVivaldi[0m ...
 winget install VivaldiTechnologies.Vivaldi --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More3
 
 :Virtualbox
-ECHO [[93m-[0m] Installing Virtualbox ...
+ECHO [[93m-[0m] Installing [93mVirtual Box[0m ...
 winget install Oracle.VirtualBox --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More3
 
 :VMWare
-ECHO [[93m-[0m] Installing VMware ...
+ECHO [[93m-[0m] Installing [93mVM Ware[0m ...
 winget install VMware.WorkstationPlayer --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
@@ -775,104 +775,104 @@ IF ERRORLEVEL 2 GOTO Foobar2000
 IF ERRORLEVEL 1 GOTO Sunshine
 
 :Sunshine
-ECHO [[93m-[0m] Installing NVIDIA Sunshine ...
+ECHO [[93m-[0m] Installing [93mNvidia Sunshine[0m ...
 winget install LizardByte.Sunshine --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More4
 
 :Foobar2000
-ECHO [[93m-[0m] Installing Foobar2000 ...
+ECHO [[93m-[0m] Installing [93mFoobar 2000[0m ...
 winget install PeterPawlowski.foobar2000 --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More4
 
 :CPUZ
-ECHO [[93m-[0m] Installing CPU-Z ...
+ECHO [[93m-[0m] Installing [93mCPU-Z[0m ...
 winget install CPUID.CPU-Z --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More4
 
 :ChromeBeta
-ECHO [[93m-[0m] Installing Google Chrome Beta ...
+ECHO [[93m-[0m] Installing [93mgGoogle Chrome Beta[0m ...
 winget install Google.Chrome.Beta --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More4
 
 :ChromeDev
-ECHO [[93m-[0m] Installing Google Chrome Dev ...
+ECHO [[93m-[0m] Installing [93mGoogle Chrome Dev[0m ...
 winget install Google.Chrome.Dev --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More4
 
 :ChromeCanary
-ECHO [[93m-[0m] Installing Google Chrome Canary ...
+ECHO [[93m-[0m] Installing [93mGoogle Chrome Canary[0m ...
 winget install Google.Chrome.Canary --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More4
 
 :UngoogledChromium
-ECHO [[93m-[0m] Installing Ungoogled Chromium ...
+ECHO [[93m-[0m] Installing [93mUngoogled Chromium[0m ...
 winget install eloston.ungoogled-chromium --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More4
 :Edge
-ECHO [[93m-[0m] Installing Edge ...
+ECHO [[93m-[0m] Installing [93mEdge[0m ...
 winget install Microsoft.Edge --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More4
 
 :EdgeBeta
-ECHO [[93m-[0m] Installing Edge Beta ...
+ECHO [[93m-[0m] Installing [93mEdge Beta[0m ...
 winget install Microsoft.Edge.Beta --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More4
 
 :EdgeDev
-ECHO [[93m-[0m] Installing Edge Dev ...
+ECHO [[93m-[0m] Installing [93mEdge Dev[0m ...
 winget install Microsoft.Edge.Dev --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More4
 
 :AdobeAcrobatReader
-ECHO [[93m-[0m] Installing Adobe Acrobat Reader ...
+ECHO [[93m-[0m] Installing [93mAdobe Acrobat Reader[0m ...
 winget install Adobe.Acrobat.Reader.64-bit --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More4
 
 :WhatsApp
-ECHO [[93m-[0m] Installing WhatsApp ...
+ECHO [[93m-[0m] Installing [93mWhatsApp[0m ...
 winget install WhatsApp.WhatsApp --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More4
 
 :Telegram
-ECHO [[93m-[0m] Installing Telegram ...
+ECHO [[93m-[0m] Installing [93mTelegram[0m ...
 winget install Telegram.TelegramDesktop --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More4
 
 :MSPCManager
-ECHO [[93m-[0m] Installing Microsoft PC Manager ...
+ECHO [[93m-[0m] Installing [93mMicrosoft PC Manager[0m ...
 winget install Microsoft.PCManager --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More4
 
 :Winamp
-ECHO [[93m-[0m] Installing Winamp ...
+ECHO [[93m-[0m] Installing [93mWinAmp[0m ...
 winget install Winamp.Winamp --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
@@ -931,98 +931,98 @@ IF ERRORLEVEL 2 GOTO Thunderbird
 IF ERRORLEVEL 1 GOTO Skype
 
 :Skype
-ECHO [[93m-[0m] Installing Skype ...
+ECHO [[93m-[0m] Installing [93mSkype[0m ...
 winget install Microsoft.Skype --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More5
 
 :Thunderbird
-ECHO [[93m-[0m] Installing Mozilla Thunderbird ...
+ECHO [[93m-[0m] Installing [93mMozilla Thunderbird[0m ...
 winget install Mozilla.Thunderbird --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More5
 
 :Slack
-ECHO [[93m-[0m] Installing Slack ...
+ECHO [[93m-[0m] Installing [93mSlack[0m ...
 winget install SlackTechnologies.Slack --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More5
 
 :ShareX
-ECHO [[93m-[0m] Installing ShareX ...
+ECHO [[93m-[0m] Installing [93mShareX[0m ...
 winget install ShareX.ShareX --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More5
 
 :Lightshot
-ECHO [[93m-[0m] Installing Lightshot ...
+ECHO [[93m-[0m] Installing [93mLightshot[0m ...
 winget install Skillbrains.Lightshot --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More5
 
 :Eartrumpet
-ECHO [[93m-[0m] Installing Eartrumpet ...
+ECHO [[93m-[0m] Installing [93mEartrumpet[0m ...
 winget install File-New-Project.EarTrumpet --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More5
 
 :Files
-ECHO [[93m-[0m] Installing Files ...
+ECHO [[93m-[0m] Installing [93mFiles[0m ...
 winget install FilesCommunity.Files --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More5
 
 :GoogleDrive
-ECHO [[93m-[0m] Installing Google Drive ...
+ECHO [[93m-[0m] Installing [93mGoogle Drive[0m ...
 winget install Google.Drive --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More5
 
 :WinRar
-ECHO [[93m-[0m] Installing WinRar ...
+ECHO [[93m-[0m] Installing [93mWinRar[0m ...
 winget install RARLab.WinRAR --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More5
 
 :7zip
-ECHO [[93m-[0m] Installing 7zip ...
+ECHO [[93m-[0m] Installing [93m7zip[0m ...
 winget install 7zip.7zip --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More5
 
 :Dolphin
-ECHO [[93m-[0m] Installing Dolphin Emulator ...
+ECHO [[93m-[0m] Installing [93mDolphin Emulator[0m ...
 winget install DolphinEmulator.Dolphin --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More5
 
 :ppsspp
-ECHO [[93m-[0m] Installing ppsspp Emulator ...
+ECHO [[93m-[0m] Installing [93mppsspp emulator[0m ...
 winget install PPSSPPTeam.PPSSPP --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More5
 
 :rpcs3
-ECHO [[93m-[0m] Downloading RPCS3 Emulator  ...
+ECHO [[93m-[0m] Downloading [93mRPCS3 Emulator[0m  ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/RPCS3/rpcs3-binaries-win/releases/download/build-39760189804d59315ab9f304d3cebddfb5d72f63/rpcs3-v0.0.26-14712-39760189_win64.7z', 'C:\Users\%USERNAME%\Desktop\rpcs3.7z')" >nul 2>&1
 ECHO [[92m+[0m] Done. Extract the .7z file and run the setup.
 timeout 3 >nul 2>&1
 GOTO More5
 
 :Ryujinx
-ECHO [[93m-[0m] Installing Ryujinx Emulator  ...
+ECHO [[93m-[0m] Installing [93mRyujinx Emulator[0m  ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/Ryujinx/release-channel-master/releases/download/1.1.617/ryujinx-1.1.617-win_x64.zip', 'C:\Users\%USERNAME%\Desktop\ryujinx.zip')" >nul 2>&1
 ECHO [[93m-[0m] Extracting Ryujinx ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\ryujinx.zip' 'C:\Users\%USERNAME%\Desktop\ryujinx'" >nul 2>&1
@@ -1032,7 +1032,7 @@ del /f "C:\Users\%USERNAME%\Desktop\ryujinx.zip" >nul 2>&1
 GOTO More5
 
 :AppleDevices
-ECHO [[93m-[0m] Installing Apple Devices  ...
+ECHO [[93m-[0m] Installing [93mApple Devices[0m  ...
 winget install 9NP83LWLPZ9K --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
@@ -1091,7 +1091,7 @@ IF ERRORLEVEL 2 GOTO MicrosoftStorePurchaseApp
 IF ERRORLEVEL 1 GOTO MicrosoftStore
 
 :MicrosoftStore
-ECHO [[93m-[0m] Installing Microsoft Store ...
+ECHO [[93m-[0m] Installing [93mMicrosoft Store[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Apps/Microsoft_Store.msix', 'C:\Users\%USERNAME%\Desktop\Microsoft_Store.msix')" >nul 2>&1
 PowerShell -ExecutionPolicy Unrestricted -Command "add-appxpackage -path 'C:\Users\%USERNAME%\Desktop\Microsoft_Store.msix'" >nul 2>&1
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://cdn.discordapp.com/attachments/1073475667905224714/1076434344106803261/Services_Store.Engagement.Appx', 'C:\Users\%USERNAME%\Desktop\Services_Store.Engagement.Appx')" >nul 2>&1
@@ -1103,7 +1103,7 @@ timeout 3 >nul 2>&1
 GOTO More6
 
 :MicrosoftStorePurchaseApp
-ECHO [[93m-[0m] Installing Microsoft Store Purchase App ...
+ECHO [[93m-[0m] Installing [93mMicrosoft Store purchase app[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Apps/Microsoft_Store-PurchaseApp.Msixbundle', 'C:\Users\%USERNAME%\Desktop\Microsoft_Store-PurchaseApp.Msixbundle')" >nul 2>&1
 PowerShell -ExecutionPolicy Unrestricted -Command "add-appxpackage -path 'C:\Users\%USERNAME%\Desktop\Microsoft_Store-PurchaseApp.Msixbundle'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Microsoft_Store-PurchaseApp.Msixbundle" >nul 2>&1
@@ -1112,28 +1112,28 @@ timeout 3 >nul 2>&1
 GOTO More6
 
 :SnippingTool
-ECHO [[93m-[0m] Installing Snipping Tool ... MS Store required.
+ECHO [[93m-[0m] Installing [93mSnipping Tool[0m ... MS Store required.
 winget install 9MZ95KL8MR0L --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More6
 
 :Notepad
-ECHO [[93m-[0m] Installing Notepad ... MS Store required.
+ECHO [[93m-[0m] Installing [93mNotepad[0m ... MS Store required.
 winget install 9MSMLRH6LZF3 --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More6
 
 :Nanazip
-ECHO [[93m-[0m] Installing Nanazip ...
+ECHO [[93m-[0m] Installing [93mNanazip[0m ...
 winget install M2Team.NanaZip --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO More6
 
 :XboxIdentityProvider
-ECHO [[93m-[0m] Installing Xbox Identity Provider ...
+ECHO [[93m-[0m] Installing [93mXbox Identity Provider[0m...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Apps/XboxIdentityProvider.appx', 'C:\Users\%USERNAME%\Desktop\XboxIdentityProvider.appx')" >nul 2>&1
 PowerShell -ExecutionPolicy Unrestricted -Command "add-appxpackage -path 'C:\Users\%USERNAME%\Desktop\XboxIdentityProvider.appx'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\XboxIdentityProvider.appx" >nul 2>&1
@@ -1142,7 +1142,7 @@ timeout 3 >nul 2>&1
 GOTO More6
 
 :Placeholder
-ECHO [[93m-[0m] Placeholder.
+ECHO [[93m-[0m] [93mPlaceholder[0m.
 timeout 3 >nul 2>&1
 GOTO More6
 
