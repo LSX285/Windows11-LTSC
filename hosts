@@ -281,7 +281,7 @@ ff02::3 ip6-allhosts
 ::1 elb-telemetry-prod-external-1332413525.us-west-2.elb.amazonaws.com
 ::1 telemetry.malwarebytes.com
 
-### Latest addition, might mess with some services perhaps? WIP.
+### Latest addition
 
 0.0.0.0 ca.telemetry.microsoft.com
 0.0.0.0 df.telemetry.microsoft.com
