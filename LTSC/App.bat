@@ -1232,7 +1232,7 @@ IF ERRORLEVEL 1 GOTO DisableDefender
 
 
 :DisableDefender
-ECHO [[93m-[0m] Turning Windows Defender off ...
+ECHO [[93m-[0m] Turning [93mWindows Defender[0m off ...
 timeout 2 >nul 2>&1
 ECHO [[91m![0m] Please go into Virus and Threat protection settings and
 ECHO [[91m![0m] turn off Tamper Protection. Press any Key to continue.
@@ -1245,7 +1245,7 @@ GOTO SettingsMenu
 
 
 :EnableDefender
-ECHO [[93m-[0m] Turning Windows Defender back on ...
+ECHO [[93m-[0m] Turning [93mWindows Defender[0m back on ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/AntiDefenderUndo.cmd', 'C:\Program Files\LTSC\Scripts\AntiDefenderUndo.cmd')" >nul 2>&1
 start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\AntiDefenderUndo.cmd" >nul 2>&1
 ECHO [[92m+[0m] Done.
@@ -1253,7 +1253,7 @@ timeout 3 >nul 2>&1
 GOTO SettingsMenu
 
 :EnableDarkMode
-ECHO [[93m-[0m] Turning on Dark Mode ...
+ECHO [[93m-[0m] Turning on [93mDark Mode[0m ...
 REG Add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" /V SystemUsesLightTheme /T REG_DWORD /D 0 /F >nul 2>&1
 REG Add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" /V AppsUseLightTheme /T REG_DWORD /D 0 /F >nul 2>&1
 taskkill /F /IM explorer.exe & start explorer >nul 2>&1
@@ -1262,7 +1262,7 @@ timeout 3 >nul 2>&1
 GOTO SettingsMenu
 
 :EnableLightMode
-ECHO [[93m-[0m] Turning on Light Mode ...
+ECHO [[93m-[0m] Turning on [93mLight Mode[0m ...
 REG Add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" /V SystemUsesLightTheme /T REG_DWORD /D 1 /F >nul 2>&1
 REG Add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" /V AppsUseLightTheme /T REG_DWORD /D 1 /F >nul 2>&1
 taskkill /F /IM explorer.exe & start explorer >nul 2>&1
@@ -1271,7 +1271,7 @@ timeout 3 >nul 2>&1
 GOTO SettingsMenu
 
 :ModernContextMenu
-ECHO [[93m-[0m] Switching to a more modernized classic context menu.
+ECHO [[93m-[0m] Switching to [93mmodernized classic context menu[0m.
 reg add "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" /f /ve >nul 2>&1
 winget install Nilesoft.Shell --accept-source-agreements --accept-package-agreements >nul 2>&1
 ECHO [[92m+[0m] Done.
@@ -1279,7 +1279,7 @@ timeout 3 >nul 2>&1
 GOTO SettingsMenu
 
 :Windows11ContextMenu
-ECHO [[93m-[0m] Returning to the usual Windows 11 default context menu.
+ECHO [[93m-[0m] Returning to [93mWindows 11 default context menu[0m.
 reg delete "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" /f /ve >nul 2>&1
 winget uninstall Nilesoft.Shell >nul 2>&1
 ECHO [[92m+[0m] Done.
@@ -1287,7 +1287,7 @@ timeout 3 >nul 2>&1
 GOTO SettingsMenu
 
 :EnablePhotoViewer
-ECHO [[93m-[0m] Turning legacy Photo Viewer on ...
+ECHO [[93m-[0m] Turning [93mlegacy Photo Viewer[0m on ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/EnablePhotoViewer.reg', 'C:\Program Files\LTSC\Scripts\EnablePhotoViewer.reg')" >nul 2>&1
 regedit /s "C:\Program Files\LTSC\Scripts\EnablePhotoViewer.reg" >nul 2>&1
 ECHO [[92m+[0m] Done. You might have to restart.
@@ -1295,7 +1295,7 @@ timeout 3 >nul 2>&1
 GOTO SettingsMenu
 
 :DisablePhotoViewer
-ECHO [[93m-[0m] Turning legacy Photo Viewer back off ...
+ECHO [[93m-[0m] Turning [93mlegacy Photo Viewer[0m back off ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/DisablePhotoViewer.reg', 'C:\Program Files\LTSC\Scripts\DisablePhotoViewer.reg')" >nul 2>&1
 regedit /s "C:\Program Files\LTSC\Scripts\DisablePhotoViewer.reg" >nul 2>&1
 ECHO [[92m+[0m] Done. You might have to restart.
@@ -1303,35 +1303,35 @@ timeout 3 >nul 2>&1
 GOTO SettingsMenu
 
 :DisableSmartscreen
-ECHO [[93m-[0m] Turning Windows Smartscreen off ...
+ECHO [[93m-[0m] Turning [93mWindows Smartscreen[0m off ...
 REG add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v "SmartScreenEnabled" /t REG_SZ /d "Off" /f >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO SettingsMenu
 
 :EnableSmartscreen
-ECHO [[93m-[0m] Turning Windows Smartscreen back on ...
+ECHO [[93m-[0m] Turning [93mWindows Smartscreen[0m back on ...
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v "SmartScreenEnabled" /t REG_SZ /d "Warn" /f >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO SettingsMenu
 
 :DisableFirewall
-ECHO [[93m-[0m] Turning Windows Firewall off ...
+ECHO [[93m-[0m] Turning [93mWindows Firewall[0m off ...
 netsh advfirewall set allprofiles state off >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO SettingsMenu
 
 :EnableFirewall
-ECHO [[93m-[0m] Turning Windows Smartscreen back on ...
+ECHO [[93m-[0m] Turning [93mWindows Firewall[0m back on ...
 netsh advfirewall set allprofiles state on >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO SettingsMenu
 
 :EnableWindowsAmoled
-ECHO [[93m-[0m] Turning on AMOLED setting ...
+ECHO [[93m-[0m] Turning on [93mAMOLED preset[0m setting ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/EnableAMOLED.reg', 'C:\Program Files\LTSC\Scripts\EnableAMOLED.reg')" >nul 2>&1
 regedit /s "C:\Program Files\LTSC\Scripts\EnableAMOLED.reg" >nul 2>&1
 ECHO [[92m+[0m] Done.
@@ -1339,7 +1339,7 @@ timeout 3 >nul 2>&1
 GOTO SettingsMenu
 
 :DisableWindowsAmoled
-ECHO [[93m-[0m] Undoing AMOLED changes ...
+ECHO [[93m-[0m] Undoing [93mAMOLED preset[0m changes ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/DisableAMOLED.reg', 'C:\Program Files\LTSC\Scripts\DisableAMOLED.reg')" >nul 2>&1
 regedit /s "C:\Program Files\LTSC\Scripts\DisableAMOLED.reg" >nul 2>&1
 ECHO [[92m+[0m] Done.
@@ -1347,7 +1347,7 @@ timeout 3 >nul 2>&1
 GOTO SettingsMenu
 
 :EnableEduThemes
-ECHO [[93m-[0m] Turning Windows Education SKU Themes on ... This may display a hard error
+ECHO [[93m-[0m] Turning [93mWindows Education Themes[0m on ... This may display a hard error
 ECHO [[93m-[0m] whenever you boot into Windows Safe Boot. it has no impact or whatsoever.
 REG add "HKLM\SOFTWARE\Microsoft\PolicyManager\current\device\Education" /v "EnableEduThemes" /t REG_DWORD /d "1" /f >nul 2>&1
 ECHO [[92m+[0m] Done.
@@ -1355,7 +1355,7 @@ timeout 3 >nul 2>&1
 GOTO SettingsMenu
 
 :DisableEduThemes
-ECHO [[93m-[0m] Turning Windows Education SKU Themes off ...
+ECHO [[93m-[0m] Turning [93mWindows Education Themes[0m off ...
 REG add "HKLM\SOFTWARE\Microsoft\PolicyManager\current\device\Education" /v "EnableEduThemes" /t REG_DWORD /d "0" /f >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
@@ -1938,7 +1938,7 @@ IF ERRORLEVEL 2 GOTO RepairWindowsAdvanced
 IF ERRORLEVEL 1 GOTO RepairWindows
 
 :RepairWindows
-ECHO [[93m-[0m] Trying to repair Windows ...
+ECHO [[93m-[0m] Trying to [93mrepair Windows[0m ...
 SFC /Scannow >nul 2>&1
 DISM /Online /Cleanup-Image /CheckHealth >nul 2>&1
 DISM /Online /Cleanup-Image /ScanHealth >nul 2>&1
@@ -1948,9 +1948,9 @@ timeout 3 >nul 2>&1
 GOTO DebugMenu
 
 :RepairWindowsAdvanced
-ECHO [[93m-[0m] Trying to repair Windows ...
+ECHO [[93m-[0m] Trying to [93mrepair Windows[0m ...
 timeout 2 >nul 2>&1
-ECHO [[91m![0m] Copy install.wim file to C:\Program Files\LTSC\AdditionalFiles\RepairWin
+ECHO [[91m![0m] Copy [93minstall.wim[0m file to C:\Program Files\LTSC\AdditionalFiles\RepairWin
 ECHO [[91m![0m] Press any key to continue.
 pause >nul 2>&1
 SFC /Scannow >nul 2>&1
@@ -1963,14 +1963,14 @@ timeout 3 >nul 2>&1
 GOTO DebugMenu
 
 :CleanTempFiles
-ECHO [[93m-[0m] Cleaning Windows ...
+ECHO [[93m-[0m] Cleaning [93mWindows Temp files[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/CleanFiles.cmd', 'C:\Program Files\LTSC\Scripts\CleanFiles.cmd')" >nul 2>&1
 start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\CleanFiles.cmd" >nul 2>&1
 timeout 10 >nul 2>&1
 GOTO DebugMenu
 
 :InstallUpdates
-ECHO [[93m-[0m] Searching for Windows Updates ...
+ECHO [[93m-[0m] Searching for [93mWindows Updates[0m ...
 PowerShell -Command "Install-WindowsUpdate -MicrosoftUpdate -AcceptAll -AutoReboot" >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
@@ -1989,7 +1989,7 @@ start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\UpdateAPP.cmd" >nul 2>&1
 exit
 
 :RebuildIconCache
-ECHO [[93m-[0m] Rebuilding icon cache ...
+ECHO [[93m-[0m] Rebuilding [93mIcon Cache[0m ...
 ie4uinit.exe -show >nul 2>&1
 taskkill /IM explorer.exe /F >nul 2>&1
 DEL /A /Q "%localappdata%\IconCache.db" >nul 2>&1
@@ -2000,14 +2000,14 @@ shutdown /r /f /t 00 >nul 2>&1
 GOTO DebugMenu
 
 :FlushDNS
-ECHO [[93m-[0m] Flushing DNS resolver cache ...
+ECHO [[93m-[0m] Flushing [93mDNS Resolver Cache[0m ...
 ipconfig /flushdns >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO DebugMenu
 
 :ClearThumbnailCache
-ECHO [[93m-[0m] Clearing thumbnail cache ...
+ECHO [[93m-[0m] Clearing [93mThumbnail Cache[0m ...
 taskkill /f /im explorer.exe >nul 2>&1
 timeout 2 >nul 2>&1
 DEL /F /S /Q /A "%LocalAppData%\Microsoft\Windows\Explorer\thumbcache_*.db" >nul 2>&1
@@ -2018,28 +2018,28 @@ timeout 3 >nul 2>&1
 GOTO DebugMenu
 
 :RepairMSStore
-ECHO [[93m-[0m] Trying to repair the Microsoft Store App ...
+ECHO [[93m-[0m] Trying to repair [93mMicrosoft Store[0m ...
 PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage -AllUsers 'WindowsStore' | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register '$($_.InstallLocation)\AppXManifest.xml'}" >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO DebugMenu
 
 :EnableBuiltinAdmin
-ECHO [[93m-[0m] Enabling builtin Administrator account ...
+ECHO [[93m-[0m] Enabling [93mbuiltin Administrator Account[0m ...
 net user Administrator /active:yes >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO DebugMenu
 
 :DisableBuiltinAdmin
-ECHO [[93m-[0m] Disabling builtin Administrator account ...
+ECHO [[93m-[0m] Disabling [93mbuiltin Administrator Account[0m ...
 net user Administrator /active:no >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO DebugMenu
 
 :DisableChecks
-ECHO [[93m-[0m] Disabling Upgrade Hardware compatibility checks ...
+ECHO [[93m-[0m] Disabling [93mUpgrade Hardware compatibility[0m checks ...
 reg delete "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\vdsldr.exe" /f >nul 2>&1
 wmic /namespace:"\\root\subscription" path __EventFilter where Name="Skip TPM Check on Dynamic Update" delete >nul 2>&1
 REG Add "HKLM\SYSTEM\Setup\MoSetup" /V AllowUpgradesWithUnsupportedTPMOrCPU /T REG_DWORD /D 1 /F >nul 2>&1
@@ -2048,7 +2048,7 @@ timeout 3 >nul 2>&1
 GOTO DebugMenu
 
 :DisableModernStandby
-ECHO [[93m-[0m] Disabling modern standby connectivity ...
+ECHO [[93m-[0m] Disabling [93mmodern standby connectivity[0m ...
 POWERCFG -SETDCVALUEINDEX SCHEME_CURRENT SUB_NONE CONNECTIVITYINSTANDBY 0 >nul 2>&1
 POWERCFG -SETACVALUEINDEX SCHEME_CURRENT SUB_NONE CONNECTIVITYINSTANDBY 0 >nul 2>&1
 ECHO [[92m+[0m] Done.
@@ -2056,7 +2056,7 @@ timeout 3 >nul 2>&1
 GOTO DebugMenu
 
 :ReapplyLTSC
-ECHO [[93m-[0m] Re-applying LTSC scripts ...
+ECHO [[93m-[0m] [93mReapplying LTSC changes[0m ...
 powershell -command "wget 'https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/setup.cmd' -outfile 'C:\Program Files\LTSC\Setup.cmd'" >nul 2>&1
 start cmd.exe @cmd /C "C:\Program Files\LTSC\Setup.cmd" >nul 2>&1
 ECHO [[92m+[0m] Done.
@@ -2067,12 +2067,12 @@ GOTO DebugMenu
 GOTO Welcome
 
 :RestartWindows
-ECHO [[93m-[0m] Restarting Windows ...
+ECHO [[93m-[0m] [93mRestarting Windows[0m ...
 timeout 3 >nul 2>&1
 shutdown /r /f /t 00 >nul 2>&1
 
 :RestartBIOS
-ECHO [[93m-[0m] Restarting into BIOS ...
+ECHO [[93m-[0m] [93mRestarting into BIOS[0m ...
 timeout 3 >nul 2>&1
 shutdown /r /fw -t 0 >nul 2>&1
 
