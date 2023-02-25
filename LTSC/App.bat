@@ -1721,7 +1721,7 @@ IF ERRORLEVEL 1 GOTO IntelEthernet
 
 :IntelEthernet
 ECHO [[93m-[0m] Downloading Driver ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://cdn.discordapp.com/attachments/955551954396934146/1073542197032525854/Intel_Ethernet.zip', 'C:\Users\%USERNAME%\Desktop\Intel_Ethernet.zip')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Intel_Ethernet.zip', 'C:\Users\%USERNAME%\Desktop\Intel_Ethernet.zip')" >nul 2>&1
 ECHO [[93m-[0m] Extracting Driver ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Intel_Ethernet.zip' 'C:\Users\%USERNAME%\Desktop'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Intel_Ethernet.zip" >nul 2>&1
@@ -1731,7 +1731,7 @@ GOTO NetworkingMenu
 
 :RealtekEthernet
 ECHO [[93m-[0m] Downloading Driver ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://cdn.discordapp.com/attachments/955551954396934146/1073542196025892934/Realtek_Ethernet.zip', 'C:\Users\%USERNAME%\Desktop\Realtek_Ethernet.zip')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Realtek_Ethernet.zip', 'C:\Users\%USERNAME%\Desktop\Realtek_Ethernet.zip')" >nul 2>&1
 ECHO [[93m-[0m] Extracting Driver ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Realtek_Ethernet.zip' 'C:\Users\%USERNAME%\Desktop'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Realtek_Ethernet.zip" >nul 2>&1
@@ -1741,7 +1741,7 @@ GOTO NetworkingMenu
 
 :MediatekEthernet
 ECHO [[93m-[0m] Downloading Driver ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://cdn.discordapp.com/attachments/955551954396934146/1073542194943762522/Mediatek_Ethernet.zip', 'C:\Users\%USERNAME%\Desktop\Mediatek_Ethernet.zip')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Mediatek_Ethernet.zip', 'C:\Users\%USERNAME%\Desktop\Mediatek_Ethernet.zip')" >nul 2>&1
 ECHO [[93m-[0m] Extracting Driver ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Mediatek_Ethernet.zip' 'C:\Users\%USERNAME%\Desktop'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Mediatek_Ethernet.zip" >nul 2>&1
@@ -1751,7 +1751,7 @@ GOTO NetworkingMenu
 
 :IntelWifi
 ECHO [[93m-[0m] Downloading Driver ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://cdn.discordapp.com/attachments/955551954396934146/1073542194218143804/Intel_Wifi.zip', 'C:\Users\%USERNAME%\Desktop\Intel_Wifi.zip')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Intel_Wifi.zip', 'C:\Users\%USERNAME%\Desktop\Intel_Wifi.zip')" >nul 2>&1
 ECHO [[93m-[0m] Extracting Driver ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Intel_Wifi.zip' 'C:\Users\%USERNAME%\Desktop'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Intel_Wifi.zip" >nul 2>&1
@@ -1761,7 +1761,7 @@ GOTO NetworkingMenu
 
 :RealtekWifi
 ECHO [[93m-[0m] Downloading Driver ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://cdn.discordapp.com/attachments/955551954396934146/1073542196407570474/Realtek_Wifi.zip', 'C:\Users\%USERNAME%\Desktop\Realtek_Wifi.zip')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Realtek_Wifi.zip', 'C:\Users\%USERNAME%\Desktop\Realtek_Wifi.zip')" >nul 2>&1
 ECHO [[93m-[0m] Extracting Driver ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Realtek_Wifi.zip' 'C:\Users\%USERNAME%\Desktop'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Realtek_Wifi.zip" >nul 2>&1
@@ -1771,7 +1771,7 @@ GOTO NetworkingMenu
 
 :MediatekWifi
 ECHO [[93m-[0m] Downloading Driver ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://cdn.discordapp.com/attachments/955551954396934146/1073542195283496960/Mediatek_Wifi.zip', 'C:\Users\%USERNAME%\Desktop\Mediatek_Wifi.zip')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Mediatek_Wifi.zip', 'C:\Users\%USERNAME%\Desktop\Mediatek_Wifi.zip')" >nul 2>&1
 ECHO [[93m-[0m] Extracting Driver ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Mediatek_Wifi.zip' 'C:\Users\%USERNAME%\Desktop'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Mediatek_Wifi.zip" >nul 2>&1
@@ -1781,7 +1781,7 @@ GOTO NetworkingMenu
 
 :IntelBluetooth
 ECHO [[93m-[0m] Downloading Driver ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://cdn.discordapp.com/attachments/955551954396934146/1073542196734734356/Intel_Bluetooth.zip', 'C:\Users\%USERNAME%\Desktop\Intel_Bluetooth.zip')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Intel_Bluetooth.zip', 'C:\Users\%USERNAME%\Desktop\Intel_Bluetooth.zip')" >nul 2>&1
 ECHO [[93m-[0m] Extracting Driver ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Intel_Bluetooth.zip' 'C:\Users\%USERNAME%\Desktop'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Intel_Bluetooth.zip" >nul 2>&1
@@ -1791,7 +1791,7 @@ GOTO NetworkingMenu
 
 :RealtekBluetooth
 ECHO [[93m-[0m] Downloading Driver ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://cdn.discordapp.com/attachments/955551954396934146/1073542195623243856/Realtek_Bluetooth.zip', 'C:\Users\%USERNAME%\Desktop\Realtek_Bluetooth.zip')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Realtek_Bluetooth.zip', 'C:\Users\%USERNAME%\Desktop\Realtek_Bluetooth.zip')" >nul 2>&1
 ECHO [[93m-[0m] Extracting Driver ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Realtek_Bluetooth.zip' 'C:\Users\%USERNAME%\Desktop'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Realtek_Bluetooth.zip" >nul 2>&1
@@ -1801,7 +1801,7 @@ GOTO NetworkingMenu
 
 :MediatekBluetooth
 ECHO [[93m-[0m] Downloading Driver ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://cdn.discordapp.com/attachments/955551954396934146/1073542194591445083/Mediatek_Bluetooth.zip', 'C:\Users\%USERNAME%\Desktop\Mediatek_Bluetooth.zip')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Mediatek_Bluetooth.zip', 'C:\Users\%USERNAME%\Desktop\Mediatek_Bluetooth.zip')" >nul 2>&1
 ECHO [[93m-[0m] Extracting Driver ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Mediatek_Bluetooth.zip' 'C:\Users\%USERNAME%\Desktop'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Mediatek_Bluetooth.zip" >nul 2>&1
@@ -1811,7 +1811,7 @@ GOTO NetworkingMenu
 
 :QualcommEthernet
 ECHO [[93m-[0m] Downloading Driver ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://cdn.discordapp.com/attachments/1073475667905224714/1074349991402938378/Qualcomm_Ethernet.zip', 'C:\Users\%USERNAME%\Desktop\Qualcomm_Ethernet.zip')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Qualcomm_Ethernet.zip', 'C:\Users\%USERNAME%\Desktop\Qualcomm_Ethernet.zip')" >nul 2>&1
 ECHO [[93m-[0m] Extracting Driver ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Qualcomm_Ethernet.zip' 'C:\Users\%USERNAME%\Desktop'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Qualcomm_Ethernet.zip" >nul 2>&1
@@ -1821,7 +1821,7 @@ GOTO NetworkingMenu
 
 :MarvellEthernet
 ECHO [[93m-[0m] Downloading Driver ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://cdn.discordapp.com/attachments/1073475667905224714/1074350040082030645/Marvell_Ethernet.zip', 'C:\Users\%USERNAME%\Desktop\Marvell_Ethernet.zip')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Marvell_Ethernet.zip', 'C:\Users\%USERNAME%\Desktop\Marvell_Ethernet.zip')" >nul 2>&1
 ECHO [[93m-[0m] Extracting Driver ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Marvell_Ethernet.zip' 'C:\Users\%USERNAME%\Desktop'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Marvell_Ethernet.zip" >nul 2>&1
@@ -1831,7 +1831,7 @@ GOTO NetworkingMenu
 
 :BroadcomEthernet
 ECHO [[93m-[0m] Downloading Driver ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://cdn.discordapp.com/attachments/1073475667905224714/1074350115319451668/Broadcom_Ethernet.zip', 'C:\Users\%USERNAME%\Desktop\Broadcom_Ethernet.zip')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Broadcom_Ethernet.zip', 'C:\Users\%USERNAME%\Desktop\Broadcom_Ethernet.zip')" >nul 2>&1
 ECHO [[93m-[0m] Extracting Driver ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Broadcom_Ethernet.zip' 'C:\Users\%USERNAME%\Desktop'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Broadcom_Ethernet.zip" >nul 2>&1
@@ -1841,7 +1841,7 @@ GOTO NetworkingMenu
 
 :QualcommWifi
 ECHO [[93m-[0m] Downloading Driver ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://cdn.discordapp.com/attachments/1073475667905224714/1074350007408410725/Qualcomm_Wifi.zip', 'C:\Users\%USERNAME%\Desktop\Qualcomm_Wifi.zip')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Qualcomm_Wifi.zip', 'C:\Users\%USERNAME%\Desktop\Qualcomm_Wifi.zip')" >nul 2>&1
 ECHO [[93m-[0m] Extracting Driver ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Qualcomm_Wifi.zip' 'C:\Users\%USERNAME%\Desktop'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Qualcomm_Wifi.zip" >nul 2>&1
@@ -1851,7 +1851,7 @@ GOTO NetworkingMenu
 
 :MarvellWifi
 ECHO [[93m-[0m] Downloading Driver ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://cdn.discordapp.com/attachments/1073475667905224714/1074350049875730542/Marvell_Wifi.zip', 'C:\Users\%USERNAME%\Desktop\Marvell_Wifi.zip')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Marvell_Wifi.zip', 'C:\Users\%USERNAME%\Desktop\Marvell_Wifi.zip')" >nul 2>&1
 ECHO [[93m-[0m] Extracting Driver ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Marvell_Wifi.zip' 'C:\Users\%USERNAME%\Desktop'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Marvell_Wifi.zip" >nul 2>&1
@@ -1861,7 +1861,7 @@ GOTO NetworkingMenu
 
 :BroadcomWifi
 ECHO [[93m-[0m] Downloading Driver ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://cdn.discordapp.com/attachments/1073475667905224714/1074350133602418798/Broadcom_Wifi.zip', 'C:\Users\%USERNAME%\Desktop\Broadcom_Wifi.zip')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Broadcom_Wifi.zip', 'C:\Users\%USERNAME%\Desktop\Broadcom_Wifi.zip')" >nul 2>&1
 ECHO [[93m-[0m] Extracting Driver ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Broadcom_Wifi.zip' 'C:\Users\%USERNAME%\Desktop'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Broadcom_Wifi.zip" >nul 2>&1
@@ -1871,7 +1871,7 @@ GOTO NetworkingMenu
 
 :QualcommBluetooth
 ECHO [[93m-[0m] Downloading Driver ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://cdn.discordapp.com/attachments/1073475667905224714/1074350022352719912/Qualcomm_Bluetooth.zip', 'C:\Users\%USERNAME%\Desktop\Qualcomm_Bluetooth.zip')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Qualcomm_Bluetooth.zip', 'C:\Users\%USERNAME%\Desktop\Qualcomm_Bluetooth.zip')" >nul 2>&1
 ECHO [[93m-[0m] Extracting Driver ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Qualcomm_Bluetooth.zip' 'C:\Users\%USERNAME%\Desktop'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Qualcomm_Bluetooth.zip" >nul 2>&1
@@ -1881,7 +1881,7 @@ GOTO NetworkingMenu
 
 :MarvellBluetooth
 ECHO [[93m-[0m] Downloading Driver ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://cdn.discordapp.com/attachments/1073475667905224714/1074350060793507850/Marvell_Bluetooth.zip', 'C:\Users\%USERNAME%\Desktop\Marvell_Bluetooth.zip')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Marvell_Bluetooth.zip', 'C:\Users\%USERNAME%\Desktop\Marvell_Bluetooth.zip')" >nul 2>&1
 ECHO [[93m-[0m] Extracting Driver ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Marvell_Bluetooth.zip' 'C:\Users\%USERNAME%\Desktop'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Marvell_Bluetooth.zip" >nul 2>&1
@@ -1891,7 +1891,7 @@ GOTO NetworkingMenu
 
 :BroadcomBluetooth
 ECHO [[93m-[0m] Downloading Driver ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://cdn.discordapp.com/attachments/1073475667905224714/1074350150836813874/Broadcom_Bluetooth.zip', 'C:\Users\%USERNAME%\Desktop\Broadcom_Bluetooth.zip')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Broadcom_Bluetooth.zip', 'C:\Users\%USERNAME%\Desktop\Broadcom_Bluetooth.zip')" >nul 2>&1
 ECHO [[93m-[0m] Extracting Driver ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Broadcom_Bluetooth.zip' 'C:\Users\%USERNAME%\Desktop'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Broadcom_Bluetooth.zip" >nul 2>&1
