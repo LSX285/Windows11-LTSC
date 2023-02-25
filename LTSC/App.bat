@@ -1431,28 +1431,28 @@ IF ERRORLEVEL 1 GOTO IntelLegacy
 
 :IntelLegacy
 ECHO [[93m-[0m] Downloading Driver ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://cdn.discordapp.com/attachments/1073475667905224714/1073476383705137232/CHIPSET_Intel_v10.1.19284.8351.exe', 'C:\Users\%USERNAME%\Desktop\Intel_Legacy_Chipset.exe')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Chipset/Intel_Chipset_Legacy.exe', 'C:\Users\%USERNAME%\Desktop\Intel_Legacy_Chipset.exe')" >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO ChipsetMenu
 
 :Intel1213
 ECHO [[93m-[0m] Downloading Driver ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://cdn.discordapp.com/attachments/1073475667905224714/1075355439807594566/intel1213.exe', 'C:\Users\%USERNAME%\Desktop\Intel_Chipset.exe')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Chipset/Intel_Chipset.exe', 'C:\Users\%USERNAME%\Desktop\Intel_Chipset.exe')" >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO ChipsetMenu
 
 :AMDLegacy
 ECHO [[93m-[0m] Downloading Driver ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://cdn.discordapp.com/attachments/955551954396934146/1073827304242942062/CHIPSET_AMD_LEGACY.exe', 'C:\Users\%USERNAME%\Desktop\AMD_Legacy_Chipset.exe')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Chipset/AMD_Chipset_Legacy.exe', 'C:\Users\%USERNAME%\Desktop\AMD_Legacy_Chipset.exe')" >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO ChipsetMenu
 
 :AMDRyzen
 ECHO [[93m-[0m] Downloading Driver ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://dlcdnets.asus.com/pub/ASUS/mb/03CHIPSET/DRV_Chipset_AMD_AM5_SZ-TSD_W11_64_V407132243_20220901R.zip', 'C:\Users\%USERNAME%\Desktop\AMD_Chipset.zip')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Chipset/AMD_Chipset.exe', 'C:\Users\%USERNAME%\Desktop\AMD_Chipset.zip')" >nul 2>&1
 ECHO [[93m-[0m] Extracting Driver ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\AMD_Chipset.zip' 'C:\Users\%USERNAME%\Desktop\AMD_Chipset'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\AMD_Chipset.zip" >nul 2>&1
@@ -1586,7 +1586,7 @@ IF ERRORLEVEL 1 GOTO RealtekAsus
 
 :RealtekAsus
 ECHO [[93m-[0m] Downloading Driver ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://cdn.discordapp.com/attachments/955551954396934146/1073484583586234409/AUDIO_Realtek_UAD_ASUS_ROG-TUF-PRIME_RTK_v6.0.9468.1.zip', 'C:\Users\%USERNAME%\Desktop\AUDIO_Realtek_UAD_ASUS_v6.0.9468.1.zip')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Audio/Audio_Realtek_ASUS_9481.zip', 'C:\Users\%USERNAME%\Desktop\AUDIO_Realtek_UAD_ASUS_v6.0.9468.1.zip')" >nul 2>&1
 ECHO [[93m-[0m] Extracting Driver ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\AUDIO_Realtek_UAD_ASUS_v6.0.9468.1.zip' 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_ASUS'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\AUDIO_Realtek_UAD_ASUS_v6.0.9468.1.zip" >nul 2>&1
