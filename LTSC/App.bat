@@ -1496,28 +1496,28 @@ IF ERRORLEVEL 1 GOTO NvidiaGeforce1
 
 :NvidiaGeforce1
 ECHO [[93m-[0m] Downloading Driver ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://international.download.nvidia.com/Windows/528.49/528.49-desktop-win10-win11-64bit-international-dch-whql.exe', 'C:\Users\%USERNAME%\Desktop\NVIDIA_528.49.exe')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://international.download.nvidia.com/Windows/528.49/528.49-desktop-win10-win11-64bit-international-dch-whql.exe', 'C:\Users\%USERNAME%\Desktop\NVIDIA.exe')" >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO GraphicsMenu
 
 :NvidiaGeforce2
 ECHO [[93m-[0m] Downloading Driver ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://international.download.nvidia.com/Windows/474.14/474.14-desktop-win10-win11-64bit-international-dch-whql.exe', 'C:\Users\%USERNAME%\Desktop\NVIDIA_474.14.exe')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://international.download.nvidia.com/Windows/474.14/474.14-desktop-win10-win11-64bit-international-dch-whql.exe', 'C:\Users\%USERNAME%\Desktop\NVIDIA.exe')" >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO GraphicsMenu
 
 :NvidiaGeforce3
 ECHO [[93m-[0m] Downloading Driver ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://international.download.nvidia.com/Windows/391.35/391.35-desktop-win10-64bit-international-whql.exe', 'C:\Users\%USERNAME%\Desktop\NVIDIA_391.35.exe')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://international.download.nvidia.com/Windows/391.35/391.35-desktop-win10-64bit-international-whql.exe', 'C:\Users\%USERNAME%\Desktop\NVIDIA.exe')" >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO GraphicsMenu
 
 :NvidiaGeforce4
 ECHO [[93m-[0m] Downloading Driver ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://international.download.nvidia.com/Windows/342.01/342.01-desktop-win10-64bit-international.exe', 'C:\Users\%USERNAME%\Desktop\NVIDIA_342.01.exe')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://international.download.nvidia.com/Windows/342.01/342.01-desktop-win10-64bit-international.exe', 'C:\Users\%USERNAME%\Desktop\NVIDIA.exe')" >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO GraphicsMenu
@@ -1586,81 +1586,87 @@ IF ERRORLEVEL 1 GOTO RealtekAsus
 
 :RealtekAsus
 ECHO [[93m-[0m] Downloading Driver ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Audio/Audio_Realtek_ASUS_9481.zip', 'C:\Users\%USERNAME%\Desktop\AUDIO_Realtek_UAD_ASUS_v6.0.9468.1.zip')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Audio/Audio_Realtek_ASUS.zip', 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_ASUS.zip')" >nul 2>&1
 ECHO [[93m-[0m] Extracting Driver ...
-powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\AUDIO_Realtek_UAD_ASUS_v6.0.9468.1.zip' 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_ASUS'" >nul 2>&1
-del /f "C:\Users\%USERNAME%\Desktop\AUDIO_Realtek_UAD_ASUS_v6.0.9468.1.zip" >nul 2>&1
+powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_ASUS.zip' 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_ASUS'" >nul 2>&1
+del /f "C:\Users\%USERNAME%\Desktop\Audio_Realtek_ASUS.zip" >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO AudioMenu
 
 :RealtekMSI
 ECHO [[93m-[0m] Downloading Driver ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://download.msi.com/nb_drivers/ad/9459_UAD_WHQL_NB_6.0.9459.1_0x7b15cb9a.zip', 'C:\Users\%USERNAME%\Desktop\AUDIO_Realtek_UAD_MSI_v6.0.9459.1.zip')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Audio/Audio_Realtek_MSI.zip', 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_MSI.zip')" >nul 2>&1
 ECHO [[93m-[0m] Extracting Driver ...
-powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\AUDIO_Realtek_UAD_MSI_v6.0.9459.1.zip' 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_MSI'" >nul 2>&1
-del /f "C:\Users\%USERNAME%\Desktop\AUDIO_Realtek_UAD_MSI_v6.0.9459.1.zip" >nul 2>&1
+powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_MSI.zip' 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_MSI'" >nul 2>&1
+del /f "C:\Users\%USERNAME%\Desktop\Audio_Realtek_MSI.zip" >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO AudioMenu
 
 :RealtekGigaByte
 ECHO [[93m-[0m] Downloading Driver ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://download.gigabyte.com/FileList/Driver/nb-driver-64bit-win11-dchu-audio-6.0.9459.1.zip', 'C:\Users\%USERNAME%\Desktop\AUDIO_Realtek_UAD_GigaByte_v6.0.9459.1.zip')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Audio/Audio_Realtek_Gigabyte.zip', 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Gigabyte.zip')" >nul 2>&1
 ECHO [[93m-[0m] Extracting Driver ...
-powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\AUDIO_Realtek_UAD_GigaByte_v6.0.9459.1.zip' 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_GigaByte'" >nul 2>&1
-del /f "C:\Users\%USERNAME%\Desktop\AUDIO_Realtek_UAD_GigaByte_v6.0.9459.1.zip" >nul 2>&1
+powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Gigabyte.zip' 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_GigaByte'" >nul 2>&1
+del /f "C:\Users\%USERNAME%\Desktop\Audio_Realtek_Gigabyte.zip" >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO AudioMenu
 
 :RealtekAsrock
 ECHO [[93m-[0m] Downloading Driver ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://www.station-drivers.com/download/Realtek/uad/Realtek_uad_9462.1_asrock(station-drivers.com).zip', 'C:\Users\%USERNAME%\Desktop\AUDIO_Realtek_UAD_Asrock_v6.0.9462.1.zip')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Audio/Audio_Realtek_Asrock.zip', 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Asrock.zip')" >nul 2>&1
 ECHO [[93m-[0m] Extracting Driver ...
-powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\AUDIO_Realtek_UAD_Asrock_v6.0.9462.1.zip' 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Asrock'" >nul 2>&1
-del /f "C:\Users\%USERNAME%\Desktop\AUDIO_Realtek_UAD_Asrock_v6.0.9462.1.zip" >nul 2>&1
+powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Asrock.zip' 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Asrock'" >nul 2>&1
+del /f "C:\Users\%USERNAME%\Desktop\Audio_Realtek_Asrock.zip" >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO AudioMenu
 
 :RealtekEVGA
 ECHO [[93m-[0m] Downloading Driver ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://cdn.evga.com/driver/Z690/E698/Audio.zip', 'C:\Users\%USERNAME%\Desktop\AUDIO_Realtek_UAD_EVGA_v6.0.9225.1.zip')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://cdn.evga.com/driver/Z690/E698/Audio.zip', 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_EVGA.zip')" >nul 2>&1
 ECHO [[93m-[0m] Extracting Driver ...
-powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\AUDIO_Realtek_UAD_EVGA_v6.0.9225.1.zip' 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_EVGA'" >nul 2>&1
-del /f "C:\Users\%USERNAME%\Desktop\AUDIO_Realtek_UAD_EVGA_v6.0.9225.1.zip" >nul 2>&1
+powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_EVGA.zip' 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_EVGA'" >nul 2>&1
+del /f "C:\Users\%USERNAME%\Desktop\Audio_Realtek_EVGA.zip" >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO AudioMenu
 
 :RealtekDell
 ECHO [[93m-[0m] Downloading Driver ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://dl.dell.com/FOLDER09103111M/2/Realtek-High-Definition-Audio-Driver_5X81R_WIN_6.0.9422.1_A03.EXE', 'C:\Users\%USERNAME%\Desktop\AUDIO_Realtek_UAD_Dell_v6.0.9422.1.exe')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Audio/Audio_Realtek_Dell.zip', 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Dell.zip')" >nul 2>&1
+ECHO [[93m-[0m] Extracting Driver ...
+powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Dell.zip' 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Dell'" >nul 2>&1
+del /f "C:\Users\%USERNAME%\Desktop\Audio_Realtek_Dell.zip" >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO AudioMenu
 
 :RealtekLenovo
 ECHO [[93m-[0m] Downloading Driver ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://download.lenovo.com/consumer/mobiles/fql3047fsep5knd0.exe', 'C:\Users\%USERNAME%\Desktop\AUDIO_Realtek_UAD_Lenovo_v6.0.9462.1.exe')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Audio/Audio_Realtek_Lenovo.exe', 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Lenovo.exe')" >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO AudioMenu
 
 :RealtekHP
 ECHO [[93m-[0m] Downloading Driver ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://ftp.ext.hp.com/pub/softpaq/sp143501-144000/sp143948.exe', 'C:\Users\%USERNAME%\Desktop\AUDIO_Realtek_UAD_HP_v6.0.9452.1.exe')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Audio/Audio_Realtek_HP.zip', 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_HP.zip')" >nul 2>&1
+ECHO [[93m-[0m] Extracting Driver ...
+powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_HP.zip' 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_HP'" >nul 2>&1
+del /f "C:\Users\%USERNAME%\Desktop\Audio_Realtek_HP.zip" >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO AudioMenu
 
 :RealtekAllOEM
 ECHO [[93m-[0m] Downloading Driver ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://cdn.discordapp.com/attachments/955551954396934146/1073522959228096552/AUDIO_Realtek_UAD_Others_v6.0.9462.1.zip', 'C:\Users\%USERNAME%\Desktop\AUDIO_Realtek_UAD_Others_v6.0.9462.1.zip')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Audio/Audio_Realtek_Others.zip', 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Others.zip')" >nul 2>&1
 ECHO [[93m-[0m] Extracting Driver ...
-powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\AUDIO_Realtek_UAD_Others_v6.0.9462.1.zip' 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Others'" >nul 2>&1
-del /f "C:\Users\%USERNAME%\Desktop\AUDIO_Realtek_UAD_Others_v6.0.9462.1.zip" >nul 2>&1
+powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Others.zip' 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Others'" >nul 2>&1
+del /f "C:\Users\%USERNAME%\Desktop\Audio_Realtek_Others.zip" >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO AudioMenu
