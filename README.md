@@ -7,7 +7,9 @@ Please note that we are not associated with Microsoft Corporation or the officia
 
 </p>
 
-![download LTSC](https://user-images.githubusercontent.com/96759883/221389232-a623641f-9014-4161-b856-8ccce6dda1cc.png)![download LTSC insider](https://user-images.githubusercontent.com/96759883/221389238-7ccdc5b5-e925-48a8-9212-31b16e9b701c.png)![download LTSC server](https://user-images.githubusercontent.com/96759883/221389241-5199ae2f-a5e1-4772-98df-e880ba3f9b06.png)
+
+[![download LTSC](https://user-images.githubusercontent.com/96759883/221389331-424fd09d-6350-4a6f-a30a-7901ed2e3b98.png)](https://github.com/LSX285/Windows11-LTSC/releases/latest)![download LTSC insider](https://user-images.githubusercontent.com/96759883/221389332-432eb31f-e8a1-440e-96f4-17fd82ce1ed5.png)![download LTSC server](https://user-images.githubusercontent.com/96759883/221389333-11b82151-63fc-4731-a908-c5a2d23d62e7.png)
+
 
 
 
