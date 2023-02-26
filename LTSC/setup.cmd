@@ -162,6 +162,9 @@ schtasks /Change /TN "Microsoft\Windows\DiskFootprint\Diagnostics" /Disable >nul
 schtasks /Change /TN "Microsoft\Windows\CloudExperienceHost\CreateObjectTask" /Disable >nul 2>&1
 schtasks /Change /TN "Microsoft\Windows\Windows Error Reporting\QueueReporting" /Disable >nul 2>&1
 
+schtasks /Change /TN "Microsoft\Windows\Diagnosis\RecommendedTroubleshootingScanner" /Disable >nul 2>&1
+schtasks /Change /TN "Microsoft\Windows\Maps\MapsToastTask" /Disable >nul 2>&1
+
 :: Note - Removing FoD Packages
 dism /Online /Disable-Feature /FeatureName:"TelnetClient" /NoRestart >nul 2>&1
 dism /Online /Disable-Feature /FeatureName:"WCF-TCP-PortSharing45" /NoRestart >nul 2>&1
