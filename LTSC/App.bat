@@ -2060,7 +2060,7 @@ GOTO DebugMenu
 
 :ReapplyLTSC
 ECHO [[93m-[0m] [93mReapplying LTSC changes[0m ...
-powershell -command "wget 'https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/setup.cmd' -outfile 'C:\Program Files\LTSC\Setup.cmd'" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/setup.cmd', 'C:\Program Files\LTSC\Setup.cmd')" >nul 2>&1
 start cmd.exe @cmd /C "C:\Program Files\LTSC\Setup.cmd" >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
