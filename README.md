@@ -7,5 +7,6 @@ Please note that we are not associated with Microsoft Corporation or the officia
 
 </p>
 
-![download LTSC](https://user-images.githubusercontent.com/96759883/221389107-4db17604-0ddc-45b3-a737-205c4ca87c45.png) ![download LTSC insider](https://user-images.githubusercontent.com/96759883/221389111-693bc7c7-ddbe-476f-9330-9da912f700ff.png) ![download LTSC server](https://user-images.githubusercontent.com/96759883/221389114-329c2acb-1ffe-4b05-a356-d6f771e2695e.png)
+![download LTSC](https://user-images.githubusercontent.com/96759883/221389167-79185917-8fc3-4dee-9f11-54e3fdfc47fe.png)![download LTSC insider](https://user-images.githubusercontent.com/96759883/221389170-8f0f3263-089f-4e4b-b935-ce63c4855e60.png)![download LTSC server](https://user-images.githubusercontent.com/96759883/221389172-2508dedb-149a-4e90-b368-eb54d6255892.png)
+
 
