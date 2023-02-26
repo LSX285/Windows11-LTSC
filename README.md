@@ -1,7 +1,7 @@
 [![LTSC HERO](https://user-images.githubusercontent.com/96759883/221386923-a9912d1f-1d34-4bc5-bcc8-a787a39ef70d.png)](https://github.com/LSX285/Windows11-LTSC/discussions/1)
 
 <p align="center">
-  <a href="https://github.com/LSX285/Windows11-LTSC"><img src="https://user-images.githubusercontent.com/96759883/221390813-696917b4-7aec-46d5-81d5-7f846d8fbba1.png" /></a>
+  <a href="https://github.com/LSX285/Windows11-LTSC/releases/latest"><img src="https://user-images.githubusercontent.com/96759883/221390813-696917b4-7aec-46d5-81d5-7f846d8fbba1.png" /></a>
   <a href=""><img src="https://user-images.githubusercontent.com/96759883/221394258-fe90178d-5777-425b-85f8-688246737abf.png" /></a>
   <a href=""><img src="https://user-images.githubusercontent.com/96759883/221390817-25796cd1-f705-4371-88be-8a2e860c5f3a.png" /></a>
 </p>
