@@ -43,7 +43,6 @@
         </RunSynchronous>
     </component>
 </settings>
-
 <settings pass="oobeSystem">
     <component name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" language="neutral"
     xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -59,9 +58,58 @@
             <HideWirelessSetupInOOBE>false</HideWirelessSetupInOOBE>
             <ProtectYourPC>3</ProtectYourPC>
         </OOBE>
+<FirstLogonCommands>
+<SynchronousCommand wcm:action="add">
+<Order>1</Order>
+<RequiresUserInput>false</RequiresUserInput>
+<CommandLine>cmd /C mkdir "C:\Program Files\LTSC"</CommandLine>
+<Description>Create LTSC folders</Description>
+</SynchronousCommand>
+<SynchronousCommand wcm:action="add">
+<Order>2</Order>
+<RequiresUserInput>false</RequiresUserInput>
+<CommandLine>cmd /C mkdir "C:\Program Files\LTSC\Scripts"</CommandLine>
+<Description>Create LTSC folders</Description>
+</SynchronousCommand>
+<SynchronousCommand wcm:action="add">
+<Order>3</Order>
+<RequiresUserInput>false</RequiresUserInput>
+<CommandLine>cmd /C mkdir "C:\Program Files\LTSC\Scripts\Vivetool"</CommandLine>
+<Description>Create LTSC folders</Description>
+</SynchronousCommand>
+<SynchronousCommand wcm:action="add">
+<Order>4</Order>
+<RequiresUserInput>false</RequiresUserInput>
+<CommandLine>cmd /C mkdir "C:\Program Files\LTSC\AdditionalFiles"</CommandLine>
+<Description>Create LTSC folders</Description>
+</SynchronousCommand>
+<SynchronousCommand wcm:action="add">
+<Order>5</Order>
+<RequiresUserInput>false</RequiresUserInput>
+<CommandLine>cmd /C mkdir "C:\Program Files\LTSC\AdditionalFiles\RepairWin"</CommandLine>
+<Description>Create LTSC folders</Description>
+</SynchronousCommand>
+<SynchronousCommand wcm:action="add">
+<Order>6</Order>
+<RequiresUserInput>false</RequiresUserInput>
+<CommandLine>cmd /C powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/App.bat', 'C:\Program Files\LTSC\App.bat')"</CommandLine>
+<Description>Download latest APP</Description>
+</SynchronousCommand>
+<SynchronousCommand wcm:action="add">
+<Order>7</Order>
+<RequiresUserInput>false</RequiresUserInput>
+<CommandLine>cmd /C powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/setup.cmd', 'C:\Program Files\LTSC\setup.cmd')"</CommandLine>
+<Description>Download latest Setup</Description>
+</SynchronousCommand>
+<SynchronousCommand wcm:action="add">
+<Order>8</Order>
+<RequiresUserInput>false</RequiresUserInput>
+<CommandLine>cmd /C start cmd.exe @cmd /C "C:\Program Files\LTSC\setup.cmd"</CommandLine>
+<Description>Start</Description>
+</SynchronousCommand>
+</FirstLogonCommands>
     </component>
 </settings>
 
 
 </unattend>
-
