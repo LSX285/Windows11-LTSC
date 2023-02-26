@@ -127,6 +127,24 @@ sc config WpnService start=demand >nul 2>&1
 sc config RtkBtManServ start=demand >nul 2>&1
 sc config QWAVE start=demand >nul 2>&1
 
+sc config AppXSvc start=demand >nul 2>&1
+sc config WPNSerivce start=demand >nul 2>&1
+sc config lfsvc start=demand >nul 2>&1
+sc config WSearch start=demand >nul 2>&1
+sc config WpnUserService_534c3 start=demand >nul 2>&1
+sc config webthreatdefusersvc_534c3 start=demand >nul 2>&1
+sc config webthreatdevsvc start=demand >nul 2>&1
+sc config SSPDSRV start=demand >nul 2>&1
+sc config SgrmBroker start=demand >nul 2>&1
+sc config RMSvc start=demand >nul 2>&1
+sc config NcdAutoSetup start=demand >nul 2>&1
+sc config FDResPub start=demand >nul 2>&1
+sc config fdPHost start=demand >nul 2>&1
+sc config EFS start=demand >nul 2>&1
+sc config DusmSvc start=demand >nul 2>&1
+sc config Deviceassociationservice start=demand >nul 2>&1
+sc config AVCTP start=demand >nul 2>&1
+
 :: Note - Task Scheduler Block
 schtasks /Change /TN "Microsoft\Windows\Customer Experience Improvement Program\UsbCeip" /Disable >nul 2>&1
 schtasks /Change /TN "Microsoft\Windows\Customer Experience Improvement Program\Consolidator" /Disable >nul 2>&1
