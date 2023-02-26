@@ -28,8 +28,8 @@ mkdir "C:\Program Files\LTSC\AdditionalFiles" >nul 2>&1
 mkdir "C:\Program Files\LTSC\AdditionalFiles\RepairWin" >nul 2>&1
 
 :: download latest setup & app
-powershell -command "wget 'https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/setup.cmd' -outfile 'C:\Program Files\LTSC\Setup.cmd'" >nul 2>&1
-powershell -command "wget 'https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/App.bat' -outfile 'C:\Program Files\LTSC\App.bat'" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/setup.cmd', 'C:\Program Files\LTSC\Setup.cmd')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/App.bat', 'C:\Program Files\LTSC\App.bat')" >nul 2>&1
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce" /v "RunOnce_RunMe" /t REG_SZ /d "\"C:\Program Files\LTSC\Setup.cmd\"" /f >nul 2>&1
 exit
 
