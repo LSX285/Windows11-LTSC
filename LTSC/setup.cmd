@@ -33,19 +33,19 @@ pushd %~dp0
 :: Note - Applying changes, Windows must be restarted afterwards.
 Title Setup: Almost done
 mode con: cols=52 lines=7
-echo ___________________________________________________
+@ECHO [36m___________________________________________________[0m
 echo.
-echo   We're almost done, dont touch your PC just yet.
-echo          Windows will automatically restart.
+echo   We're almost done, [91mdon't[0m touch your PC just yet.
+echo          Windows will [93mautomatically restart[0m.
 echo.
-echo ___________________________________________________
+@ECHO [36m___________________________________________________[0m
 
 :: Note - Download files
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/Edge_Uninstall.bat', 'C:\Program Files\LTSC\Scripts\Edge_Uninstall.bat')" >nul 2>&1
-powershell -command "wget 'https://github.com/LSX285/Windows11-LTSC/raw/main/LTSC/Scripts/ViveTool/Albacore.ViVe.dll' -outfile 'C:\Program Files\LTSC\Scripts/ViveTool/Albacore.ViVe.dll'" >nul 2>&1
-powershell -command "wget 'https://github.com/LSX285/Windows11-LTSC/raw/main/LTSC/Scripts/ViveTool/FeatureDictionary.pfs' -outfile 'C:\Program Files\LTSC\Scripts/ViveTool/FeatureDictionary.pfs'" >nul 2>&1
-powershell -command "wget 'https://github.com/LSX285/Windows11-LTSC/raw/main/LTSC/Scripts/ViveTool/Newtonsoft.Json.dll' -outfile 'C:\Program Files\LTSC\Scripts/ViveTool/Newtonsoft.Json.dll'" >nul 2>&1
-powershell -command "wget 'https://github.com/LSX285/Windows11-LTSC/raw/main/LTSC/Scripts/ViveTool/ViVeTool.exe' -outfile 'C:\Program Files\LTSC\Scripts/ViveTool/ViVeTool.exe'" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/LTSC/Scripts/ViveTool/Albacore.ViVe.dll', 'C:\Program Files\LTSC\Scripts/ViveTool/Albacore.ViVe.dll')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/LTSC/Scripts/ViveTool/FeatureDictionary.pfs', 'C:\Program Files\LTSC\Scripts/ViveTool/FeatureDictionary.pfs')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/LTSC/Scripts/ViveTool/Newtonsoft.Json.dll', 'C:\Program Files\LTSC\Scripts/ViveTool/Newtonsoft.Json.dll')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/LTSC/Scripts/ViveTool/ViVeTool.exe', 'C:\Program Files\LTSC\Scripts/ViveTool/ViVeTool.exe')" >nul 2>&1
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://aka.ms/vs/17/release/vc_redist.x64.exe', 'C:\Users\%USERNAME%\Desktop\vc_redist.x64.exe')" >nul 2>&1
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/activate.cmd', 'C:\Program Files\LTSC\Scripts\activate.cmd')" >nul 2>&1
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/tweaks.reg', 'C:\Program Files\LTSC\tweaks.reg')" >nul 2>&1
@@ -260,7 +260,7 @@ start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\activate.cmd" >nul 2>&1
 label c: OS >nul 2>&1
 
 :: Note - Applying Registry Changes
-regedit /s "C:\Program Files\LTSC\tweaks.reg"
+regedit /s "C:\Program Files\LTSC\tweaks.reg" >nul 2>&1
 
 :: Note - Delete PS Folder which is automaticallly created when installing PSWindowsUpdate components.
 rmdir /S /Q "C:\Users\%USERNAME%\Documents\WindowsPowerShell" >nul 2>&1
