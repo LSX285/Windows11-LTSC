@@ -47,6 +47,7 @@ echo.
 		1>nul 2>&1 REG ADD "%%g" /f /v "StateFlags0001" /t REG_DWORD /d "2"
 	)
 	start /HIGH "" "cleanmgr" "/sagerun:1"
+	powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Windows cleared all temp files.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 )
 
 echo.

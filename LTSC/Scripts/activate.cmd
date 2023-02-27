@@ -62,7 +62,7 @@ pushd "%~dp0"
 >nul findstr /rxc:".*" "%~nx0"
 if not %errorlevel%==0 (
 echo:
-echo Error: This is not a correct file. It has LF line ending issue.
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'Windows cant be activated','Script has issues. LF line ending.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 echo:
 ping 127.0.0.1 -n 6 > nul
 popd
@@ -130,21 +130,19 @@ if %~z0 GEQ 200000 (set "_exitmsg=Go back") else (set "_exitmsg=Exit")
 
 if %winbuild% LSS 10240 (
 %eline%
-echo Unsupported OS version detected.
-echo Project is supported for Windows 10/11.
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'Windows cant be activated','This script is meant to run on Windows 11 LTSC only.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 goto dk_done
 )
 
 if exist "%SystemRoot%\Servicing\Packages\Microsoft-Windows-Server*Edition~*.mum" (
 %eline%
-echo HWID Activation is not supported for Windows Server.
-echo Use KMS38 or KMS Activation.
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'Windows cant be activated','Windows Server editions cannot be activated.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 goto dk_done
 )
 
 for %%# in (powershell.exe) do @if "%%~$PATH:#"=="" (
 %nceline%
-echo Unable to find powershell.exe in the system.
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'Windows cant be activated','Unable to find Powershell.exe',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 goto dk_done
 )
 
@@ -169,10 +167,7 @@ setlocal EnableDelayedExpansion
 echo "!_batf!" | find /i "!_ttemp!" 1>nul && (
 if /i not "!_work!"=="!_ttemp!" (
 %eline%
-echo Script is launched from the temp folder,
-echo Most likely you are running the script directly from the archive file.
-echo:
-echo Extract the archive file and launch the script from the extracted folder.
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'Windows cant be activated','Dont run this file from temp or from file archive.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 goto dk_done
 )
 )
@@ -184,8 +179,7 @@ goto dk_done
 >nul fltmc || (
 if not defined _elev %nul% %psc% "start cmd.exe -arg '/c \"!_PSarg:'=''!\"' -verb runas" && exit /b
 %eline%
-echo This script require administrator privileges.
-echo To do so, right click on this script and select 'Run as administrator'.
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'Windows cant be activated','Please run this file as Administrator.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 goto dk_done
 )
 
@@ -221,11 +215,10 @@ echo ___________________________________________________________________________
 echo:
 call :dk_color2 %_White% "     " %Green% "Checking: %winos% is Permanently Activated."
 call :dk_color2 %_White% "     " %Gray% "Activation is not required."
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'Windows activation','Windows has been activated already.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 echo ___________________________________________________________________________________________
 if %_unattended%==1 goto dk_done
-echo:
-choice /C:10 /N /M ">    [1] Activate [0] %_exitmsg% : "
-if errorlevel 2 exit /b
+exit
 )
 cls
 
@@ -236,10 +229,7 @@ cls
 if exist "%SystemRoot%\Servicing\Packages\Microsoft-Windows-*EvalEdition~*.mum" (
 reg query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion" /v EditionID 2>nul | find /i "Eval" 1>nul && (
 %eline%
-echo [%winos% ^| %winbuild%]
-echo Evaluation Editions cannot be activated. Download ^& Install full version of Windows OS.
-echo:
-echo https://massgrave.dev/
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'Windows cant be activated','Evaluation copies of Windows cannot be activated.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 goto dk_done
 )
 )
@@ -261,7 +251,7 @@ if not defined osSKU set osSKU=%regSKU%
 
 if not defined osSKU (
 %eline%
-echo SKU value was not detected properly. Aborting...
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'Windows cant be activated','SKU couldnt be detected properly.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 goto dk_done
 )
 
@@ -354,9 +344,7 @@ call :dk_color %Magenta% "Evaluation Windows Found. Install Full version of Wind
 if not defined key (
 %eline%
 echo [%winos% ^| %winbuild% ^| SKU:%osSKU%]
-echo Unable to find this product in the supported product list.
-echo Make sure you are using updated version of the script.
-echo https://massgrave.dev
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'Windows cant be activated','This version of Windows is not supported.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 echo:
 goto dk_done
 )
@@ -460,6 +448,7 @@ call :dk_act
 call :dk_checkperm
 if defined _perm (
 call :dk_color %Green% "%winos% is permanently activated."
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'Windows activation','Windows has been activated permanently.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 exit
 goto :dl_final
 )

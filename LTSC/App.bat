@@ -79,7 +79,6 @@ GOTO DriversMenu
 
 :UpdateAPP
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/UpdateAPP.cmd', 'C:\Program Files\LTSC\Scripts\UpdateAPP.cmd')" >nul 2>&1
-ECHO [[93m-[0m] Updating APP ...
 start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\UpdateAPP.cmd" >nul 2>&1
 exit
 
@@ -249,10 +248,8 @@ timeout 3 >nul 2>&1
 GOTO AppDLMenu
 
 :Updates
-ECHO [[93m-[0m] Searching for Updates ...
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Searching for Updates ...',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 winget upgrade --all >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
 GOTO AppDLMenu
 
 :Goback
@@ -409,10 +406,8 @@ timeout 3 >nul 2>&1
 GOTO More
 
 :Updates
-ECHO [[93m-[0m] Searching for Updates ...
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Searching for Updates ...',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 winget upgrade --all >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
 GOTO More
 
 :GoBack
@@ -566,10 +561,8 @@ timeout 3 >nul 2>&1
 GOTO More2
 
 :Updates
-ECHO [[93m-[0m] Searching for Updates ...
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Searching for Updates ...',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 winget upgrade --all >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
 GOTO More2
 
 :GoBack
@@ -723,10 +716,8 @@ timeout 3 >nul 2>&1
 GOTO More3
 
 :Updates
-ECHO [[93m-[0m] Searching for Updates ...
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Searching for Updates ...',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 winget upgrade --all >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
 GOTO More3
 
 :GoBack
@@ -879,10 +870,8 @@ timeout 3 >nul 2>&1
 GOTO More4
 
 :Updates
-ECHO [[93m-[0m] Searching for Updates ...
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Searching for Updates ...',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 winget upgrade --all >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
 GOTO More4
 
 :GoBack
@@ -1039,10 +1028,8 @@ timeout 3 >nul 2>&1
 GOTO More5
 
 :Updates
-ECHO [[93m-[0m] Searching for Updates ...
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Searching for Updates ...',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 winget upgrade --all >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
 GOTO More5
 
 :GoBack
@@ -1091,66 +1078,51 @@ IF ERRORLEVEL 2 GOTO MicrosoftStorePurchaseApp
 IF ERRORLEVEL 1 GOTO MicrosoftStore
 
 :MicrosoftStore
-ECHO [[93m-[0m] Installing [93mMicrosoft Store[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Apps/Microsoft_Store.msix', 'C:\Users\%USERNAME%\Desktop\Microsoft_Store.msix')" >nul 2>&1
 PowerShell -ExecutionPolicy Unrestricted -Command "add-appxpackage -path 'C:\Users\%USERNAME%\Desktop\Microsoft_Store.msix'" >nul 2>&1
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://cdn.discordapp.com/attachments/1073475667905224714/1076434344106803261/Services_Store.Engagement.Appx', 'C:\Users\%USERNAME%\Desktop\Services_Store.Engagement.Appx')" >nul 2>&1
 PowerShell -ExecutionPolicy Unrestricted -Command "add-appxpackage -path 'C:\Users\%USERNAME%\Desktop\Services_Store.Engagement.Appx'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Services_Store.Engagement.Appx" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Microsoft_Store.msix" >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Microsoft Store has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More6
 
 :MicrosoftStorePurchaseApp
-ECHO [[93m-[0m] Installing [93mMicrosoft Store purchase app[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Apps/Microsoft_Store-PurchaseApp.Msixbundle', 'C:\Users\%USERNAME%\Desktop\Microsoft_Store-PurchaseApp.Msixbundle')" >nul 2>&1
 PowerShell -ExecutionPolicy Unrestricted -Command "add-appxpackage -path 'C:\Users\%USERNAME%\Desktop\Microsoft_Store-PurchaseApp.Msixbundle'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Microsoft_Store-PurchaseApp.Msixbundle" >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Microsoft Store Purchase App has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More6
 
 :SnippingTool
-ECHO [[93m-[0m] Installing [93mSnipping Tool[0m ... MS Store required.
 winget install 9MZ95KL8MR0L --accept-source-agreements --accept-package-agreements >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Snipping Tool has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More6
 
 :Notepad
-ECHO [[93m-[0m] Installing [93mNotepad[0m ... MS Store required.
 winget install 9MSMLRH6LZF3 --accept-source-agreements --accept-package-agreements >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Notepad has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More6
 
 :Nanazip
-ECHO [[93m-[0m] Installing [93mNanazip[0m ...
 winget install M2Team.NanaZip --accept-source-agreements --accept-package-agreements >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Nanazip has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More6
 
 :XboxIdentityProvider
-ECHO [[93m-[0m] Installing [93mXbox Identity Provider[0m...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Apps/XboxIdentityProvider.appx', 'C:\Users\%USERNAME%\Desktop\XboxIdentityProvider.appx')" >nul 2>&1
 PowerShell -ExecutionPolicy Unrestricted -Command "add-appxpackage -path 'C:\Users\%USERNAME%\Desktop\XboxIdentityProvider.appx'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\XboxIdentityProvider.appx" >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Xbox Identity Provider has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More6
 
 :Placeholder
-ECHO [[93m-[0m] [93mPlaceholder[0m.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Placeholder.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More6
 
 :Updates
-ECHO [[93m-[0m] Searching for Updates ...
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Searching for Updates ...',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 winget upgrade --all >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
 GOTO More6
 
 :GoBack
@@ -1232,133 +1204,99 @@ IF ERRORLEVEL 1 GOTO DisableDefender
 
 
 :DisableDefender
-ECHO [[93m-[0m] Turning [93mWindows Defender[0m off ...
-timeout 2 >nul 2>&1
-ECHO [[91m![0m] Please go into Virus and Threat protection settings and
-ECHO [[91m![0m] turn off Tamper Protection. Press any Key to continue.
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Please go to Windows Security and turn off Tamper Protection. Press any Key to continue then.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+ECHO [[91m![0m] Press any Key to continue.
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/AntiDefender.cmd', 'C:\Program Files\LTSC\Scripts\AntiDefender.cmd')" >nul 2>&1
 pause >nul 2>&1
 start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\AntiDefender.cmd" >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Windows Defender has been turned off.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
 
 :EnableDefender
-ECHO [[93m-[0m] Turning [93mWindows Defender[0m back on ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/AntiDefenderUndo.cmd', 'C:\Program Files\LTSC\Scripts\AntiDefenderUndo.cmd')" >nul 2>&1
 start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\AntiDefenderUndo.cmd" >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Windows Defender has been turned on.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
 :EnableDarkMode
-ECHO [[93m-[0m] Turning on [93mDark Mode[0m ...
 REG Add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" /V SystemUsesLightTheme /T REG_DWORD /D 0 /F >nul 2>&1
 REG Add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" /V AppsUseLightTheme /T REG_DWORD /D 0 /F >nul 2>&1
 taskkill /F /IM explorer.exe & start explorer >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Windows is now using Dark Mode.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
 :EnableLightMode
-ECHO [[93m-[0m] Turning on [93mLight Mode[0m ...
 REG Add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" /V SystemUsesLightTheme /T REG_DWORD /D 1 /F >nul 2>&1
 REG Add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" /V AppsUseLightTheme /T REG_DWORD /D 1 /F >nul 2>&1
 taskkill /F /IM explorer.exe & start explorer >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Windows is now using Light Mode.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
 :ModernContextMenu
-ECHO [[93m-[0m] Switching to [93mmodernized classic context menu[0m.
 reg add "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" /f /ve >nul 2>&1
 winget install Nilesoft.Shell --accept-source-agreements --accept-package-agreements >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Windows is now using a modern legacy context menu.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
 :Windows11ContextMenu
-ECHO [[93m-[0m] Returning to [93mWindows 11 default context menu[0m.
 reg delete "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" /f /ve >nul 2>&1
 winget uninstall Nilesoft.Shell >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Default Windows context menu has been restored.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
 :EnablePhotoViewer
-ECHO [[93m-[0m] Turning [93mlegacy Photo Viewer[0m on ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/EnablePhotoViewer.reg', 'C:\Program Files\LTSC\Scripts\EnablePhotoViewer.reg')" >nul 2>&1
 regedit /s "C:\Program Files\LTSC\Scripts\EnablePhotoViewer.reg" >nul 2>&1
-ECHO [[92m+[0m] Done. You might have to restart.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Legacy Photo viewer has been enabled. You might have to restart Windows to get it working.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
 :DisablePhotoViewer
-ECHO [[93m-[0m] Turning [93mlegacy Photo Viewer[0m back off ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/DisablePhotoViewer.reg', 'C:\Program Files\LTSC\Scripts\DisablePhotoViewer.reg')" >nul 2>&1
 regedit /s "C:\Program Files\LTSC\Scripts\DisablePhotoViewer.reg" >nul 2>&1
-ECHO [[92m+[0m] Done. You might have to restart.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Legacy Photo viewer has been disabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
 :DisableSmartscreen
-ECHO [[93m-[0m] Turning [93mWindows Smartscreen[0m off ...
 REG add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v "SmartScreenEnabled" /t REG_SZ /d "Off" /f >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Windows Smartscreen has been turned off.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
 :EnableSmartscreen
-ECHO [[93m-[0m] Turning [93mWindows Smartscreen[0m back on ...
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v "SmartScreenEnabled" /t REG_SZ /d "Warn" /f >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Windows Smartscreen has been turned on.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
 :DisableFirewall
-ECHO [[93m-[0m] Turning [93mWindows Firewall[0m off ...
 netsh advfirewall set allprofiles state off >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Windows Firewall has been turned off.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
 :EnableFirewall
-ECHO [[93m-[0m] Turning [93mWindows Firewall[0m back on ...
 netsh advfirewall set allprofiles state on >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Windows Firewall has been turned on.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
 :EnableWindowsAmoled
-ECHO [[93m-[0m] Turning on [93mAMOLED preset[0m setting ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/EnableAMOLED.reg', 'C:\Program Files\LTSC\Scripts\EnableAMOLED.reg')" >nul 2>&1
 regedit /s "C:\Program Files\LTSC\Scripts\EnableAMOLED.reg" >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Windows AMOLED Dark Mode has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
 :DisableWindowsAmoled
-ECHO [[93m-[0m] Undoing [93mAMOLED preset[0m changes ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/DisableAMOLED.reg', 'C:\Program Files\LTSC\Scripts\DisableAMOLED.reg')" >nul 2>&1
 regedit /s "C:\Program Files\LTSC\Scripts\DisableAMOLED.reg" >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Windows AMOLED has been removed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
 :EnableEduThemes
-ECHO [[93m-[0m] Turning [93mWindows Education Themes[0m on ... This may display a hard error
-ECHO [[93m-[0m] whenever you boot into Windows Safe Boot. it has no impact or whatsoever.
 REG add "HKLM\SOFTWARE\Microsoft\PolicyManager\current\device\Education" /v "EnableEduThemes" /t REG_DWORD /d "1" /f >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Education themes have been enabled. Rebooting into Safeboot may display a hard error message which can be ignored.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
 :DisableEduThemes
-ECHO [[93m-[0m] Turning [93mWindows Education Themes[0m off ...
 REG add "HKLM\SOFTWARE\Microsoft\PolicyManager\current\device\Education" /v "EnableEduThemes" /t REG_DWORD /d "0" /f >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Education themes have been disabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
 :GoBack
@@ -1430,31 +1368,23 @@ IF ERRORLEVEL 2 GOTO Intel1213
 IF ERRORLEVEL 1 GOTO IntelLegacy
 
 :IntelLegacy
-ECHO [[93m-[0m] Downloading [93mIntel legacy chipset driver[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Chipset/Intel_Chipset_Legacy.exe', 'C:\Users\%USERNAME%\Desktop\Intel_Legacy_Chipset.exe')" >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO ChipsetMenu
 
 :Intel1213
-ECHO [[93m-[0m] Downloading [93mIntel chipset driver[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Chipset/Intel_Chipset.exe', 'C:\Users\%USERNAME%\Desktop\Intel_Chipset.exe')" >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO ChipsetMenu
 
 :AMDLegacy
-ECHO [[93m-[0m] Downloading [93mAMD legacy chipset driver[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Chipset/AMD_Chipset_Legacy.exe', 'C:\Users\%USERNAME%\Desktop\AMD_Legacy_Chipset.exe')" >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO ChipsetMenu
 
 :AMDRyzen
-ECHO [[93m-[0m] Downloading [93mAMD Chipset driver[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Chipset/AMD_Chipset.exe', 'C:\Users\%USERNAME%\Desktop\AMD_Chipset.exe')" >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO ChipsetMenu
 
 :GoBack
@@ -1499,48 +1429,35 @@ timeout 3 >nul 2>&1
 GOTO GraphicsMenu
 
 :NvidiaGeforce2
-ECHO [[93m-[0m] Downloading [93mNVIDIA drivers for 600-700 series[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://international.download.nvidia.com/Windows/474.14/474.14-desktop-win10-win11-64bit-international-dch-whql.exe', 'C:\Users\%USERNAME%\Desktop\NVIDIA.exe')" >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO GraphicsMenu
 
 :NvidiaGeforce3
-ECHO [[93m-[0m] Downloading [93mNVIDIA drivers for 400-500 series[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://international.download.nvidia.com/Windows/391.35/391.35-desktop-win10-64bit-international-whql.exe', 'C:\Users\%USERNAME%\Desktop\NVIDIA.exe')" >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO GraphicsMenu
 
 :NvidiaGeforce4
-ECHO [[93m-[0m] Downloading [93mNVIDIA drivers for 100-300 series[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://international.download.nvidia.com/Windows/342.01/342.01-desktop-win10-64bit-international.exe', 'C:\Users\%USERNAME%\Desktop\NVIDIA.exe')" >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO GraphicsMenu
 
 :AMDRadeon4007000
-ECHO [[93m-[0m] Downloading [93mAMD Radeon drivers[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://www.mediafire.com/file/5f04vdbqt02dz4c/whql-amd-software-adrenalin-edition-23.2.2-win10-win11-feb22-VideoCardz.com.exe', 'C:\Users\%USERNAME%\Desktop\AMD_Radeon.exe')" >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO GraphicsMenu
 
 :IntelArc
-ECHO [[93m-[0m] Downloading [93mIntel Arc drivers[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://downloadmirror.intel.com/768896/gfx_win_101.4125.exe', 'C:\Users\%USERNAME%\Desktop\Intel_ARC.exe')" >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO GraphicsMenu
 
 :InteliGPU
-ECHO [[93m-[0m] Downloading [93mIntel iGPU drivers[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://downloadmirror.intel.com/751359/gfx_win_101.3790_101.2114.zip', 'C:\Users\%USERNAME%\Desktop\Intel_iGPU.zip')" >nul 2>&1
-ECHO [[93m-[0m] Extracting Driver ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Intel_iGPU.zip' 'C:\Users\%USERNAME%\Desktop\InteliGPU'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Intel_iGPU.zip" >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO GraphicsMenu
 
 :GoBack
@@ -1582,90 +1499,64 @@ IF ERRORLEVEL 2 GOTO RealtekMSI
 IF ERRORLEVEL 1 GOTO RealtekAsus
 
 :RealtekAsus
-ECHO [[93m-[0m] Downloading [93mRealtek Audio driver for Asus[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Audio/Audio_Realtek_ASUS.zip', 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_ASUS.zip')" >nul 2>&1
-ECHO [[93m-[0m] Extracting Driver ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_ASUS.zip' 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_ASUS'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Audio_Realtek_ASUS.zip" >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AudioMenu
 
 :RealtekMSI
-ECHO [[93m-[0m] Downloading [93mRealtek Audio driver for MSI[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Audio/Audio_Realtek_MSI.zip', 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_MSI.zip')" >nul 2>&1
-ECHO [[93m-[0m] Extracting Driver ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_MSI.zip' 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_MSI'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Audio_Realtek_MSI.zip" >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AudioMenu
 
 :RealtekGigaByte
-ECHO [[93m-[0m] Downloading [93mRealtek Audio driver for Gigabyte[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Audio/Audio_Realtek_Gigabyte.zip', 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Gigabyte.zip')" >nul 2>&1
-ECHO [[93m-[0m] Extracting Driver ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Gigabyte.zip' 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_GigaByte'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Audio_Realtek_Gigabyte.zip" >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AudioMenu
 
 :RealtekAsrock
-ECHO [[93m-[0m] Downloading [93mRealtek Audio driver for Asrock[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Audio/Audio_Realtek_Asrock.zip', 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Asrock.zip')" >nul 2>&1
-ECHO [[93m-[0m] Extracting Driver ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Asrock.zip' 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Asrock'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Audio_Realtek_Asrock.zip" >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AudioMenu
 
 :RealtekEVGA
-ECHO [[93m-[0m] Downloading [93mRealtek Audio driver for EVGA[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://cdn.evga.com/driver/Z690/E698/Audio.zip', 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_EVGA.zip')" >nul 2>&1
-ECHO [[93m-[0m] Extracting Driver ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_EVGA.zip' 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_EVGA'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Audio_Realtek_EVGA.zip" >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AudioMenu
 
 :RealtekDell
-ECHO [[93m-[0m] Downloading [93mRealtek Audio driver for Dell[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Audio/Audio_Realtek_Dell.zip', 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Dell.zip')" >nul 2>&1
-ECHO [[93m-[0m] Extracting Driver ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Dell.zip' 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Dell'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Audio_Realtek_Dell.zip" >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AudioMenu
 
 :RealtekLenovo
-ECHO [[93m-[0m] Downloading [93mRealtek Audio driver for Lenovo[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Audio/Audio_Realtek_Lenovo.exe', 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Lenovo.exe')" >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AudioMenu
 
 :RealtekHP
-ECHO [[93m-[0m] Downloading [93mRealtek Audio driver for HP[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Audio/Audio_Realtek_HP.zip', 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_HP.zip')" >nul 2>&1
-ECHO [[93m-[0m] Extracting Driver ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_HP.zip' 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_HP'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Audio_Realtek_HP.zip" >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AudioMenu
 
 :RealtekAllOEM
-ECHO [[93m-[0m] Downloading [93mRealtek Audio driver for all other vendors[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Audio/Audio_Realtek_Others.zip', 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Others.zip')" >nul 2>&1
-ECHO [[93m-[0m] Extracting Driver ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Others.zip' 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Others'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Audio_Realtek_Others.zip" >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AudioMenu
 
 :GoBack
@@ -1717,183 +1608,129 @@ IF ERRORLEVEL 2 GOTO RealtekEthernet
 IF ERRORLEVEL 1 GOTO IntelEthernet
 
 :IntelEthernet
-ECHO [[93m-[0m] Downloading [93mIntel Ethernet driver[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Intel_Ethernet.zip', 'C:\Users\%USERNAME%\Desktop\Intel_Ethernet.zip')" >nul 2>&1
-ECHO [[93m-[0m] Extracting Driver ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Intel_Ethernet.zip' 'C:\Users\%USERNAME%\Desktop'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Intel_Ethernet.zip" >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :RealtekEthernet
-ECHO [[93m-[0m] Downloading [93mRealtek Ethernet driver[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Realtek_Ethernet.zip', 'C:\Users\%USERNAME%\Desktop\Realtek_Ethernet.zip')" >nul 2>&1
-ECHO [[93m-[0m] Extracting Driver ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Realtek_Ethernet.zip' 'C:\Users\%USERNAME%\Desktop'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Realtek_Ethernet.zip" >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :MediatekEthernet
-ECHO [[93m-[0m] Downloading [93mMediatek Ethernet driver[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Mediatek_Ethernet.zip', 'C:\Users\%USERNAME%\Desktop\Mediatek_Ethernet.zip')" >nul 2>&1
-ECHO [[93m-[0m] Extracting Driver ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Mediatek_Ethernet.zip' 'C:\Users\%USERNAME%\Desktop'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Mediatek_Ethernet.zip" >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :IntelWifi
-ECHO [[93m-[0m] Downloading [93mIntel Wifi driver[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Intel_Wifi.zip', 'C:\Users\%USERNAME%\Desktop\Intel_Wifi.zip')" >nul 2>&1
-ECHO [[93m-[0m] Extracting Driver ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Intel_Wifi.zip' 'C:\Users\%USERNAME%\Desktop'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Intel_Wifi.zip" >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :RealtekWifi
-ECHO [[93m-[0m] Downloading [93mRealtek Wifi driver[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Realtek_Wifi.zip', 'C:\Users\%USERNAME%\Desktop\Realtek_Wifi.zip')" >nul 2>&1
-ECHO [[93m-[0m] Extracting Driver ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Realtek_Wifi.zip' 'C:\Users\%USERNAME%\Desktop'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Realtek_Wifi.zip" >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :MediatekWifi
-ECHO [[93m-[0m] Downloading [93mMediatek Wifi driver[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Mediatek_Wifi.zip', 'C:\Users\%USERNAME%\Desktop\Mediatek_Wifi.zip')" >nul 2>&1
-ECHO [[93m-[0m] Extracting Driver ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Mediatek_Wifi.zip' 'C:\Users\%USERNAME%\Desktop'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Mediatek_Wifi.zip" >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :IntelBluetooth
-ECHO [[93m-[0m] Downloading [93mIntel Bluetooth driver[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Intel_Bluetooth.zip', 'C:\Users\%USERNAME%\Desktop\Intel_Bluetooth.zip')" >nul 2>&1
-ECHO [[93m-[0m] Extracting Driver ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Intel_Bluetooth.zip' 'C:\Users\%USERNAME%\Desktop'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Intel_Bluetooth.zip" >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :RealtekBluetooth
-ECHO [[93m-[0m] Downloading [93mRealtek Bluetooth driver[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Realtek_Bluetooth.zip', 'C:\Users\%USERNAME%\Desktop\Realtek_Bluetooth.zip')" >nul 2>&1
-ECHO [[93m-[0m] Extracting Driver ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Realtek_Bluetooth.zip' 'C:\Users\%USERNAME%\Desktop'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Realtek_Bluetooth.zip" >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :MediatekBluetooth
-ECHO [[93m-[0m] Downloading [93mMediatek Bluetooth driver[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Mediatek_Bluetooth.zip', 'C:\Users\%USERNAME%\Desktop\Mediatek_Bluetooth.zip')" >nul 2>&1
-ECHO [[93m-[0m] Extracting Driver ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Mediatek_Bluetooth.zip' 'C:\Users\%USERNAME%\Desktop'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Mediatek_Bluetooth.zip" >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :QualcommEthernet
-ECHO [[93m-[0m] Downloading [93mQualcomm Ethernet driver[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Qualcomm_Ethernet.zip', 'C:\Users\%USERNAME%\Desktop\Qualcomm_Ethernet.zip')" >nul 2>&1
-ECHO [[93m-[0m] Extracting Driver ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Qualcomm_Ethernet.zip' 'C:\Users\%USERNAME%\Desktop'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Qualcomm_Ethernet.zip" >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :MarvellEthernet
-ECHO [[93m-[0m] Downloading [93mMarvell Ethernet driver[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Marvell_Ethernet.zip', 'C:\Users\%USERNAME%\Desktop\Marvell_Ethernet.zip')" >nul 2>&1
-ECHO [[93m-[0m] Extracting Driver ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Marvell_Ethernet.zip' 'C:\Users\%USERNAME%\Desktop'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Marvell_Ethernet.zip" >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :BroadcomEthernet
-ECHO [[93m-[0m] Downloading [93mBroadcom Ethernet driver[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Broadcom_Ethernet.zip', 'C:\Users\%USERNAME%\Desktop\Broadcom_Ethernet.zip')" >nul 2>&1
-ECHO [[93m-[0m] Extracting Driver ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Broadcom_Ethernet.zip' 'C:\Users\%USERNAME%\Desktop'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Broadcom_Ethernet.zip" >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :QualcommWifi
-ECHO [[93m-[0m] Downloading [93mQualcomm Wifi driver[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Qualcomm_Wifi.zip', 'C:\Users\%USERNAME%\Desktop\Qualcomm_Wifi.zip')" >nul 2>&1
-ECHO [[93m-[0m] Extracting Driver ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Qualcomm_Wifi.zip' 'C:\Users\%USERNAME%\Desktop'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Qualcomm_Wifi.zip" >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :MarvellWifi
-ECHO [[93m-[0m] Downloading [93mMarvell Wifi driver[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Marvell_Wifi.zip', 'C:\Users\%USERNAME%\Desktop\Marvell_Wifi.zip')" >nul 2>&1
-ECHO [[93m-[0m] Extracting Driver ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Marvell_Wifi.zip' 'C:\Users\%USERNAME%\Desktop'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Marvell_Wifi.zip" >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :BroadcomWifi
-ECHO [[93m-[0m] Downloading [93mBroadcom Wifi driver[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Broadcom_Wifi.zip', 'C:\Users\%USERNAME%\Desktop\Broadcom_Wifi.zip')" >nul 2>&1
-ECHO [[93m-[0m] Extracting Driver ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Broadcom_Wifi.zip' 'C:\Users\%USERNAME%\Desktop'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Broadcom_Wifi.zip" >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :QualcommBluetooth
-ECHO [[93m-[0m] Downloading [93m Qualcomm Bluetooth driver[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Qualcomm_Bluetooth.zip', 'C:\Users\%USERNAME%\Desktop\Qualcomm_Bluetooth.zip')" >nul 2>&1
-ECHO [[93m-[0m] Extracting Driver ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Qualcomm_Bluetooth.zip' 'C:\Users\%USERNAME%\Desktop'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Qualcomm_Bluetooth.zip" >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :MarvellBluetooth
-ECHO [[93m-[0m] Downloading [93mMarvell Bluetooth driver[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Marvell_Bluetooth.zip', 'C:\Users\%USERNAME%\Desktop\Marvell_Bluetooth.zip')" >nul 2>&1
-ECHO [[93m-[0m] Extracting Driver ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Marvell_Bluetooth.zip' 'C:\Users\%USERNAME%\Desktop'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Marvell_Bluetooth.zip" >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :BroadcomBluetooth
-ECHO [[93m-[0m] Downloading [93mBroadcom Bluetooth driver[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Broadcom_Bluetooth.zip', 'C:\Users\%USERNAME%\Desktop\Broadcom_Bluetooth.zip')" >nul 2>&1
-ECHO [[93m-[0m] Extracting Driver ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Broadcom_Bluetooth.zip' 'C:\Users\%USERNAME%\Desktop'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Broadcom_Bluetooth.zip" >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :GoBack
@@ -1950,14 +1787,11 @@ SFC /Scannow >nul 2>&1
 DISM /Online /Cleanup-Image /CheckHealth >nul 2>&1
 DISM /Online /Cleanup-Image /ScanHealth >nul 2>&1
 DISM /Online /Cleanup-Image /RestoreHealth >nul 2>&1
-ECHO [[92m+[0m] Done. Please restart Windows.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Repair finished. Please restart Windows.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO DebugMenu
 
 :RepairWindowsAdvanced
-ECHO [[93m-[0m] Trying to [93mrepair Windows[0m ...
-timeout 2 >nul 2>&1
-ECHO [[91m![0m] Copy [93minstall.wim[0m file to C:\Program Files\LTSC\AdditionalFiles\RepairWin
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Please move the install.wim to C:\Program Files\LTSC\AdditionalFiles\RepairWin and press any Key to continue.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 ECHO [[91m![0m] Press any key to continue.
 pause >nul 2>&1
 SFC /Scannow >nul 2>&1
@@ -1965,136 +1799,105 @@ DISM /Online /Cleanup-Image /CheckHealth >nul 2>&1
 DISM /Online /Cleanup-Image /ScanHealth >nul 2>&1
 DISM /Online /Cleanup-Image /RestoreHealth >nul 2>&1
 DISM /Online /Cleanup-Image /RestoreHealth /Source:"C:\Program Files\LTSC\AdditionalFiles\RepairWin\install.wim"
-ECHO [[92m+[0m] Done. Please restart Windows.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Repair finished. Please restart Windows.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO DebugMenu
 
 :CleanTempFiles
 ECHO [[93m-[0m] Cleaning [93mWindows Temp files[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/CleanFiles.cmd', 'C:\Program Files\LTSC\Scripts\CleanFiles.cmd')" >nul 2>&1
 start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\CleanFiles.cmd" >nul 2>&1
-timeout 10 >nul 2>&1
 GOTO DebugMenu
 
 :InstallUpdates
-ECHO [[93m-[0m] Searching for [93mWindows Updates[0m ...
 PowerShell -Command "Install-WindowsUpdate -MicrosoftUpdate -AcceptAll -AutoReboot" >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Windows Update sucessfully completed',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO DebugMenu
 
 :MSActivation
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/activate.cmd', 'C:\Program Files\LTSC\Scripts\activate.cmd')" >nul 2>&1
 start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\activate.cmd" >nul 2>&1
-timeout 10 >nul 2>&1
 GOTO DebugMenu
 
 :UpdateAPP
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/UpdateAPP.cmd', 'C:\Program Files\LTSC\Scripts\UpdateAPP.cmd')" >nul 2>&1
-ECHO [[93m-[0m] Updating APP ...
 start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\UpdateAPP.cmd" >nul 2>&1
 exit
 
 :RebuildIconCache
-ECHO [[93m-[0m] Rebuilding [93mIcon Cache[0m ...
 ie4uinit.exe -show >nul 2>&1
 taskkill /IM explorer.exe /F >nul 2>&1
 DEL /A /Q "%localappdata%\IconCache.db" >nul 2>&1
 DEL /A /F /Q "%localappdata%\Microsoft\Windows\Explorer\iconcache*" >nul 2>&1
-ECHO [[92m+[0m] Done. Windows will restart to finish the rebuilding process.
-timeout 5 >nul 2>&1
-shutdown /r /f /t 00 >nul 2>&1
+start explorer.exe
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Icon cache has been rebuilt. Please restart Windows.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO DebugMenu
 
 :FlushDNS
-ECHO [[93m-[0m] Flushing [93mDNS Resolver Cache[0m ...
 ipconfig /flushdns >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','DNS resolver cache has been flushed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO DebugMenu
 
 :ClearThumbnailCache
-ECHO [[93m-[0m] Clearing [93mThumbnail Cache[0m ...
 taskkill /f /im explorer.exe >nul 2>&1
 timeout 2 >nul 2>&1
 DEL /F /S /Q /A "%LocalAppData%\Microsoft\Windows\Explorer\thumbcache_*.db" >nul 2>&1
 timeout 2 >nul 2>&1
 start explorer.exe
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Thumbnail cache has been cleared.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO DebugMenu
 
 :RepairMSStore
-ECHO [[93m-[0m] Trying to repair [93mMicrosoft Store[0m ...
 PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage -AllUsers 'WindowsStore' | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register '$($_.InstallLocation)\AppXManifest.xml'}" >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Microsoft Store has been repaired.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO DebugMenu
 
 :EnableBuiltinAdmin
-ECHO [[93m-[0m] Enabling [93mbuiltin Administrator Account[0m ...
 net user Administrator /active:yes >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Built-In Administrator Account has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO DebugMenu
 
 :DisableBuiltinAdmin
-ECHO [[93m-[0m] Disabling [93mbuiltin Administrator Account[0m ...
 net user Administrator /active:no >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Built-In Administrator Account has been disabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO DebugMenu
 
 :DisableChecks
-ECHO [[93m-[0m] Disabling [93mUpgrade Hardware compatibility[0m checks ...
 reg delete "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\vdsldr.exe" /f >nul 2>&1
 wmic /namespace:"\\root\subscription" path __EventFilter where Name="Skip TPM Check on Dynamic Update" delete >nul 2>&1
 REG Add "HKLM\SYSTEM\Setup\MoSetup" /V AllowUpgradesWithUnsupportedTPMOrCPU /T REG_DWORD /D 1 /F >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Hardware compatibility checks have been disabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO DebugMenu
 
 :DisableModernStandby
-ECHO [[93m-[0m] Disabling [93mmodern standby connectivity[0m ...
 POWERCFG -SETDCVALUEINDEX SCHEME_CURRENT SUB_NONE CONNECTIVITYINSTANDBY 0 >nul 2>&1
 POWERCFG -SETACVALUEINDEX SCHEME_CURRENT SUB_NONE CONNECTIVITYINSTANDBY 0 >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Modern Standby connectivity has been disabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO DebugMenu
 
 :ReapplyLTSC
-ECHO [[93m-[0m] [93mReapplying LTSC changes[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/setup.cmd', 'C:\Program Files\LTSC\Setup.cmd')" >nul 2>&1
 start cmd.exe @cmd /C "C:\Program Files\LTSC\Setup.cmd" >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
 GOTO DebugMenu
 
 :UpdateWinSecurity
-ECHO [[93m-[0m] Updating [93mWindows Security[0m ...
 cd C:\ProgramData\Microsoft\Windows Defender\Platform\4.18* >nul 2>&1
 MpCmdRun -SignatureUpdate >nul 2>&1
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Windows Security has been updated.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO DebugMenu
 
 :Placeholder
-ECHO [[93m-[0m] Test [93mPlaceholder[0m ...
-ECHO [[92m+[0m] Done.
-timeout 3 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Placeholder.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO DebugMenu
 
 :GoBack
 GOTO Welcome
 
 :RestartWindows
-ECHO [[93m-[0m] [93mRestarting Windows[0m ...
-timeout 3 >nul 2>&1
-shutdown /r /f /t 00 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Windows will restart shortly.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+shutdown /r /f /t 05 >nul 2>&1
 
 :RestartBIOS
-ECHO [[93m-[0m] [93mRestarting into BIOS[0m ...
-timeout 3 >nul 2>&1
-shutdown /r /fw -t 0 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Your PC will restart into UEFI/BIOS shortly.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+shutdown /r /fw /t 05 >nul 2>&1
 
 :: Note - BATCH FILE END.
