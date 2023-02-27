@@ -1914,16 +1914,20 @@ ECHO [[1mD[0m] Install Win Updates[[1mE[0m] MS Activation           [[1mF[
 ECHO [[1mG[0m] Rebuild Icon Cache [[1mH[0m] Flush DNS Cache         [[1mI[0m] Clear Thumbnail cache
 ECHO [[1mJ[0m] Repair MS Store    [[1mK[0m] Enable builtin Admin    [[1mL[0m] Disable builtin Admin
 ECHO.[[1mM[0m] Disable TPM Checks [[1mN[0m] Disable Modern Standby  [[1mO[0m] Reapply LTSC scripts
+ECHO.[[1mP[0m] Update Win Security[[1mQ[0m] Placeholder             [[1mR[0m] Placeholder
 ECHO.
 @ECHO [36m____________________________________________________________________________[0m
 ECHO.
 ECHO          [101m[X] Go back[0m   [100m[Y] Restart Windows[0m   [100m[Z] Restart into BIOS[0m
-CHOICE /C:abcdefghijklmnoxyz /N /M ""
+CHOICE /C:abcdefghijklmnopqrxyz /N /M ""
 
 :: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 18 GOTO RestartBIOS
-IF ERRORLEVEL 17 GOTO RestartWindows
-IF ERRORLEVEL 16 GOTO GoBack
+IF ERRORLEVEL 21 GOTO RestartBIOS
+IF ERRORLEVEL 20 GOTO RestartWindows
+IF ERRORLEVEL 19 GOTO GoBack
+IF ERRORLEVEL 18 GOTO Placeholder
+IF ERRORLEVEL 17 GOTO Placeholder
+IF ERRORLEVEL 16 GOTO UpdateWinSecurity
 IF ERRORLEVEL 15 GOTO ReapplyLTSC
 IF ERRORLEVEL 14 GOTO DisableModernStandby
 IF ERRORLEVEL 13 GOTO DisableChecks
@@ -2062,6 +2066,20 @@ GOTO DebugMenu
 ECHO [[93m-[0m] [93mReapplying LTSC changes[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/setup.cmd', 'C:\Program Files\LTSC\Setup.cmd')" >nul 2>&1
 start cmd.exe @cmd /C "C:\Program Files\LTSC\Setup.cmd" >nul 2>&1
+ECHO [[92m+[0m] Done.
+timeout 3 >nul 2>&1
+GOTO DebugMenu
+
+:UpdateWinSecurity
+ECHO [[93m-[0m] Updating [93mWindows Security[0m ...
+cd C:\ProgramData\Microsoft\Windows Defender\Platform\4.18* >nul 2>&1
+MpCmdRun -SignatureUpdate >nul 2>&1
+ECHO [[92m+[0m] Done.
+timeout 3 >nul 2>&1
+GOTO DebugMenu
+
+:Placeholder
+ECHO [[93m-[0m] Test [93mPlaceholder[0m ...
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO DebugMenu
