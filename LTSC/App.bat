@@ -1964,7 +1964,7 @@ SFC /Scannow >nul 2>&1
 DISM /Online /Cleanup-Image /CheckHealth >nul 2>&1
 DISM /Online /Cleanup-Image /ScanHealth >nul 2>&1
 DISM /Online /Cleanup-Image /RestoreHealth >nul 2>&1
-DISM /Online /Cleanup-Image /RestoreHealth /Source:C:\Program Files\LTSC\AdditionalFiles\RepairWin\install.wim
+DISM /Online /Cleanup-Image /RestoreHealth /Source:"C:\Program Files\LTSC\AdditionalFiles\RepairWin\install.wim"
 ECHO [[92m+[0m] Done. Please restart Windows.
 timeout 3 >nul 2>&1
 GOTO DebugMenu
