@@ -134,7 +134,7 @@ IF ERRORLEVEL 1 GOTO Chrome
 
 :Chrome
 winget install Google.Chrome --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Chrome has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Google Chrome has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AppDLMenu
 
 :Discord
