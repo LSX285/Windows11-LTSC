@@ -134,53 +134,53 @@ IF ERRORLEVEL 1 GOTO Chrome
 
 :Chrome
 winget install Google.Chrome --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Chrome has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AppDLMenu
 
 :Discord
 winget install Discord.Discord --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Discord has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AppDLMenu
 
 :Spotify
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://download.scdn.co/SpotifySetup.exe', 'C:\Users\%USERNAME%\Desktop\SpotifySetup.exe')" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Spotify has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AppDLMenu
 
 :Steam
 winget install Valve.Steam --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Steam has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AppDLMenu
 
 :EpicGames
 winget install EpicGames.EpicGamesLauncher --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Epic Games Launcher has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AppDLMenu
 
 :Mullvad
 winget install MullvadVPN.MullvadVPN --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Mullvad has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AppDLMenu
 
 :Wireguard
 winget install WireGuard.WireGuard --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Wireguard has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AppDLMenu
 
 :LibreOffice
 winget install TheDocumentFoundation.LibreOffice --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','LibreOffice has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AppDLMenu
 
 :Paintnet
 winget install dotPDNLLC.paintdotnet --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Paint.net has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AppDLMenu
 
 
 :VlcPlayer
 winget install VideoLAN.VLC --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','VLC Player has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AppDLMenu
 
 :MSIAfterburner
@@ -190,7 +190,7 @@ ECHO [[93m-[0m] Extracting [93mMSI Afterburner[0m ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\MSIAfterburner.zip' 'C:\Users\%USERNAME%\Desktop'"
 ECHO [[93m-[0m] Installing [93mMSI Afterburner[0m ...
 "C:\Users\%USERNAME%\Desktop\MSIAfterburnerSetup465Beta4.exe" /S
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','MSI Afterburner has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\MSIAfterburner.zip" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\MSIAfterburnerSetup465Beta4.exe" >nul 2>&1
 rmdir /S /Q "C:\Users\%USERNAME%\Desktop\Guru3D.com" >nul 2>&1
@@ -200,22 +200,22 @@ GOTO AppDLMenu
 
 :NZXTCam
 winget install NZXT.CAM --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','NZXT CAM has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AppDLMenu
 
 :VSCode
 winget install Microsoft.VisualStudioCode --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','VS Code has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AppDLMenu
 
 :Blender
 winget install BlenderFoundation.Blender --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Blender has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AppDLMenu
 
 :Hwinfo
 winget install REALiX.HWiNFO --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','HWINFO has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AppDLMenu
 
 :Updates
@@ -270,22 +270,22 @@ IF ERRORLEVEL 1 GOTO OperaGX
 
 :OperaGX
 winget install Opera.OperaGX --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Opera GX has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More
 
 :Brave
 winget install Brave.Brave --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Brave has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More
 
 :EADesktop
 winget install ElectronicArts.EADesktop --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','EA Desktop App has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More
 
 :GOGGalaxy
 winget install GOG.Galaxy --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','GOG Galaxy has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More
 
 :BattleNet
@@ -293,59 +293,59 @@ ECHO [[93m-[0m] Downloading [93mBattle.net[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://www.battle.net/download/getInstallerForGame?os=win&gameProgram=BATTLENET_APP&version=Live&id=undefined', 'C:\Users\%USERNAME%\Desktop\Battle.net-Setup.exe')" >nul 2>&1
 ECHO [[93m-[0m] Installing [93mBattle.net[0m ...
 "C:\Users\%USERNAME%\Desktop\Battle.net-Setup.exe" --lang=enUS --installpath="C:\Program Files (x86)\Battle.net"
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Battle.net Launcher has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Battle.net-Setup.exe" >nul 2>&1
 GOTO More
 
 :UbisoftConnect
 winget install Ubisoft.Connect --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Ubisoft Connect has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More
 
 :GIMP 
 winget install GIMP.GIMP --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','GIMP has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More
 
 :GPUZ
 winget install TechPowerUp.GPU-Z --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','GPU-Z has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More
 
 :OneDrive
 winget install  Microsoft.OneDrive --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','OneDrive has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More
 
 :OBSStudio
 winget install OBSProject.OBSStudio --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','OBS Studio has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More
 
 :GeforceExperience
 winget install Nvidia.GeForceExperience --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Geforce Experience has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More
 
 :GeforceNOW
 ECHO [[93m-[0m] Downloading [93mGeforce Now[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://download.nvidia.com/gfnpc/GeForceNOW-release.exe', 'C:\Users\%USERNAME%\Desktop\GeForceNOW-Setup.exe')" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Geforce Now has been downloaded. Please run the installer manually.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More
 
 :PostgreSQL
 winget install PostgreSQL.PostgreSQL --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','POSTgreSQL has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More
 
 :Dropbox
 winget install Dropbox.Dropbox --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Dropbox has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More
 
 :Teams
 winget install Microsoft.Teams --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Teams has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More
 
 :Updates
@@ -400,77 +400,77 @@ IF ERRORLEVEL 1 GOTO Zoom
 
 :Zoom
 winget install Zoom.Zoom --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Zoom has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More2
 
 :SublimeText
 winget install SublimeHQ.SublimeText.4 --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Sublime Text has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More2
 
 :Notepadplusplus
 winget install Notepad++.Notepad++ --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Notepad PlusPlus has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More2
 
 :Corsairicue
 winget install Corsair.iCUE.4 --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Corsair iCUE has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More2
 
 :Firefox
 winget install Mozilla.Firefox --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Firefox has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More2
 
 :VisualStudio
 winget install Microsoft.VisualStudio.2022.Community --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Visual Studio 2022 Community has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More2
 
 :Radiograph
 winget install 9NH1P86H06CG --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Radiograph has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More2
 
 :qBittorrent
 winget install qBittorrent.qBittorrent --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','qBittorrent has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More2
 
 :Picotorrent
 winget install PicoTorrent.PicoTorrent --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Picotorrent has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More2
 
 :GooglePlayGames
 winget install Google.PlayGames.Beta --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Google Play Games has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More2
 
 :Audacity
 winget install Audacity.Audacity --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Audacity has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More2
 
 :Cinebench
 winget install 9PGZKJC81Q7J --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Cinebench has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More2
 
 :iTunes
 winget install Apple.iTunes --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','iTunes has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More2
 
 :Rufus
 winget install Rufus.Rufus --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Rufus has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More2
 
 :Aida64
 winget install FinalWire.AIDA64.Extreme --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Aida64 has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More2
 
 :Updates
@@ -525,77 +525,77 @@ IF ERRORLEVEL 1 GOTO NordVPN
 
 :NordVPN
 winget install NordVPN.NordVPN --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','NordVPN has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More3
 
 :ExpressVPN
 winget install ExpressVPN.ExpressVPN --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','ExpressVPN has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More3
 
 :Surfshark
 winget install Surfshark.Surfshark --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Surfshark has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More3
 
 :WinSCP
 winget install WinSCP.WinSCP --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','WinSCP has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More3
 
 :WindowsTerminal
 winget install Microsoft.WindowsTerminal --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Windows Terminal has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More3
 
 :LogitechGHUB
 winget install Logitech.GHUB --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Logitech G Hub has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More3
 
 :VSCodium
 winget install VSCodium.VSCodium --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','VS Codium has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More3
 
 :NVCleanstall
 winget install TechPowerUp.NVCleanstall --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','NVCleanstall has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More3
 
 :BlueStacks
 winget install BlueStack.BlueStacks --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Bluestacks has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More3
 
 :Powershell
 winget install Microsoft.PowerShell --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Powershell has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More3
 
 :Teamviewer
 winget install TeamViewer.TeamViewer --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Teamviewer has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More3
 
 :Parsec
 winget install Parsec.Parsec --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Parsec has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More3
 
 :Vivaldi
 winget install VivaldiTechnologies.Vivaldi --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Vivaldi has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More3
 
 :Virtualbox
 winget install Oracle.VirtualBox --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Virtualbox has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More3
 
 :VMWare
 winget install VMware.WorkstationPlayer --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','VMWare has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More3
 
 :Updates
@@ -650,77 +650,77 @@ IF ERRORLEVEL 1 GOTO Sunshine
 
 :Sunshine
 winget install LizardByte.Sunshine --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','NVIDIA Sunshine has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More4
 
 :Foobar2000
 winget install PeterPawlowski.foobar2000 --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Foobar 2000 has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More4
 
 :CPUZ
 winget install CPUID.CPU-Z --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','CPU-Z has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More4
 
 :ChromeBeta
 winget install Google.Chrome.Beta --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Google Chrome Beta has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More4
 
 :ChromeDev
 winget install Google.Chrome.Dev --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Google Chrome Dev has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More4
 
 :ChromeCanary
 winget install Google.Chrome.Canary --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Google Chrome Canary has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More4
 
 :UngoogledChromium
 winget install eloston.ungoogled-chromium --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Ungoogled Chromium has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More4
 
 :Edge
 winget install Microsoft.Edge --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Microsoft Edge has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More4
 
 :EdgeBeta
 winget install Microsoft.Edge.Beta --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Microsoft Edge Beta has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More4
 
 :EdgeDev
 winget install Microsoft.Edge.Dev --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Microsoft Edge Dev has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More4
 
 :AdobeAcrobatReader
 winget install Adobe.Acrobat.Reader.64-bit --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Adobe Acrobat Reader has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More4
 
 :WhatsApp
 winget install WhatsApp.WhatsApp --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','WhatsApp has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More4
 
 :Telegram
 winget install Telegram.TelegramDesktop --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Telegram has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More4
 
 :MSPCManager
 winget install Microsoft.PCManager --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Microsoft PC Manager has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More4
 
 :Winamp
 winget install Winamp.Winamp --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','WinAMP has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More4
 
 :Updates
@@ -775,79 +775,79 @@ IF ERRORLEVEL 1 GOTO Skype
 
 :Skype
 winget install Microsoft.Skype --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Skype has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More5
 
 :Thunderbird
 winget install Mozilla.Thunderbird --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Mozilla Thunderbird has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More5
 
 :Slack
 winget install SlackTechnologies.Slack --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Slack has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More5
 
 :ShareX
 winget install ShareX.ShareX --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','ShareX has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More5
 
 :Lightshot
 winget install Skillbrains.Lightshot --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Lightshot has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More5
 
 :Eartrumpet
 winget install File-New-Project.EarTrumpet --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Eartrumpet has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More5
 
 :Files
 winget install FilesCommunity.Files --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Files has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More5
 
 :GoogleDrive
 winget install Google.Drive --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Google Drive has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More5
 
 :WinRar
 winget install RARLab.WinRAR --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','WinRar has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More5
 
 :7zip
 winget install 7zip.7zip --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','7Zip has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More5
 
 :Dolphin
 winget install DolphinEmulator.Dolphin --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Dolphin Emulator has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More5
 
 :ppsspp
 winget install PPSSPPTeam.PPSSPP --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','ppsspp Emulator has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More5
 
 :rpcs3
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/RPCS3/rpcs3-binaries-win/releases/download/build-39760189804d59315ab9f304d3cebddfb5d72f63/rpcs3-v0.0.26-14712-39760189_win64.7z', 'C:\Users\%USERNAME%\Desktop\rpcs3.7z')" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','rpcs3 has been downloaded. Extract the 7zip file and run the installer manually.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More5
 
 :Ryujinx
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/Ryujinx/release-channel-master/releases/download/1.1.617/ryujinx-1.1.617-win_x64.zip', 'C:\Users\%USERNAME%\Desktop\ryujinx.zip')" >nul 2>&1
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\ryujinx.zip' 'C:\Users\%USERNAME%\Desktop\ryujinx'" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Ryujinx has been downloaded. Run the installer manually.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\ryujinx.zip" >nul 2>&1
 GOTO More5
 
 :AppleDevices
 winget install 9NP83LWLPZ9K --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Apple Devices has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More5
 
 :Updates
