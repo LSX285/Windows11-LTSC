@@ -35,6 +35,13 @@ Windows Registry Editor Version 5.00
 ;Turn off Search Highlights
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Search]
 "EnableDynamicContentInWSB"=dword:00000000
+"AllowCortana"=dword:00000000
+"AllowCloudSearch"=dword:00000000
+"DisableWebSerach"=dword:00000001
+"AllowSearchToUseLocation"=dword:00000000
+"ConnectedSearchPrivacy"=dword:00000003
+"ConntectedSearchSafeSearch"=dword:00000003
+"ConnectedSearchUseWeb"=dword:00000000
 
 ;Turn off delivery optimization
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization]
@@ -208,6 +215,9 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Dsh]
 "AllowNewsAndInterests"=dword:00000001
 
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Windows Error Reporting]
+"Disabled"=dword:00000001
+
 ;Turn off error reporting
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\PCHealth\ErrorReporting]
 "DoReport"=dword:00000000
@@ -215,6 +225,8 @@ Windows Registry Editor Version 5.00
 "AllOrNone"=dword:00000000
 "IncludeMicrosoftApps"=dword:00000000
 "IncludeWindowsApps"=dword:00000000
+"IncludeKernelFaults"=dword:00000000
+"IncludeShutdownErrs"=dword:00000000
 
 ;Turn off error reporting
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\PCHealth\ErrorReporting\DW]
@@ -224,9 +236,52 @@ Windows Registry Editor Version 5.00
 "DWFileTreeRoot"=""
 "DWReporteeName"=""
 
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\AdvertisingInfo]
+"DisabledByGroupPolicy"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\InputPersonalization]
+"RestrictImplicitInkCollection"=dword:00000001
+"RestrictImplicitTextCollection"=dword:00000001
+"AllowInputPersonalization"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\TextInput]
+"AllowLinguisticDataCollection"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection]
+"AllowTelemetry"=dword:00000000
+"LimitDiagnosticLogCollection"=dword:00000001
+"LimitDumpCollection"=dword:00000001
+"DoNotShowFeedbackNotifications"=dword:00000001
+"DisableEnterpriseAuthProxy"=dword:00000001
+"DisableOneSettingsDownloads"=dword:00000001
+"AllowCommercialDataPipeline"=dword:00000001
+"AllowDesktopAnalyticsProcessing"=dword:00000000
+"AllowDeviceNameInTelemetry"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\System\AllowTelemetry]
+"value"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection]
+"AllowTelemetry"=dword:00000000
+"MaxTelemetryAllowed"=dword:00000000
+"MicrosoftEdgeDataOptIn"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\AppCompat]
+"AITEnable"=dword:00000000
+"DisableInventory"=dword:00000001
+"DisablePCA"=dword:00000001
+"DisableUAR"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Settings\FindMyDevice]
+"LocationSyncEnabled"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\FindMyDevice]
+"AllowFindMyDevice"=dword:00000000
+
 ;Turn on Clipboard History
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System]
 "AllowClipboardHistory"=dword:00000001
+"EnableCdp"=dword:00000000
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Group Policy\{0E28E245-9368-4853-AD84-6DA3BA35BB75}]
 "LogLevel"=dword:00000000
