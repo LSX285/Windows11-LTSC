@@ -1246,7 +1246,7 @@ IF ERRORLEVEL 1 GOTO NvidiaGeforce1
 
 :NvidiaGeforce1
 ECHO [[93m-[0m] Downloading [93mNVIDIA drivers for 900-4000 series[0m ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://international.download.nvidia.com/Windows/528.49/528.49-desktop-win10-win11-64bit-international-dch-whql.exe', 'C:\Users\%USERNAME%\Desktop\NVIDIA.exe')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://international.download.nvidia.com/Windows/531.18/531.18-desktop-win10-win11-64bit-international-dch-whql.exe', 'C:\Users\%USERNAME%\Desktop\NVIDIA.exe')" >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO GraphicsMenu
