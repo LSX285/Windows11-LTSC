@@ -165,7 +165,7 @@ schtasks /Change /TN "Microsoft\Windows\Windows Error Reporting\QueueReporting" 
 schtasks /Change /TN "Microsoft\Windows\Diagnosis\RecommendedTroubleshootingScanner" /Disable >nul 2>&1
 schtasks /Change /TN "Microsoft\Windows\Maps\MapsToastTask" /Disable >nul 2>&1
 
-powershell.exe -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'Applying LTSC ...','Dont touch your PC just yet - Windows will automatically restart your PC shortly.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'Applying LTSC ...','Dont touch your PC just yet - Windows will automatically restart your PC shortly.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 
 :: Note - Removing FoD Packages
 dism /Online /Disable-Feature /FeatureName:"TelnetClient" /NoRestart >nul 2>&1
