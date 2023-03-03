@@ -1640,7 +1640,7 @@ GOTO DriversMenu
 
 :DebugMenu
 mode con: cols=76 lines=20
-Title Install Drivers
+Title Debug Menu
 @ECHO OFF
 CLS
 @ECHO.
@@ -1655,15 +1655,17 @@ ECHO [[1mJ[0m] Repair MS Store    [[1mK[0m] Enable builtin Admin    [[1mL[
 ECHO.[[1mM[0m] Disable TPM Checks [[1mN[0m] Disable Modern Standby  [[1mO[0m] Reapply LTSC scripts
 ECHO.[[1mP[0m] Update Win Security[[1mQ[0m] MS Server Activation    [[1mR[0m] Placeholder
 ECHO.
+@ECHO                          [42m[S]LTSC Insider Features[0m
 @ECHO [36m____________________________________________________________________________[0m
 ECHO.
 ECHO          [101m[X] Go back[0m   [100m[Y] Restart Windows[0m   [100m[Z] Restart into BIOS[0m
-CHOICE /C:abcdefghijklmnopqrxyz /N /M ""
+CHOICE /C:abcdefghijklmnopqrsxyz /N /M ""
 
 :: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 21 GOTO RestartBIOS
-IF ERRORLEVEL 20 GOTO RestartWindows
-IF ERRORLEVEL 19 GOTO GoBack
+IF ERRORLEVEL 22 GOTO RestartBIOS
+IF ERRORLEVEL 21 GOTO RestartWindows
+IF ERRORLEVEL 20 GOTO GoBack
+IF ERRORLEVEL 19 GOTO InsiderFeaturesMenu
 IF ERRORLEVEL 18 GOTO Placeholder
 IF ERRORLEVEL 17 GOTO MSServerActivation
 IF ERRORLEVEL 16 GOTO UpdateWinSecurity
@@ -1807,4 +1809,32 @@ shutdown /r /f /t 05 >nul 2>&1
 powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Your PC will restart into UEFI/BIOS shortly.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 shutdown /r /fw /t 05 >nul 2>&1
 
+:InsiderFeaturesMenu
+mode con: cols=76 lines=20
+Title Insider Features
+@ECHO OFF
+CLS
+@ECHO.
+@ECHO                                [7mInsider Features[0m
+@ECHO                  Only use this Menu if you're on LTSC-Insider.
+@ECHO.
+@ECHO [36m____________________________________________________________________________[0m
+@ECHO.
+ECHO [[1mA[0m] WIP   [[1mA[0m] WIP     [[1mA[0m] WIP     [[1mA[0m] WIP     [[1mA[0m] WIP   [[1mA[0m] WIP     [[1mA[0m] WIP
+ECHO [[1mA[0m] WIP   [[1mA[0m] WIP     [[1mA[0m] WIP     [[1mA[0m] WIP     [[1mA[0m] WIP   [[1mA[0m] WIP     [[1mA[0m] WIP  
+@ECHO [36m____________________________________________________________________________[0m
+ECHO.
+ECHO          [101m[X] Go back[0m
+CHOICE /C:ax /N /M ""
+
+:: Note - list ERRORLEVELS in decreasing order
+IF ERRORLEVEL 2 GOTO GoBack
+IF ERRORLEVEL 1 GOTO WIP
+
+:WIP
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Placeholder.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+GOTO InsiderFeaturesMenu
+
+:GoBack
+GOTO DebugMenu
 :: Note - BATCH FILE END.
