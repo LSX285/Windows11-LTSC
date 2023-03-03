@@ -962,7 +962,7 @@ CLS
 @ECHO.
 @ECHO [36m____________________________________________________________________________[0m
 @ECHO.
-ECHO                                      WIP
+ECHO      [[1mA[0m] Remove preinstalled Apps
 ECHO.
 @ECHO [36m____________________________________________________________________________[0m
 ECHO.
@@ -971,11 +971,55 @@ CHOICE /C:ax /N /M ""
 
 :: Note - list ERRORLEVELS in decreasing order
 IF ERRORLEVEL 2 GOTO GoBack
-IF ERRORLEVEL 1 GOTO WIP
+IF ERRORLEVEL 1 GOTO RemovePreinstalledApps
 
-:WIP
-ECHO [[93m-[0m] WIP ...
-timeout 3 >nul 2>&1
+:RemovePreinstalledApps
+"C:\Windows\System32\OneDriveSetup.exe" /uninstall >nul 2>&1
+powershell -command "Get-AppxPackage *family* | Remove-AppxPackage" >nul 2>&1
+powershell -command "Get-AppxPackage *Teams* | Remove-AppxPackage" >nul 2>&1
+powershell -command "Get-AppxPackage *Microsoft.549981C3F5F10* | Remove-AppxPackage" >nul 2>&1
+powershell -command "Get-AppxPackage *Microsoft.Getstarted* | Remove-AppxPackage" >nul 2>&1
+powershell -command "Get-AppxPackage *Microsoft.Paint* | Remove-AppxPackage" >nul 2>&1
+powershell -command "Get-AppxPackage *Microsoft.ZuneMusic* | Remove-AppxPackage" >nul 2>&1
+powershell -command "Get-AppxPackage *Microsoft.WindowsStore* | Remove-AppxPackage" >nul 2>&1
+powershell -command "Get-AppxPackage *Microsoft.WindowsNotepad* | Remove-AppxPackage" >nul 2>&1
+powershell -command "Get-AppxPackage *Microsoft.ScreenSketch* | Remove-AppxPackage" >nul 2>&1
+powershell -command "Get-AppxPackage *Microsoft.WindowsTerminal* | Remove-AppxPackage" >nul 2>&1
+powershell -command "Get-AppxPackage *Microsoft.XboxIdentityProvider* | Remove-AppxPackage" >nul 2>&1
+powershell -command "Get-AppxPackage *Microsoft.HEIFImageExtension* | Remove-AppxPackage" >nul 2>&1
+powershell -command "Get-AppxPackage *Microsoft.HEVCVideoExtensions* | Remove-AppxPackage" >nul 2>&1
+powershell -command "Get-AppxPackage *microsoft.windowscommunicationsapps* | Remove-AppxPackage" >nul 2>&1
+powershell -command "Get-AppxPackage *Microsoft.WindowsAlarms* | Remove-AppxPackage" >nul 2>&1
+powershell -command "Get-AppxPackage *Microsoft.WebMediaExtensions* | Remove-AppxPackage" >nul 2>&1
+powershell -command "Get-AppxPackage *Microsoft.VP9VideoExtensions* | Remove-AppxPackage" >nul 2>&1
+powershell -command "Get-AppxPackage *Microsoft.WebpImageExtension* | Remove-AppxPackage" >nul 2>&1
+powershell -command "Get-AppxPackage *Microsoft.Todos* | Remove-AppxPackage" >nul 2>&1
+powershell -command "Get-AppxPackage *MicrosoftCorporationII.QuickAssist* | Remove-AppxPackage" >nul 2>&1
+powershell -command "Get-AppxPackage *Microsoft.ZuneVideo* | Remove-AppxPackage" >nul 2>&1
+powershell -command "Get-AppxPackage *Microsoft.YourPhone* | Remove-AppxPackage" >nul 2>&1
+powershell -command "Get-AppxPackage *Microsoft.XboxSpeechToTextOverlay* | Remove-AppxPackage" >nul 2>&1
+powershell -command "Get-AppxPackage *Microsoft.XboxGamingOverlay* | Remove-AppxPackage" >nul 2>&1
+powershell -command "Get-AppxPackage *Microsoft.Xbox.TCUI* | Remove-AppxPackage" >nul 2>&1
+powershell -command "Get-AppxPackage *Microsoft.WindowsSoundRecorder* | Remove-AppxPackage" >nul 2>&1
+powershell -command "Get-AppxPackage *Microsoft.WindowsMaps* | Remove-AppxPackage" >nul 2>&1
+powershell -command "Get-AppxPackage *Microsoft.WindowsFeedbackHub* | Remove-AppxPackage" >nul 2>&1
+powershell -command "Get-AppxPackage *Microsoft.WindowsCamera* | Remove-AppxPackage" >nul 2>&1
+powershell -command "Get-AppxPackage *Microsoft.WindowsCalculator* | Remove-AppxPackage" >nul 2>&1
+powershell -command "Get-AppxPackage *Microsoft.Windows.Photos* | Remove-AppxPackage" >nul 2>&1
+powershell -command "Get-AppxPackage *Microsoft.StorePurchaseApp* | Remove-AppxPackage" >nul 2>&1
+powershell -command "Get-AppxPackage *Microsoft.RawImageExtension* | Remove-AppxPackage" >nul 2>&1
+powershell -command "Get-AppxPackage *Microsoft.PowerAutomateDesktop* | Remove-AppxPackage" >nul 2>&1
+powershell -command "Get-AppxPackage *Microsoft.People* | Remove-AppxPackage" >nul 2>&1
+powershell -command "Get-AppxPackage *Microsoft.MicrosoftStickyNotes* | Remove-AppxPackage" >nul 2>&1
+powershell -command "Get-AppxPackage *Microsoft.MicrosoftSolitaireCollection* | Remove-AppxPackage" >nul 2>&1
+powershell -command "Get-AppxPackage *Microsoft.MicrosoftOfficeHub* | Remove-AppxPackage" >nul 2>&1
+powershell -command "Get-AppxPackage *Microsoft.HEVCVideoExtension* | Remove-AppxPackage" >nul 2>&1
+powershell -command "Get-AppxPackage *Microsoft.GetHelp* | Remove-AppxPackage" >nul 2>&1
+powershell -command "Get-AppxPackage *Microsoft.GamingApp* | Remove-AppxPackage" >nul 2>&1
+powershell -command "Get-AppxPackage *Microsoft.BingWeather* | Remove-AppxPackage" >nul 2>&1
+powershell -command "Get-AppxPackage *Microsoft.BingNews* | Remove-AppxPackage" >nul 2>&1
+powershell -command "Get-AppxPackage *Clipchamp.Clipchamp* | Remove-AppxPackage" >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','All preinstalled programs have been removed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO DebloatMenu
 
 :GoBack
