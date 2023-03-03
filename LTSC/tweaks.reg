@@ -18,12 +18,6 @@ Windows Registry Editor Version 5.00
 "ConsentPromptBehaviorAdmin"=dword:00000000
 "PromptOnSecureDesktop"=dword:00000000
 
-;Add LTSC branding to Windows
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation]
-"Model"="Windows 11 LTSC"
-"Manufacturer"="Windows 11 LTSC"
-"SupportURL"="https://github.com/LSX285/Windows11-LTSC"
-
 ;Hide hardware compatibility watermark
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Control Panel\UnsupportedHardwareNotificationCache]
 "SV2"=dword:00000000
@@ -369,7 +363,6 @@ Windows Registry Editor Version 5.00
 
 ;Set the new Wallpaper, disable JPEG compression and autocolor
 [HKEY_CURRENT_USER\Control Panel\Desktop]
-"WallPaper"="C:\\Windows\\Web\\Wallpaper\\ThemeD\\img32.jpg"
 "JPEGImportQuality"=dword:00000064
 "AutoColorization"=dword:00000001
 
