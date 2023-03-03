@@ -1612,7 +1612,7 @@ ECHO [[1mD[0m] Install Win Updates[[1mE[0m] MS Activation           [[1mF[
 ECHO [[1mG[0m] Rebuild Icon Cache [[1mH[0m] Flush DNS Cache         [[1mI[0m] Clear Thumbnail cache
 ECHO [[1mJ[0m] Repair MS Store    [[1mK[0m] Enable builtin Admin    [[1mL[0m] Disable builtin Admin
 ECHO.[[1mM[0m] Disable TPM Checks [[1mN[0m] Disable Modern Standby  [[1mO[0m] Reapply LTSC scripts
-ECHO.[[1mP[0m] Update Win Security[[1mQ[0m] Placeholder             [[1mR[0m] Placeholder
+ECHO.[[1mP[0m] Update Win Security[[1mQ[0m] MS Server Activation    [[1mR[0m] Placeholder
 ECHO.
 @ECHO [36m____________________________________________________________________________[0m
 ECHO.
@@ -1624,7 +1624,7 @@ IF ERRORLEVEL 21 GOTO RestartBIOS
 IF ERRORLEVEL 20 GOTO RestartWindows
 IF ERRORLEVEL 19 GOTO GoBack
 IF ERRORLEVEL 18 GOTO Placeholder
-IF ERRORLEVEL 17 GOTO Placeholder
+IF ERRORLEVEL 17 GOTO MSServerActivation
 IF ERRORLEVEL 16 GOTO UpdateWinSecurity
 IF ERRORLEVEL 15 GOTO ReapplyLTSC
 IF ERRORLEVEL 14 GOTO DisableModernStandby
@@ -1744,6 +1744,11 @@ GOTO DebugMenu
 cd C:\ProgramData\Microsoft\Windows Defender\Platform\4.18* >nul 2>&1
 MpCmdRun -SignatureUpdate >nul 2>&1
 powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Windows Security has been updated.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+GOTO DebugMenu
+
+:MSServerActivation
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/activate_server.cmd', 'C:\Program Files\LTSC\Scripts\activate_server.cmd')" >nul 2>&1
+start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\activate_server.cmd" >nul 2>&1
 GOTO DebugMenu
 
 :Placeholder
