@@ -47,7 +47,6 @@ powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/LTSC/Scripts/ViveTool/Newtonsoft.Json.dll', 'C:\Program Files\LTSC\Scripts/ViveTool/Newtonsoft.Json.dll')" >nul 2>&1
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/LTSC/Scripts/ViveTool/ViVeTool.exe', 'C:\Program Files\LTSC\Scripts/ViveTool/ViVeTool.exe')" >nul 2>&1
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://aka.ms/vs/17/release/vc_redist.x64.exe', 'C:\Users\%USERNAME%\Desktop\vc_redist.x64.exe')" >nul 2>&1
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/activate.cmd', 'C:\Program Files\LTSC\Scripts\activate.cmd')" >nul 2>&1
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/tweaks.reg', 'C:\Program Files\LTSC\tweaks.reg')" >nul 2>&1
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/hosts', 'C:\Windows\System32\drivers\etc\hosts')" >nul 2>&1
 
@@ -277,7 +276,32 @@ del /f "C:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu\Program
 "C:\Program Files\LTSC\Scripts/ViveTool/ViVeTool.exe" /enable /id:41561454 >nul 2>&1
 
 :: Note - Activating Windows
+:Activate
+
+set /p "choice=Do you want LTSC to activate Windows? (Y/N/Server): "
+
+if /i "%choice%"=="Y" (
+    GOTO Yes
+) else if /i "%choice%"=="N" (
+    GOTO No
+) else if /i "%choice%"=="Server" (
+    GOTO Server
+) else (
+    echo Invalid choice. Please enter Y/N/Server
+    GOTO Activate
+)
+
+:Yes
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/activate.cmd', 'C:\Program Files\LTSC\Scripts\activate.cmd')" >nul 2>&1
 start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\activate.cmd" >nul 2>&1
+GOTO Yes2
+
+:Server
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/activate_server.cmd', 'C:\Program Files\LTSC\Scripts\activate_server.cmd')" >nul 2>&1
+start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\activate_server.cmd" >nul 2>&1
+
+:No
+:Yes2
 
 :: Note - Set Windows Drive Label to OS
 label c: OS >nul 2>&1
