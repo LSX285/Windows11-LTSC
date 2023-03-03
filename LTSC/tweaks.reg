@@ -21,7 +21,7 @@ Windows Registry Editor Version 5.00
 ;Add LTSC branding to Windows
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation]
 "Model"="Windows 11 LTSC"
-"Manufacturer"="Windows 11 LTSC 22H2"
+"Manufacturer"="Windows 11 LTSC"
 "SupportURL"="https://github.com/LSX285/Windows11-LTSC"
 
 ;Hide hardware compatibility watermark
