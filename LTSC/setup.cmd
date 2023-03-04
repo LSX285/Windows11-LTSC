@@ -341,5 +341,4 @@ if %errorlevel% equ 0 (
 rmdir /S /Q "C:\Users\%USERNAME%\Documents\WindowsPowerShell" >nul 2>&1
 
 :: Note - Restarting Windows to apply all changes made by this script.
-timeout 20 >nul 2>&1
-shutdown -r -t 0 -f >nul 2>&1
+shutdown /r /f /t 25 >nul 2>&1
