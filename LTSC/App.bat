@@ -1041,8 +1041,8 @@ ECHO       [[1mE[0m] Modernized classic context Menu  [[1mQ[0m] Enable  Inte
 ECHO       [[1mF[0m] Back to Windows 11 Context Menu  [[1mR[0m] Disable Internet Serach
 ECHO       [[1mG[0m] Enable  Photo Viewer [Legacy]    [[1mS[0m] Left Taskbar
 ECHO       [[1mH[0m] Disable Photo Viewer [Legacy]    [[1mT[0m] Centered Taskbar
-ECHO       [[1mI[0m] Disable SmartScreen              
-ECHO       [[1mJ[0m] Enable  SmartScreen              
+ECHO       [[1mI[0m] Disable SmartScreen              [[1mU[0m] Disable Snap assist flyout
+ECHO       [[1mJ[0m] Enable  SmartScreen              [[1mV[0m] Enable  Snap assist flyout
 ECHO       [[1mK[0m] Disable Firewall
 ECHO       [[1mL[0m] Enable  Firewall
 @ECHO.
@@ -1052,7 +1052,9 @@ ECHO      [101m[X] Go back[0m
 CHOICE /C:abcdefghijklmnopqrstx /N /M ""
 
 :: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 21 GOTO GoBack
+IF ERRORLEVEL 23 GOTO GoBack
+IF ERRORLEVEL 22 GOTO EnableSnapAssistFlyout
+IF ERRORLEVEL 21 GOTO DisableSnapAssistFlyout
 IF ERRORLEVEL 20 GOTO CenterTaskbar
 IF ERRORLEVEL 19 GOTO LeftTaskbar
 IF ERRORLEVEL 18 GOTO DisableWebSearch
@@ -1213,6 +1215,16 @@ GOTO SettingsMenu
 :CenterTaskbar
 REG Add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V TaskbarAl /T REG_DWORD /D 1 /F >nul 2>&1
 powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Taskbar alignment set to center.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+GOTO SettingsMenu
+
+:DisableSnapAssistFlyout
+REG Add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V EnableSnapAssistFlyout /T REG_DWORD /D 0 /F >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Snap Assist Flyout has been disabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+GOTO SettingsMenu
+
+:EnableSnapAssistFlyout
+REG Add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V EnableSnapAssistFlyout /T REG_DWORD /D 1 /F >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Snap Assist Flyout has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
 :GoBack
