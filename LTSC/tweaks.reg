@@ -361,6 +361,40 @@ Windows Registry Editor Version 5.00
 "LogLevel"=dword:00000000
 "TraceLevel"=dword:00000000
 
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\Connectivity\DisallowNetworkConnectivityActiveTests]
+"value"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\NlaSvc\Parameters\Internet]
+"EnableActiveProbing"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\StorageHealth]
+"AllowDiskHealthModelUpdates"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\NetworkConnectivityStatusIndicator]
+@=""
+"NoActiveProbe"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\InternetManagement]
+"RestrictCommunication"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\CurrentVersion\Software Protection Platform]
+"NoGenTicket"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Messenger\Client]
+"CEIP"=dword:00000002
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Internet Connection Wizard]
+"ExitOnMSICW"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\EventViewer]
+"MicrosoftEventVwrDisableLinks"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\SearchCompanion]
+"DisableContentFileUpdates"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\SQMClient\Windows]
+"CEIPEnable"=dword:00000000
+
 ;Set the new Wallpaper, disable JPEG compression and autocolor
 [HKEY_CURRENT_USER\Control Panel\Desktop]
 "JPEGImportQuality"=dword:00000064
@@ -457,27 +491,24 @@ Windows Registry Editor Version 5.00
 [HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\SearchSettings]
 "SafeSearchMode"=dword:00000000
 
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\NetworkConnectivityStatusIndicator]
-@=""
-"NoActiveProbe"=dword:00000001
+[HKEY_CURRENT_USER\Software\Microsoft\input\Settings]
+"InsightsEnabled"=dword:00000000
+"EnableHwkbTextPrediction"=dword:00000000
+"EnableHwkbAutocorrection2"=dword:00000000
 
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\InternetManagement]
-"RestrictCommunication"=dword:00000001
+[HKEY_CURRENT_USER\Software\Microsoft\TabletTip\1.7]
+"EnableAutocorrection"=dword:00000000
+"EnableSpellchecking"=dword:00000000
+"EnableTextPrediction"=dword:00000000
+"EnablePredictionSpaceInsertion"=dword:00000000
+"EnableDoubleTapSpace"=dword:00000000
 
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\CurrentVersion\Software Protection Platform]
-"NoGenTicket"=dword:00000001
+[HKEY_CURRENT_USER\Software\Microsoft\Personalization\Settings]
+"AcceptedPrivacyPolicy"=dword:00000000
 
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Messenger\Client]
-"CEIP"=dword:00000002
+[HKEY_CURRENT_USER\Software\Microsoft\InputPersonalization]
+"RestrictImplicitInkCollection"=dword:00000001
+"RestrictImplicitTextCollection"=dword:00000001
 
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Internet Connection Wizard]
-"ExitOnMSICW"=dword:00000001
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\EventViewer]
-"MicrosoftEventVwrDisableLinks"=dword:00000001
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\SearchCompanion]
-"DisableContentFileUpdates"=dword:00000001
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\SQMClient\Windows]
-"CEIPEnable"=dword:00000000
+[HKEY_CURRENT_USER\Software\Microsoft\InputPersonalization\TrainedDataStore]
+"HarvestContacts"=dword:00000001
