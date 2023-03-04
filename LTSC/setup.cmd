@@ -266,6 +266,12 @@ PowerShell -Command "Add-WUServiceManager -MicrosoftUpdate -Confirm:$False" >nul
 :: Note - Remove Onedrive
 "C:\Windows\System32\OneDriveSetup.exe" /uninstall >nul 2>&1
 
+:: Note - Remove Autologger telemetry
+reg delete "HKLM\SYSTEM\ControlSet001\Control\WMI\Autologger\CloudExperienceHostOobe" /f
+reg delete "HKLM\SYSTEM\ControlSet001\Control\WMI\Autologger\Diagtrack-Listener" /f
+reg delete "HKLM\SYSTEM\ControlSet001\Control\WMI\Autologger\SQMLogger" /f
+reg delete "HKLM\SYSTEM\ControlSet001\Control\WMI\Autologger\WFP-IPsec Trace" /f
+
 :: Note - Getting rid of Accesibility & Windows Tools shortcut to clean up the Start Menu
 rmdir /S /Q "C:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Accessibility"
 rmdir /S /Q "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Accessibility"
