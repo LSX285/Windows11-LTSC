@@ -316,7 +316,7 @@ label c: OS >nul 2>&1
 regedit /s "C:\Program Files\LTSC\tweaks.reg" >nul 2>&1
 
 :: Note - Set the correct branding for all LTSC versions
-ver | findstr /i "10.0.22621. 10.0.22624." >nul
+ver | findstr /i "22621 22624" >nul
 if %errorlevel% equ 0 (
     Reg add "HKCU\Control Panel\Desktop" /v "WallPaper" /t REG_SZ /d "C:\Windows\Web\Wallpaper\ThemeD\img32.jpg" /f >nul 2>&1
     Reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation" /v "Model" /t REG_SZ /d "Windows 11 LTSC" /f >nul 2>&1
