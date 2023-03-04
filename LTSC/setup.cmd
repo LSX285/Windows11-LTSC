@@ -208,8 +208,8 @@ PowerShell -ExecutionPolicy Unrestricted -Command "Get-WindowsCapability -Online
 PowerShell -ExecutionPolicy Unrestricted -Command "Get-WindowsCapability -Online -Name 'Print.Management.Console*' | Remove-WindowsCapability -Online" >nul 2>&1
 
 :: Note - Install VCRedist
-"C:\Users\%USERNAME%\Desktop\vc_redist.x64.exe" /install /quiet /norestart
-del /f "C:\Users\%USERNAME%\Desktop\vc_redist.x64.exe" >nul 2>&1
+"C:\Users\%USERNAME%\Desktop\vc_redist.x64.exe" /install /quiet /norestart >nul 2>&1
+del /f "C:\Users\%USERNAME%\Desktop\vc_redist.x64.exe" >nul 2>&1 
 
 :: Note - Remove Apps
 powershell -command "Get-AppxPackage *family* | Remove-AppxPackage" >nul 2>&1
@@ -273,9 +273,9 @@ reg delete "HKLM\SYSTEM\ControlSet001\Control\WMI\Autologger\SQMLogger" /f >nul 
 reg delete "HKLM\SYSTEM\ControlSet001\Control\WMI\Autologger\WFP-IPsec Trace" /f >nul 2>&1
 
 :: Note - Getting rid of Accesibility & Windows Tools shortcut to clean up the Start Menu
-rmdir /S /Q "C:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Accessibility"
-rmdir /S /Q "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Accessibility"
-del /f "C:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Administrative Tools.lnk"
+rmdir /S /Q "C:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Accessibility" >nul 2>&1
+rmdir /S /Q "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Accessibility" >nul 2>&1
+del /f "C:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Administrative Tools.lnk" >nul 2>&1
 
 :: Note - ViveTool IDs
 "C:\Program Files\LTSC\Scripts/ViveTool/ViVeTool.exe" /enable /id:41561445 >nul 2>&1
@@ -318,15 +318,15 @@ regedit /s "C:\Program Files\LTSC\tweaks.reg" >nul 2>&1
 :: Note - Set the correct branding for all LTSC versions
 ver | findstr /i "10.0.22621. 10.0.22624." >nul
 if %errorlevel% equ 0 (
-    Reg add "HKCU\Control Panel\Desktop" /v "WallPaper" /t REG_SZ /d "C:\Windows\Web\Wallpaper\ThemeD\img32.jpg" /f
-    Reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation" /v "Model" /t REG_SZ /d "Windows 11 LTSC" /f
-    Reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation" /v "Manufacturer" /t REG_SZ /d "Windows 11 LTSC" /f
-    Reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation" /v "SupportURL" /t REG_SZ /d "https://github.com/LSX285/Windows11-LTSC" /f
+    Reg add "HKCU\Control Panel\Desktop" /v "WallPaper" /t REG_SZ /d "C:\Windows\Web\Wallpaper\ThemeD\img32.jpg" /f >nul 2>&1
+    Reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation" /v "Model" /t REG_SZ /d "Windows 11 LTSC" /f >nul 2>&1
+    Reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation" /v "Manufacturer" /t REG_SZ /d "Windows 11 LTSC" /f >nul 2>&1
+    Reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation" /v "SupportURL" /t REG_SZ /d "https://github.com/LSX285/Windows11-LTSC" /f >nul 2>&1
 ) else (
-    Reg add "HKCU\Control Panel\Desktop" /v "WallPaper" /t REG_SZ /d "C:\Windows\Web\Wallpaper\ThemeD\img33.jpg" /f
-    Reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation" /v "Model" /t REG_SZ /d "Windows 11 LTSC Insider" /f
-    Reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation" /v "Manufacturer" /t REG_SZ /d "Windows 11 LTSC Insider" /f
-    Reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation" /v "SupportURL" /t REG_SZ /d "https://github.com/LSX285/Windows11-LTSC" /f
+    Reg add "HKCU\Control Panel\Desktop" /v "WallPaper" /t REG_SZ /d "C:\Windows\Web\Wallpaper\ThemeD\img33.jpg" /f >nul 2>&1
+    Reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation" /v "Model" /t REG_SZ /d "Windows 11 LTSC Insider" /f >nul 2>&1
+    Reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation" /v "Manufacturer" /t REG_SZ /d "Windows 11 LTSC Insider" /f >nul 2>&1
+    Reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation" /v "SupportURL" /t REG_SZ /d "https://github.com/LSX285/Windows11-LTSC" /f >nul 2>&1
 )
 
 :: Note - Delete PS Folder which is automaticallly created when installing PSWindowsUpdate components.
