@@ -1024,7 +1024,7 @@ GOTO Welcome
 
 :: Note - Settings Page
 :SettingsMenu
-mode con: cols=76 lines=20
+mode con: cols=76 lines=22
 Title Settings / Tweaks
 @ECHO OFF
 CLS
@@ -1033,24 +1033,28 @@ CLS
 @ECHO.
 @ECHO [36m____________________________________________________________________________[0m
 @ECHO.
-ECHO       [[1mA[0m] Disable Windows Defender         [[1mK[0m] Disable Firewall
-ECHO       [[1mB[0m] Enable  Windows Defender         [[1mL[0m] Enable  Firewall
-ECHO       [[1mC[0m] Enable  Windows Dark Theme       [[1mM[0m] Enable  Windows AMOLED
-ECHO       [[1mD[0m] Enable  Windows Light Theme      [[1mN[0m] Disable Windows AMOLED
-ECHO       [[1mE[0m] Modernized classic context Menu  [[1mO[0m] Enable Education Themes
-ECHO       [[1mF[0m] Back to Windows 11 Context Menu  [[1mP[0m] Disable Education Themes
-ECHO       [[1mG[0m] Enable  Photo Viewer [Legacy]    [[1mO[0m] Enable Education Themes
-ECHO       [[1mH[0m] Disable Photo Viewer [Legacy]    [[1mP[0m] Disable Education Themes
-ECHO       [[1mI[0m] Disable SmartScreen              [[1mQ[0m] Enable  Internet Search
-ECHO       [[1mJ[0m] Enable  SmartScreen              [[1mR[0m] Disable Internet Serach
+ECHO       [[1mA[0m] Disable Windows Defender         [[1mM[0m] Enable  Windows AMOLED
+ECHO       [[1mB[0m] Enable  Windows Defender         [[1mN[0m] Disable Windows AMOLED
+ECHO       [[1mC[0m] Enable  Windows Dark Theme       [[1mO[0m] Enable Education Themes
+ECHO       [[1mD[0m] Enable  Windows Light Theme      [[1mP[0m] Disable Education Themes
+ECHO       [[1mE[0m] Modernized classic context Menu  [[1mQ[0m] Enable  Internet Search
+ECHO       [[1mF[0m] Back to Windows 11 Context Menu  [[1mR[0m] Disable Internet Serach
+ECHO       [[1mG[0m] Enable  Photo Viewer [Legacy]    [[1mS[0m] Left Taskbar
+ECHO       [[1mH[0m] Disable Photo Viewer [Legacy]    [[1mT[0m] Centered Taskbar
+ECHO       [[1mI[0m] Disable SmartScreen              
+ECHO       [[1mJ[0m] Enable  SmartScreen              
+ECHO       [[1mK[0m] Disable Firewall
+ECHO       [[1mL[0m] Enable  Firewall
 @ECHO.
 @ECHO [36m____________________________________________________________________________[0m
 ECHO.
 ECHO      [101m[X] Go back[0m
-CHOICE /C:abcdefghijklmnopqrx /N /M ""
+CHOICE /C:abcdefghijklmnopqrstx /N /M ""
 
 :: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 19 GOTO GoBack
+IF ERRORLEVEL 21 GOTO GoBack
+IF ERRORLEVEL 20 GOTO CenterTaskbar
+IF ERRORLEVEL 19 GOTO LeftTaskbar
 IF ERRORLEVEL 18 GOTO DisableWebSearch
 IF ERRORLEVEL 17 GOTO EnableWebSearch
 IF ERRORLEVEL 16 GOTO DisableEduThemes
@@ -1199,6 +1203,16 @@ REG Add "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /V EnableDynam
 timeout 1 >nul 2>&1
 start explorer.exe >nul 2>&1
 powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Web results for Search box have been disabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+GOTO SettingsMenu
+
+:LeftTaskbar
+REG Add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V TaskbarAl /T REG_DWORD /D 0 /F >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Taskbar alignment set to left.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+GOTO SettingsMenu
+
+:CenterTaskbar
+REG Add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V TaskbarAl /T REG_DWORD /D 1 /F >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Taskbar alignment set to center.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
 :GoBack
