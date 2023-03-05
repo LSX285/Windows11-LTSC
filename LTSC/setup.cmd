@@ -40,15 +40,8 @@ echo          Windows will [93mautomatically restart[0m.
 echo.
 @ECHO [36m___________________________________________________[0m
 
-:: Note - Download files
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/Edge_Uninstall.bat', 'C:\Program Files\LTSC\Scripts\Edge_Uninstall.bat')" >nul 2>&1
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/LTSC/Scripts/ViveTool/Albacore.ViVe.dll', 'C:\Program Files\LTSC\Scripts/ViveTool/Albacore.ViVe.dll')" >nul 2>&1
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/LTSC/Scripts/ViveTool/FeatureDictionary.pfs', 'C:\Program Files\LTSC\Scripts/ViveTool/FeatureDictionary.pfs')" >nul 2>&1
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/LTSC/Scripts/ViveTool/Newtonsoft.Json.dll', 'C:\Program Files\LTSC\Scripts/ViveTool/Newtonsoft.Json.dll')" >nul 2>&1
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/LTSC/Scripts/ViveTool/ViVeTool.exe', 'C:\Program Files\LTSC\Scripts/ViveTool/ViVeTool.exe')" >nul 2>&1
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://aka.ms/vs/17/release/vc_redist.x64.exe', 'C:\Users\%USERNAME%\Desktop\vc_redist.x64.exe')" >nul 2>&1
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/tweaks.reg', 'C:\Program Files\LTSC\tweaks.reg')" >nul 2>&1
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/hosts', 'C:\Windows\System32\drivers\etc\hosts')" >nul 2>&1
+:: Note - Move hosts
+move "C:\Program Files\LTSC\hosts" "C:\Windows\System32\drivers\etc\hosts"
 
 :: Note - Removing Edge
 start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\Edge_Uninstall.bat" >nul 2>&1
@@ -64,9 +57,6 @@ dism /Online /Set-ReservedStorageState /State:Disabled >nul 2>&1
 
 :: Note - Turn off Hibernation
 powercfg /h off >nul 2>&1
-
-:: Note - Set network profile to "private"
-PowerShell -ExecutionPolicy Unrestricted -Command Set-NetConnectionProfile -Name 'Network' -NetworkCategory Private >nul 2>&1
 
 :: Note - Setting Services to Demand/Manual
 sc config HomeGroupListener start=demand >nul 2>&1
@@ -207,10 +197,6 @@ PowerShell -ExecutionPolicy Unrestricted -Command "Get-WindowsCapability -Online
 PowerShell -ExecutionPolicy Unrestricted -Command "Get-WindowsCapability -Online -Name 'Print.Fax.Scan*' | Remove-WindowsCapability -Online" >nul 2>&1
 PowerShell -ExecutionPolicy Unrestricted -Command "Get-WindowsCapability -Online -Name 'Print.Management.Console*' | Remove-WindowsCapability -Online" >nul 2>&1
 
-:: Note - Install VCRedist
-"C:\Users\%USERNAME%\Desktop\vc_redist.x64.exe" /install /quiet /norestart >nul 2>&1
-del /f "C:\Users\%USERNAME%\Desktop\vc_redist.x64.exe" >nul 2>&1 
-
 :: Note - Remove Apps
 powershell -command "Get-AppxPackage *family* | Remove-AppxPackage" >nul 2>&1
 powershell -command "Get-AppxPackage *Teams* | Remove-AppxPackage" >nul 2>&1
@@ -257,12 +243,6 @@ powershell -command "Get-AppxPackage *Microsoft.BingWeather* | Remove-AppxPackag
 powershell -command "Get-AppxPackage *Microsoft.BingNews* | Remove-AppxPackage" >nul 2>&1
 powershell -command "Get-AppxPackage *Clipchamp.Clipchamp* | Remove-AppxPackage" >nul 2>&1
 
-:: Note - Install Windows Update Powershell components
-PowerShell -Command "Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Force" >nul 2>&1
-PowerShell -Command "Install-PackageProvider -Name NuGet -Force" >nul 2>&1
-PowerShell -Command "Install-Module PSWindowsUpdate -Force" >nul 2>&1
-PowerShell -Command "Add-WUServiceManager -MicrosoftUpdate -Confirm:$False" >nul 2>&1
-
 :: Note - Remove Onedrive
 "C:\Windows\System32\OneDriveSetup.exe" /uninstall >nul 2>&1
 
@@ -276,10 +256,6 @@ reg delete "HKLM\SYSTEM\ControlSet001\Control\WMI\Autologger\WFP-IPsec Trace" /f
 rmdir /S /Q "C:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Accessibility" >nul 2>&1
 rmdir /S /Q "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Accessibility" >nul 2>&1
 del /f "C:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Administrative Tools.lnk" >nul 2>&1
-
-:: Note - ViveTool IDs
-"C:\Program Files\LTSC\Scripts/ViveTool/ViVeTool.exe" /enable /id:41561445 >nul 2>&1
-"C:\Program Files\LTSC\Scripts/ViveTool/ViVeTool.exe" /enable /id:41561454 >nul 2>&1
 
 :: Note - Activating Windows
 :Activate
@@ -298,12 +274,10 @@ if /i "%choice%"=="Y" (
 )
 
 :Yes
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/activate.cmd', 'C:\Program Files\LTSC\Scripts\activate.cmd')" >nul 2>&1
 start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\activate.cmd" >nul 2>&1
 GOTO Yes2
 
 :Server
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/activate_server.cmd', 'C:\Program Files\LTSC\Scripts\activate_server.cmd')" >nul 2>&1
 start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\activate_server.cmd" >nul 2>&1
 
 :No
@@ -336,9 +310,6 @@ if %errorlevel% equ 0 (
          Reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation" /v "SupportURL" /t REG_SZ /d "https://github.com/LSX285/Windows11-LTSC" /f >nul 2>&1
     )
 )
-
-:: Note - Delete PS Folder which is automaticallly created when installing PSWindowsUpdate components.
-rmdir /S /Q "C:\Users\%USERNAME%\Documents\WindowsPowerShell" >nul 2>&1
 
 :: Note - Restarting Windows to apply all changes made by this script.
 shutdown /r /f /t 25 >nul 2>&1
