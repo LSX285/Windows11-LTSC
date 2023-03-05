@@ -258,7 +258,6 @@ rmdir /S /Q "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Accessibility"
 del /f "C:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Administrative Tools.lnk" >nul 2>&1
 
 :: Note - Activating Windows
-:Activate
 
 ver | findstr /i "22621 22624" >nul
 if %errorlevel% equ 0 (
