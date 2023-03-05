@@ -41,7 +41,7 @@ echo.
 @ECHO [36m___________________________________________________[0m
 
 :: Note - Move hosts
-move "C:\Program Files\LTSC\hosts" "C:\Windows\System32\drivers\etc\hosts"
+move "C:\Program Files\LTSC\hosts" "C:\Windows\System32\drivers\etc\hosts" >nul 2>&1
 
 :: Note - Removing Edge
 start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\Edge_Uninstall.bat" >nul 2>&1
@@ -260,28 +260,17 @@ del /f "C:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu\Program
 :: Note - Activating Windows
 :Activate
 
-set /p "choice=Do you want LTSC to activate Windows? (Y/N/Server): "
-
-if /i "%choice%"=="Y" (
-    GOTO Yes
-) else if /i "%choice%"=="N" (
-    GOTO No
-) else if /i "%choice%"=="Server" (
-    GOTO Server
+ver | findstr /i "22621 22624" >nul
+if %errorlevel% equ 0 (
+    start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\activate.cmd" >nul 2>&1
 ) else (
-    echo Invalid choice. Please enter Y/N/Server
-    GOTO Activate
+    systeminfo | findstr /i /c:"OS Name" | findstr /i /c:"Server" >nul
+    if %errorlevel% equ 0 (
+        start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\activate_server.cmd" >nul 2>&1
+    ) else (
+         start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\activate.cmd" >nul 2>&1
+    )
 )
-
-:Yes
-start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\activate.cmd" >nul 2>&1
-GOTO Yes2
-
-:Server
-start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\activate_server.cmd" >nul 2>&1
-
-:No
-:Yes2
 
 :: Note - Set Windows Drive Label to OS
 label c: OS >nul 2>&1
