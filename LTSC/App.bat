@@ -1745,7 +1745,6 @@ powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.
 GOTO DebugMenu
 
 :CleanTempFiles
-ECHO [[93m-[0m] Cleaning [93mWindows Temp files[0m ...
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/CleanFiles.cmd', 'C:\Program Files\LTSC\Scripts\CleanFiles.cmd')" >nul 2>&1
 start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\CleanFiles.cmd" >nul 2>&1
 GOTO DebugMenu
