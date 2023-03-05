@@ -124,14 +124,13 @@ Windows Registry Editor Version 5.00
 "UpdateNotificationLevel"=dword:00000001
 "NoUpdateNotificationsDuringActiveHours"=dword:00000001
 "ExcludeWUDriversInQualityUpdate"=dword:00000001
-"SetDisableUXWUAccess"=dword:00000001
 
 ;Turn off online tips and hide useless settings pages
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer]
 "NoInternetOpenWith"=dword:00000001
 "AllowOnlineTips"=dword:00000000
 "NoPublishingWizard"=dword:00000001
-"SettingsPageVisibility"="hide:quiethours;crossdevice;troubleshoot;project;remotedesktop;activation;multitasking;mobile-devices;pen;usb;autoplay;network-dialup;network-proxy;network-vpn;personalization-textinput;maps;appsforwebsites;sync;ms-settings;otherusers;speech;gaming-gamebar;gaming-gamedvr;gaming-gamemode;easeofaccess-eyecontrol;easeofaccess-narrator;easeofaccess-highcontrast;easeofaccess-magnifier;easeofaccess-cursor;easeofaccess-colorfilter;privacy-feedback;findmydevice;windowsdefender;privacy-speech;privacy-speechtyping;windowsupdate;cortana-windowssearch"
+"SettingsPageVisibility"="hide:quiethours;crossdevice;troubleshoot;project;remotedesktop;activation;multitasking;mobile-devices;pen;usb;autoplay;network-dialup;network-proxy;network-vpn;personalization-textinput;maps;appsforwebsites;sync;ms-settings;otherusers;speech;gaming-gamebar;gaming-gamedvr;gaming-gamemode;easeofaccess-eyecontrol;easeofaccess-narrator;easeofaccess-highcontrast;easeofaccess-magnifier;easeofaccess-cursor;easeofaccess-colorfilter;privacy-feedback;findmydevice;windowsdefender;privacy-speech;privacy-speechtyping;cortana-windowssearch"
 
 ;Remove recommended section
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer]
@@ -427,7 +426,7 @@ Windows Registry Editor Version 5.00
 [HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer]
 "NoSearchInternetInStartMenu"=dword:00000001
 "HideSCAMeetNow"=dword:00000001
-"SettingsPageVisibility"="hide:quiethours;crossdevice;troubleshoot;project;remotedesktop;activation;multitasking;mobile-devices;pen;usb;autoplay;network-dialup;network-proxy;network-vpn;personalization-textinput;maps;appsforwebsites;sync;ms-settings;otherusers;speech;gaming-gamebar;gaming-gamedvr;gaming-gamemode;easeofaccess-eyecontrol;easeofaccess-narrator;easeofaccess-highcontrast;easeofaccess-magnifier;easeofaccess-cursor;easeofaccess-colorfilter;privacy-feedback;findmydevice;windowsdefender;privacy-speech;privacy-speechtyping;windowsupdate;cortana-windowssearch"
+"SettingsPageVisibility"="hide:quiethours;crossdevice;troubleshoot;project;remotedesktop;activation;multitasking;mobile-devices;pen;usb;autoplay;network-dialup;network-proxy;network-vpn;personalization-textinput;maps;appsforwebsites;sync;ms-settings;otherusers;speech;gaming-gamebar;gaming-gamedvr;gaming-gamemode;easeofaccess-eyecontrol;easeofaccess-narrator;easeofaccess-highcontrast;easeofaccess-magnifier;easeofaccess-cursor;easeofaccess-colorfilter;privacy-feedback;findmydevice;windowsdefender;privacy-speech;privacy-speechtyping;cortana-windowssearch"
 
 ;Hide recommended section and dont show notifications for new windows features
 [HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Explorer]
