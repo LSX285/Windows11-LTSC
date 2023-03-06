@@ -91,10 +91,6 @@ Windows Registry Editor Version 5.00
 "DisableSoftLanding"=dword:00000001
 "DisableWindowsConsumerFeatures"=dword:00000001
 
-;Turn off Windows Update automatic upgrade Serivce
-[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\wuauserv]
-"Start"=dword:00000003
-
 ;Turn off automatic upgrades
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU]
 "AlwaysAutoRebootAtScheduledTime"=dword:00000000
@@ -103,18 +99,6 @@ Windows Registry Editor Version 5.00
 "AutomaticMaintenanceEnabled"=dword:00000000
 "AllowMUUpdateService"=dword:00000000
 "UseWUServer"=dword:00000001
-
-;Turn off automatic upgrade service
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Services\7971F918-A847-4430-9279-4A52D1EFE18D]
-"RegisteredWithAU"=dword:00000000
-
-;Turn off Device update agent service
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Channels\Microsoft-Windows-DeviceUpdateAgent/Operational]
-"Enabled"=dword:00000000
-
-;Turn off windows update service
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Channels\Microsoft-Windows-WindowsUpdateClient/Operational]
-"Enabled"=dword:00000000
 
 ;Turn off windows updates
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate]
