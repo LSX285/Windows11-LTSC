@@ -43,6 +43,10 @@ echo.
 :: Note - Move hosts
 move "C:\Program Files\LTSC\hosts" "C:\Windows\System32\drivers\etc\hosts" >nul 2>&1
 
+
+:: Note - Turn off hibernate
+powercfg /h off
+
 :: Note - Activating Windows
 
 ver | findstr /i "22621 22624" >nul
