@@ -57,6 +57,8 @@ if %errorlevel% equ 0 (
     )
 )
 
+timeout 30 >nul 2>&1
+
 :: Note - Set the correct branding for all LTSC versions
 ver | findstr /i "22621 22624" >nul
 if %errorlevel% equ 0 (
@@ -82,4 +84,4 @@ if %errorlevel% equ 0 (
 Reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnce" /v "RunItOnce" /t REG_SZ /d "\"C:\Program Files\LTSC\App.bat\"" /f >nul 2>&1
 
 :: Note - Restarting Windows to apply all changes made by this script.
-shutdown /r /f /t 25 >nul 2>&1
+shutdown /r /f /t 05 >nul 2>&1
