@@ -959,7 +959,7 @@ CLS
 @ECHO.
 @ECHO [36m____________________________________________________________________________[0m
 @ECHO.
-ECHO      [[1mA[0m] Remove preinstalled Apps      [[1mB[0m] Remove Microsoft Edge
+ECHO         [[1mA[0m] Remove preinstalled Apps      [[1mB[0m] Remove Microsoft Edge
 ECHO.
 @ECHO [36m____________________________________________________________________________[0m
 ECHO.
