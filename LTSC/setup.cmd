@@ -46,14 +46,8 @@ move "C:\Program Files\LTSC\hosts" "C:\Windows\System32\drivers\etc\hosts" >nul 
 :: Note - Removing Edge
 start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\Edge_Uninstall.bat" >nul 2>&1
 
-:: Note - Don't autoinstall Microsoft Teams
-Reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Communications" /v "ConfigureChatAutoInstall" /t REG_DWORD /d "0" /f >nul 2>&1
-
 :: Note - Remove the US QWERTY Keyboard Layout if you set up your own in OOBE
 reg delete "HKCU\Keyboard Layout\Preload" /v 2 /F >nul 2>&1
-
-:: Note - Turn off Reserved Storage for Updates to save more Storage
-dism /Online /Set-ReservedStorageState /State:Disabled >nul 2>&1
 
 :: Note - Turn off Hibernation
 powercfg /h off >nul 2>&1

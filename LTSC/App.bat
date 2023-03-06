@@ -40,7 +40,7 @@ REG Add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V Prom
 :: Note - Welcome Page
 :Welcome
 mode con: cols=76 lines=20
-Title APP v1.0.0
+Title APP v1.0.1
 @ECHO OFF
 CLS
 @ECHO.   
@@ -959,15 +959,16 @@ CLS
 @ECHO.
 @ECHO [36m____________________________________________________________________________[0m
 @ECHO.
-ECHO      [[1mA[0m] Remove preinstalled Apps
+ECHO      [[1mA[0m] Remove preinstalled Apps      [[1mB[0m] Remove Microsoft Edge
 ECHO.
 @ECHO [36m____________________________________________________________________________[0m
 ECHO.
 ECHO      [101m[X] Go back[0m
-CHOICE /C:ax /N /M ""
+CHOICE /C:abx /N /M ""
 
 :: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 2 GOTO GoBack
+IF ERRORLEVEL 3 GOTO GoBack
+IF ERRORLEVEL 2 GOTO RemoveMicrosoftEdge
 IF ERRORLEVEL 1 GOTO RemovePreinstalledApps
 
 :RemovePreinstalledApps
@@ -1017,6 +1018,11 @@ powershell -command "Get-AppxPackage *Microsoft.BingWeather* | Remove-AppxPackag
 powershell -command "Get-AppxPackage *Microsoft.BingNews* | Remove-AppxPackage" >nul 2>&1
 powershell -command "Get-AppxPackage *Clipchamp.Clipchamp* | Remove-AppxPackage" >nul 2>&1
 powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','All preinstalled programs have been removed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+GOTO DebloatMenu
+
+:RemoveMicrosoftEdge
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/Uninstall_Edge.bat', 'C:\Program Files\LTSC\Scripts\Uninstall_Edge.bat')" >nul 2>&1
+start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\Uninstall_Edge.bat" >nul 2>&1
 GOTO DebloatMenu
 
 :GoBack
