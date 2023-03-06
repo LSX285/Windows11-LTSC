@@ -53,36 +53,28 @@ reg delete "HKCU\Keyboard Layout\Preload" /v 2 /F >nul 2>&1
 powercfg /h off >nul 2>&1
 
 :: Note - Setting Services to Demand/Manual
-sc config HomeGroupListener start=demand >nul 2>&1
-sc config HomeGroupProvider start=demand >nul 2>&1
 sc config diagnosticshub.standardcollector.service start=demand >nul 2>&1
 sc config DiagTrack start=demand >nul 2>&1
 sc config DPS start=demand >nul 2>&1
 sc config dmwappushservice start=demand >nul 2>&1
 sc config lfsvc start=demand >nul 2>&1
 sc config MapsBroker start=demand >nul 2>&1
-sc config NetTcpPortSharing start=demand >nul 2>&1
 sc config RemoteAccess start=demand >nul 2>&1
 sc config RemoteRegistry start=demand >nul 2>&1
 sc config SharedAccess start=demand >nul 2>&1
 sc config TrkWks start=demand >nul 2>&1
-sc config WMPNetworkSvc start=demand >nul 2>&1
 sc config WSearch start=demand >nul 2>&1
 sc config XblAuthManager start=demand >nul 2>&1
 sc config XblGameSave start=demand >nul 2>&1
 sc config XboxNetApiSvc start=demand >nul 2>&1
 sc config XboxGipSvc start=demand >nul 2>&1
 sc config WerSvc start=demand >nul 2>&1
-sc config Fax start=demand >nul 2>&1
 sc config fhsvc start=demand >nul 2>&1
-sc config gupdate start=demand >nul 2>&1
-sc config gupdatem start=demand >nul 2>&1
 sc config AJRouter start=demand >nul 2>&1
 sc config stisvc start=demand >nul 2>&1
 sc config MSDTC start=demand >nul 2>&1
 sc config WpcMonSvc start=demand >nul 2>&1
 sc config PhoneSvc start=demand >nul 2>&1
-sc config PrintNotify start=demand >nul 2>&1
 sc config PcaSvc start=demand >nul 2>&1
 sc config WPDBusEnum start=demand >nul 2>&1
 sc config seclogon start=demand >nul 2>&1
@@ -95,29 +87,21 @@ sc config ALG start=demand >nul 2>&1
 sc config SCardSvr start=demand >nul 2>&1
 sc config EntAppSvc start=demand >nul 2>&1
 sc config BthAvctpSvc start=demand >nul 2>&1
-sc config Browser start=demand >nul 2>&1
-sc config BthAvctpSvc start=demand >nul 2>&1
 sc config iphlpsvc start=demand >nul 2>&1
 sc config edgeupdate start=demand >nul 2>&1
-sc config MicrosoftEdgeElevationService start=demand >nul 2>&1
 sc config edgeupdatem start=demand >nul 2>&1
 sc config SEMgrSvc start=demand >nul 2>&1
 sc config PerfHost start=demand >nul 2>&1
-sc config BcastDVRUserService_48486de start=demand >nul 2>&1
-sc config CaptureService_48486de start=demand >nul 2>&1
-sc config cbdhsvc_48486de start=demand >nul 2>&1
+sc config BcastDVRUserService start=demand >nul 2>&1
+sc config CaptureService start=demand >nul 2>&1
+sc config cbdhsvc start=demand >nul 2>&1
 sc config WpnService start=demand >nul 2>&1
-sc config RtkBtManServ start=demand >nul 2>&1
 sc config QWAVE start=demand >nul 2>&1
 
 sc config AppXSvc start=demand >nul 2>&1
 sc config WPNSerivce start=demand >nul 2>&1
-sc config lfsvc start=demand >nul 2>&1
-sc config WSearch start=demand >nul 2>&1
-sc config WpnUserService_534c3 start=demand >nul 2>&1
-sc config webthreatdefusersvc_534c3 start=demand >nul 2>&1
-sc config webthreatdevsvc start=demand >nul 2>&1
-sc config SSPDSRV start=demand >nul 2>&1
+sc config WpnUserService start=demand >nul 2>&1
+sc config webthreatdefusersvc start=demand >nul 2>&1
 sc config SgrmBroker start=demand >nul 2>&1
 sc config RMSvc start=demand >nul 2>&1
 sc config NcdAutoSetup start=demand >nul 2>&1
@@ -126,7 +110,6 @@ sc config fdPHost start=demand >nul 2>&1
 sc config EFS start=demand >nul 2>&1
 sc config DusmSvc start=demand >nul 2>&1
 sc config Deviceassociationservice start=demand >nul 2>&1
-sc config AVCTP start=demand >nul 2>&1
 
 :: Note - Task Scheduler Block
 schtasks /Change /TN "Microsoft\Windows\Customer Experience Improvement Program\UsbCeip" /Disable >nul 2>&1
