@@ -1884,8 +1884,8 @@ IF ERRORLEVEL 2 GOTO Feature2
 IF ERRORLEVEL 1 GOTO Feature1
 
 :Feature1
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:41736838
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:42057226
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:41736838 >nul 2>&1
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:42057226 >nul 2>&1
 powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Windows and App services microphone privacy setting has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO InsiderFeaturesMenu
 
