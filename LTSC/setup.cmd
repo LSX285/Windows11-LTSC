@@ -97,7 +97,6 @@ sc config CaptureService start=demand >nul 2>&1
 sc config cbdhsvc start=demand >nul 2>&1
 sc config WpnService start=demand >nul 2>&1
 sc config QWAVE start=demand >nul 2>&1
-
 sc config AppXSvc start=demand >nul 2>&1
 sc config WPNSerivce start=demand >nul 2>&1
 sc config WpnUserService start=demand >nul 2>&1
