@@ -40,7 +40,7 @@ REG Add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V Prom
 :: Note - Welcome Page
 :Welcome
 mode con: cols=76 lines=20
-Title APP v1.0.1
+Title APP v1.0.2
 @ECHO OFF
 CLS
 @ECHO.   
@@ -1862,19 +1862,31 @@ CLS
 @ECHO.
 @ECHO [36m____________________________________________________________________________[0m
 @ECHO.
-ECHO [[1mA[0m] WIP   [[1mA[0m] WIP     [[1mA[0m] WIP     [[1mA[0m] WIP     [[1mA[0m] WIP   [[1mA[0m] WIP     [[1mA[0m] WIP
-ECHO [[1mA[0m] WIP   [[1mA[0m] WIP     [[1mA[0m] WIP     [[1mA[0m] WIP     [[1mA[0m] WIP   [[1mA[0m] WIP     [[1mA[0m] WIP  
+ECHO [[1mA[0m] Win/AppServices Privacy
+ECHO 
 @ECHO [36m____________________________________________________________________________[0m
 ECHO.
 ECHO          [101m[X] Go back[0m
-CHOICE /C:ax /N /M ""
+CHOICE /C:abcdefghijklmnopqrstuvwyzx /N /M ""
 
 :: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 2 GOTO GoBack
-IF ERRORLEVEL 1 GOTO WIP
+IF ERRORLEVEL 12 GOTO GoBack
+IF ERRORLEVEL 11 GOTO Feature11
+IF ERRORLEVEL 10 GOTO Feature10
+IF ERRORLEVEL 9 GOTO Feature9
+IF ERRORLEVEL 8 GOTO Feature8
+IF ERRORLEVEL 7 GOTO Feature7
+IF ERRORLEVEL 6 GOTO Feature6
+IF ERRORLEVEL 5 GOTO Feature5
+IF ERRORLEVEL 4 GOTO Feature4
+IF ERRORLEVEL 3 GOTO Feature3
+IF ERRORLEVEL 2 GOTO Feature2
+IF ERRORLEVEL 1 GOTO Feature1
 
-:WIP
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Placeholder.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+:Feature1
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:41736838
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:42057226
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Windows and App services microphone privacy setting has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO InsiderFeaturesMenu
 
 :GoBack
