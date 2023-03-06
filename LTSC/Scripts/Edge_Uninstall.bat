@@ -144,7 +144,7 @@ $cleanup = gp 'Registry::HKEY_Users\S-1-5-21*\Volatile*' Edge_Removal -ea 0
 if ($cleanup) {rp $cleanup.PSPath Edge_Removal -force -ea 0}
 cmd.exe /c "rmdir /s /q C:\Scripts"
 Remove-Item –path "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Microsoft Edge.lnk" –recurse
-
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Microsoft Edge has been removed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 exit
 
 ## ask to run script as admin
