@@ -9,10 +9,6 @@ Windows Registry Editor Version 5.00
 "ConfigureStartPins"="{\"pinnedList\": [{}]}"
 "ConfigureStartPins_ProviderSet"=dword:00000000
 
-;Reduced the waiting time to kill services when shutdown
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control]
-"WaitToKillServiceTimeout"="1000"
-
 ;Hides UAC promt when launching APP
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System]
 "ConsentPromptBehaviorAdmin"=dword:00000000
