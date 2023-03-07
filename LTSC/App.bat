@@ -40,7 +40,7 @@ REG Add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V Prom
 :: Note - Welcome Page
 :Welcome
 mode con: cols=76 lines=20
-Title APP v1.0.3
+Title APP v1.0.3.1
 @ECHO OFF
 CLS
 @ECHO.   
@@ -1859,6 +1859,7 @@ CLS
 @ECHO.
 @ECHO                                [7mInsider Features[0m
 @ECHO                  Only use this Menu if you're on LTSC-Insider.
+@ECHO                  You might have to restart Windows afterwards.
 @ECHO.
 @ECHO [36m____________________________________________________________________________[0m
 @ECHO.
@@ -2041,6 +2042,7 @@ CLS
 @ECHO.
 @ECHO                                [7mInsider Features[0m
 @ECHO                  Only use this Menu if you're on LTSC-Insider.
+@ECHO                  You might have to restart Windows afterwards.
 @ECHO.
 @ECHO [36m____________________________________________________________________________[0m
 @ECHO.
