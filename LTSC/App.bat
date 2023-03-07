@@ -1862,15 +1862,32 @@ CLS
 @ECHO.
 @ECHO [36m____________________________________________________________________________[0m
 @ECHO.
-ECHO [[1mA[0m] Win/AppServices Privacy
+ECHO   [[1mA[0m] Win/AppServices Privacy [[1mB[0m] New Volume Mixer [[1mC[0m] New Nearby Sharing
+ECHO   [[1mD[0m] Custom color Search box [[1mE[0m] Remove Add Device[[1mF[0m] Show tips and more
+ECHO   [[1mG[0m] ReFS Dev Volumes        [[1mH[0m] New Spotlight UI [[1mI[0m] New Snap Assist UI
+ECHO   [[1mJ[0m] Touch Keyboard Drop Menu[[1mK[0m] Auto Color Mngmnt[[1mL[0m] Start Acc Badge
+ECHO   [[1mM[0m] WinAppSDK File Explorer [[1mN[0m] Uninstall Apps ..[[1mO[0m] KB layout settings
+ECHO   [[1mP[0m] Emoji 15 support        [[1mQ[0m] End Task option  [[1mR[0m] Widgets no Account
+ECHO   [[1mS[0m] Ambient Device Lighting [[1mT[0m] New Setting UIs  [[1mU[0m] Suggested Actions
 ECHO.
 @ECHO [36m____________________________________________________________________________[0m
 ECHO.
-ECHO          [101m[X] Go back[0m
-CHOICE /C:abcdefghijklmnopqrstuvwyzx /N /M ""
+ECHO          [101m[X] Go back[0m   [100m[W] Next Page[0m                         [[93m1[0m/[96m2[0m]
+CHOICE /C:abcdefghijklmnopqrstuxw /N /M ""
 
 :: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 12 GOTO GoBack
+IF ERRORLEVEL 23 GOTO FeaturesPage2
+IF ERRORLEVEL 22 GOTO GoBack
+IF ERRORLEVEL 21 GOTO Feature21
+IF ERRORLEVEL 20 GOTO Feature20
+IF ERRORLEVEL 19 GOTO Feature19
+IF ERRORLEVEL 18 GOTO Feature18
+IF ERRORLEVEL 17 GOTO Feature17
+IF ERRORLEVEL 16 GOTO Feature16
+IF ERRORLEVEL 15 GOTO Feature15
+IF ERRORLEVEL 14 GOTO Feature14
+IF ERRORLEVEL 13 GOTO Feature13
+IF ERRORLEVEL 12 GOTO Feature12
 IF ERRORLEVEL 11 GOTO Feature11
 IF ERRORLEVEL 10 GOTO Feature10
 IF ERRORLEVEL 9 GOTO Feature9
@@ -1889,6 +1906,281 @@ IF ERRORLEVEL 1 GOTO Feature1
 powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Windows and App services microphone privacy setting has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO InsiderFeaturesMenu
 
+:Feature2
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:42106010 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','New Volume Mixer has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+GOTO InsiderFeaturesMenu
+
+:Feature3
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:38890980 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Nearby Sharing UX improvements have been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+GOTO InsiderFeaturesMenu
+
+:Feature4
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:42922989 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Custom color search box has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+GOTO InsiderFeaturesMenu
+
+:Feature5
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:41734715 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Remove Add Device Button if your PC doesnt have Bluetooth has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+GOTO InsiderFeaturesMenu
+
+:Feature6
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:42916428 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Show recommendations for tips, shortcuts, new apps and more has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+GOTO InsiderFeaturesMenu
+
+:Feature7
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:40347509 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','ReFS Developer Volumes have been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+GOTO InsiderFeaturesMenu
+
+:Feature8
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:39880030 >nul 2>&1
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:40268500 >nul 2>&1
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:40522394 >nul 2>&1
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:41744267 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','New Spotlight UIs have been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+GOTO InsiderFeaturesMenu
+
+:Feature9
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:40851068 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','New Snap Assist Layout has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+GOTO InsiderFeaturesMenu
+
+:Feature10
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:37007953 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Touch keyboard dropdown menu has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+GOTO InsiderFeaturesMenu
+
+:Feature11
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:36371531 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Auto Color Management has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+GOTO InsiderFeaturesMenu
+
+:Feature12
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:36435151 /variant:1 /variantpayloadkind:1 /variantpayload:1121 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Start Menu Account badge has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+GOTO InsiderFeaturesMenu
+
+:Feature13
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:40729001 >nul 2>&1
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:40731912 >nul 2>&1
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:41969252 >nul 2>&1
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:42922424 >nul 2>&1
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:41040327 >nul 2>&1
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:42295138 >nul 2>&1
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:39661369 >nul 2>&1
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:38613007 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','WinAppSDK File Explorer has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+GOTO InsiderFeaturesMenu
+
+:Feature14
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:38579715 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','The ability to uninstall apps which have interdependencies has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+GOTO InsiderFeaturesMenu
+
+:Feature15
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:38612934 >nul 2>&1
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:34912776 >nul 2>&1
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:40618079 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','New Keyboard Layout Settings UX has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+GOTO InsiderFeaturesMenu
+
+:Feature16
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:40213648 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Emoji 15 support has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+GOTO InsiderFeaturesMenu
+
+:Feature17
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:42592269 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','End Task Option has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+GOTO InsiderFeaturesMenu
+
+:Feature18
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:41561445 >nul 2>&1
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:41561454 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Widgets no Account mandatory has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+GOTO InsiderFeaturesMenu
+
+:Feature19
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:35262205 >nul 2>&1
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:41355275 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Ambient Device Lighting has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+GOTO InsiderFeaturesMenu
+
+:Feature20
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:36390579 >nul 2>&1
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:42739793 >nul 2>&1
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:42733866 >nul 2>&1
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:41670003 >nul 2>&1
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:41598133 >nul 2>&1
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:38228963 >nul 2>&1
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:39811196 >nul 2>&1
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:40112637 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','New Settings UIs have been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+GOTO InsiderFeaturesMenu
+
+:Feature21
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:41058795 >nul 2>&1
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:41539325 >nul 2>&1
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:42623125 >nul 2>&1
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:41424794 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Suggested actions have been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+GOTO InsiderFeaturesMenu
+
 :GoBack
 GOTO DebugMenu
+
+:FeaturesPage2
+mode con: cols=76 lines=20
+Title Insider Features
+@ECHO OFF
+CLS
+@ECHO.
+@ECHO                                [7mInsider Features[0m
+@ECHO                  Only use this Menu if you're on LTSC-Insider.
+@ECHO.
+@ECHO [36m____________________________________________________________________________[0m
+@ECHO.
+ECHO   [[1mA[0m] For You Start Menu      [[1mB[0m] Multi Lang CCs   [[1mC[0m] Inplace Upgrade
+ECHO   [[1mD[0m] Live Kernel Dump        [[1mE[0m] Cloud Storage UI [[1mF[0m] New Search Box
+ECHO   [[1mG[0m] Stickers drawing        [[1mH[0m] VPN indicator    [[1mI[0m] Trade/Recycle PC
+ECHO   [[1mJ[0m] Desktop Search Box      [[1mK[0m] Taskbar Seconds  [[1mL[0m] Anim. Settgs Icons
+ECHO   [[1mM[0m] Placeholder             [[1mN[0m] Placeholder      [[1mO[0m] Placeholder
+ECHO   [[1mP[0m] Placeholder             [[1mQ[0m] Placeholder      [[1mR[0m] Placeholder
+ECHO   [[1mS[0m] Placeholder             [[1mT[0m] Placeholder      [[1mU[0m] Placeholders
+ECHO.
+@ECHO [36m____________________________________________________________________________[0m
+ECHO.
+ECHO          [101m[X] Go back[0m                                         [[93m2[0m/[96m2[0m]
+CHOICE /C:abcdefghijklmnopqrstuxw /N /M ""
+
+:: Note - list ERRORLEVELS in decreasing order
+IF ERRORLEVEL 22 GOTO GoBack
+IF ERRORLEVEL 21 GOTO Feature42
+IF ERRORLEVEL 20 GOTO Feature41
+IF ERRORLEVEL 19 GOTO Feature40
+IF ERRORLEVEL 18 GOTO Feature39
+IF ERRORLEVEL 17 GOTO Feature38
+IF ERRORLEVEL 16 GOTO Feature37
+IF ERRORLEVEL 15 GOTO Feature36
+IF ERRORLEVEL 14 GOTO Feature35
+IF ERRORLEVEL 13 GOTO Feature34
+IF ERRORLEVEL 12 GOTO Feature33
+IF ERRORLEVEL 11 GOTO Feature32
+IF ERRORLEVEL 10 GOTO Feature31
+IF ERRORLEVEL 9 GOTO Feature30
+IF ERRORLEVEL 8 GOTO Feature29
+IF ERRORLEVEL 7 GOTO Feature28
+IF ERRORLEVEL 6 GOTO Feature27
+IF ERRORLEVEL 5 GOTO Feature26
+IF ERRORLEVEL 4 GOTO Feature25
+IF ERRORLEVEL 3 GOTO Feature24
+IF ERRORLEVEL 2 GOTO Feature23
+IF ERRORLEVEL 1 GOTO Feature22
+
+:Feature22
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:42533185 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Replacing Recommended with For You in Start Menu has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+GOTO FeaturesPage2
+
+:Feature23
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:38811930 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Multiple Languages support for Live Captions have been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+GOTO FeaturesPage2
+
+:Feature24
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:42550315 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','New option for Inplace Upgrade without reinstall has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+GOTO FeaturesPage2
+
+:Feature25
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:40430431 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Live Kernel Dump has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+GOTO FeaturesPage2
+
+:Feature26
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:40733296 >nul 2>&1
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:41540372 >nul 2>&1
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:41562961 >nul 2>&1
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:41061894 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','New Visuals for Microsoft Cloud Storage have been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+GOTO FeaturesPage2
+
+:Feature27
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:40887771 >nul 2>&1
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:38937525 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','New Windows Search has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+GOTO FeaturesPage2
+
+:Feature28
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:36165848 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Sticker drawing has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+GOTO FeaturesPage2
+
+:Feature29
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:38113452 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Network VPN Indicator has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+GOTO FeaturesPage2
+
+:Feature30
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:39731733 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Tradein or Recycle PC option has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+GOTO FeaturesPage2
+
+:Feature31
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:37969115 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Desktop Search Box has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+GOTO FeaturesPage2
+
+:Feature32
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:41314201 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Taskbar Seconds have been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+GOTO FeaturesPage2
+
+:Feature33
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:34878152 >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Animated Settings Icons have been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+GOTO FeaturesPage2
+
+:Feature34
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Placeholder.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+GOTO FeaturesPage2
+
+:Feature35
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Placeholder.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+GOTO FeaturesPage2
+
+:Feature36
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Placeholder.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+GOTO FeaturesPage2
+
+:Feature37
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Placeholder.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+GOTO FeaturesPage2
+
+:Feature38
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Placeholder.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+GOTO FeaturesPage2
+
+:Feature39
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Placeholder.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+GOTO FeaturesPage2
+
+:Feature40
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Placeholder.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+GOTO FeaturesPage2
+
+:Feature41
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Placeholder.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+GOTO FeaturesPage2
+
+:Feature42
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Placeholder.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+GOTO FeaturesPage2
+
+:GoBack
+GOTO InsiderFeaturesMenu
 :: Note - BATCH FILE END.
