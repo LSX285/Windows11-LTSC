@@ -1369,7 +1369,7 @@ IF ERRORLEVEL 1 GOTO NvidiaGeforce1
 
 :NvidiaGeforce1
 ECHO [[93m-[0m] Downloading [93mNVIDIA drivers for 900-4000 series[0m ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://international.download.nvidia.com/Windows/531.18/531.18-desktop-win10-win11-64bit-international-dch-whql.exe', 'C:\Users\%USERNAME%\Desktop\NVIDIA.exe')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://international.download.nvidia.com/Windows/531.26hf/531.26-desktop-notebook-win10-win11-64bit-international-dch.hf.exe', 'C:\Users\%USERNAME%\Desktop\NVIDIA.exe')" >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO GraphicsMenu
@@ -1390,7 +1390,7 @@ powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.
 GOTO GraphicsMenu
 
 :AMDRadeon4007000
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://www.mediafire.com/file/5f04vdbqt02dz4c/whql-amd-software-adrenalin-edition-23.2.2-win10-win11-feb22-VideoCardz.com.exe', 'C:\Users\%USERNAME%\Desktop\AMD_Radeon.exe')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://www.mediafire.com/file_premium/ywvzw2aaojrxpjd/whql-amd-software-adrenalin-edition-23.3.1-win10-win11-mar7-VideoCardz.exe', 'C:\Users\%USERNAME%\Desktop\AMD_Radeon.exe')" >nul 2>&1
 powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO GraphicsMenu
 
