@@ -2055,7 +2055,7 @@ ECHO.
 @ECHO [36m____________________________________________________________________________[0m
 ECHO.
 ECHO          [101m[X] Go back[0m                                         [[93m2[0m/[96m2[0m]
-CHOICE /C:abcdefghijklmnopqrstuxw /N /M ""
+CHOICE /C:abcdefghijklmnopqrstux /N /M ""
 
 :: Note - list ERRORLEVELS in decreasing order
 IF ERRORLEVEL 22 GOTO GoBack
