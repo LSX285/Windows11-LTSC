@@ -40,9 +40,6 @@ echo          Windows will [93mautomatically restart[0m.
 echo.
 @ECHO [36m___________________________________________________[0m
 
-:: Note - Move hosts
-move "C:\Program Files\LTSC\hosts" "C:\Windows\System32\drivers\etc\hosts" >nul 2>&1
-
 :: Note - Set drive name OS
 label OS
 
