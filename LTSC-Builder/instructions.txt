@@ -1,0 +1,15 @@
+Please note that the Windows ISO must be renamed to "Windows" and make sure that it includes the Enterprise Edition of Windows.
+You can obtain an Enterprise via the Microsoft website or https://uupdump.net/
+
+How to run LTSC-Builder.ps1
+- Open and right-click run Powershell as Administrator (very important!)
+- cd $env:userprofile\Downloads\LTSC-Builder
+- .\LTSC-Builder.ps1
+
+The process takes about 10-60 minutes depending on your hardware configuration. 
+Don't touch your computer during that process.
+
+
+
+- Note: You may notice error messages when LTSC Builder tries to remove some Windows Packages.
+Thats totally fine and intented behaviour. Please make sure you stay connected to the internet.
