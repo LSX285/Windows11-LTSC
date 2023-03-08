@@ -40,7 +40,7 @@ REG Add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V Prom
 :: Note - Welcome Page
 :Welcome
 mode con: cols=76 lines=20
-Title APP v1.0.3.1
+Title APP v1.0.3.2
 @ECHO OFF
 CLS
 @ECHO.   
@@ -2050,7 +2050,7 @@ ECHO   [[1mA[0m] For You Start Menu      [[1mB[0m] Multi Lang CCs   [[1mC[
 ECHO   [[1mD[0m] Live Kernel Dump        [[1mE[0m] Cloud Storage UI [[1mF[0m] New Search Box
 ECHO   [[1mG[0m] Stickers drawing        [[1mH[0m] VPN indicator    [[1mI[0m] Trade/Recycle PC
 ECHO   [[1mJ[0m] Desktop Search Box      [[1mK[0m] Taskbar Seconds  [[1mL[0m] Anim. Settgs Icons
-ECHO   [[1mM[0m] Placeholder             [[1mN[0m] Placeholder      [[1mO[0m] Placeholder
+ECHO   [[1mM[0m] Explorer recommendations[[1mN[0m] USB4 doamin viewr[[1mO[0m] Access Keys
 ECHO   [[1mP[0m] Placeholder             [[1mQ[0m] Placeholder      [[1mR[0m] Placeholder
 ECHO   [[1mS[0m] Placeholder             [[1mT[0m] Placeholder      [[1mU[0m] Placeholders
 ECHO.
@@ -2148,15 +2148,20 @@ powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.
 GOTO FeaturesPage2
 
 :Feature34
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Placeholder.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:38664959
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:40064642
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:41070380
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','File Explorer recommendations have been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO FeaturesPage2
 
 :Feature35
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Placeholder.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:39305332
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','USB4 domain viewer has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO FeaturesPage2
 
 :Feature36
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Placeholder.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:39696859
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','File Explorer new access keys have been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO FeaturesPage2
 
 :Feature37
