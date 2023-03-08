@@ -1,7 +1,8 @@
-Please note that the Windows ISO must be renamed to "Windows" and make sure that it includes the Enterprise Edition of Windows.
-You can obtain an Enterprise via the Microsoft website or https://uupdump.net/
+Please make sure that the ISO you try to modify to LTSC includes the Enterprise edition of Windows.
+You can obtain an Enterprise/business ISO via the Microsoft website or build your own at https://uupdump.net/
 
 How to run LTSC-Builder.ps1
+- Rename the original Windows ISO you downloaded To "Windows" and move it to "C:\"
 - Open and right-click run Powershell as Administrator (very important!)
 - cd $env:userprofile\Downloads\LTSC-Builder
 - .\LTSC-Builder.ps1
