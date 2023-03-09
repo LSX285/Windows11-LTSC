@@ -40,7 +40,7 @@ REG Add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V Prom
 :: Note - Welcome Page
 :Welcome
 mode con: cols=76 lines=20
-Title APP v1.0.3.5
+Title APP v1.0.3.6
 @ECHO OFF
 CLS
 @ECHO.   
@@ -1260,7 +1260,7 @@ CLS
 @ECHO.
 @ECHO [36m____________________________________________________________________________[0m
 @ECHO.
-ECHO      [[1mA[0m] Disable Windows Update         [[1mB[0m] Enable Disable Windows Update 
+ECHO         [[1mA[0m] Disable Windows Update         [[1mB[0m] Enable Windows Update 
 @ECHO.
 @ECHO [36m____________________________________________________________________________[0m
 ECHO.
