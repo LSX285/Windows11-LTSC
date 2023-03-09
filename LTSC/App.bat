@@ -1821,8 +1821,8 @@ powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.
 GOTO DebugMenu
 
 :ReapplyLTSC
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/setup.cmd', 'C:\Program Files\LTSC\Setup.cmd')" >nul 2>&1
-start cmd.exe @cmd /C "C:\Program Files\LTSC\Setup.cmd" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/reapplyLTSC.cmd', 'C:\Program Files\LTSC\Scripts\reapplyLTSC.cmd')" >nul 2>&1
+start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\reapplyLTSC.cmd" >nul 2>&1
 GOTO DebugMenu
 
 :UpdateWinSecurity
