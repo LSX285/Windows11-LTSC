@@ -11,4 +11,3 @@
 Please note that we are not associated with Microsoft Corporation or the official Windows Enterprise/IoT LTSC SKU in any way. This is a custom version of Windows 11 created by a single individual and inspired by LTSC features. It is not an official version of Windows Enterprise/IoT LTSC.
 
 </p>
-![DIY](https://user-images.githubusercontent.com/96759883/223979707-7526b344-5484-47d8-ba3c-6dbb4853cd95.png)
