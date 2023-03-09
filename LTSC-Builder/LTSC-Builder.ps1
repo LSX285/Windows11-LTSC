@@ -165,7 +165,6 @@ New-Item -ItemType Directory -Path "C:\LTSC\mount\Windows\Setup\Scripts" | Out-N
 (New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/AntiDefenderUndo.cmd', 'C:\LTSC\mount\Program Files\LTSC\Scripts\AntiDefenderUndo.cmd') | Out-Null
 (New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/CleanFiles.cmd', 'C:\LTSC\mount\Program Files\LTSC\Scripts\CleanFiles.cmd') | Out-Null
 (New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/Edge_Uninstall.cmd', 'C:\LTSC\mount\Program Files\LTSC\Scripts\Edge_Uninstall.cmd') | Out-Null
-(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/EnablePhotoViewer.reg', 'C:\LTSC\mount\Program Files\LTSC\Scripts\EnablePhotoViewer.reg') | Out-Null
 (New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/UpdateAPP.cmd', 'C:\LTSC\mount\Program Files\LTSC\Scripts\UpdateAPP.cmd') | Out-Null
 (New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/activate.cmd', 'C:\LTSC\mount\Program Files\LTSC\Scripts\activate.cmd') | Out-Null
 (New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/activate_server.cmd', 'C:\LTSC\mount\Program Files\LTSC\Scripts\activate_server.cmd') | Out-Null

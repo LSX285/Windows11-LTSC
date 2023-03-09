@@ -1039,14 +1039,14 @@ CLS
 @ECHO.
 @ECHO [36m____________________________________________________________________________[0m
 @ECHO.
-ECHO       [[1mA[0m] Disable Windows Defender         [[1mM[0m] Enable  Windows AMOLED
-ECHO       [[1mB[0m] Enable  Windows Defender         [[1mN[0m] Disable Windows AMOLED
+ECHO       [[1mA[0m] Disable Windows Defender         [[1mM[0m] Disable Windows Update
+ECHO       [[1mB[0m] Enable  Windows Defender         [[1mN[0m] Enable  Windows Update
 ECHO       [[1mC[0m] Enable  Windows Dark Theme       [[1mO[0m] Enable  Education Themes
 ECHO       [[1mD[0m] Enable  Windows Light Theme      [[1mP[0m] Disable Education Themes
 ECHO       [[1mE[0m] Modernized classic context Menu  [[1mQ[0m] Enable  Internet Search
 ECHO       [[1mF[0m] Back to Windows 11 Context Menu  [[1mR[0m] Disable Internet Serach
-ECHO       [[1mG[0m] Enable  Photo Viewer [Legacy]    [[1mS[0m] Left Taskbar
-ECHO       [[1mH[0m] Disable Photo Viewer [Legacy]    [[1mT[0m] Centered Taskbar
+ECHO       [[1mG[0m] Placeholder                      [[1mS[0m] Left Taskbar
+ECHO       [[1mH[0m] Placeholder                      [[1mT[0m] Centered Taskbar
 ECHO       [[1mI[0m] Disable SmartScreen              [[1mU[0m] Disable Snap assist flyout
 ECHO       [[1mJ[0m] Enable  SmartScreen              [[1mV[0m] Enable  Snap assist flyout
 ECHO       [[1mK[0m] Disable Firewall                 [[1mY[0m] Disable startup sound
@@ -1054,12 +1054,11 @@ ECHO       [[1mL[0m] Enable  Firewall                 [[1mZ[0m] Enable  star
 @ECHO.
 @ECHO [36m____________________________________________________________________________[0m
 ECHO.
-ECHO          [101m[X] Go back[0m   [100m[W] Next Page[0m                         [[93m1[0m/[96m2[0m]
-CHOICE /C:abcdefghijklmnopqrstuvyzwx /N /M ""
+ECHO          [101m[X] Go back[0m
+CHOICE /C:abcdefghijklmnopqrstuvyzx /N /M ""
 
 :: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 26 GOTO GoBack
-IF ERRORLEVEL 25 GOTO SettingsPage2
+IF ERRORLEVEL 25 GOTO GoBack
 IF ERRORLEVEL 24 GOTO EnableStartupSound
 IF ERRORLEVEL 23 GOTO DisableStartupSound
 IF ERRORLEVEL 22 GOTO EnableSnapAssistFlyout
@@ -1070,14 +1069,14 @@ IF ERRORLEVEL 18 GOTO DisableWebSearch
 IF ERRORLEVEL 17 GOTO EnableWebSearch
 IF ERRORLEVEL 16 GOTO DisableEduThemes
 IF ERRORLEVEL 15 GOTO EnableEduThemes
-IF ERRORLEVEL 14 GOTO DisableWindowsAmoled
-IF ERRORLEVEL 13 GOTO EnableWindowsAmoled
+IF ERRORLEVEL 14 GOTO EnableWindowsUpdate
+IF ERRORLEVEL 13 GOTO DisableWindowsUpdate
 IF ERRORLEVEL 12 GOTO EnableFirewall
 IF ERRORLEVEL 11 GOTO DisableFirewall
 IF ERRORLEVEL 10 GOTO EnableSmartscreen
 IF ERRORLEVEL 9 GOTO DisableSmartscreen
-IF ERRORLEVEL 8 GOTO DisablePhotoViewer
-IF ERRORLEVEL 7 GOTO EnablePhotoViewer
+IF ERRORLEVEL 8 GOTO Placeholder
+IF ERRORLEVEL 7 GOTO Placeholder
 IF ERRORLEVEL 6 GOTO Windows11ContextMenu
 IF ERRORLEVEL 5 GOTO ModernContextMenu
 IF ERRORLEVEL 4 GOTO EnableLightMode
@@ -1128,23 +1127,12 @@ winget uninstall Nilesoft.Shell >nul 2>&1
 powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Default Windows context menu has been restored.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
-:EnablePhotoViewer
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/EnablePhotoViewer.reg', 'C:\Program Files\LTSC\Scripts\EnablePhotoViewer.reg')" >nul 2>&1
-regedit /s "C:\Program Files\LTSC\Scripts\EnablePhotoViewer.reg" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Legacy Photo viewer has been enabled. You might have to restart Windows to get it working.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+:Placeholder
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Placeholder.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
-:DisablePhotoViewer
-REG DELETE HKEY_CLASSES_ROOT\jpegfile\shell\open\DropTarget /v Clsid /f >nul 2>&1
-REG DELETE HKEY_CLASSES_ROOT\pngfile\shell\open\DropTarget /v Clsid /f >nul 2>&1
-REG DELETE HKEY_CLASSES_ROOT\PhotoViewer.FileAssoc.BITMAP /f >nul 2>&1
-REG DELETE HKEY_CLASSES_ROOT\PhotoViewer.FileAssoc.JPEG /f >nul 2>&1
-REG DELETE HKEY_CLASSES_ROOT\PhotoViewer.FileAssoc.JFIF /f >nul 2>&1
-REG DELETE HKEY_CLASSES_ROOT\PhotoViewer.FileAssoc.GIF /f >nul 2>&1
-REG DELETE HKEY_CLASSES_ROOT\PhotoViewer.FileAssoc.PNG /f >nul 2>&1
-REG DELETE HKEY_CLASSES_ROOT\PhotoViewer.FileAssoc.WDP /f >nul 2>&1
-REG DELETE "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Photo Viewer\Capabilities\FileAssociations" /f
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Legacy Photo viewer has been disabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+:Placeholder
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Placeholder.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
 :DisableSmartscreen
@@ -1167,52 +1155,57 @@ netsh advfirewall set allprofiles state on >nul 2>&1
 powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Windows Firewall has been turned on.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
-:EnableWindowsAmoled
-reg delete HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Accent /f >nul 2>&1
-reg add HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Accent /v AccentColorMenu /t REG_DWORD /d 0x1f000000 /f >nul 2>&1
-reg add HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Accent /v StartColorMenu /t REG_DWORD /d 0x1f202020 /f >nul 2>&1
-reg add HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Accent /v AccentPalette /t REG_BINARY /d 00,9d,ff,1f,00,9d,ff,1f,00,9d,ff,1f,00,9d,ff,1f,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00 /f >nul 2>&1
-reg delete HKEY_USERS\.DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Accent /f >nul 2>&1
-reg add HKEY_USERS\.DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Accent /v AccentColorMenu /t REG_DWORD /d 0x1f000000 /f >nul 2>&1
-reg add HKEY_USERS\.DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Accent /v StartColorMenu /t REG_DWORD /d 0x1f202020 /f >nul 2>&1
-reg add HKEY_USERS\.DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Accent /v AccentPalette /t REG_BINARY /d 00,9d,ff,1f,00,9d,ff,1f,00,9d,ff,1f,00,9d,ff,1f,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00 /f >nul 2>&1
-reg delete HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\DWM /f >nul 2>&1
-reg add HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\DWM /v ColorPrevalence /t REG_DWORD /d 0x1 /f >nul 2>&1
-reg add HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\DWM /v AccentColor /t REG_DWORD /d 0x1f000000 /f >nul 2>&1
-reg add HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\DWM /v AccentColorInactive /t REG_DWORD /d 0x1f202020 /f >nul 2>&1
-reg delete HKEY_USERS\.DEFAULT\SOFTWARE\Microsoft\Windows\DWM /f >nul 2>&1
-reg add HKEY_USERS\.DEFAULT\SOFTWARE\Microsoft\Windows\DWM /v ColorPrevalence /t REG_DWORD /d 0x1 /f >nul 2>&1
-reg add HKEY_USERS\.DEFAULT\SOFTWARE\Microsoft\Windows\DWM /v AccentColor /t REG_DWORD /d 0x1f000000 /f >nul 2>&1
-reg add HKEY_USERS\.DEFAULT\SOFTWARE\Microsoft\Windows\DWM /v AccentColorInactive /t REG_DWORD /d 0x1f202020 /f >nul 2>&1
-reg delete HKEY_USERS.DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize /f >nul 2>&1
-reg add HKEY_USERS.DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize /v ColorPrevalence /t REG_DWORD /d 00000001 /f >nul 2>&1
-reg add HKEY_USERS.DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize /v AppsUseLightTheme /t REG_DWORD /d 00000000 /f >nul 2>&1
-reg add HKEY_USERS.DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize /v SystemUsesLightTheme /t REG_DWORD /d 00000000 /f >nul 2>&1
-reg add HKEY_USERS.DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize /v EnabledBlurBehind /t REG_DWORD /d 00000001 /f >nul 2>&1
-reg add HKEY_USERS.DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize /v EnableTransparency /t REG_DWORD /d 00000000 /f >nul 2>&1
-reg delete HKEY_CURRENT_USER\Control Panel\Colors /v Hilight /f >nul 2>&1
-reg add HKEY_CURRENT_USER\Control Panel\Colors /v Hilight /t REG_SZ /d "0 157 255" /f >nul 2>&1
-reg add HKEY_CURRENT_USER\Control Panel\Colors /v HotTrackingColor /t REG_SZ /d "0 157 255" /f >nul 2>&1
-reg add HKEY_CURRENT_USER\Control Panel\Colors /v MenuHilight /t REG_SZ /d "0 157 255" /f >nul 2>&1
-reg delete HKEY_USERS.DEFAULT\Control Panel\Colors /v Hilight /f >nul 2>&1
-reg add HKEY_USERS.DEFAULT\Control Panel\Colors /v Hilight /t REG_SZ /d "0 157 255" /f >nul 2>&1
-reg add HKEY_USERS.DEFAULT\Control Panel\Colors /v HotTrackingColor /t REG_SZ /d "0 157 255" /f >nul 2>&1
-reg add HKEY_USERS.DEFAULT\Control Panel\Colors /v MenuHilight /t REG_SZ /d "0 157 255" /f >nul 2>&1
-reg add HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon /v Background /t REG_SZ /d "0 0 0" /f >nul 2>&1
-reg add HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System /v DisableAcrylicBackgroundOnLogon /t REG_DWORD /d 00000001 /f >nul 2>&1
-reg add HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System /v DisableLogonBackgroundImage /t REG_DWORD /d 00000001 /f >nul 2>&1
-reg add HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Personalization /v PersonalColors_Background /t REG_SZ /d "#000000" /f >nul 2>&1
-reg add HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Personalization /v PersonalColors_Accent /t REG_SZ /d "-" /f >nul 2>&1
-reg add HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Personalization /v NoLockScreen /t REG_DWORD /d 00000001 /f >nul 2>&1
-reg delete HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DWM /f >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Windows AMOLED Dark Mode has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+:DisableWindowsUpdate
+Reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization" /v "SystemSettingsDownloadMode" /t REG_DWORD /d "0" /f >nul 2>&1
+Reg add "HKLM\SOFTWARE\Microsoft\Speech_OneCore\Preferences" /v "ModelDownloadAllowed" /t REG_DWORD /d "0" /f >nul 2>&1
+Reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization" /v "OptInOOBE" /t REG_DWORD /d "0" /f >nul 2>&1
+Reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config" /v "DODownloadMode" /t REG_DWORD /d "0" /f >nul 2>&1
+Reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsStore\WindowsUpdate" /v "AutoDownload" /t REG_DWORD /d "5" /f >nul 2>&1
+Reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Services\7971f918-a847-4430-9279-4a52d1efe18d" /v "RegisteredWithAU" /t REG_DWORD /d "0" /f >nul 2>&1
+Reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Channels\Microsoft-Windows-DeviceUpdateAgent/Operational" /v "Enabled" /t REG_DWORD /d "0" /f >nul 2>&1
+Reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Channels\Microsoft-Windows-WindowsUpdateClient/Operational" /v "Enabled" /t REG_DWORD /d "0" /f >nul 2>&1
+Reg add "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /v "HideMCTLink" /t REG_DWORD /d "1" /f >nul 2>&1
+Reg add "HKLM\SOFTWARE\Policies\Microsoft\Speech" /v "AllowSpeechModelUpdate" /t REG_DWORD /d "0" /f >nul 2>&1
+Reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\DeliveryOptimization" /v "DODownloadMode" /t REG_DWORD /d "0" /f >nul 2>&1
+Reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v "DoNotConnectToWindowsUpdateInternetLocations" /t REG_DWORD /d "0" /f >nul 2>&1
+Reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v "DisableWindowsUpdateAccess" /t REG_DWORD /d "1" /f >nul 2>&1
+Reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v "WUServer" /t REG_SZ /d " " /f >nul 2>&1
+Reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v "WUStatusServer" /t REG_SZ /d " " /f >nul 2>&1
+Reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v "UpdateServiceUrlAlternate" /t REG_SZ /d " " /f >nul 2>&1
+Reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "AUOptions" /t REG_DWORD /d "2" /f >nul 2>&1
+Reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "NoAutoUpdate" /t REG_DWORD /d "1" /f >nul 2>&1
+Reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "UseWUServer" /t REG_DWORD /d "1" /f >nul 2>&1
+Reg add "HKLM\SYSTEM\ControlSet001\Services\wuauserv" /v "Start" /t REG_DWORD /d "3" /f >nul 2>&1
+Reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "SettingsPageVisibility" /t REG_SZ /d "hide:quiethours;crossdevice;troubleshoot;project;remotedesktop;activation;multitasking;mobile-devices;pen;usb;autoplay;network-dialup;network-proxy;network-vpn;personalization-textinput;maps;appsforwebsites;sync;ms-settings;otherusers;speech;gaming-gamebar;gaming-gamedvr;gaming-gamemode;easeofaccess-eyecontrol;easeofaccess-narrator;easeofaccess-highcontrast;easeofaccess-magnifier;easeofaccess-cursor;easeofaccess-colorfilter;privacy-feedback;findmydevice;windowsdefender;privacy-speech;privacy-speechtyping;cortana-windowssearch;windowsupdate" /f >nul 2>&1
+Reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "SettingsPageVisibility" /t REG_SZ /d "hide:quiethours;crossdevice;troubleshoot;project;remotedesktop;activation;multitasking;mobile-devices;pen;usb;autoplay;network-dialup;network-proxy;network-vpn;personalization-textinput;maps;appsforwebsites;sync;ms-settings;otherusers;speech;gaming-gamebar;gaming-gamedvr;gaming-gamemode;easeofaccess-eyecontrol;easeofaccess-narrator;easeofaccess-highcontrast;easeofaccess-magnifier;easeofaccess-cursor;easeofaccess-colorfilter;privacy-feedback;findmydevice;windowsdefender;privacy-speech;privacy-speechtyping;cortana-windowssearch;windowsupdate" /f >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Windows Update has been disabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
-:DisableWindowsAmoled
-reg delete HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Accent /f >nul 2>&1
-reg delete HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\DWM /f >nul 2>&1
-reg delete HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize /f >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Windows AMOLED has been removed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+:EnableWindowsUpdate
+Reg delete "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization" /v "SystemSettingsDownloadMode" /f >nul 2>&1
+Reg delete "HKLM\SOFTWARE\Microsoft\Speech_OneCore\Preferences" /v "ModelDownloadAllowed" /f >nul 2>&1
+Reg delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization" /v "OptInOOBE" /f >nul 2>&1
+Reg delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config" /v "DODownloadMode" /f >nul 2>&1
+Reg delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsStore\WindowsUpdate" /v "AutoDownload" /f >nul 2>&1
+Reg delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Services\7971f918-a847-4430-9279-4a52d1efe18d" /v "RegisteredWithAU" /f >nul 2>&1
+Reg delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Channels\Microsoft-Windows-DeviceUpdateAgent/Operational" /v "Enabled" /f >nul 2>&1
+Reg delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Channels\Microsoft-Windows-WindowsUpdateClient/Operational" /v "Enabled" /f >nul 2>&1
+Reg delete "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /v "HideMCTLink" /f >nul 2>&1
+Reg delete "HKLM\SOFTWARE\Policies\Microsoft\Speech" /v "AllowSpeechModelUpdate" /f >nul 2>&1
+Reg delete "HKLM\SOFTWARE\Policies\Microsoft\Windows\DeliveryOptimization" /v "DODownloadMode" /f >nul 2>&1
+Reg delete "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v "DoNotConnectToWindowsUpdateInternetLocations" /f >nul 2>&1
+Reg delete "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v "DisableWindowsUpdateAccess" /f >nul 2>&1
+Reg delete "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v "WUServer" /f >nul 2>&1
+Reg delete "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v "WUStatusServer" /f >nul 2>&1
+Reg delete "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v "UpdateServiceUrlAlternate" /f >nul 2>&1
+Reg delete "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "AUOptions" /f >nul 2>&1
+Reg delete "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "NoAutoUpdate" /f >nul 2>&1
+Reg delete "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "UseWUServer" /f >nul 2>&1
+Reg delete "HKLM\SYSTEM\ControlSet001\Services\wuauserv" /v "Start" /f >nul 2>&1
+Reg add "HKLM\SYSTEM\ControlSet001\Services\wuauserv" /v "Start" /t REG_DWORD /d "2" /f >nul 2>&1
+Reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "SettingsPageVisibility" /t REG_SZ /d "hide:quiethours;crossdevice;troubleshoot;project;remotedesktop;activation;multitasking;mobile-devices;pen;usb;autoplay;network-dialup;network-proxy;network-vpn;personalization-textinput;maps;appsforwebsites;sync;ms-settings;otherusers;speech;gaming-gamebar;gaming-gamedvr;gaming-gamemode;easeofaccess-eyecontrol;easeofaccess-narrator;easeofaccess-highcontrast;easeofaccess-magnifier;easeofaccess-cursor;easeofaccess-colorfilter;privacy-feedback;findmydevice;windowsdefender;privacy-speech;privacy-speechtyping;cortana-windowssearch" /f >nul 2>&1
+Reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "SettingsPageVisibility" /t REG_SZ /d "hide:quiethours;crossdevice;troubleshoot;project;remotedesktop;activation;multitasking;mobile-devices;pen;usb;autoplay;network-dialup;network-proxy;network-vpn;personalization-textinput;maps;appsforwebsites;sync;ms-settings;otherusers;speech;gaming-gamebar;gaming-gamedvr;gaming-gamemode;easeofaccess-eyecontrol;easeofaccess-narrator;easeofaccess-highcontrast;easeofaccess-magnifier;easeofaccess-cursor;easeofaccess-colorfilter;privacy-feedback;findmydevice;windowsdefender;privacy-speech;privacy-speechtyping;cortana-windowssearch" /f >nul 2>&1
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Windows Update has been enabled. You might need to restart Windows.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
 :EnableEduThemes
@@ -1291,86 +1284,6 @@ GOTO SettingsMenu
 
 :GoBack
 GOTO Welcome
-
-:: Note - Settings Page 2
-:SettingsPage2
-mode con: cols=76 lines=22
-Title Settings / Tweaks
-@ECHO OFF
-CLS
-@ECHO.
-@ECHO                                   [7mSettings[0m 
-@ECHO.
-@ECHO [36m____________________________________________________________________________[0m
-@ECHO.
-ECHO         [[1mA[0m] Disable Windows Update         [[1mB[0m] Enable Windows Update 
-@ECHO.
-@ECHO [36m____________________________________________________________________________[0m
-ECHO.
-ECHO          [101m[X] Go back[0m                                         [[93m2[0m/[96m2[0m]
-CHOICE /C:abcdefghijklmnopqrstuvyzx /N /M ""
-
-:: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 25 GOTO GoBack
-IF ERRORLEVEL 2 GOTO EnableWindowsUpdate
-IF ERRORLEVEL 1 GOTO DisableWindowsUpdate
-
-:DisableWindowsUpdate
-Reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization" /v "SystemSettingsDownloadMode" /t REG_DWORD /d "0" /f >nul 2>&1
-Reg add "HKLM\SOFTWARE\Microsoft\Speech_OneCore\Preferences" /v "ModelDownloadAllowed" /t REG_DWORD /d "0" /f >nul 2>&1
-Reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization" /v "OptInOOBE" /t REG_DWORD /d "0" /f >nul 2>&1
-Reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config" /v "DODownloadMode" /t REG_DWORD /d "0" /f >nul 2>&1
-Reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsStore\WindowsUpdate" /v "AutoDownload" /t REG_DWORD /d "5" /f >nul 2>&1
-Reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Services\7971f918-a847-4430-9279-4a52d1efe18d" /v "RegisteredWithAU" /t REG_DWORD /d "0" /f >nul 2>&1
-Reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Channels\Microsoft-Windows-DeviceUpdateAgent/Operational" /v "Enabled" /t REG_DWORD /d "0" /f >nul 2>&1
-Reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Channels\Microsoft-Windows-WindowsUpdateClient/Operational" /v "Enabled" /t REG_DWORD /d "0" /f >nul 2>&1
-Reg add "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /v "HideMCTLink" /t REG_DWORD /d "1" /f >nul 2>&1
-Reg add "HKLM\SOFTWARE\Policies\Microsoft\Speech" /v "AllowSpeechModelUpdate" /t REG_DWORD /d "0" /f >nul 2>&1
-Reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\DeliveryOptimization" /v "DODownloadMode" /t REG_DWORD /d "0" /f >nul 2>&1
-Reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v "DoNotConnectToWindowsUpdateInternetLocations" /t REG_DWORD /d "0" /f >nul 2>&1
-Reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v "DisableWindowsUpdateAccess" /t REG_DWORD /d "1" /f >nul 2>&1
-Reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v "WUServer" /t REG_SZ /d " " /f >nul 2>&1
-Reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v "WUStatusServer" /t REG_SZ /d " " /f >nul 2>&1
-Reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v "UpdateServiceUrlAlternate" /t REG_SZ /d " " /f >nul 2>&1
-Reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "AUOptions" /t REG_DWORD /d "2" /f >nul 2>&1
-Reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "NoAutoUpdate" /t REG_DWORD /d "1" /f >nul 2>&1
-Reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "UseWUServer" /t REG_DWORD /d "1" /f >nul 2>&1
-Reg add "HKLM\SYSTEM\ControlSet001\Services\wuauserv" /v "Start" /t REG_DWORD /d "3" /f >nul 2>&1
-Reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "SettingsPageVisibility" /t REG_SZ /d "hide:quiethours;crossdevice;troubleshoot;project;remotedesktop;activation;multitasking;mobile-devices;pen;usb;autoplay;network-dialup;network-proxy;network-vpn;personalization-textinput;maps;appsforwebsites;sync;ms-settings;otherusers;speech;gaming-gamebar;gaming-gamedvr;gaming-gamemode;easeofaccess-eyecontrol;easeofaccess-narrator;easeofaccess-highcontrast;easeofaccess-magnifier;easeofaccess-cursor;easeofaccess-colorfilter;privacy-feedback;findmydevice;windowsdefender;privacy-speech;privacy-speechtyping;cortana-windowssearch;windowsupdate" /f >nul 2>&1
-Reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "SettingsPageVisibility" /t REG_SZ /d "hide:quiethours;crossdevice;troubleshoot;project;remotedesktop;activation;multitasking;mobile-devices;pen;usb;autoplay;network-dialup;network-proxy;network-vpn;personalization-textinput;maps;appsforwebsites;sync;ms-settings;otherusers;speech;gaming-gamebar;gaming-gamedvr;gaming-gamemode;easeofaccess-eyecontrol;easeofaccess-narrator;easeofaccess-highcontrast;easeofaccess-magnifier;easeofaccess-cursor;easeofaccess-colorfilter;privacy-feedback;findmydevice;windowsdefender;privacy-speech;privacy-speechtyping;cortana-windowssearch;windowsupdate" /f >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Windows Update has been disabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
-GOTO SettingsPage2
-
-:EnableWindowsUpdate
-Reg delete "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization" /v "SystemSettingsDownloadMode" /f >nul 2>&1
-Reg delete "HKLM\SOFTWARE\Microsoft\Speech_OneCore\Preferences" /v "ModelDownloadAllowed" /f >nul 2>&1
-Reg delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization" /v "OptInOOBE" /f >nul 2>&1
-Reg delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config" /v "DODownloadMode" /f >nul 2>&1
-Reg delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsStore\WindowsUpdate" /v "AutoDownload" /f >nul 2>&1
-Reg delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Services\7971f918-a847-4430-9279-4a52d1efe18d" /v "RegisteredWithAU" /f >nul 2>&1
-Reg delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Channels\Microsoft-Windows-DeviceUpdateAgent/Operational" /v "Enabled" /f >nul 2>&1
-Reg delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Channels\Microsoft-Windows-WindowsUpdateClient/Operational" /v "Enabled" /f >nul 2>&1
-Reg delete "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /v "HideMCTLink" /f >nul 2>&1
-Reg delete "HKLM\SOFTWARE\Policies\Microsoft\Speech" /v "AllowSpeechModelUpdate" /f >nul 2>&1
-Reg delete "HKLM\SOFTWARE\Policies\Microsoft\Windows\DeliveryOptimization" /v "DODownloadMode" /f >nul 2>&1
-Reg delete "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v "DoNotConnectToWindowsUpdateInternetLocations" /f >nul 2>&1
-Reg delete "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v "DisableWindowsUpdateAccess" /f >nul 2>&1
-Reg delete "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v "WUServer" /f >nul 2>&1
-Reg delete "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v "WUStatusServer" /f >nul 2>&1
-Reg delete "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v "UpdateServiceUrlAlternate" /f >nul 2>&1
-Reg delete "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "AUOptions" /f >nul 2>&1
-Reg delete "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "NoAutoUpdate" /f >nul 2>&1
-Reg delete "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "UseWUServer" /f >nul 2>&1
-Reg delete "HKLM\SYSTEM\ControlSet001\Services\wuauserv" /v "Start" /f >nul 2>&1
-Reg add "HKLM\SYSTEM\ControlSet001\Services\wuauserv" /v "Start" /t REG_DWORD /d "2" /f >nul 2>&1
-Reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "SettingsPageVisibility" /t REG_SZ /d "hide:quiethours;crossdevice;troubleshoot;project;remotedesktop;activation;multitasking;mobile-devices;pen;usb;autoplay;network-dialup;network-proxy;network-vpn;personalization-textinput;maps;appsforwebsites;sync;ms-settings;otherusers;speech;gaming-gamebar;gaming-gamedvr;gaming-gamemode;easeofaccess-eyecontrol;easeofaccess-narrator;easeofaccess-highcontrast;easeofaccess-magnifier;easeofaccess-cursor;easeofaccess-colorfilter;privacy-feedback;findmydevice;windowsdefender;privacy-speech;privacy-speechtyping;cortana-windowssearch" /f >nul 2>&1
-Reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "SettingsPageVisibility" /t REG_SZ /d "hide:quiethours;crossdevice;troubleshoot;project;remotedesktop;activation;multitasking;mobile-devices;pen;usb;autoplay;network-dialup;network-proxy;network-vpn;personalization-textinput;maps;appsforwebsites;sync;ms-settings;otherusers;speech;gaming-gamebar;gaming-gamedvr;gaming-gamemode;easeofaccess-eyecontrol;easeofaccess-narrator;easeofaccess-highcontrast;easeofaccess-magnifier;easeofaccess-cursor;easeofaccess-colorfilter;privacy-feedback;findmydevice;windowsdefender;privacy-speech;privacy-speechtyping;cortana-windowssearch" /f >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Windows Update has been enabled. You might need to restart Windows.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
-GOTO SettingsPage2
-
-:GoBack 
-GOTO SettingsMenu
-
 
 :: Note - Drivers Menu Page
 :DriversMenu
