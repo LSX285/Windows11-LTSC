@@ -491,3 +491,9 @@ Windows Registry Editor Version 5.00
 
 [HKEY_CURRENT_USER\Software\Microsoft\InputPersonalization\TrainedDataStore]
 "HarvestContacts"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation]
+"SupportURL"="https://github.com/LSX285/Windows11-LTSC"
+
+[HKEY_CURRENT_USER\Control Panel\Desktop]
+"WallPaper"="C:\\Windows\\Web\\Wallpaper\\ThemeD\\img32.jpg"
