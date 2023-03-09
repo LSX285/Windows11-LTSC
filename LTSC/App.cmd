@@ -1021,8 +1021,8 @@ powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.
 GOTO DebloatMenu
 
 :RemoveMicrosoftEdge
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/Edge_Uninstall.bat', 'C:\Program Files\LTSC\Scripts\Edge_Uninstall.bat')" >nul 2>&1
-start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\Edge_Uninstall.bat" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/Edge_Uninstall.cmd', 'C:\Program Files\LTSC\Scripts\Edge_Uninstall.cmd')" >nul 2>&1
+start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\Edge_Uninstall.cmd" >nul 2>&1
 GOTO DebloatMenu
 
 :GoBack

@@ -246,7 +246,7 @@ if %errorlevel% equ 0 (
     )
 )
 
-Reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnce" /v "RunItOnce" /t REG_SZ /d "\"C:\Program Files\LTSC\App.bat\"" /f >nul 2>&1
+Reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnce" /v "RunItOnce" /t REG_SZ /d "\"C:\Program Files\LTSC\App.cmd\"" /f >nul 2>&1
 
 powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Reapplying LTSC finished. Windows will restart shortly.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 

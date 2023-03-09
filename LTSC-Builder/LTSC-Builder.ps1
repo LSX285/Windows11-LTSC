@@ -156,7 +156,7 @@ New-Item -ItemType Directory -Path "C:\LTSC\mount\Program Files\LTSC\AdditionalF
 New-Item -ItemType Directory -Path "C:\LTSC\mount\Program Files\LTSC\AdditionalFiles\RepairWin" | Out-Null
 New-Item -ItemType Directory -Path "C:\LTSC\mount\Windows\Setup\Scripts" | Out-Null
 (New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/setup.cmd', 'C:\LTSC\mount\Program Files\LTSC\setup.cmd') | Out-Null
-(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/App.bat', 'C:\LTSC\mount\Program Files\LTSC\App.bat') | Out-Null
+(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/App.cmd', 'C:\LTSC\mount\Program Files\LTSC\App.cmd') | Out-Null
 (New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/hosts', 'C:\LTSC\mount\Windows\System32\drivers\etc\hosts') | Out-Null
 (New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/SetupComplete.cmd', 'C:\LTSC\mount\Windows\Setup\Scripts\SetupComplete.cmd') | Out-Null
 (New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/AntiDefender.cmd', 'C:\LTSC\mount\Program Files\LTSC\Scripts\AntiDefender.cmd') | Out-Null
@@ -164,7 +164,7 @@ New-Item -ItemType Directory -Path "C:\LTSC\mount\Windows\Setup\Scripts" | Out-N
 (New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/CleanFiles.cmd', 'C:\LTSC\mount\Program Files\LTSC\Scripts\CleanFiles.cmd') | Out-Null
 (New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/DisableAMOLED.reg', 'C:\LTSC\mount\Program Files\LTSC\Scripts\DisableAMOLED.reg') | Out-Null
 (New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/DisablePhotoViewer.reg', 'C:\LTSC\mount\Program Files\LTSC\Scripts\DisablePhotoViewer.reg') | Out-Null
-(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/Edge_Uninstall.bat', 'C:\LTSC\mount\Program Files\LTSC\Scripts\Edge_Uninstall.bat') | Out-Null
+(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/Edge_Uninstall.cmd', 'C:\LTSC\mount\Program Files\LTSC\Scripts\Edge_Uninstall.cmd') | Out-Null
 (New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/EnableAMOLED.reg', 'C:\LTSC\mount\Program Files\LTSC\Scripts\EnableAMOLED.reg') | Out-Null
 (New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/EnablePhotoViewer.reg', 'C:\LTSC\mount\Program Files\LTSC\Scripts\EnablePhotoViewer.reg') | Out-Null
 (New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/UpdateAPP.cmd', 'C:\LTSC\mount\Program Files\LTSC\Scripts\UpdateAPP.cmd') | Out-Null

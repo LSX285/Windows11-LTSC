@@ -391,7 +391,7 @@ Windows Registry Editor Version 5.00
 
 ;Once Windows is done setting up let App run on reboot
 [HKEY_LOCAL_MACHINE\zNTUSER\Software\Microsoft\Windows\CurrentVersion\RunOnce]
-"RunItOnce"="\"C:\\Program Files\\LTSC\\App.bat\""
+"RunItOnce"="\"C:\\Program Files\\LTSC\\App.cmd\""
 
 ;Hide useless settings pages
 [HKEY_LOCAL_MACHINE\zNTUSER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer]

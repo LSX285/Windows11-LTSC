@@ -84,7 +84,7 @@ if %errorlevel% equ 0 (
     )
 )
 
-Reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnce" /v "RunItOnce" /t REG_SZ /d "\"C:\Program Files\LTSC\App.bat\"" /f >nul 2>&1
+Reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnce" /v "RunItOnce" /t REG_SZ /d "\"C:\Program Files\LTSC\App.cmd\"" /f >nul 2>&1
 
 :: Note - Restarting Windows to apply all changes made by this script.
 shutdown /r /f /t 05 >nul 2>&1
