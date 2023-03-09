@@ -80,6 +80,11 @@ Windows Registry Editor Version 5.00
 "PreInstalledAppsEnabled"=dword:00000000
 "SilentInstalledAppsEnabled"=dword:00000000
 
+[HKEY_LOCAL_MACHINE\zNTUSER\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager]
+"OemPreInstalledAppsEnabled"=dword:00000000
+"PreInstalledAppsEnabled"=dword:00000000
+"SilentInstalledAppsEnabled"=dword:00000000
+
 ;Disable cloud content
 [HKEY_LOCAL_MACHINE\zSOFTWARE\Policies\Microsoft\Windows\CloudContent]
 "DisableCloudOptimizedContent"=dword:00000001

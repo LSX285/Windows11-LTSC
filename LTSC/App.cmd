@@ -1135,8 +1135,15 @@ powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.
 GOTO SettingsMenu
 
 :DisablePhotoViewer
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/DisablePhotoViewer.reg', 'C:\Program Files\LTSC\Scripts\DisablePhotoViewer.reg')" >nul 2>&1
-regedit /s "C:\Program Files\LTSC\Scripts\DisablePhotoViewer.reg" >nul 2>&1
+REG DELETE HKEY_CLASSES_ROOT\jpegfile\shell\open\DropTarget /v Clsid /f >nul 2>&1
+REG DELETE HKEY_CLASSES_ROOT\pngfile\shell\open\DropTarget /v Clsid /f >nul 2>&1
+REG DELETE HKEY_CLASSES_ROOT\PhotoViewer.FileAssoc.BITMAP /f >nul 2>&1
+REG DELETE HKEY_CLASSES_ROOT\PhotoViewer.FileAssoc.JPEG /f >nul 2>&1
+REG DELETE HKEY_CLASSES_ROOT\PhotoViewer.FileAssoc.JFIF /f >nul 2>&1
+REG DELETE HKEY_CLASSES_ROOT\PhotoViewer.FileAssoc.GIF /f >nul 2>&1
+REG DELETE HKEY_CLASSES_ROOT\PhotoViewer.FileAssoc.PNG /f >nul 2>&1
+REG DELETE HKEY_CLASSES_ROOT\PhotoViewer.FileAssoc.WDP /f >nul 2>&1
+REG DELETE "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Photo Viewer\Capabilities\FileAssociations" /f
 powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Legacy Photo viewer has been disabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
@@ -1161,14 +1168,50 @@ powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.
 GOTO SettingsMenu
 
 :EnableWindowsAmoled
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/EnableAMOLED.reg', 'C:\Program Files\LTSC\Scripts\EnableAMOLED.reg')" >nul 2>&1
-regedit /s "C:\Program Files\LTSC\Scripts\EnableAMOLED.reg" >nul 2>&1
+reg delete HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Accent /f >nul 2>&1
+reg add HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Accent /v AccentColorMenu /t REG_DWORD /d 0x1f000000 /f >nul 2>&1
+reg add HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Accent /v StartColorMenu /t REG_DWORD /d 0x1f202020 /f >nul 2>&1
+reg add HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Accent /v AccentPalette /t REG_BINARY /d 00,9d,ff,1f,00,9d,ff,1f,00,9d,ff,1f,00,9d,ff,1f,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00 /f >nul 2>&1
+reg delete HKEY_USERS\.DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Accent /f >nul 2>&1
+reg add HKEY_USERS\.DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Accent /v AccentColorMenu /t REG_DWORD /d 0x1f000000 /f >nul 2>&1
+reg add HKEY_USERS\.DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Accent /v StartColorMenu /t REG_DWORD /d 0x1f202020 /f >nul 2>&1
+reg add HKEY_USERS\.DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Accent /v AccentPalette /t REG_BINARY /d 00,9d,ff,1f,00,9d,ff,1f,00,9d,ff,1f,00,9d,ff,1f,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00 /f >nul 2>&1
+reg delete HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\DWM /f >nul 2>&1
+reg add HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\DWM /v ColorPrevalence /t REG_DWORD /d 0x1 /f >nul 2>&1
+reg add HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\DWM /v AccentColor /t REG_DWORD /d 0x1f000000 /f >nul 2>&1
+reg add HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\DWM /v AccentColorInactive /t REG_DWORD /d 0x1f202020 /f >nul 2>&1
+reg delete HKEY_USERS\.DEFAULT\SOFTWARE\Microsoft\Windows\DWM /f >nul 2>&1
+reg add HKEY_USERS\.DEFAULT\SOFTWARE\Microsoft\Windows\DWM /v ColorPrevalence /t REG_DWORD /d 0x1 /f >nul 2>&1
+reg add HKEY_USERS\.DEFAULT\SOFTWARE\Microsoft\Windows\DWM /v AccentColor /t REG_DWORD /d 0x1f000000 /f >nul 2>&1
+reg add HKEY_USERS\.DEFAULT\SOFTWARE\Microsoft\Windows\DWM /v AccentColorInactive /t REG_DWORD /d 0x1f202020 /f >nul 2>&1
+reg delete HKEY_USERS.DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize /f >nul 2>&1
+reg add HKEY_USERS.DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize /v ColorPrevalence /t REG_DWORD /d 00000001 /f >nul 2>&1
+reg add HKEY_USERS.DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize /v AppsUseLightTheme /t REG_DWORD /d 00000000 /f >nul 2>&1
+reg add HKEY_USERS.DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize /v SystemUsesLightTheme /t REG_DWORD /d 00000000 /f >nul 2>&1
+reg add HKEY_USERS.DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize /v EnabledBlurBehind /t REG_DWORD /d 00000001 /f >nul 2>&1
+reg add HKEY_USERS.DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize /v EnableTransparency /t REG_DWORD /d 00000000 /f >nul 2>&1
+reg delete HKEY_CURRENT_USER\Control Panel\Colors /v Hilight /f >nul 2>&1
+reg add HKEY_CURRENT_USER\Control Panel\Colors /v Hilight /t REG_SZ /d "0 157 255" /f >nul 2>&1
+reg add HKEY_CURRENT_USER\Control Panel\Colors /v HotTrackingColor /t REG_SZ /d "0 157 255" /f >nul 2>&1
+reg add HKEY_CURRENT_USER\Control Panel\Colors /v MenuHilight /t REG_SZ /d "0 157 255" /f >nul 2>&1
+reg delete HKEY_USERS.DEFAULT\Control Panel\Colors /v Hilight /f >nul 2>&1
+reg add HKEY_USERS.DEFAULT\Control Panel\Colors /v Hilight /t REG_SZ /d "0 157 255" /f >nul 2>&1
+reg add HKEY_USERS.DEFAULT\Control Panel\Colors /v HotTrackingColor /t REG_SZ /d "0 157 255" /f >nul 2>&1
+reg add HKEY_USERS.DEFAULT\Control Panel\Colors /v MenuHilight /t REG_SZ /d "0 157 255" /f >nul 2>&1
+reg add HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon /v Background /t REG_SZ /d "0 0 0" /f >nul 2>&1
+reg add HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System /v DisableAcrylicBackgroundOnLogon /t REG_DWORD /d 00000001 /f >nul 2>&1
+reg add HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System /v DisableLogonBackgroundImage /t REG_DWORD /d 00000001 /f >nul 2>&1
+reg add HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Personalization /v PersonalColors_Background /t REG_SZ /d "#000000" /f >nul 2>&1
+reg add HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Personalization /v PersonalColors_Accent /t REG_SZ /d "-" /f >nul 2>&1
+reg add HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Personalization /v NoLockScreen /t REG_DWORD /d 00000001 /f >nul 2>&1
+reg delete HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DWM /f >nul 2>&1
 powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Windows AMOLED Dark Mode has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
 :DisableWindowsAmoled
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/DisableAMOLED.reg', 'C:\Program Files\LTSC\Scripts\DisableAMOLED.reg')" >nul 2>&1
-regedit /s "C:\Program Files\LTSC\Scripts\DisableAMOLED.reg" >nul 2>&1
+reg delete HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Accent /f >nul 2>&1
+reg delete HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\DWM /f >nul 2>&1
+reg delete HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize /f >nul 2>&1
 powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Windows AMOLED has been removed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
