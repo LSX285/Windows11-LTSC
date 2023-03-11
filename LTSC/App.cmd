@@ -1763,7 +1763,7 @@ IF ERRORLEVEL 7 GOTO RebuildIconCache
 IF ERRORLEVEL 6 GOTO UpdateAPP
 IF ERRORLEVEL 5 GOTO WindowsActivation
 IF ERRORLEVEL 4 GOTO Placeholder
-IF ERRORLEVEL 3 GOTO CleanTempFiles
+IF ERRORLEVEL 3 GOTO CleanTemp
 IF ERRORLEVEL 2 GOTO RepairWindowsAdvanced
 IF ERRORLEVEL 1 GOTO RepairWindows
 
@@ -1788,7 +1788,7 @@ DISM /Online /Cleanup-Image /RestoreHealth /Source:"C:\Program Files\LTSC\Additi
 powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Repair finished. Please restart Windows.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO DebugMenu
 
-:CleanTempFiles
+:CleanTemp
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/CleanFiles.cmd', 'C:\Program Files\LTSC\Scripts\CleanFiles.cmd')" >nul 2>&1
 start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\CleanFiles.cmd" >nul 2>&1
 GOTO DebugMenu
