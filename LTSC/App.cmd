@@ -40,7 +40,7 @@ REG Add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V Prom
 :: Note - Welcome Page
 :Welcome
 mode con: cols=76 lines=20
-Title APP v1.0.4.0
+Title APP v1.0.4.1
 @ECHO OFF
 CLS
 @ECHO.   
@@ -57,38 +57,21 @@ ECHO    [101m[X] Exit[0m   [100m[U] Update APP[0m                           
 CHOICE /C:abcduxz /N /M ""
 
 :: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 7 GOTO Debug
+IF ERRORLEVEL 7 GOTO DebugMenu
 IF ERRORLEVEL 6 GOTO exit
 IF ERRORLEVEL 5 GOTO UpdateAPP
-IF ERRORLEVEL 4 GOTO Settings
-IF ERRORLEVEL 3 GOTO Drivers
-IF ERRORLEVEL 2 GOTO Debloat
-IF ERRORLEVEL 1 GOTO Apps
-
-:Apps
-GOTO AppDLMenu
-
-:Debloat
-GOTO DebloatMenu
-
-:Settings
-GOTO SettingsMenu
-
-:Drivers
-GOTO DriversMenu
+IF ERRORLEVEL 4 GOTO SettingsMenu
+IF ERRORLEVEL 3 GOTO DriversMenu
+IF ERRORLEVEL 2 GOTO DebloatMenu
+IF ERRORLEVEL 1 GOTO AppDLMenu
 
 :UpdateAPP
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/UpdateAPP.cmd', 'C:\Program Files\LTSC\Scripts\UpdateAPP.cmd')" >nul 2>&1
 start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\UpdateAPP.cmd" >nul 2>&1
 exit
 
-:Debug
-GOTO DebugMenu
-
 :exit
 exit
-
-
 
 :: Note - Install Applications Page
 :AppDLMenu
