@@ -74,8 +74,6 @@
 		"Printing-Foundation-InternetPrinting-Client"
 	],
 	"PathsToDelete": [
-		{ "Path": "Program Files (x86)\\Microsoft\\Edge", "IsFolder": true},
-		{ "Path": "Program Files (x86)\\Microsoft\\EdgeUpdate", "IsFolder": true},
 		{ "Path": "Users\\Default\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Accessibility", "IsFolder": true},
 		{ "Path": "ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Accessibility", "IsFolder": true},
 		{ "Path": "Windows\\System32\\OneDriveSetup.exe", "IsFolder": false},
