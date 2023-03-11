@@ -1788,7 +1788,6 @@ powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.github
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/ViveTool/FeatureDictionary.pfs', 'C:\Program Files\LTSC\Scripts\ViveTool\FeatureDictionary.pfs')" >nul 2>&1
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/ViveTool/Newtonsoft.Json.dll', 'C:\Program Files\LTSC\Scripts\ViveTool\Newtonsoft.Json.dll')" >nul 2>&1
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/ViveTool/ViVeTool.exe', 'C:\Program Files\LTSC\Scripts\ViveTool\ViVeTool.exe')" >nul 2>&1
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/UpdateAPP.cmd', 'C:\Program Files\LTSC\Scripts\UpdateAPP.cmd')" >nul 2>&1
 start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\UpdateAPP.cmd" >nul 2>&1
 exit
 
