@@ -20,10 +20,12 @@ CD /D "%~dp0"
 :: batch is being ran as admin
 :skipAdmin
 
+set version=v1.0.4.4
+
 :: Note - Welcome Page
 :Welcome
 mode con: cols=76 lines=20
-Title APP v1.0.4.3
+Title APP %version%
 @ECHO OFF
 CLS
 @ECHO.   
@@ -53,7 +55,7 @@ exit
 :: Note - Install Applications Page
 :AppDLMenu
 mode con: cols=76 lines=20
-Title Download Apps
+Title Download Apps %version%
 @ECHO OFF
 CLS
 @ECHO.
@@ -189,7 +191,7 @@ GOTO Welcome
 :: Note - More Applications Page
 :More
 mode con: cols=76 lines=20
-Title Download Apps
+Title Download Apps %version%
 @ECHO OFF
 CLS
 @ECHO.
@@ -319,7 +321,7 @@ GOTO AppDLMenu
 :More2
 :: Note - More Applications Page 3
 mode con: cols=76 lines=20
-Title Download Apps
+Title Download Apps %version%
 @ECHO OFF
 CLS
 @ECHO.
@@ -444,7 +446,7 @@ GOTO More
 :: Note - More Applications Page 4
 :More3
 mode con: cols=76 lines=20
-Title Download Apps
+Title Download Apps %version%
 @ECHO OFF
 CLS
 @ECHO.
@@ -569,7 +571,7 @@ GOTO More2
 :: Note - More Applications Page 5
 :More4
 mode con: cols=76 lines=20
-Title Download Apps
+Title Download Apps %version%
 @ECHO OFF
 CLS
 @ECHO.
@@ -694,7 +696,7 @@ GOTO More3
 :: Note - More Applications Page 6
 :More5
 mode con: cols=76 lines=20
-Title Download Apps
+Title Download Apps %version%
 @ECHO OFF
 CLS
 @ECHO.
@@ -821,7 +823,7 @@ GOTO More4
 :: Note - More Applications Page 7
 :More6
 mode con: cols=76 lines=20
-Title Download Apps
+Title Download Apps %version%
 @ECHO OFF
 CLS
 @ECHO.
@@ -911,7 +913,7 @@ GOTO More5
 :: Note - Further Debloat Windows Page
 :DebloatMenu
 mode con: cols=76 lines=20
-Title Debloat
+Title Debloat %version%
 @ECHO OFF
 CLS
 @ECHO.
@@ -990,7 +992,7 @@ GOTO Welcome
 :: Note - Settings Page
 :SettingsMenu
 mode con: cols=76 lines=22
-Title Settings / Tweaks
+Title Settings / Tweaks %version%
 @ECHO OFF
 CLS
 @ECHO.
@@ -1245,7 +1247,7 @@ GOTO Welcome
 :: Note - Drivers Menu Page
 :DriversMenu
 mode con: cols=76 lines=20
-Title Install Drivers
+Title Install Drivers %version%
 @ECHO OFF
 CLS
 @ECHO.
@@ -1261,31 +1263,16 @@ ECHO      [101m[X] Go back[0m
 CHOICE /C:abcdx /N /M ""
 
 :: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 5 GOTO GoBack
-IF ERRORLEVEL 4 GOTO Networking
-IF ERRORLEVEL 3 GOTO Audio
-IF ERRORLEVEL 2 GOTO Graphics
-IF ERRORLEVEL 1 GOTO Chipset
-
-:Chipset
-GOTO ChipsetMenu
-
-:Graphics
-GOTO GraphicsMenu
-
-:Audio
-GOTO AudioMenu
-
-:Networking
-GOTO NetworkingMenu
-
-:GoBack
-GOTO Welcome
+IF ERRORLEVEL 5 GOTO Welcome
+IF ERRORLEVEL 4 GOTO NetworkingMenu
+IF ERRORLEVEL 3 GOTO AudioMenu
+IF ERRORLEVEL 2 GOTO GraphicsMenu
+IF ERRORLEVEL 1 GOTO ChipsetMenu
 
 :: Note - Chipset Menu Page
 :ChipsetMenu
 mode con: cols=76 lines=20
-Title Install Drivers: Chipset
+Title Install Drivers: Chipset %version%
 @ECHO OFF
 CLS
 @ECHO.
@@ -1334,7 +1321,7 @@ GOTO DriversMenu
 :: Note - Graphics Menu Page
 :GraphicsMenu
 mode con: cols=76 lines=20
-Title Install Drivers: Graphics
+Title Install Drivers: Graphics %version%
 @ECHO OFF
 CLS
 @ECHO.
@@ -1407,7 +1394,7 @@ GOTO DriversMenu
 :: Note - Audio Menu Page
 :AudioMenu
 mode con: cols=76 lines=20
-Title Install Drivers: Audio
+Title Install Drivers: Audio %version%
 @ECHO OFF
 CLS
 @ECHO.
@@ -1506,7 +1493,7 @@ GOTO DriversMenu
 :NetworkingMenu
 :: Note - Netowrking Menu Page
 mode con: cols=76 lines=20
-Title Install Drivers: Network
+Title Install Drivers: Network %version%
 @ECHO OFF
 CLS
 @ECHO.
@@ -1679,7 +1666,7 @@ GOTO DriversMenu
 
 :DebugMenu
 mode con: cols=76 lines=20
-Title Debug Menu
+Title Debug Menu %version%
 @ECHO OFF
 CLS
 @ECHO.
@@ -1860,7 +1847,7 @@ shutdown /r /fw /t 05 >nul 2>&1
 
 :InsiderFeaturesMenu
 mode con: cols=76 lines=20
-Title Insider Features
+Title Insider Features %version%
 @ECHO OFF
 CLS
 @ECHO.
@@ -1875,13 +1862,13 @@ ECHO   [[1mD[0m] Custom color Search box [[1mE[0m] Remove Add Device[[1mF[
 ECHO   [[1mG[0m] ReFS Dev Volumes        [[1mH[0m] New Spotlight UI [[1mI[0m] New Snap Assist UI
 ECHO   [[1mJ[0m] Touch Keyboard Drop Menu[[1mK[0m] Auto Color Mngmnt[[1mL[0m] Start Acc Badge
 ECHO   [[1mM[0m] WinAppSDK File Explorer [[1mN[0m] Uninstall Apps ..[[1mO[0m] KB layout settings
-ECHO   [[1mP[0m] Emoji 15 support        [[1mQ[0m] End Task option  [[1mR[0m] Widgets no Account
+ECHO   [[1mP[0m] Emoji 15 support        [[1mW[0m] End Task option  [[1mR[0m] Widgets no Account
 ECHO   [[1mS[0m] Ambient Device Lighting [[1mT[0m] New Setting UIs  [[1mU[0m] Suggested Actions
 ECHO.
 @ECHO [36m____________________________________________________________________________[0m
 ECHO.
-ECHO          [101m[X] Go back[0m   [100m[W] Next Page[0m                         [[93m1[0m/[96m2[0m]
-CHOICE /C:abcdefghijklmnopqrstuxw /N /M ""
+ECHO          [101m[X] Go back[0m   [100m[Q] Next Page[0m                         [[93m1[0m/[96m2[0m]
+CHOICE /C:abcdefghijklmnopwrstuxq /N /M ""
 
 :: Note - list ERRORLEVELS in decreasing order
 IF ERRORLEVEL 23 GOTO FeaturesPage2
@@ -2043,7 +2030,7 @@ GOTO DebugMenu
 
 :FeaturesPage2
 mode con: cols=76 lines=20
-Title Insider Features
+Title Insider Features %version%
 @ECHO OFF
 CLS
 @ECHO.
