@@ -28,6 +28,7 @@ set repository=https://github.com/LSX285/Windows11-LTSC/raw/main
 set notify=powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,
 set downloadfile=powershell -command "(New-Object Net.WebClient).DownloadFile(
 set wingetsilent=--accept-source-agreements --accept-package-agreements
+set menuline=@ECHO [36m____________________________________________________________________________[0m
 
 :: Note - Welcome Page
 :Welcome
@@ -39,11 +40,11 @@ CLS
 @ECHO.                                 Hi, [96m%USERNAME%[0m
 @ECHO                          Welcome to Windows [94m11[0m [7mLTSC[0m
 @ECHO. 
-@ECHO [36m____________________________________________________________________________[0m
+%menuline%
 @ECHO.
 ECHO    [[1mA[0m] Install Apps     [[1mB[0m] More Debloat      [[1mC[0m] Drivers    [[1mD[0m] Settings
 ECHO.
-@ECHO [36m____________________________________________________________________________[0m
+%menuline%
 ECHO.
 ECHO      [101m[X] Go back[0m                                              [100m[Z] Debug[0m
 CHOICE /C:abcdxz /N /M ""
@@ -68,7 +69,7 @@ CLS
 @ECHO.
 @ECHO                                   [7mApps[0m
 @ECHO.
-@ECHO [36m____________________________________________________________________________[0m
+%menuline%
 @ECHO.
 ECHO        [[1mA[0m] Chrome         [[1mF[0m] Mullvad           [[1mK[0m] MSI Afterburner
 ECHO        [[1mB[0m] Discord        [[1mG[0m] Wireguard         [[1mL[0m] NZXT CAM
@@ -76,7 +77,7 @@ ECHO        [[1mC[0m] Spotify        [[1mH[0m] LibreOffice       [[1mM[0m]
 ECHO        [[1mD[0m] Steam          [[1mI[0m] Paint.net         [[1mN[0m] Blender
 ECHO        [[1mE[0m] Epic Games     [[1mJ[0m] VLC Media Player  [[1mO[0m] HwInfo64
 ECHO.
-@ECHO [36m____________________________________________________________________________[0m
+%menuline%
 ECHO.
 ECHO        [101m[X] Go back[0m   [100m[U] Search for Updates[0m   [100m[Q] More Apps[0m   [[93m1[0m/[96m7[0m]
 CHOICE /C:abcdefghijklmnouqx /N /M ""
@@ -204,7 +205,7 @@ CLS
 @ECHO.
 @ECHO                                   [7mApps[0m
 @ECHO.
-@ECHO [36m____________________________________________________________________________[0m
+%menuline%
 @ECHO.
 ECHO       [[1mA[0m] Opera GX           [[1mF[0m] Ubisoft Connect [[1mK[0m] GeForce Experience
 ECHO       [[1mB[0m] Brave              [[1mG[0m] GIMP            [[1mL[0m] GeForce NOW
@@ -212,7 +213,7 @@ ECHO       [[1mC[0m] EA Desktop         [[1mH[0m] GPU-Z           [[1mM[0m
 ECHO       [[1mD[0m] GOG Galaxy         [[1mI[0m] OneDrive        [[1mN[0m] Dropbox
 ECHO       [[1mE[0m] Battle.Net         [[1mJ[0m] OBS Studio      [[1mO[0m] Teams
 ECHO.
-@ECHO [36m____________________________________________________________________________[0m
+%menuline%
 ECHO.
 ECHO        [101m[X] Go back[0m   [100m[U] Search for Updates[0m   [100m[Q] More Apps[0m   [[93m2[0m/[96m7[0m]
 CHOICE /C:abcdefghijklmnouqx /N /M ""
@@ -332,7 +333,7 @@ CLS
 @ECHO.
 @ECHO                                   [7mApps[0m
 @ECHO.
-@ECHO [36m____________________________________________________________________________[0m
+%menuline%
 @ECHO.
 ECHO       [[1mA[0m] Zoom               [[1mF[0m] Visual Studio      [[1mK[0m] Audacity
 ECHO       [[1mB[0m] Sublime Text       [[1mG[0m] Radiograph         [[1mL[0m] Cinebench
@@ -340,7 +341,7 @@ ECHO       [[1mC[0m] Notepad ++         [[1mH[0m] qBittorrent        [[1mM
 ECHO       [[1mD[0m] Corsair iCUE       [[1mI[0m] PicoTorrent        [[1mN[0m] Rufus
 ECHO       [[1mE[0m] Firefox            [[1mJ[0m] Google Play Games  [[1mO[0m] Aida64
 ECHO.
-@ECHO [36m____________________________________________________________________________[0m
+%menuline%
 ECHO.
 ECHO        [101m[X] Go back[0m   [100m[U] Search for Updates[0m   [100m[Q] More Apps[0m   [[93m3[0m/[96m7[0m]
 CHOICE /C:abcdefghijklmnouxq /N /M ""
@@ -457,7 +458,7 @@ CLS
 @ECHO.
 @ECHO                                   [7mApps[0m
 @ECHO.
-@ECHO [36m____________________________________________________________________________[0m
+%menuline%
 @ECHO.
 ECHO        [[1mA[0m] NordVPN              [[1mF[0m] Logitech G HUB     [[1mK[0m] Teamviewer
 ECHO        [[1mB[0m] ExpressVPN           [[1mG[0m] VS Codium          [[1mL[0m] Parsec
@@ -465,7 +466,7 @@ ECHO        [[1mC[0m] Surfshark            [[1mH[0m] NVCleanstall       [[1
 ECHO        [[1mD[0m] WinSCP               [[1mI[0m] BlueStacks         [[1mN[0m] Virtualbox
 ECHO        [[1mE[0m] Windows Terminal     [[1mJ[0m] Powershell         [[1mO[0m] VM Ware
 ECHO.
-@ECHO [36m____________________________________________________________________________[0m
+%menuline%
 ECHO.
 ECHO        [101m[X] Go back[0m   [100m[U] Search for Updates[0m   [100m[Q] More Apps[0m   [[93m4[0m/[96m7[0m]
 CHOICE /C:abcdefghijklmnouxq /N /M ""
@@ -582,7 +583,7 @@ CLS
 @ECHO.
 @ECHO                                   [7mApps[0m
 @ECHO.
-@ECHO [36m____________________________________________________________________________[0m
+%menuline%
 @ECHO.
 ECHO     [[1mA[0m] NVIDIA Sunshine   [[1mF[0m] Chrome Canary     [[1mK[0m] Adobe Acrobat Reader
 ECHO     [[1mB[0m] Foobar2000        [[1mG[0m] Ungoogled Chromium[[1mL[0m] WhatsApp
@@ -590,7 +591,7 @@ ECHO     [[1mC[0m] CPU-Z             [[1mH[0m] Edge              [[1mM[0m]
 ECHO     [[1mD[0m] Chrome Beta       [[1mI[0m] Edge Beta         [[1mN[0m] MS PC Manager
 ECHO     [[1mE[0m] Chrome Dev        [[1mJ[0m] Edge Dev          [[1mO[0m] Winamp 
 ECHO.
-@ECHO [36m____________________________________________________________________________[0m
+%menuline%
 ECHO.
 ECHO        [101m[X] Go back[0m   [100m[U] Search for Updates[0m   [100m[Q] More Apps[0m   [[93m5[0m/[96m7[0m]
 CHOICE /C:abcdefghijklmnouxq /N /M ""
@@ -707,7 +708,7 @@ CLS
 @ECHO.
 @ECHO                                   [7mApps[0m
 @ECHO.
-@ECHO [36m____________________________________________________________________________[0m
+%menuline%
 @ECHO.
 ECHO            [[1mA[0m] Skype         [[1mF[0m] EarTrumpet    [[1mK[0m] Dolphin
 ECHO            [[1mB[0m] Thunderbird   [[1mG[0m] Files         [[1mL[0m] ppsspp
@@ -715,7 +716,7 @@ ECHO            [[1mC[0m] Slack         [[1mH[0m] Google Drive  [[1mM[0m] 
 ECHO            [[1mD[0m] ShareX        [[1mI[0m] WinRar        [[1mN[0m] Ryujinx
 ECHO            [[1mE[0m] Lightshot     [[1mJ[0m] 7zip          [[1mO[0m] Apple Devices
 ECHO.
-@ECHO [36m____________________________________________________________________________[0m
+%menuline%
 ECHO.
 ECHO        [101m[X] Go back[0m   [100m[U] Search for Updates[0m   [100m[Q] More Apps[0m   [[93m6[0m/[96m7[0m]
 CHOICE /C:abcdefghijklmnouxq /N /M ""
@@ -834,7 +835,7 @@ CLS
 @ECHO.
 @ECHO                                   [7mApps[0m
 @ECHO.
-@ECHO [36m____________________________________________________________________________[0m
+%menuline%
 @ECHO.
 ECHO          [[1mA[0m] Microsoft Store   [[1mF[0m] Xbox ID Provider  [[1mK[0m] Placeholder
 ECHO          [[1mB[0m] MS Store Buy App  [[1mG[0m] Placeholder       [[1mL[0m] Placeholder
@@ -842,7 +843,7 @@ ECHO          [[1mC[0m] Snipping Tool     [[1mH[0m] Placeholder       [[1mM
 ECHO          [[1mD[0m] Notepad           [[1mI[0m] Placeholder       [[1mN[0m] Placeholder
 ECHO          [[1mE[0m] Nanazip           [[1mJ[0m] Placeholder       [[1mO[0m] Placeholder
 ECHO.
-@ECHO [36m____________________________________________________________________________[0m
+%menuline%
 ECHO.
 ECHO        [101m[X] Go back[0m   [100m[U] Search for Updates[0m                   [[93m7[0m/[96m7[0m]
 CHOICE /C:abcdefghijklmnouxq /N /M ""
@@ -924,11 +925,11 @@ CLS
 @ECHO.
 @ECHO                              [7mDebloat[0m [101;93mExperimental[0m
 @ECHO.
-@ECHO [36m____________________________________________________________________________[0m
+%menuline%
 @ECHO.
 ECHO         [[1mA[0m] Remove preinstalled Apps      [[1mB[0m] Remove Microsoft Edge
 ECHO.
-@ECHO [36m____________________________________________________________________________[0m
+%menuline%
 ECHO.
 ECHO      [101m[X] Go back[0m
 CHOICE /C:abx /N /M ""
@@ -1003,7 +1004,7 @@ CLS
 @ECHO.
 @ECHO                                   [7mSettings[0m 
 @ECHO.
-@ECHO [36m____________________________________________________________________________[0m
+%menuline%
 @ECHO.
 ECHO       [[1mA[0m] Disable Windows Defender         [[1mM[0m] Disable Windows Update
 ECHO       [[1mB[0m] Enable  Windows Defender         [[1mN[0m] Enable  Windows Update
@@ -1018,7 +1019,7 @@ ECHO       [[1mJ[0m] Enable  SmartScreen              [[1mV[0m] Enable  Snap
 ECHO       [[1mK[0m] Disable Firewall                 [[1mY[0m] Disable startup sound
 ECHO       [[1mL[0m] Enable  Firewall                 [[1mZ[0m] Enable  startup sound
 @ECHO.
-@ECHO [36m____________________________________________________________________________[0m
+%menuline%
 ECHO.
 ECHO          [101m[X] Go back[0m
 CHOICE /C:abcdefghijklmnopqrstuvyzx /N /M ""
@@ -1258,11 +1259,11 @@ CLS
 @ECHO.
 @ECHO                                    [7mDrivers[0m
 @ECHO.
-@ECHO [36m____________________________________________________________________________[0m
+%menuline%
 @ECHO.
 ECHO     [[1mA[0m] Chipset      [[1mB[0m] Graphics        [[1mC[0m] Audio      [[1mD[0m] Networking
 ECHO.
-@ECHO [36m____________________________________________________________________________[0m
+%menuline%
 ECHO.
 ECHO      [101m[X] Go back[0m
 CHOICE /C:abcdx /N /M ""
@@ -1283,12 +1284,12 @@ CLS
 @ECHO.
 @ECHO                                    [7mChipset[0m
 @ECHO.
-@ECHO [36m____________________________________________________________________________[0m
+%menuline%
 @ECHO.
 ECHO             [[1mA[0m] [94mIntel[0m "Legacy" (1xx-5xx)    [[1mB[0m] [94mIntel[0m 6xx-7xx
 ECHO             [[1mC[0m] [91mAMD[0m   "Legacy" (5xx-9xx)    [[1mD[0m] [91mAMD[0m 3xx-6xx/TR40
 ECHO.
-@ECHO [36m____________________________________________________________________________[0m
+%menuline%
 ECHO.
 ECHO      [101m[X] Go back[0m
 CHOICE /C:abcdx /N /M ""
@@ -1332,14 +1333,14 @@ CLS
 @ECHO.
 @ECHO                                   [7mGraphics[0m
 @ECHO.
-@ECHO [36m____________________________________________________________________________[0m
+%menuline%
 @ECHO.
 ECHO   [[1mA[0m] [92mNvidia[0m GeForce 900-4000 Series        [[1mE[0m] [91mAMD[0m Radeon 400-7000 Series
 ECHO   [[1mB[0m] [92mNvidia[0m GeForce 600-700  Series        [[1mF[0m] [94mIntel[0m Arc
 ECHO   [[1mC[0m] [92mNvidia[0m GeForce 400-500  Series        [[1mG[0m] [94mIntel[0m iGPU
 ECHO   [[1mD[0m] [92mNvidia[0m GeForce 100-300  Series        
 ECHO.
-@ECHO [36m____________________________________________________________________________[0m
+%menuline%
 ECHO.
 ECHO      [101m[X] Go back[0m
 CHOICE /C:abcdefgx /N /M ""
@@ -1405,7 +1406,7 @@ CLS
 @ECHO.
 @ECHO                                    [7mAudio[0m
 @ECHO.
-@ECHO [36m____________________________________________________________________________[0m
+%menuline%
 @ECHO.
 ECHO          [[1mA[0m] [34mRealtek[0m Audio (ASUS)         [[1mB[0m] [34mRealtek[0m Audio (MSI)
 ECHO          [[1mC[0m] [34mRealtek[0m Audio (GigaByte)     [[1mD[0m] [34mRealtek[0m Audio (Asrock)
@@ -1414,7 +1415,7 @@ ECHO          [[1mG[0m] [34mRealtek[0m Audio (Lenovo)       [[1mH[0m] [34
 ECHO.
 ECHO          [[1mI[0m] [34mRealtek[0m Audio (Others, right click install .inf file)
 ECHO.
-@ECHO [36m____________________________________________________________________________[0m
+%menuline%
 ECHO.
 ECHO      [101m[X] Go back[0m
 CHOICE /C:abcdefghix /N /M ""
@@ -1504,7 +1505,7 @@ CLS
 @ECHO.
 @ECHO                                 [7mNetworking[0m
 @ECHO.
-@ECHO [36m____________________________________________________________________________[0m
+%menuline%
 @ECHO.
 @echo   [[1mA[0m] [94mIntel[0m Ethernet     [[1mB[0m] [34mRealtek[0m Ethernet  [[1mC[0m] [91mAMD/Mediatek[0m Ethernet
 @echo   [[1mD[0m] [94mIntel[0m Wifi         [[1mE[0m] [34mRealtek[0m Wifi      [[1mF[0m] [91mAMD/Mediatek[0m Wifi
@@ -1514,7 +1515,7 @@ ECHO.
 @echo   [[1mM[0m] Qualcomm Wifi      [[1mN[0m] Marvell Wifi      [[1mO[0m] Broadcom Wifi
 @echo   [[1mP[0m] Qualcomm Bluetooth [[1mQ[0m] Marvell Bluetooth [[1mR[0m] Broadcom Bluetooth
 ECHO.
-@ECHO [36m____________________________________________________________________________[0m
+%menuline%
 ECHO.
 ECHO      [101m[X] Go back[0m
 CHOICE /C:abcdefghijklmnopqrx /N /M ""
@@ -1677,7 +1678,7 @@ CLS
 @ECHO.
 @ECHO                                     [7mDebug[0m
 @ECHO.
-@ECHO [36m____________________________________________________________________________[0m
+%menuline%
 @ECHO.
 ECHO [[1mA[0m] Repair Windows     [[1mB[0m] Repair Windows (.WIM)   [[1mC[0m] Clean Temp Files
 ECHO [[1mD[0m] Update hosts file  [[1mE[0m] Windows activation      [[1mF[0m] Update APP / Scripts
@@ -1687,7 +1688,7 @@ ECHO.[[1mM[0m] Disable TPM Checks [[1mN[0m] Disable Modern Standby  [[1mO[
 ECHO.[[1mP[0m] Update Win Security[[1mQ[0m] Placeholder             [[1mR[0m] Placeholder
 ECHO.
 @ECHO                          [42m[S]LTSC Insider Features[0m
-@ECHO [36m____________________________________________________________________________[0m
+%menuline%
 ECHO.
 ECHO          [101m[X] Go back[0m   [100m[Y] Restart Windows[0m   [100m[Z] Restart into BIOS[0m
 CHOICE /C:abcdefghijklmnopqrsxyz /N /M ""
@@ -1860,7 +1861,7 @@ CLS
 @ECHO                  Only use this Menu if you're on LTSC-Insider.
 @ECHO                  You might have to restart Windows afterwards.
 @ECHO.
-@ECHO [36m____________________________________________________________________________[0m
+%menuline%
 @ECHO.
 ECHO   [[1mA[0m] Win/AppServices Privacy [[1mB[0m] New Volume Mixer [[1mC[0m] New Nearby Sharing
 ECHO   [[1mD[0m] Custom color Search box [[1mE[0m] Remove Add Device[[1mF[0m] Show tips and more
@@ -1870,7 +1871,7 @@ ECHO   [[1mM[0m] WinAppSDK File Explorer [[1mN[0m] Uninstall Apps ..[[1mO[
 ECHO   [[1mP[0m] Emoji 15 support        [[1mW[0m] End Task option  [[1mR[0m] Widgets no Account
 ECHO   [[1mS[0m] Ambient Device Lighting [[1mT[0m] New Setting UIs  [[1mU[0m] Suggested Actions
 ECHO.
-@ECHO [36m____________________________________________________________________________[0m
+%menuline%
 ECHO.
 ECHO          [101m[X] Go back[0m   [100m[Q] Next Page[0m                         [[93m1[0m/[96m2[0m]
 CHOICE /C:abcdefghijklmnopwrstuxq /N /M ""
@@ -2043,7 +2044,7 @@ CLS
 @ECHO                  Only use this Menu if you're on LTSC-Insider.
 @ECHO                  You might have to restart Windows afterwards.
 @ECHO.
-@ECHO [36m____________________________________________________________________________[0m
+%menuline%
 @ECHO.
 ECHO   [[1mA[0m] For You Start Menu      [[1mB[0m] Multi Lang CCs   [[1mC[0m] Inplace Upgrade
 ECHO   [[1mD[0m] Live Kernel Dump        [[1mE[0m] Cloud Storage UI [[1mF[0m] New Search Box
@@ -2053,7 +2054,7 @@ ECHO   [[1mM[0m] Explorer recommendations[[1mN[0m] USB4 doamin viewr[[1mO[
 ECHO   [[1mP[0m] Placeholder             [[1mQ[0m] Placeholder      [[1mR[0m] Placeholder
 ECHO   [[1mS[0m] Placeholder             [[1mT[0m] Placeholder      [[1mU[0m] Placeholders
 ECHO.
-@ECHO [36m____________________________________________________________________________[0m
+%menuline%
 ECHO.
 ECHO          [101m[X] Go back[0m                                         [[93m2[0m/[96m2[0m]
 CHOICE /C:abcdefghijklmnopqrstux /N /M ""
