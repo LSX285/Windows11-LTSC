@@ -3,7 +3,6 @@
 <p align="center">
   <a href="https://github.com/LSX285/Windows11-LTSC/releases/latest"><img src="https://github.com/LSX285/Windows11-LTSC/raw/main/Assets/Download_LTSC.png" /></a>
   <a href="https://github.com/LSX285/Windows11-LTSC/releases/tag/INSIDER"><img src="https://github.com/LSX285/Windows11-LTSC/raw/main/Assets/Download_LTSC-Insider.png" /></a>
-  <a href="https://github.com/LSX285/Windows11-LTSC/releases/tag/SERVER"><img src="https://github.com/LSX285/Windows11-LTSC/raw/main/Assets/Download_LTSC-Server.png" /></a>
   <br/><br/>
   <a href="https://github.com/LSX285/Windows11-LTSC/releases/download/v1.1.1/LTSC-Builder_setup.cmd"><img src="https://github.com/LSX285/Windows11-LTSC/raw/main/Assets/Build_Your_Own_Experience.png" /></a>
 </p>
