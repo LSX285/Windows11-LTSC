@@ -30,6 +30,9 @@ exit
 )
 pushd %~dp0
 
+set ltscdir=C:\Program Files\LTSC
+set repository=https://github.com/LSX285/Windows11-LTSC/raw/main
+
 :: Note - Applying changes, Windows must be restarted afterwards.
 Title Setup: Almost done
 mode con: cols=52 lines=7
@@ -47,10 +50,10 @@ label OS
 powercfg /h off
 
 :: Note - Activating Windows
-start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\activate.cmd" >nul 2>&1
+start cmd.exe @cmd /C "%ltscdir%\Scripts\activate.cmd" >nul 2>&1
 
 :: Note - Removing Edge
-start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\Edge_Uninstall.cmd" >nul 2>&1
+start cmd.exe @cmd /C "%ltscdir%\Scripts\Edge_Uninstall.cmd" >nul 2>&1
 
 timeout 30 >nul 2>&1
 
@@ -69,7 +72,7 @@ if %errorlevel% equ 0 (
     )
 )
 
-Reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnce" /v "RunItOnce" /t REG_SZ /d "\"C:\Program Files\LTSC\App.cmd\"" /f >nul 2>&1
+Reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnce" /v "RunItOnce" /t REG_SZ /d "\"%ltscdir%\App.cmd\"" /f >nul 2>&1
 
 :: Note - Restarting Windows to apply all changes made by this script.
 shutdown /r /f /t 30 >nul 2>&1

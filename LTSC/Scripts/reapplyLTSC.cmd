@@ -28,6 +28,10 @@ pause >nul
 exit
 )
 pushd %~dp0
+
+set ltscdir=C:\Program Files\LTSC
+set repository=https://github.com/LSX285/Windows11-LTSC/raw/main
+
 :: Note - Applying changes, Windows must be restarted afterwards.
 Title Setup: Almost done
 mode con: cols=52 lines=7
@@ -39,7 +43,7 @@ echo.
 @ECHO [36m___________________________________________________[0m
 
 :: Note - Hosts file blocking telemetry and advertising hosts
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/hosts', 'C:\Windows\System32\drivers\etc\hosts')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('%repository%/LTSC/hosts', 'C:\Windows\System32\drivers\etc\hosts')" >nul 2>&1
 
 :: Note - Turn off Hibernate
 powercfg /h off >nul 2>&1
@@ -219,13 +223,13 @@ label OS
 powercfg /h off
 
 :: Note - Downloading latest tweaks and Applying Registry Changes 
-regedit /s "C:\Program Files\LTSC\Scripts\tweaks.reg" >nul 2>&1
+regedit /s "%ltscdir%\Scripts\tweaks.reg" >nul 2>&1
 
  Note - Removing Edge
-start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\Edge_Uninstall.cmd" >nul 2>&1
+start cmd.exe @cmd /C "%ltscdir%\Scripts\Edge_Uninstall.cmd" >nul 2>&1
 
 :: Note - Activating Windows
-start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\activate.cmd" >nul 2>&1
+start cmd.exe @cmd /C "%ltscdir%\Scripts\activate.cmd" >nul 2>&1
 
 timeout 30 >nul 2>&1
 
@@ -244,7 +248,7 @@ if %errorlevel% equ 0 (
     )
 )
 
-Reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnce" /v "RunItOnce" /t REG_SZ /d "\"C:\Program Files\LTSC\App.cmd\"" /f >nul 2>&1
+Reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnce" /v "RunItOnce" /t REG_SZ /d "\"%ltscdir%\App.cmd\"" /f >nul 2>&1
 
 powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Reapplying LTSC finished. Windows will restart shortly.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 
