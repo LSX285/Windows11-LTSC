@@ -20,7 +20,7 @@ CD /D "%~dp0"
 :: batch is being ran as admin
 :skipAdmin
 
-set version=v1.0.4.4
+set version=v1.0.4.5
 set notify=powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,
 set downloadfile=powershell -command "(New-Object Net.WebClient).DownloadFile(
 set vivetool="C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe"
