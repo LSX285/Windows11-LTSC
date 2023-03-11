@@ -21,12 +21,12 @@ CD /D "%~dp0"
 :skipAdmin
 
 set version=v1.0.4.5
+set ltscdir=C:\Program Files\LTSC
+set repository=https://github.com/LSX285/Windows11-LTSC/raw/main
 set notify=powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,
 set downloadfile=powershell -command "(New-Object Net.WebClient).DownloadFile(
 set vivetool="%ltscdir%\Scripts\Vivetool\ViVeTool.exe"
-set repository=https://github.com/LSX285/Windows11-LTSC/raw/main
 set desktop=C:\Users\%USERNAME%\Desktop
-set ltscdir=C:\Program Files\LTSC
 set wingetsilent=--accept-source-agreements --accept-package-agreements
 
 :: Note - Welcome Page
