@@ -24,6 +24,8 @@ set version=v1.0.4.4
 set notify=powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,
 set downloadfile=powershell -command "(New-Object Net.WebClient).DownloadFile(
 set vivetool="C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe"
+set repository=https://github.com/LSX285/Windows11-LTSC/raw/main
+set desktop=C:\Users\%USERNAME%\Desktop
 
 :: Note - Welcome Page
 :Welcome
@@ -108,7 +110,7 @@ winget install Discord.Discord --accept-source-agreements --accept-package-agree
 GOTO AppDLMenu
 
 :Spotify
-%downloadfile%'https://download.scdn.co/SpotifySetup.exe', 'C:\Users\%USERNAME%\Desktop\SpotifySetup.exe')" >nul 2>&1
+%downloadfile%'https://download.scdn.co/SpotifySetup.exe', '%desktop%\SpotifySetup.exe')" >nul 2>&1
 %notify%'APP','Spotify has been downloaded. Please run the setup manually.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AppDLMenu
 
@@ -150,15 +152,15 @@ GOTO AppDLMenu
 
 :MSIAfterburner
 ECHO [[93m-[0m] Downloading [93mMSI Afterburner[0m ...
-%downloadfile%'https://ftp.nluug.nl/pub/games/PC/guru3d/afterburner/[Guru3D.com]-MSIAfterburnerSetup465Beta4Build16358.zip', 'C:\Users\%USERNAME%\Desktop\MSIAfterburner.zip')" >nul 2>&1
+%downloadfile%'https://ftp.nluug.nl/pub/games/PC/guru3d/afterburner/[Guru3D.com]-MSIAfterburnerSetup465Beta4Build16358.zip', '%desktop%\MSIAfterburner.zip')" >nul 2>&1
 ECHO [[93m-[0m] Extracting [93mMSI Afterburner[0m ...
-powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\MSIAfterburner.zip' 'C:\Users\%USERNAME%\Desktop'"
+powershell -command "Expand-Archive -Force '%desktop%\MSIAfterburner.zip' '%desktop%'"
 ECHO [[93m-[0m] Installing [93mMSI Afterburner[0m ...
-"C:\Users\%USERNAME%\Desktop\MSIAfterburnerSetup465Beta4.exe" /S
+"%desktop%\MSIAfterburnerSetup465Beta4.exe" /S
 %notify%'APP','MSI Afterburner has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
-del /f "C:\Users\%USERNAME%\Desktop\MSIAfterburner.zip" >nul 2>&1
-del /f "C:\Users\%USERNAME%\Desktop\MSIAfterburnerSetup465Beta4.exe" >nul 2>&1
-rmdir /S /Q "C:\Users\%USERNAME%\Desktop\Guru3D.com" >nul 2>&1
+del /f "%desktop%\MSIAfterburner.zip" >nul 2>&1
+del /f "%desktop%\MSIAfterburnerSetup465Beta4.exe" >nul 2>&1
+rmdir /S /Q "%desktop%\Guru3D.com" >nul 2>&1
 move /y "C:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\MSI Afterburner\MSI Afterburner.lnk" "C:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs" >nul 2>&1
 rmdir /S /Q "C:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\MSI Afterburner"
 GOTO AppDLMenu
@@ -254,10 +256,10 @@ winget install GOG.Galaxy --accept-source-agreements --accept-package-agreements
 GOTO More
 
 :BattleNet
-%downloadfile%'https://www.battle.net/download/getInstallerForGame?os=win&gameProgram=BATTLENET_APP&version=Live&id=undefined', 'C:\Users\%USERNAME%\Desktop\Battle.net-Setup.exe')" >nul 2>&1
-"C:\Users\%USERNAME%\Desktop\Battle.net-Setup.exe" --lang=enUS --installpath="C:\Program Files (x86)\Battle.net"
+%downloadfile%'https://www.battle.net/download/getInstallerForGame?os=win&gameProgram=BATTLENET_APP&version=Live&id=undefined', '%desktop%\Battle.net-Setup.exe')" >nul 2>&1
+"%desktop%\Battle.net-Setup.exe" --lang=enUS --installpath="C:\Program Files (x86)\Battle.net"
 %notify%'APP','Battle.net Launcher has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
-del /f "C:\Users\%USERNAME%\Desktop\Battle.net-Setup.exe" >nul 2>&1
+del /f "%desktop%\Battle.net-Setup.exe" >nul 2>&1
 GOTO More
 
 :UbisoftConnect
@@ -292,7 +294,7 @@ GOTO More
 
 :GeforceNOW
 ECHO [[93m-[0m] Downloading [93mGeforce Now[0m ...
-%downloadfile%'https://download.nvidia.com/gfnpc/GeForceNOW-release.exe', 'C:\Users\%USERNAME%\Desktop\GeForceNOW-Setup.exe')" >nul 2>&1
+%downloadfile%'https://download.nvidia.com/gfnpc/GeForceNOW-release.exe', '%desktop%\GeForceNOW-Setup.exe')" >nul 2>&1
 %notify%'APP','Geforce Now has been downloaded. Please run the installer manually.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More
 
@@ -797,15 +799,15 @@ winget install PPSSPPTeam.PPSSPP --accept-source-agreements --accept-package-agr
 GOTO More5
 
 :rpcs3
-%downloadfile%'https://github.com/RPCS3/rpcs3-binaries-win/releases/download/build-39760189804d59315ab9f304d3cebddfb5d72f63/rpcs3-v0.0.26-14712-39760189_win64.7z', 'C:\Users\%USERNAME%\Desktop\rpcs3.7z')" >nul 2>&1
+%downloadfile%'https://github.com/RPCS3/rpcs3-binaries-win/releases/download/build-39760189804d59315ab9f304d3cebddfb5d72f63/rpcs3-v0.0.26-14712-39760189_win64.7z', '%desktop%\rpcs3.7z')" >nul 2>&1
 %notify%'APP','rpcs3 has been downloaded. Extract the 7zip file and run the installer manually.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More5
 
 :Ryujinx
-%downloadfile%'https://github.com/Ryujinx/release-channel-master/releases/download/1.1.617/ryujinx-1.1.617-win_x64.zip', 'C:\Users\%USERNAME%\Desktop\ryujinx.zip')" >nul 2>&1
-powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\ryujinx.zip' 'C:\Users\%USERNAME%\Desktop\ryujinx'" >nul 2>&1
+%downloadfile%'https://github.com/Ryujinx/release-channel-master/releases/download/1.1.617/ryujinx-1.1.617-win_x64.zip', '%desktop%\ryujinx.zip')" >nul 2>&1
+powershell -command "Expand-Archive -Force '%desktop%\ryujinx.zip' '%desktop%\ryujinx'" >nul 2>&1
 %notify%'APP','Ryujinx has been downloaded. Run the installer manually.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
-del /f "C:\Users\%USERNAME%\Desktop\ryujinx.zip" >nul 2>&1
+del /f "%desktop%\ryujinx.zip" >nul 2>&1
 GOTO More5
 
 :AppleDevices
@@ -864,16 +866,16 @@ IF ERRORLEVEL 2 GOTO MicrosoftStorePurchaseApp
 IF ERRORLEVEL 1 GOTO MicrosoftStore
 
 :MicrosoftStore
-%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Apps/Microsoft_Store.Msixbundle', 'C:\Users\%USERNAME%\Desktop\Microsoft_Store.Msixbundle')" >nul 2>&1
-PowerShell -ExecutionPolicy Unrestricted -Command "add-appxpackage -path 'C:\Users\%USERNAME%\Desktop\Microsoft_Store.Msixbundle'" >nul 2>&1
-del /f "C:\Users\%USERNAME%\Desktop\Microsoft_Store.Msixbundle" >nul 2>&1
+%downloadfile%'%repository%/Apps/Microsoft_Store.Msixbundle', '%desktop%\Microsoft_Store.Msixbundle')" >nul 2>&1
+PowerShell -ExecutionPolicy Unrestricted -Command "add-appxpackage -path '%desktop%\Microsoft_Store.Msixbundle'" >nul 2>&1
+del /f "%desktop%\Microsoft_Store.Msixbundle" >nul 2>&1
 %notify%'APP','Microsoft Store has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More6
 
 :MicrosoftStorePurchaseApp
-%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Apps/Microsoft_Store-PurchaseApp.Msixbundle', 'C:\Users\%USERNAME%\Desktop\Microsoft_Store-PurchaseApp.Msixbundle')" >nul 2>&1
-PowerShell -ExecutionPolicy Unrestricted -Command "add-appxpackage -path 'C:\Users\%USERNAME%\Desktop\Microsoft_Store-PurchaseApp.Msixbundle'" >nul 2>&1
-del /f "C:\Users\%USERNAME%\Desktop\Microsoft_Store-PurchaseApp.Msixbundle" >nul 2>&1
+%downloadfile%'%repository%/Apps/Microsoft_Store-PurchaseApp.Msixbundle', '%desktop%\Microsoft_Store-PurchaseApp.Msixbundle')" >nul 2>&1
+PowerShell -ExecutionPolicy Unrestricted -Command "add-appxpackage -path '%desktop%\Microsoft_Store-PurchaseApp.Msixbundle'" >nul 2>&1
+del /f "%desktop%\Microsoft_Store-PurchaseApp.Msixbundle" >nul 2>&1
 %notify%'APP','Microsoft Store Purchase App has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More6
 
@@ -893,9 +895,9 @@ winget install M2Team.NanaZip --accept-source-agreements --accept-package-agreem
 GOTO More6
 
 :XboxIdentityProvider
-%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Apps/XboxIdentityProvider.appx', 'C:\Users\%USERNAME%\Desktop\XboxIdentityProvider.appx')" >nul 2>&1
-PowerShell -ExecutionPolicy Unrestricted -Command "add-appxpackage -path 'C:\Users\%USERNAME%\Desktop\XboxIdentityProvider.appx'" >nul 2>&1
-del /f "C:\Users\%USERNAME%\Desktop\XboxIdentityProvider.appx" >nul 2>&1
+%downloadfile%'%repository%/Apps/XboxIdentityProvider.appx', '%desktop%\XboxIdentityProvider.appx')" >nul 2>&1
+PowerShell -ExecutionPolicy Unrestricted -Command "add-appxpackage -path '%desktop%\XboxIdentityProvider.appx'" >nul 2>&1
+del /f "%desktop%\XboxIdentityProvider.appx" >nul 2>&1
 %notify%'APP','Xbox Identity Provider has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More6
 
@@ -1297,22 +1299,22 @@ IF ERRORLEVEL 2 GOTO Intel1213
 IF ERRORLEVEL 1 GOTO IntelLegacy
 
 :IntelLegacy
-%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Chipset/Intel_Chipset_Legacy.exe', 'C:\Users\%USERNAME%\Desktop\Intel_Legacy_Chipset.exe')" >nul 2>&1
+%downloadfile%'%repository%/Drivers/Chipset/Intel_Chipset_Legacy.exe', '%desktop%\Intel_Legacy_Chipset.exe')" >nul 2>&1
 %notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO ChipsetMenu
 
 :Intel1213
-%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Chipset/Intel_Chipset.exe', 'C:\Users\%USERNAME%\Desktop\Intel_Chipset.exe')" >nul 2>&1
+%downloadfile%'%repository%/Drivers/Chipset/Intel_Chipset.exe', '%desktop%\Intel_Chipset.exe')" >nul 2>&1
 %notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO ChipsetMenu
 
 :AMDLegacy
-%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Chipset/AMD_Chipset_Legacy.exe', 'C:\Users\%USERNAME%\Desktop\AMD_Legacy_Chipset.exe')" >nul 2>&1
+%downloadfile%'%repository%/Drivers/Chipset/AMD_Chipset_Legacy.exe', '%desktop%\AMD_Legacy_Chipset.exe')" >nul 2>&1
 %notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO ChipsetMenu
 
 :AMDRyzen
-%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Chipset/AMD_Chipset.exe', 'C:\Users\%USERNAME%\Desktop\AMD_Chipset.exe')" >nul 2>&1
+%downloadfile%'%repository%/Drivers/Chipset/AMD_Chipset.exe', '%desktop%\AMD_Chipset.exe')" >nul 2>&1
 %notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO ChipsetMenu
 
@@ -1352,40 +1354,40 @@ IF ERRORLEVEL 1 GOTO NvidiaGeforce1
 
 :NvidiaGeforce1
 ECHO [[93m-[0m] Downloading [93mNVIDIA drivers for 900-4000 series[0m ...
-%downloadfile%'https://international.download.nvidia.com/Windows/531.26hf/531.26-desktop-notebook-win10-win11-64bit-international-dch.hf.exe', 'C:\Users\%USERNAME%\Desktop\NVIDIA.exe')" >nul 2>&1
+%downloadfile%'https://international.download.nvidia.com/Windows/531.26hf/531.26-desktop-notebook-win10-win11-64bit-international-dch.hf.exe', '%desktop%\NVIDIA.exe')" >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO GraphicsMenu
 
 :NvidiaGeforce2
-%downloadfile%'https://international.download.nvidia.com/Windows/474.14/474.14-desktop-win10-win11-64bit-international-dch-whql.exe', 'C:\Users\%USERNAME%\Desktop\NVIDIA.exe')" >nul 2>&1
+%downloadfile%'https://international.download.nvidia.com/Windows/474.14/474.14-desktop-win10-win11-64bit-international-dch-whql.exe', '%desktop%\NVIDIA.exe')" >nul 2>&1
 %notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO GraphicsMenu
 
 :NvidiaGeforce3
-%downloadfile%'https://international.download.nvidia.com/Windows/391.35/391.35-desktop-win10-64bit-international-whql.exe', 'C:\Users\%USERNAME%\Desktop\NVIDIA.exe')" >nul 2>&1
+%downloadfile%'https://international.download.nvidia.com/Windows/391.35/391.35-desktop-win10-64bit-international-whql.exe', '%desktop%\NVIDIA.exe')" >nul 2>&1
 %notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO GraphicsMenu
 
 :NvidiaGeforce4
-%downloadfile%'https://international.download.nvidia.com/Windows/342.01/342.01-desktop-win10-64bit-international.exe', 'C:\Users\%USERNAME%\Desktop\NVIDIA.exe')" >nul 2>&1
+%downloadfile%'https://international.download.nvidia.com/Windows/342.01/342.01-desktop-win10-64bit-international.exe', '%desktop%\NVIDIA.exe')" >nul 2>&1
 %notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO GraphicsMenu
 
 :AMDRadeon4007000
-%downloadfile%'https://www.mediafire.com/file_premium/ywvzw2aaojrxpjd/whql-amd-software-adrenalin-edition-23.3.1-win10-win11-mar7-VideoCardz.exe', 'C:\Users\%USERNAME%\Desktop\AMD_Radeon.exe')" >nul 2>&1
+%downloadfile%'https://www.mediafire.com/file_premium/ywvzw2aaojrxpjd/whql-amd-software-adrenalin-edition-23.3.1-win10-win11-mar7-VideoCardz.exe', '%desktop%\AMD_Radeon.exe')" >nul 2>&1
 %notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO GraphicsMenu
 
 :IntelArc
-%downloadfile%'https://downloadmirror.intel.com/772016/gfx_win_101.4146.exe', 'C:\Users\%USERNAME%\Desktop\Intel_ARC.exe')" >nul 2>&1
+%downloadfile%'https://downloadmirror.intel.com/772016/gfx_win_101.4146.exe', '%desktop%\Intel_ARC.exe')" >nul 2>&1
 %notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO GraphicsMenu
 
 :InteliGPU
-%downloadfile%'https://downloadmirror.intel.com/751359/gfx_win_101.3790_101.2114.zip', 'C:\Users\%USERNAME%\Desktop\Intel_iGPU.zip')" >nul 2>&1
-powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Intel_iGPU.zip' 'C:\Users\%USERNAME%\Desktop\InteliGPU'" >nul 2>&1
-del /f "C:\Users\%USERNAME%\Desktop\Intel_iGPU.zip" >nul 2>&1
+%downloadfile%'https://downloadmirror.intel.com/751359/gfx_win_101.3790_101.2114.zip', '%desktop%\Intel_iGPU.zip')" >nul 2>&1
+powershell -command "Expand-Archive -Force '%desktop%\Intel_iGPU.zip' '%desktop%\InteliGPU'" >nul 2>&1
+del /f "%desktop%\Intel_iGPU.zip" >nul 2>&1
 %notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO GraphicsMenu
 
@@ -1428,63 +1430,63 @@ IF ERRORLEVEL 2 GOTO RealtekMSI
 IF ERRORLEVEL 1 GOTO RealtekAsus
 
 :RealtekAsus
-%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Audio/Audio_Realtek_ASUS.zip', 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_ASUS.zip')" >nul 2>&1
-powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_ASUS.zip' 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_ASUS'" >nul 2>&1
-del /f "C:\Users\%USERNAME%\Desktop\Audio_Realtek_ASUS.zip" >nul 2>&1
+%downloadfile%'%repository%/Drivers/Audio/Audio_Realtek_ASUS.zip', '%desktop%\Audio_Realtek_ASUS.zip')" >nul 2>&1
+powershell -command "Expand-Archive -Force '%desktop%\Audio_Realtek_ASUS.zip' '%desktop%\Audio_Realtek_ASUS'" >nul 2>&1
+del /f "%desktop%\Audio_Realtek_ASUS.zip" >nul 2>&1
 %notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AudioMenu
 
 :RealtekMSI
-%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Audio/Audio_Realtek_MSI.zip', 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_MSI.zip')" >nul 2>&1
-powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_MSI.zip' 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_MSI'" >nul 2>&1
-del /f "C:\Users\%USERNAME%\Desktop\Audio_Realtek_MSI.zip" >nul 2>&1
+%downloadfile%'%repository%/Drivers/Audio/Audio_Realtek_MSI.zip', '%desktop%\Audio_Realtek_MSI.zip')" >nul 2>&1
+powershell -command "Expand-Archive -Force '%desktop%\Audio_Realtek_MSI.zip' '%desktop%\Audio_Realtek_MSI'" >nul 2>&1
+del /f "%desktop%\Audio_Realtek_MSI.zip" >nul 2>&1
 %notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AudioMenu
 
 :RealtekGigaByte
-%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Audio/Audio_Realtek_Gigabyte.zip', 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Gigabyte.zip')" >nul 2>&1
-powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Gigabyte.zip' 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_GigaByte'" >nul 2>&1
-del /f "C:\Users\%USERNAME%\Desktop\Audio_Realtek_Gigabyte.zip" >nul 2>&1
+%downloadfile%'%repository%/Drivers/Audio/Audio_Realtek_Gigabyte.zip', '%desktop%\Audio_Realtek_Gigabyte.zip')" >nul 2>&1
+powershell -command "Expand-Archive -Force '%desktop%\Audio_Realtek_Gigabyte.zip' '%desktop%\Audio_Realtek_GigaByte'" >nul 2>&1
+del /f "%desktop%\Audio_Realtek_Gigabyte.zip" >nul 2>&1
 %notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AudioMenu
 
 :RealtekAsrock
-%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Audio/Audio_Realtek_Asrock.zip', 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Asrock.zip')" >nul 2>&1
-powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Asrock.zip' 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Asrock'" >nul 2>&1
-del /f "C:\Users\%USERNAME%\Desktop\Audio_Realtek_Asrock.zip" >nul 2>&1
+%downloadfile%'%repository%/Drivers/Audio/Audio_Realtek_Asrock.zip', '%desktop%\Audio_Realtek_Asrock.zip')" >nul 2>&1
+powershell -command "Expand-Archive -Force '%desktop%\Audio_Realtek_Asrock.zip' '%desktop%\Audio_Realtek_Asrock'" >nul 2>&1
+del /f "%desktop%\Audio_Realtek_Asrock.zip" >nul 2>&1
 %notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AudioMenu
 
 :RealtekEVGA
-%downloadfile%'https://cdn.evga.com/driver/Z690/E698/Audio.zip', 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_EVGA.zip')" >nul 2>&1
-powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_EVGA.zip' 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_EVGA'" >nul 2>&1
-del /f "C:\Users\%USERNAME%\Desktop\Audio_Realtek_EVGA.zip" >nul 2>&1
+%downloadfile%'https://cdn.evga.com/driver/Z690/E698/Audio.zip', '%desktop%\Audio_Realtek_EVGA.zip')" >nul 2>&1
+powershell -command "Expand-Archive -Force '%desktop%\Audio_Realtek_EVGA.zip' '%desktop%\Audio_Realtek_EVGA'" >nul 2>&1
+del /f "%desktop%\Audio_Realtek_EVGA.zip" >nul 2>&1
 %notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AudioMenu
 
 :RealtekDell
-%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Audio/Audio_Realtek_Dell.zip', 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Dell.zip')" >nul 2>&1
-powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Dell.zip' 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Dell'" >nul 2>&1
-del /f "C:\Users\%USERNAME%\Desktop\Audio_Realtek_Dell.zip" >nul 2>&1
+%downloadfile%'%repository%/Drivers/Audio/Audio_Realtek_Dell.zip', '%desktop%\Audio_Realtek_Dell.zip')" >nul 2>&1
+powershell -command "Expand-Archive -Force '%desktop%\Audio_Realtek_Dell.zip' '%desktop%\Audio_Realtek_Dell'" >nul 2>&1
+del /f "%desktop%\Audio_Realtek_Dell.zip" >nul 2>&1
 %notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AudioMenu
 
 :RealtekLenovo
-%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Audio/Audio_Realtek_Lenovo.exe', 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Lenovo.exe')" >nul 2>&1
+%downloadfile%'%repository%/Drivers/Audio/Audio_Realtek_Lenovo.exe', '%desktop%\Audio_Realtek_Lenovo.exe')" >nul 2>&1
 %notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AudioMenu
 
 :RealtekHP
-%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Audio/Audio_Realtek_HP.zip', 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_HP.zip')" >nul 2>&1
-powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_HP.zip' 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_HP'" >nul 2>&1
-del /f "C:\Users\%USERNAME%\Desktop\Audio_Realtek_HP.zip" >nul 2>&1
+%downloadfile%'%repository%/Drivers/Audio/Audio_Realtek_HP.zip', '%desktop%\Audio_Realtek_HP.zip')" >nul 2>&1
+powershell -command "Expand-Archive -Force '%desktop%\Audio_Realtek_HP.zip' '%desktop%\Audio_Realtek_HP'" >nul 2>&1
+del /f "%desktop%\Audio_Realtek_HP.zip" >nul 2>&1
 %notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AudioMenu
 
 :RealtekAllOEM
-%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Audio/Audio_Realtek_Others.zip', 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Others.zip')" >nul 2>&1
-powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Others.zip' 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Others'" >nul 2>&1
-del /f "C:\Users\%USERNAME%\Desktop\Audio_Realtek_Others.zip" >nul 2>&1
+%downloadfile%'%repository%/Drivers/Audio/Audio_Realtek_Others.zip', '%desktop%\Audio_Realtek_Others.zip')" >nul 2>&1
+powershell -command "Expand-Archive -Force '%desktop%\Audio_Realtek_Others.zip' '%desktop%\Audio_Realtek_Others'" >nul 2>&1
+del /f "%desktop%\Audio_Realtek_Others.zip" >nul 2>&1
 %notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AudioMenu
 
@@ -1537,128 +1539,128 @@ IF ERRORLEVEL 2 GOTO RealtekEthernet
 IF ERRORLEVEL 1 GOTO IntelEthernet
 
 :IntelEthernet
-%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Intel_Ethernet.zip', 'C:\Users\%USERNAME%\Desktop\Intel_Ethernet.zip')" >nul 2>&1
-powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Intel_Ethernet.zip' 'C:\Users\%USERNAME%\Desktop\Intel_Ethernet'" >nul 2>&1
-del /f "C:\Users\%USERNAME%\Desktop\Intel_Ethernet.zip" >nul 2>&1
+%downloadfile%'%repository%/Drivers/Networking/Intel_Ethernet.zip', '%desktop%\Intel_Ethernet.zip')" >nul 2>&1
+powershell -command "Expand-Archive -Force '%desktop%\Intel_Ethernet.zip' '%desktop%\Intel_Ethernet'" >nul 2>&1
+del /f "%desktop%\Intel_Ethernet.zip" >nul 2>&1
 %notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :RealtekEthernet
-%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Realtek_Ethernet.zip', 'C:\Users\%USERNAME%\Desktop\Realtek_Ethernet.zip')" >nul 2>&1
-powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Realtek_Ethernet.zip' 'C:\Users\%USERNAME%\Desktop\Realtek_Ethernet'" >nul 2>&1
-del /f "C:\Users\%USERNAME%\Desktop\Realtek_Ethernet.zip" >nul 2>&1
+%downloadfile%'%repository%/Drivers/Networking/Realtek_Ethernet.zip', '%desktop%\Realtek_Ethernet.zip')" >nul 2>&1
+powershell -command "Expand-Archive -Force '%desktop%\Realtek_Ethernet.zip' '%desktop%\Realtek_Ethernet'" >nul 2>&1
+del /f "%desktop%\Realtek_Ethernet.zip" >nul 2>&1
 %notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :MediatekEthernet
-%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Mediatek_Ethernet.zip', 'C:\Users\%USERNAME%\Desktop\Mediatek_Ethernet.zip')" >nul 2>&1
-powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Mediatek_Ethernet.zip' 'C:\Users\%USERNAME%\Desktop\Mediatek_Ethernet'" >nul 2>&1
-del /f "C:\Users\%USERNAME%\Desktop\Mediatek_Ethernet.zip" >nul 2>&1
+%downloadfile%'%repository%/Drivers/Networking/Mediatek_Ethernet.zip', '%desktop%\Mediatek_Ethernet.zip')" >nul 2>&1
+powershell -command "Expand-Archive -Force '%desktop%\Mediatek_Ethernet.zip' '%desktop%\Mediatek_Ethernet'" >nul 2>&1
+del /f "%desktop%\Mediatek_Ethernet.zip" >nul 2>&1
 %notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :IntelWifi
-%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Intel_Wifi.zip', 'C:\Users\%USERNAME%\Desktop\Intel_Wifi.zip')" >nul 2>&1
-powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Intel_Wifi.zip' 'C:\Users\%USERNAME%\Desktop}Intel_Wifi'" >nul 2>&1
-del /f "C:\Users\%USERNAME%\Desktop\Intel_Wifi.zip" >nul 2>&1
+%downloadfile%'%repository%/Drivers/Networking/Intel_Wifi.zip', '%desktop%\Intel_Wifi.zip')" >nul 2>&1
+powershell -command "Expand-Archive -Force '%desktop%\Intel_Wifi.zip' '%desktop%}Intel_Wifi'" >nul 2>&1
+del /f "%desktop%\Intel_Wifi.zip" >nul 2>&1
 %notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :RealtekWifi
-%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Realtek_Wifi.zip', 'C:\Users\%USERNAME%\Desktop\Realtek_Wifi.zip')" >nul 2>&1
-powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Realtek_Wifi.zip' 'C:\Users\%USERNAME%\Desktop\Realtek_Wifi'" >nul 2>&1
-del /f "C:\Users\%USERNAME%\Desktop\Realtek_Wifi.zip" >nul 2>&1
+%downloadfile%'%repository%/Drivers/Networking/Realtek_Wifi.zip', '%desktop%\Realtek_Wifi.zip')" >nul 2>&1
+powershell -command "Expand-Archive -Force '%desktop%\Realtek_Wifi.zip' '%desktop%\Realtek_Wifi'" >nul 2>&1
+del /f "%desktop%\Realtek_Wifi.zip" >nul 2>&1
 %notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :MediatekWifi
-%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Mediatek_Wifi.zip', 'C:\Users\%USERNAME%\Desktop\Mediatek_Wifi.zip')" >nul 2>&1
-powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Mediatek_Wifi.zip' 'C:\Users\%USERNAME%\Desktop\Mediatek_Wifi'" >nul 2>&1
-del /f "C:\Users\%USERNAME%\Desktop\Mediatek_Wifi.zip" >nul 2>&1
+%downloadfile%'%repository%/Drivers/Networking/Mediatek_Wifi.zip', '%desktop%\Mediatek_Wifi.zip')" >nul 2>&1
+powershell -command "Expand-Archive -Force '%desktop%\Mediatek_Wifi.zip' '%desktop%\Mediatek_Wifi'" >nul 2>&1
+del /f "%desktop%\Mediatek_Wifi.zip" >nul 2>&1
 %notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :IntelBluetooth
-%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Intel_Bluetooth.zip', 'C:\Users\%USERNAME%\Desktop\Intel_Bluetooth.zip')" >nul 2>&1
-powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Intel_Bluetooth.zip' 'C:\Users\%USERNAME%\Desktop\Intel_Bluetooth'" >nul 2>&1
-del /f "C:\Users\%USERNAME%\Desktop\Intel_Bluetooth.zip" >nul 2>&1
+%downloadfile%'%repository%/Drivers/Networking/Intel_Bluetooth.zip', '%desktop%\Intel_Bluetooth.zip')" >nul 2>&1
+powershell -command "Expand-Archive -Force '%desktop%\Intel_Bluetooth.zip' '%desktop%\Intel_Bluetooth'" >nul 2>&1
+del /f "%desktop%\Intel_Bluetooth.zip" >nul 2>&1
 %notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :RealtekBluetooth
-%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Realtek_Bluetooth.zip', 'C:\Users\%USERNAME%\Desktop\Realtek_Bluetooth.zip')" >nul 2>&1
-powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Realtek_Bluetooth.zip' 'C:\Users\%USERNAME%\Desktop\Realtek_Bluetooth'" >nul 2>&1
-del /f "C:\Users\%USERNAME%\Desktop\Realtek_Bluetooth.zip" >nul 2>&1
+%downloadfile%'%repository%/Drivers/Networking/Realtek_Bluetooth.zip', '%desktop%\Realtek_Bluetooth.zip')" >nul 2>&1
+powershell -command "Expand-Archive -Force '%desktop%\Realtek_Bluetooth.zip' '%desktop%\Realtek_Bluetooth'" >nul 2>&1
+del /f "%desktop%\Realtek_Bluetooth.zip" >nul 2>&1
 %notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :MediatekBluetooth
-%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Mediatek_Bluetooth.zip', 'C:\Users\%USERNAME%\Desktop\Mediatek_Bluetooth.zip')" >nul 2>&1
-powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Mediatek_Bluetooth.zip' 'C:\Users\%USERNAME%\Desktop\Mediatek_Bluetooth'" >nul 2>&1
-del /f "C:\Users\%USERNAME%\Desktop\Mediatek_Bluetooth.zip" >nul 2>&1
+%downloadfile%'%repository%/Drivers/Networking/Mediatek_Bluetooth.zip', '%desktop%\Mediatek_Bluetooth.zip')" >nul 2>&1
+powershell -command "Expand-Archive -Force '%desktop%\Mediatek_Bluetooth.zip' '%desktop%\Mediatek_Bluetooth'" >nul 2>&1
+del /f "%desktop%\Mediatek_Bluetooth.zip" >nul 2>&1
 %notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :QualcommEthernet
-%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Qualcomm_Ethernet.zip', 'C:\Users\%USERNAME%\Desktop\Qualcomm_Ethernet.zip')" >nul 2>&1
-powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Qualcomm_Ethernet.zip' 'C:\Users\%USERNAME%\Desktop\Qualcomm_Ethernet'" >nul 2>&1
-del /f "C:\Users\%USERNAME%\Desktop\Qualcomm_Ethernet.zip" >nul 2>&1
+%downloadfile%'%repository%/Drivers/Networking/Qualcomm_Ethernet.zip', '%desktop%\Qualcomm_Ethernet.zip')" >nul 2>&1
+powershell -command "Expand-Archive -Force '%desktop%\Qualcomm_Ethernet.zip' '%desktop%\Qualcomm_Ethernet'" >nul 2>&1
+del /f "%desktop%\Qualcomm_Ethernet.zip" >nul 2>&1
 %notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :MarvellEthernet
-%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Marvell_Ethernet.zip', 'C:\Users\%USERNAME%\Desktop\Marvell_Ethernet.zip')" >nul 2>&1
-powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Marvell_Ethernet.zip' 'C:\Users\%USERNAME%\Desktop\Marvell_Ethernet'" >nul 2>&1
-del /f "C:\Users\%USERNAME%\Desktop\Marvell_Ethernet.zip" >nul 2>&1
+%downloadfile%'%repository%/Drivers/Networking/Marvell_Ethernet.zip', '%desktop%\Marvell_Ethernet.zip')" >nul 2>&1
+powershell -command "Expand-Archive -Force '%desktop%\Marvell_Ethernet.zip' '%desktop%\Marvell_Ethernet'" >nul 2>&1
+del /f "%desktop%\Marvell_Ethernet.zip" >nul 2>&1
 %notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :BroadcomEthernet
-%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Broadcom_Ethernet.zip', 'C:\Users\%USERNAME%\Desktop\Broadcom_Ethernet.zip')" >nul 2>&1
-powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Broadcom_Ethernet.zip' 'C:\Users\%USERNAME%\Desktop\Broadcam_Ethernet'" >nul 2>&1
-del /f "C:\Users\%USERNAME%\Desktop\Broadcom_Ethernet.zip" >nul 2>&1
+%downloadfile%'%repository%/Drivers/Networking/Broadcom_Ethernet.zip', '%desktop%\Broadcom_Ethernet.zip')" >nul 2>&1
+powershell -command "Expand-Archive -Force '%desktop%\Broadcom_Ethernet.zip' '%desktop%\Broadcam_Ethernet'" >nul 2>&1
+del /f "%desktop%\Broadcom_Ethernet.zip" >nul 2>&1
 %notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :QualcommWifi
-%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Qualcomm_Wifi.zip', 'C:\Users\%USERNAME%\Desktop\Qualcomm_Wifi.zip')" >nul 2>&1
-powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Qualcomm_Wifi.zip' 'C:\Users\%USERNAME%\Desktop\Qualcomm_Wifi'" >nul 2>&1
-del /f "C:\Users\%USERNAME%\Desktop\Qualcomm_Wifi.zip" >nul 2>&1
+%downloadfile%'%repository%/Drivers/Networking/Qualcomm_Wifi.zip', '%desktop%\Qualcomm_Wifi.zip')" >nul 2>&1
+powershell -command "Expand-Archive -Force '%desktop%\Qualcomm_Wifi.zip' '%desktop%\Qualcomm_Wifi'" >nul 2>&1
+del /f "%desktop%\Qualcomm_Wifi.zip" >nul 2>&1
 %notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :MarvellWifi
-%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Marvell_Wifi.zip', 'C:\Users\%USERNAME%\Desktop\Marvell_Wifi.zip')" >nul 2>&1
-powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Marvell_Wifi.zip' 'C:\Users\%USERNAME%\Desktop\Marvell_Wifi'" >nul 2>&1
-del /f "C:\Users\%USERNAME%\Desktop\Marvell_Wifi.zip" >nul 2>&1
+%downloadfile%'%repository%/Drivers/Networking/Marvell_Wifi.zip', '%desktop%\Marvell_Wifi.zip')" >nul 2>&1
+powershell -command "Expand-Archive -Force '%desktop%\Marvell_Wifi.zip' '%desktop%\Marvell_Wifi'" >nul 2>&1
+del /f "%desktop%\Marvell_Wifi.zip" >nul 2>&1
 %notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :BroadcomWifi
-%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Broadcom_Wifi.zip', 'C:\Users\%USERNAME%\Desktop\Broadcom_Wifi.zip')" >nul 2>&1
-powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Broadcom_Wifi.zip' 'C:\Users\%USERNAME%\Desktop\Broadcom_Wifi'" >nul 2>&1
-del /f "C:\Users\%USERNAME%\Desktop\Broadcom_Wifi.zip" >nul 2>&1
+%downloadfile%'%repository%/Drivers/Networking/Broadcom_Wifi.zip', '%desktop%\Broadcom_Wifi.zip')" >nul 2>&1
+powershell -command "Expand-Archive -Force '%desktop%\Broadcom_Wifi.zip' '%desktop%\Broadcom_Wifi'" >nul 2>&1
+del /f "%desktop%\Broadcom_Wifi.zip" >nul 2>&1
 %notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :QualcommBluetooth
-%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Qualcomm_Bluetooth.zip', 'C:\Users\%USERNAME%\Desktop\Qualcomm_Bluetooth.zip')" >nul 2>&1
-powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Qualcomm_Bluetooth.zip' 'C:\Users\%USERNAME%\Desktop\Qualcomm_Bluetooth'" >nul 2>&1
-del /f "C:\Users\%USERNAME%\Desktop\Qualcomm_Bluetooth.zip" >nul 2>&1
+%downloadfile%'%repository%/Drivers/Networking/Qualcomm_Bluetooth.zip', '%desktop%\Qualcomm_Bluetooth.zip')" >nul 2>&1
+powershell -command "Expand-Archive -Force '%desktop%\Qualcomm_Bluetooth.zip' '%desktop%\Qualcomm_Bluetooth'" >nul 2>&1
+del /f "%desktop%\Qualcomm_Bluetooth.zip" >nul 2>&1
 %notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :MarvellBluetooth
-%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Marvell_Bluetooth.zip', 'C:\Users\%USERNAME%\Desktop\Marvell_Bluetooth.zip')" >nul 2>&1
-powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Marvell_Bluetooth.zip' 'C:\Users\%USERNAME%\Desktop\Marvell_Bluetooth'" >nul 2>&1
-del /f "C:\Users\%USERNAME%\Desktop\Marvell_Bluetooth.zip" >nul 2>&1
+%downloadfile%'%repository%/Drivers/Networking/Marvell_Bluetooth.zip', '%desktop%\Marvell_Bluetooth.zip')" >nul 2>&1
+powershell -command "Expand-Archive -Force '%desktop%\Marvell_Bluetooth.zip' '%desktop%\Marvell_Bluetooth'" >nul 2>&1
+del /f "%desktop%\Marvell_Bluetooth.zip" >nul 2>&1
 %notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :BroadcomBluetooth
-%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Broadcom_Bluetooth.zip', 'C:\Users\%USERNAME%\Desktop\Broadcom_Bluetooth.zip')" >nul 2>&1
-powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Broadcom_Bluetooth.zip' 'C:\Users\%USERNAME%\Desktop\Broadcom_Bluetooth'" >nul 2>&1
-del /f "C:\Users\%USERNAME%\Desktop\Broadcom_Bluetooth.zip" >nul 2>&1
+%downloadfile%'%repository%/Drivers/Networking/Broadcom_Bluetooth.zip', '%desktop%\Broadcom_Bluetooth.zip')" >nul 2>&1
+powershell -command "Expand-Archive -Force '%desktop%\Broadcom_Bluetooth.zip' '%desktop%\Broadcom_Bluetooth'" >nul 2>&1
+del /f "%desktop%\Broadcom_Bluetooth.zip" >nul 2>&1
 %notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
@@ -1738,7 +1740,7 @@ start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\CleanFiles.cmd" >nul 2>&1
 GOTO DebugMenu
 
 :UpdateHostsFile
-%downloadfile%'https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/hosts', 'C:\Windows\System32\drivers\etc\hosts')" >nul 2>&1
+%downloadfile%'%repository%/LTSC/hosts', 'C:\Windows\System32\drivers\etc\hosts')" >nul 2>&1
 %notify%'APP','Hosts file has been updated.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO DebugMenu
 
@@ -1747,19 +1749,19 @@ start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\activate.cmd" >nul 2>&1
 GOTO DebugMenu
 
 :UpdateAPP
-%downloadfile%'https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/setup.cmd', 'C:\Program Files\LTSC\setup.cmd')" >nul 2>&1
-%downloadfile%'https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/activate.cmd', 'C:\Program Files\LTSC\Scripts\activate.cmd')" >nul 2>&1
-%downloadfile%'https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/AntiDefender.cmd', 'C:\Program Files\LTSC\Scripts\AntiDefender.cmd')" >nul 2>&1
-%downloadfile%'https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/AntiDefenderUndo.cmd', 'C:\Program Files\LTSC\Scripts\AntiDefenderUndo.cmd')" >nul 2>&1
-%downloadfile%'https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/CleanFiles.cmd', 'C:\Program Files\LTSC\Scripts\CleanFiles.cmd')" >nul 2>&1
-%downloadfile%'https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/Edge_Uninstall.cmd', 'C:\Program Files\LTSC\Scripts\Edge_Uninstall.cmd')" >nul 2>&1
-%downloadfile%'https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/reapplyLTSC.cmd', 'C:\Program Files\LTSC\Scripts\reapplyLTSC.cmd')" >nul 2>&1
-%downloadfile%'https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/tweaks.reg', 'C:\Program Files\LTSC\Scripts\tweaks.reg')" >nul 2>&1
-%downloadfile%'https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/UpdateAPP.cmd', 'C:\Program Files\LTSC\Scripts\UpdateAPP.cmd')" >nul 2>&1
-%downloadfile%'https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/ViveTool/Albacore.ViVe.dll', 'C:\Program Files\LTSC\Scripts\ViveTool\Albacore.ViVe.dll')" >nul 2>&1
-%downloadfile%'https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/ViveTool/FeatureDictionary.pfs', 'C:\Program Files\LTSC\Scripts\ViveTool\FeatureDictionary.pfs')" >nul 2>&1
-%downloadfile%'https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/ViveTool/Newtonsoft.Json.dll', 'C:\Program Files\LTSC\Scripts\ViveTool\Newtonsoft.Json.dll')" >nul 2>&1
-%downloadfile%'https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/ViveTool/ViVeTool.exe', 'C:\Program Files\LTSC\Scripts\ViveTool\ViVeTool.exe')" >nul 2>&1
+%downloadfile%'%repository%/LTSC/setup.cmd', 'C:\Program Files\LTSC\setup.cmd')" >nul 2>&1
+%downloadfile%'%repository%/LTSC/Scripts/activate.cmd', 'C:\Program Files\LTSC\Scripts\activate.cmd')" >nul 2>&1
+%downloadfile%'%repository%/LTSC/Scripts/AntiDefender.cmd', 'C:\Program Files\LTSC\Scripts\AntiDefender.cmd')" >nul 2>&1
+%downloadfile%'%repository%/LTSC/Scripts/AntiDefenderUndo.cmd', 'C:\Program Files\LTSC\Scripts\AntiDefenderUndo.cmd')" >nul 2>&1
+%downloadfile%'%repository%/LTSC/Scripts/CleanFiles.cmd', 'C:\Program Files\LTSC\Scripts\CleanFiles.cmd')" >nul 2>&1
+%downloadfile%'%repository%/LTSC/Scripts/Edge_Uninstall.cmd', 'C:\Program Files\LTSC\Scripts\Edge_Uninstall.cmd')" >nul 2>&1
+%downloadfile%'%repository%/LTSC/Scripts/reapplyLTSC.cmd', 'C:\Program Files\LTSC\Scripts\reapplyLTSC.cmd')" >nul 2>&1
+%downloadfile%'%repository%/LTSC/Scripts/tweaks.reg', 'C:\Program Files\LTSC\Scripts\tweaks.reg')" >nul 2>&1
+%downloadfile%'%repository%/LTSC/Scripts/UpdateAPP.cmd', 'C:\Program Files\LTSC\Scripts\UpdateAPP.cmd')" >nul 2>&1
+%downloadfile%'%repository%/LTSC/Scripts/ViveTool/Albacore.ViVe.dll', 'C:\Program Files\LTSC\Scripts\ViveTool\Albacore.ViVe.dll')" >nul 2>&1
+%downloadfile%'%repository%/LTSC/Scripts/ViveTool/FeatureDictionary.pfs', 'C:\Program Files\LTSC\Scripts\ViveTool\FeatureDictionary.pfs')" >nul 2>&1
+%downloadfile%'%repository%/LTSC/Scripts/ViveTool/Newtonsoft.Json.dll', 'C:\Program Files\LTSC\Scripts\ViveTool\Newtonsoft.Json.dll')" >nul 2>&1
+%downloadfile%'%repository%/LTSC/Scripts/ViveTool/ViVeTool.exe', 'C:\Program Files\LTSC\Scripts\ViveTool\ViVeTool.exe')" >nul 2>&1
 start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\UpdateAPP.cmd" >nul 2>&1
 exit
 
