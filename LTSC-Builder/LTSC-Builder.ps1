@@ -167,7 +167,6 @@ New-Item -ItemType Directory -Path "C:\LTSC\mount\Windows\Setup\Scripts" | Out-N
 (New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/Edge_Uninstall.cmd', 'C:\LTSC\mount\Program Files\LTSC\Scripts\Edge_Uninstall.cmd') | Out-Null
 (New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/UpdateAPP.cmd', 'C:\LTSC\mount\Program Files\LTSC\Scripts\UpdateAPP.cmd') | Out-Null
 (New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/activate.cmd', 'C:\LTSC\mount\Program Files\LTSC\Scripts\activate.cmd') | Out-Null
-(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/activate_server.cmd', 'C:\LTSC\mount\Program Files\LTSC\Scripts\activate_server.cmd') | Out-Null
 (New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/LTSC/Scripts/ViveTool/Albacore.ViVe.dll', 'C:\LTSC\mount\Program Files\LTSC\Scripts\ViveTool\Albacore.ViVe.dll') | Out-Null
 (New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/ViveTool/FeatureDictionary.pfs', 'C:\LTSC\mount\Program Files\LTSC\Scripts\ViveTool\FeatureDictionary.pfs') | Out-Null
 (New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/LTSC/Scripts/ViveTool/Newtonsoft.Json.dll', 'C:\LTSC\mount\Program Files\LTSC\Scripts\ViveTool\Newtonsoft.Json.dll') | Out-Null
