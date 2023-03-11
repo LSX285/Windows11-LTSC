@@ -20,27 +20,10 @@ CD /D "%~dp0"
 :: batch is being ran as admin
 :skipAdmin
 
-
-
-:: Note - App requires Administrator permissions to run perfectly.
-@echo off
-%windir%\system32\reg.exe query "HKU\S-1-5-19" >nul 2>&1 || (
-@ECHO [36m____________________________________________________________________________[0m
-@ECHO.
-@echo                     - Please execute as Administrator. -
-@echo.
-@ECHO [36m____________________________________________________________________________[0m
-pause >nul
-exit
-)
-pushd %~dp0
-:: Note - Turning UAC promtps back to on to default for the sake of security.
-REG Add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V ConsentPromptBehaviorAdmin /T REG_DWORD /D 5 /F >nul 2>&1
-REG Add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V PromptOnSecureDesktop /T REG_DWORD /D 1 /F >nul 2>&1
 :: Note - Welcome Page
 :Welcome
 mode con: cols=76 lines=20
-Title APP v1.0.4.1
+Title APP v1.0.4.2
 @ECHO OFF
 CLS
 @ECHO.   
@@ -53,7 +36,7 @@ ECHO    [[1mA[0m] Install Apps     [[1mB[0m] More Debloat      [[1mC[0m] D
 ECHO.
 @ECHO [36m____________________________________________________________________________[0m
 ECHO.
-ECHO    [101m[X] Exit[0m                                                  [100m[Z] Debug[0m
+ECHO      [101m[X] Go back[0m                                              [100m[Z] Debug[0m
 CHOICE /C:abcdxz /N /M ""
 
 :: Note - list ERRORLEVELS in decreasing order
