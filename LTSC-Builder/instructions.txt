@@ -7,6 +7,9 @@ How to run LTSC-Builder.ps1
 - cd $env:userprofile\Downloads\LTSC-Builder
 - .\LTSC-Builder.ps1
 
+If you get an error message that you cannot run Scripts, go to Developer Settings and enable "Chagne execution policy 
+to allow local powershell scripts to run without signing."
+
 The process takes about 10-60 minutes depending on your hardware configuration. 
 Don't touch your computer during that process.
 
