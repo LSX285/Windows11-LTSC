@@ -23,9 +23,11 @@ CD /D "%~dp0"
 set version=v1.0.4.5
 set notify=powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,
 set downloadfile=powershell -command "(New-Object Net.WebClient).DownloadFile(
-set vivetool="C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe"
+set vivetool="%ltscdir%\Scripts\Vivetool\ViVeTool.exe"
 set repository=https://github.com/LSX285/Windows11-LTSC/raw/main
 set desktop=C:\Users\%USERNAME%\Desktop
+set ltscdir=C:\Program Files\LTSC
+set wingetsilent=--accept-source-agreements --accept-package-agreements
 
 :: Note - Welcome Page
 :Welcome
@@ -100,12 +102,12 @@ IF ERRORLEVEL 2 GOTO Discord
 IF ERRORLEVEL 1 GOTO Chrome
 
 :Chrome
-winget install Google.Chrome --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install Google.Chrome %wingetsilent% >nul 2>&1
 %notify%'APP','Google Chrome has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AppDLMenu
 
 :Discord
-winget install Discord.Discord --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install Discord.Discord %wingetsilent% >nul 2>&1
 %notify%'APP','Discord has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AppDLMenu
 
@@ -115,38 +117,38 @@ GOTO AppDLMenu
 GOTO AppDLMenu
 
 :Steam
-winget install Valve.Steam --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install Valve.Steam %wingetsilent% >nul 2>&1
 %notify%'APP','Steam has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AppDLMenu
 
 :EpicGames
-winget install EpicGames.EpicGamesLauncher --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install EpicGames.EpicGamesLauncher %wingetsilent% >nul 2>&1
 %notify%'APP','Epic Games Launcher has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AppDLMenu
 
 :Mullvad
-winget install MullvadVPN.MullvadVPN --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install MullvadVPN.MullvadVPN %wingetsilent% >nul 2>&1
 %notify%'APP','Mullvad has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AppDLMenu
 
 :Wireguard
-winget install WireGuard.WireGuard --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install WireGuard.WireGuard %wingetsilent% >nul 2>&1
 %notify%'APP','Wireguard has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AppDLMenu
 
 :LibreOffice
-winget install TheDocumentFoundation.LibreOffice --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install TheDocumentFoundation.LibreOffice %wingetsilent% >nul 2>&1
 %notify%'APP','LibreOffice has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AppDLMenu
 
 :Paintnet
-winget install dotPDNLLC.paintdotnet --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install dotPDNLLC.paintdotnet %wingetsilent% >nul 2>&1
 %notify%'APP','Paint.net has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AppDLMenu
 
 
 :VlcPlayer
-winget install VideoLAN.VLC --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install VideoLAN.VLC %wingetsilent% >nul 2>&1
 %notify%'APP','VLC Player has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AppDLMenu
 
@@ -166,22 +168,22 @@ rmdir /S /Q "C:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu\Pr
 GOTO AppDLMenu
 
 :NZXTCam
-winget install NZXT.CAM --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install NZXT.CAM %wingetsilent% >nul 2>&1
 %notify%'APP','NZXT CAM has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AppDLMenu
 
 :VSCode
-winget install Microsoft.VisualStudioCode --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install Microsoft.VisualStudioCode %wingetsilent% >nul 2>&1
 %notify%'APP','VS Code has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AppDLMenu
 
 :Blender
-winget install BlenderFoundation.Blender --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install BlenderFoundation.Blender %wingetsilent% >nul 2>&1
 %notify%'APP','Blender has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AppDLMenu
 
 :Hwinfo
-winget install REALiX.HWiNFO --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install REALiX.HWiNFO %wingetsilent% >nul 2>&1
 %notify%'APP','HWINFO has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AppDLMenu
 
@@ -236,22 +238,22 @@ IF ERRORLEVEL 2 GOTO Brave
 IF ERRORLEVEL 1 GOTO OperaGX
 
 :OperaGX
-winget install Opera.OperaGX --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install Opera.OperaGX %wingetsilent% >nul 2>&1
 %notify%'APP','Opera GX has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More
 
 :Brave
-winget install Brave.Brave --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install Brave.Brave %wingetsilent% >nul 2>&1
 %notify%'APP','Brave has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More
 
 :EADesktop
-winget install ElectronicArts.EADesktop --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install ElectronicArts.EADesktop %wingetsilent% >nul 2>&1
 %notify%'APP','EA Desktop App has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More
 
 :GOGGalaxy
-winget install GOG.Galaxy --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install GOG.Galaxy %wingetsilent% >nul 2>&1
 %notify%'APP','GOG Galaxy has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More
 
@@ -263,32 +265,32 @@ del /f "%desktop%\Battle.net-Setup.exe" >nul 2>&1
 GOTO More
 
 :UbisoftConnect
-winget install Ubisoft.Connect --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install Ubisoft.Connect %wingetsilent% >nul 2>&1
 %notify%'APP','Ubisoft Connect has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More
 
 :GIMP 
-winget install GIMP.GIMP --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install GIMP.GIMP %wingetsilent% >nul 2>&1
 %notify%'APP','GIMP has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More
 
 :GPUZ
-winget install TechPowerUp.GPU-Z --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install TechPowerUp.GPU-Z %wingetsilent% >nul 2>&1
 %notify%'APP','GPU-Z has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More
 
 :OneDrive
-winget install  Microsoft.OneDrive --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install  Microsoft.OneDrive %wingetsilent% >nul 2>&1
 %notify%'APP','OneDrive has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More
 
 :OBSStudio
-winget install OBSProject.OBSStudio --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install OBSProject.OBSStudio %wingetsilent% >nul 2>&1
 %notify%'APP','OBS Studio has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More
 
 :GeforceExperience
-winget install Nvidia.GeForceExperience --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install Nvidia.GeForceExperience %wingetsilent% >nul 2>&1
 %notify%'APP','Geforce Experience has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More
 
@@ -299,17 +301,17 @@ ECHO [[93m-[0m] Downloading [93mGeforce Now[0m ...
 GOTO More
 
 :PostgreSQL
-winget install PostgreSQL.PostgreSQL --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install PostgreSQL.PostgreSQL %wingetsilent% >nul 2>&1
 %notify%'APP','POSTgreSQL has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More
 
 :Dropbox
-winget install Dropbox.Dropbox --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install Dropbox.Dropbox %wingetsilent% >nul 2>&1
 %notify%'APP','Dropbox has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More
 
 :Teams
-winget install Microsoft.Teams --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install Microsoft.Teams %wingetsilent% >nul 2>&1
 %notify%'APP','Teams has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More
 
@@ -364,77 +366,77 @@ IF ERRORLEVEL 2 GOTO SublimeText
 IF ERRORLEVEL 1 GOTO Zoom
 
 :Zoom
-winget install Zoom.Zoom --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install Zoom.Zoom %wingetsilent% >nul 2>&1
 %notify%'APP','Zoom has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More2
 
 :SublimeText
-winget install SublimeHQ.SublimeText.4 --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install SublimeHQ.SublimeText.4 %wingetsilent% >nul 2>&1
 %notify%'APP','Sublime Text has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More2
 
 :Notepadplusplus
-winget install Notepad++.Notepad++ --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install Notepad++.Notepad++ %wingetsilent% >nul 2>&1
 %notify%'APP','Notepad PlusPlus has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More2
 
 :Corsairicue
-winget install Corsair.iCUE.4 --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install Corsair.iCUE.4 %wingetsilent% >nul 2>&1
 %notify%'APP','Corsair iCUE has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More2
 
 :Firefox
-winget install Mozilla.Firefox --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install Mozilla.Firefox %wingetsilent% >nul 2>&1
 %notify%'APP','Firefox has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More2
 
 :VisualStudio
-winget install Microsoft.VisualStudio.2022.Community --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install Microsoft.VisualStudio.2022.Community %wingetsilent% >nul 2>&1
 %notify%'APP','Visual Studio 2022 Community has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More2
 
 :Radiograph
-winget install 9NH1P86H06CG --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install 9NH1P86H06CG %wingetsilent% >nul 2>&1
 %notify%'APP','Radiograph has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More2
 
 :qBittorrent
-winget install qBittorrent.qBittorrent --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install qBittorrent.qBittorrent %wingetsilent% >nul 2>&1
 %notify%'APP','qBittorrent has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More2
 
 :Picotorrent
-winget install PicoTorrent.PicoTorrent --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install PicoTorrent.PicoTorrent %wingetsilent% >nul 2>&1
 %notify%'APP','Picotorrent has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More2
 
 :GooglePlayGames
-winget install Google.PlayGames.Beta --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install Google.PlayGames.Beta %wingetsilent% >nul 2>&1
 %notify%'APP','Google Play Games has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More2
 
 :Audacity
-winget install Audacity.Audacity --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install Audacity.Audacity %wingetsilent% >nul 2>&1
 %notify%'APP','Audacity has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More2
 
 :Cinebench
-winget install 9PGZKJC81Q7J --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install 9PGZKJC81Q7J %wingetsilent% >nul 2>&1
 %notify%'APP','Cinebench has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More2
 
 :iTunes
-winget install Apple.iTunes --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install Apple.iTunes %wingetsilent% >nul 2>&1
 %notify%'APP','iTunes has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More2
 
 :Rufus
-winget install Rufus.Rufus --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install Rufus.Rufus %wingetsilent% >nul 2>&1
 %notify%'APP','Rufus has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More2
 
 :Aida64
-winget install FinalWire.AIDA64.Extreme --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install FinalWire.AIDA64.Extreme %wingetsilent% >nul 2>&1
 %notify%'APP','Aida64 has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More2
 
@@ -489,77 +491,77 @@ IF ERRORLEVEL 2 GOTO ExpressVPN
 IF ERRORLEVEL 1 GOTO NordVPN
 
 :NordVPN
-winget install NordVPN.NordVPN --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install NordVPN.NordVPN %wingetsilent% >nul 2>&1
 %notify%'APP','NordVPN has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More3
 
 :ExpressVPN
-winget install ExpressVPN.ExpressVPN --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install ExpressVPN.ExpressVPN %wingetsilent% >nul 2>&1
 %notify%'APP','ExpressVPN has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More3
 
 :Surfshark
-winget install Surfshark.Surfshark --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install Surfshark.Surfshark %wingetsilent% >nul 2>&1
 %notify%'APP','Surfshark has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More3
 
 :WinSCP
-winget install WinSCP.WinSCP --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install WinSCP.WinSCP %wingetsilent% >nul 2>&1
 %notify%'APP','WinSCP has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More3
 
 :WindowsTerminal
-winget install Microsoft.WindowsTerminal --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install Microsoft.WindowsTerminal %wingetsilent% >nul 2>&1
 %notify%'APP','Windows Terminal has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More3
 
 :LogitechGHUB
-winget install Logitech.GHUB --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install Logitech.GHUB %wingetsilent% >nul 2>&1
 %notify%'APP','Logitech G Hub has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More3
 
 :VSCodium
-winget install VSCodium.VSCodium --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install VSCodium.VSCodium %wingetsilent% >nul 2>&1
 %notify%'APP','VS Codium has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More3
 
 :NVCleanstall
-winget install TechPowerUp.NVCleanstall --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install TechPowerUp.NVCleanstall %wingetsilent% >nul 2>&1
 %notify%'APP','NVCleanstall has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More3
 
 :BlueStacks
-winget install BlueStack.BlueStacks --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install BlueStack.BlueStacks %wingetsilent% >nul 2>&1
 %notify%'APP','Bluestacks has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More3
 
 :Powershell
-winget install Microsoft.PowerShell --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install Microsoft.PowerShell %wingetsilent% >nul 2>&1
 %notify%'APP','Powershell has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More3
 
 :Teamviewer
-winget install TeamViewer.TeamViewer --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install TeamViewer.TeamViewer %wingetsilent% >nul 2>&1
 %notify%'APP','Teamviewer has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More3
 
 :Parsec
-winget install Parsec.Parsec --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install Parsec.Parsec %wingetsilent% >nul 2>&1
 %notify%'APP','Parsec has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More3
 
 :Vivaldi
-winget install VivaldiTechnologies.Vivaldi --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install VivaldiTechnologies.Vivaldi %wingetsilent% >nul 2>&1
 %notify%'APP','Vivaldi has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More3
 
 :Virtualbox
-winget install Oracle.VirtualBox --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install Oracle.VirtualBox %wingetsilent% >nul 2>&1
 %notify%'APP','Virtualbox has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More3
 
 :VMWare
-winget install VMware.WorkstationPlayer --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install VMware.WorkstationPlayer %wingetsilent% >nul 2>&1
 %notify%'APP','VMWare has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More3
 
@@ -614,77 +616,77 @@ IF ERRORLEVEL 2 GOTO Foobar2000
 IF ERRORLEVEL 1 GOTO Sunshine
 
 :Sunshine
-winget install LizardByte.Sunshine --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install LizardByte.Sunshine %wingetsilent% >nul 2>&1
 %notify%'APP','NVIDIA Sunshine has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More4
 
 :Foobar2000
-winget install PeterPawlowski.foobar2000 --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install PeterPawlowski.foobar2000 %wingetsilent% >nul 2>&1
 %notify%'APP','Foobar 2000 has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More4
 
 :CPUZ
-winget install CPUID.CPU-Z --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install CPUID.CPU-Z %wingetsilent% >nul 2>&1
 %notify%'APP','CPU-Z has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More4
 
 :ChromeBeta
-winget install Google.Chrome.Beta --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install Google.Chrome.Beta %wingetsilent% >nul 2>&1
 %notify%'APP','Google Chrome Beta has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More4
 
 :ChromeDev
-winget install Google.Chrome.Dev --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install Google.Chrome.Dev %wingetsilent% >nul 2>&1
 %notify%'APP','Google Chrome Dev has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More4
 
 :ChromeCanary
-winget install Google.Chrome.Canary --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install Google.Chrome.Canary %wingetsilent% >nul 2>&1
 %notify%'APP','Google Chrome Canary has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More4
 
 :UngoogledChromium
-winget install eloston.ungoogled-chromium --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install eloston.ungoogled-chromium %wingetsilent% >nul 2>&1
 %notify%'APP','Ungoogled Chromium has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More4
 
 :Edge
-winget install Microsoft.Edge --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install Microsoft.Edge %wingetsilent% >nul 2>&1
 %notify%'APP','Microsoft Edge has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More4
 
 :EdgeBeta
-winget install Microsoft.Edge.Beta --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install Microsoft.Edge.Beta %wingetsilent% >nul 2>&1
 %notify%'APP','Microsoft Edge Beta has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More4
 
 :EdgeDev
-winget install Microsoft.Edge.Dev --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install Microsoft.Edge.Dev %wingetsilent% >nul 2>&1
 %notify%'APP','Microsoft Edge Dev has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More4
 
 :AdobeAcrobatReader
-winget install Adobe.Acrobat.Reader.64-bit --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install Adobe.Acrobat.Reader.64-bit %wingetsilent% >nul 2>&1
 %notify%'APP','Adobe Acrobat Reader has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More4
 
 :WhatsApp
-winget install WhatsApp.WhatsApp --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install WhatsApp.WhatsApp %wingetsilent% >nul 2>&1
 %notify%'APP','WhatsApp has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More4
 
 :Telegram
-winget install Telegram.TelegramDesktop --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install Telegram.TelegramDesktop %wingetsilent% >nul 2>&1
 %notify%'APP','Telegram has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More4
 
 :MSPCManager
-winget install Microsoft.PCManager --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install Microsoft.PCManager %wingetsilent% >nul 2>&1
 %notify%'APP','Microsoft PC Manager has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More4
 
 :Winamp
-winget install Winamp.Winamp --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install Winamp.Winamp %wingetsilent% >nul 2>&1
 %notify%'APP','WinAMP has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More4
 
@@ -739,62 +741,62 @@ IF ERRORLEVEL 2 GOTO Thunderbird
 IF ERRORLEVEL 1 GOTO Skype
 
 :Skype
-winget install Microsoft.Skype --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install Microsoft.Skype %wingetsilent% >nul 2>&1
 %notify%'APP','Skype has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More5
 
 :Thunderbird
-winget install Mozilla.Thunderbird --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install Mozilla.Thunderbird %wingetsilent% >nul 2>&1
 %notify%'APP','Mozilla Thunderbird has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More5
 
 :Slack
-winget install SlackTechnologies.Slack --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install SlackTechnologies.Slack %wingetsilent% >nul 2>&1
 %notify%'APP','Slack has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More5
 
 :ShareX
-winget install ShareX.ShareX --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install ShareX.ShareX %wingetsilent% >nul 2>&1
 %notify%'APP','ShareX has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More5
 
 :Lightshot
-winget install Skillbrains.Lightshot --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install Skillbrains.Lightshot %wingetsilent% >nul 2>&1
 %notify%'APP','Lightshot has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More5
 
 :Eartrumpet
-winget install File-New-Project.EarTrumpet --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install File-New-Project.EarTrumpet %wingetsilent% >nul 2>&1
 %notify%'APP','Eartrumpet has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More5
 
 :Files
-winget install FilesCommunity.Files --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install FilesCommunity.Files %wingetsilent% >nul 2>&1
 %notify%'APP','Files has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More5
 
 :GoogleDrive
-winget install Google.Drive --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install Google.Drive %wingetsilent% >nul 2>&1
 %notify%'APP','Google Drive has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More5
 
 :WinRar
-winget install RARLab.WinRAR --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install RARLab.WinRAR %wingetsilent% >nul 2>&1
 %notify%'APP','WinRar has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More5
 
 :7zip
-winget install 7zip.7zip --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install 7zip.7zip %wingetsilent% >nul 2>&1
 %notify%'APP','7Zip has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More5
 
 :Dolphin
-winget install DolphinEmulator.Dolphin --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install DolphinEmulator.Dolphin %wingetsilent% >nul 2>&1
 %notify%'APP','Dolphin Emulator has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More5
 
 :ppsspp
-winget install PPSSPPTeam.PPSSPP --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install PPSSPPTeam.PPSSPP %wingetsilent% >nul 2>&1
 %notify%'APP','ppsspp Emulator has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More5
 
@@ -811,7 +813,7 @@ del /f "%desktop%\ryujinx.zip" >nul 2>&1
 GOTO More5
 
 :AppleDevices
-winget install 9NP83LWLPZ9K --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install 9NP83LWLPZ9K %wingetsilent% >nul 2>&1
 %notify%'APP','Apple Devices has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More5
 
@@ -880,17 +882,17 @@ del /f "%desktop%\Microsoft_Store-PurchaseApp.Msixbundle" >nul 2>&1
 GOTO More6
 
 :SnippingTool
-winget install 9MZ95KL8MR0L --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install 9MZ95KL8MR0L %wingetsilent% >nul 2>&1
 %notify%'APP','Snipping Tool has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More6
 
 :Notepad
-winget install 9MSMLRH6LZF3 --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install 9MSMLRH6LZF3 %wingetsilent% >nul 2>&1
 %notify%'APP','Notepad has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More6
 
 :Nanazip
-winget install M2Team.NanaZip --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install M2Team.NanaZip %wingetsilent% >nul 2>&1
 %notify%'APP','Nanazip has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More6
 
@@ -986,7 +988,7 @@ powershell -command "Get-AppxPackage *Clipchamp.Clipchamp* | Remove-AppxPackage"
 GOTO DebloatMenu
 
 :RemoveMicrosoftEdge
-start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\Edge_Uninstall.cmd" >nul 2>&1
+start cmd.exe @cmd /C "%ltscdir%\Scripts\Edge_Uninstall.cmd" >nul 2>&1
 GOTO DebloatMenu
 
 :GoBack
@@ -1053,13 +1055,13 @@ IF ERRORLEVEL 1 GOTO DisableDefender
 %notify%'APP','Please go to Windows Security and turn off Tamper Protection. Press any Key to continue then.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 ECHO [[91m![0m] Press any Key to continue.
 pause >nul 2>&1
-start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\AntiDefender.cmd" >nul 2>&1
+start cmd.exe @cmd /C "%ltscdir%\Scripts\AntiDefender.cmd" >nul 2>&1
 %notify%'APP','Windows Defender has been turned off.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
 
 :EnableDefender
-start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\AntiDefenderUndo.cmd" >nul 2>&1
+start cmd.exe @cmd /C "%ltscdir%\Scripts\AntiDefenderUndo.cmd" >nul 2>&1
 %notify%'APP','Windows Defender has been turned on.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
@@ -1079,7 +1081,7 @@ GOTO SettingsMenu
 
 :ModernContextMenu
 reg add "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" /f /ve >nul 2>&1
-winget install Nilesoft.Shell --accept-source-agreements --accept-package-agreements >nul 2>&1
+winget install Nilesoft.Shell %wingetsilent% >nul 2>&1
 %notify%'APP','Windows is now using a modern legacy context menu.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
@@ -1724,19 +1726,19 @@ DISM /Online /Cleanup-Image /RestoreHealth >nul 2>&1
 GOTO DebugMenu
 
 :RepairWindowsAdvanced
-%notify%'APP','Please move the install.wim to C:\Program Files\LTSC\AdditionalFiles\RepairWin and press any Key to continue.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Please move the install.wim to %ltscdir%\AdditionalFiles\RepairWin and press any Key to continue.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 ECHO [[91m![0m] Press any key to continue.
 pause >nul 2>&1
 SFC /Scannow >nul 2>&1
 DISM /Online /Cleanup-Image /CheckHealth >nul 2>&1
 DISM /Online /Cleanup-Image /ScanHealth >nul 2>&1
 DISM /Online /Cleanup-Image /RestoreHealth >nul 2>&1
-DISM /Online /Cleanup-Image /RestoreHealth /Source:"C:\Program Files\LTSC\AdditionalFiles\RepairWin\install.wim"
+DISM /Online /Cleanup-Image /RestoreHealth /Source:"%ltscdir%\AdditionalFiles\RepairWin\install.wim"
 %notify%'APP','Repair finished. Please restart Windows.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO DebugMenu
 
 :CleanTemp
-start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\CleanFiles.cmd" >nul 2>&1
+start cmd.exe @cmd /C "%ltscdir%\Scripts\CleanFiles.cmd" >nul 2>&1
 GOTO DebugMenu
 
 :UpdateHostsFile
@@ -1745,24 +1747,24 @@ GOTO DebugMenu
 GOTO DebugMenu
 
 :WindowsActivation
-start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\activate.cmd" >nul 2>&1
+start cmd.exe @cmd /C "%ltscdir%\Scripts\activate.cmd" >nul 2>&1
 GOTO DebugMenu
 
 :UpdateAPP
-%downloadfile%'%repository%/LTSC/setup.cmd', 'C:\Program Files\LTSC\setup.cmd')" >nul 2>&1
-%downloadfile%'%repository%/LTSC/Scripts/activate.cmd', 'C:\Program Files\LTSC\Scripts\activate.cmd')" >nul 2>&1
-%downloadfile%'%repository%/LTSC/Scripts/AntiDefender.cmd', 'C:\Program Files\LTSC\Scripts\AntiDefender.cmd')" >nul 2>&1
-%downloadfile%'%repository%/LTSC/Scripts/AntiDefenderUndo.cmd', 'C:\Program Files\LTSC\Scripts\AntiDefenderUndo.cmd')" >nul 2>&1
-%downloadfile%'%repository%/LTSC/Scripts/CleanFiles.cmd', 'C:\Program Files\LTSC\Scripts\CleanFiles.cmd')" >nul 2>&1
-%downloadfile%'%repository%/LTSC/Scripts/Edge_Uninstall.cmd', 'C:\Program Files\LTSC\Scripts\Edge_Uninstall.cmd')" >nul 2>&1
-%downloadfile%'%repository%/LTSC/Scripts/reapplyLTSC.cmd', 'C:\Program Files\LTSC\Scripts\reapplyLTSC.cmd')" >nul 2>&1
-%downloadfile%'%repository%/LTSC/Scripts/tweaks.reg', 'C:\Program Files\LTSC\Scripts\tweaks.reg')" >nul 2>&1
-%downloadfile%'%repository%/LTSC/Scripts/UpdateAPP.cmd', 'C:\Program Files\LTSC\Scripts\UpdateAPP.cmd')" >nul 2>&1
-%downloadfile%'%repository%/LTSC/Scripts/ViveTool/Albacore.ViVe.dll', 'C:\Program Files\LTSC\Scripts\ViveTool\Albacore.ViVe.dll')" >nul 2>&1
-%downloadfile%'%repository%/LTSC/Scripts/ViveTool/FeatureDictionary.pfs', 'C:\Program Files\LTSC\Scripts\ViveTool\FeatureDictionary.pfs')" >nul 2>&1
-%downloadfile%'%repository%/LTSC/Scripts/ViveTool/Newtonsoft.Json.dll', 'C:\Program Files\LTSC\Scripts\ViveTool\Newtonsoft.Json.dll')" >nul 2>&1
-%downloadfile%'%repository%/LTSC/Scripts/ViveTool/ViVeTool.exe', 'C:\Program Files\LTSC\Scripts\ViveTool\ViVeTool.exe')" >nul 2>&1
-start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\UpdateAPP.cmd" >nul 2>&1
+%downloadfile%'%repository%/LTSC/setup.cmd', '%ltscdir%\setup.cmd')" >nul 2>&1
+%downloadfile%'%repository%/LTSC/Scripts/activate.cmd', '%ltscdir%\Scripts\activate.cmd')" >nul 2>&1
+%downloadfile%'%repository%/LTSC/Scripts/AntiDefender.cmd', '%ltscdir%\Scripts\AntiDefender.cmd')" >nul 2>&1
+%downloadfile%'%repository%/LTSC/Scripts/AntiDefenderUndo.cmd', '%ltscdir%\Scripts\AntiDefenderUndo.cmd')" >nul 2>&1
+%downloadfile%'%repository%/LTSC/Scripts/CleanFiles.cmd', '%ltscdir%\Scripts\CleanFiles.cmd')" >nul 2>&1
+%downloadfile%'%repository%/LTSC/Scripts/Edge_Uninstall.cmd', '%ltscdir%\Scripts\Edge_Uninstall.cmd')" >nul 2>&1
+%downloadfile%'%repository%/LTSC/Scripts/reapplyLTSC.cmd', '%ltscdir%\Scripts\reapplyLTSC.cmd')" >nul 2>&1
+%downloadfile%'%repository%/LTSC/Scripts/tweaks.reg', '%ltscdir%\Scripts\tweaks.reg')" >nul 2>&1
+%downloadfile%'%repository%/LTSC/Scripts/UpdateAPP.cmd', '%ltscdir%\Scripts\UpdateAPP.cmd')" >nul 2>&1
+%downloadfile%'%repository%/LTSC/Scripts/ViveTool/Albacore.ViVe.dll', '%ltscdir%\Scripts\ViveTool\Albacore.ViVe.dll')" >nul 2>&1
+%downloadfile%'%repository%/LTSC/Scripts/ViveTool/FeatureDictionary.pfs', '%ltscdir%\Scripts\ViveTool\FeatureDictionary.pfs')" >nul 2>&1
+%downloadfile%'%repository%/LTSC/Scripts/ViveTool/Newtonsoft.Json.dll', '%ltscdir%\Scripts\ViveTool\Newtonsoft.Json.dll')" >nul 2>&1
+%downloadfile%'%repository%/LTSC/Scripts/ViveTool/ViVeTool.exe', '%ltscdir%\Scripts\ViveTool\ViVeTool.exe')" >nul 2>&1
+start cmd.exe @cmd /C "%ltscdir%\Scripts\UpdateAPP.cmd" >nul 2>&1
 exit
 
 :RebuildIconCache
@@ -1820,7 +1822,7 @@ GOTO DebugMenu
 %notify%'Warning','Reapplying LTSC changes will delete Edge, all inbox apps and more. If you want to continue, press any key in APP or close it.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 ECHO [[91m![0m] Press any Key to continue.
 pause >nul 2>&1
-start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\reapplyLTSC.cmd" >nul 2>&1
+start cmd.exe @cmd /C "%ltscdir%\Scripts\reapplyLTSC.cmd" >nul 2>&1
 GOTO DebugMenu
 
 :UpdateWinSecurity
