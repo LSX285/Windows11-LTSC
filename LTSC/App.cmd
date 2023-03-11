@@ -53,22 +53,16 @@ ECHO    [[1mA[0m] Install Apps     [[1mB[0m] More Debloat      [[1mC[0m] D
 ECHO.
 @ECHO [36m____________________________________________________________________________[0m
 ECHO.
-ECHO    [101m[X] Exit[0m   [100m[U] Update APP[0m                                 [100m[Z] Debug[0m
-CHOICE /C:abcduxz /N /M ""
+ECHO    [101m[X] Exit[0m                                                  [100m[Z] Debug[0m
+CHOICE /C:abcdxz /N /M ""
 
 :: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 7 GOTO DebugMenu
-IF ERRORLEVEL 6 GOTO exit
-IF ERRORLEVEL 5 GOTO UpdateAPP
+IF ERRORLEVEL 6 GOTO DebugMenu
+IF ERRORLEVEL 5 GOTO exit
 IF ERRORLEVEL 4 GOTO SettingsMenu
 IF ERRORLEVEL 3 GOTO DriversMenu
 IF ERRORLEVEL 2 GOTO DebloatMenu
 IF ERRORLEVEL 1 GOTO AppDLMenu
-
-:UpdateAPP
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/UpdateAPP.cmd', 'C:\Program Files\LTSC\Scripts\UpdateAPP.cmd')" >nul 2>&1
-start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\UpdateAPP.cmd" >nul 2>&1
-exit
 
 :exit
 exit
@@ -1781,6 +1775,20 @@ start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\activate.cmd" >nul 2>&1
 GOTO DebugMenu
 
 :UpdateAPP
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/setup.cmd', 'C:\Program Files\LTSC\setup.cmd')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/activate.cmd', 'C:\Program Files\LTSC\Scripts\activate.cmd')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/AntiDefender.cmd', 'C:\Program Files\LTSC\Scripts\AntiDefender.cmd')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/AntiDefenderUndo.cmd', 'C:\Program Files\LTSC\Scripts\AntiDefenderUndo.cmd')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/CleanFiles.cmd', 'C:\Program Files\LTSC\Scripts\CleanFiles.cmd')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/Edge_Uninstall.cmd', 'C:\Program Files\LTSC\Scripts\Edge_Uninstall.cmd')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/reapplyLTSC.cmd', 'C:\Program Files\LTSC\Scripts\reapplyLTSC.cmd')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/tweaks.reg', 'C:\Program Files\LTSC\Scripts\tweaks.reg')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/UpdateAPP.cmd', 'C:\Program Files\LTSC\Scripts\UpdateAPP.cmd')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/ViveTool/Albacore.ViVe.dll', 'C:\Program Files\LTSC\Scripts\ViveTool\Albacore.ViVe.dll')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/ViveTool/FeatureDictionary.pfs', 'C:\Program Files\LTSC\Scripts\ViveTool\FeatureDictionary.pfs')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/ViveTool/Newtonsoft.Json.dll', 'C:\Program Files\LTSC\Scripts\ViveTool\Newtonsoft.Json.dll')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/ViveTool/ViVeTool.exe', 'C:\Program Files\LTSC\Scripts\ViveTool\ViVeTool.exe')" >nul 2>&1
+powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/UpdateAPP.cmd', 'C:\Program Files\LTSC\Scripts\UpdateAPP.cmd')" >nul 2>&1
 start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\UpdateAPP.cmd" >nul 2>&1
 exit
 
