@@ -1728,7 +1728,7 @@ CLS
 @ECHO [36m____________________________________________________________________________[0m
 @ECHO.
 ECHO [[1mA[0m] Repair Windows     [[1mB[0m] Repair Windows (.WIM)   [[1mC[0m] Clean Temp Files
-ECHO [[1mD[0m] Update all scripts [[1mE[0m] Windows activation      [[1mF[0m] Update APP / Scripts
+ECHO [[1mD[0m] Placeholder        [[1mE[0m] Windows activation      [[1mF[0m] Update APP / Scripts
 ECHO [[1mG[0m] Rebuild Icon Cache [[1mH[0m] Flush DNS Cache         [[1mI[0m] Clear Thumbnail cache
 ECHO [[1mJ[0m] Repair MS Store    [[1mK[0m] Enable builtin Admin    [[1mL[0m] Disable builtin Admin
 ECHO.[[1mM[0m] Disable TPM Checks [[1mN[0m] Disable Modern Standby  [[1mO[0m] Reapply LTSC scripts
@@ -1759,7 +1759,7 @@ IF ERRORLEVEL 8 GOTO FlushDNS
 IF ERRORLEVEL 7 GOTO RebuildIconCache
 IF ERRORLEVEL 6 GOTO UpdateAPP
 IF ERRORLEVEL 5 GOTO WindowsActivation
-IF ERRORLEVEL 4 GOTO UpdateAllScripts
+IF ERRORLEVEL 4 GOTO Placeholder
 IF ERRORLEVEL 3 GOTO CleanTemp
 IF ERRORLEVEL 2 GOTO RepairWindowsAdvanced
 IF ERRORLEVEL 1 GOTO RepairWindows
