@@ -47,40 +47,25 @@ label OS
 powercfg /h off
 
 :: Note - Activating Windows
+start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\activate.cmd" >nul 2>&1
 
-ver | findstr /i "22621 22624" >nul
-if %errorlevel% equ 0 (
-    start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\activate.cmd" >nul 2>&1
-) else (
-    systeminfo | findstr /i /c:"OS Name" | findstr /i /c:"Server" >nul
-    if %errorlevel% equ 0 (
-        start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\activate_server.cmd" >nul 2>&1
-    ) else (
-         start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\activate.cmd" >nul 2>&1
-    )
-)
+:: Note - Removing Edge
+start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\Edge_Uninstall.cmd" >nul 2>&1
 
 timeout 30 >nul 2>&1
 
 :: Note - Set the correct branding for all LTSC versions
-ver | findstr /i "22621 22624" >nul
+ver | findstr /i "22000 22621 22622 22623 22624" >nul
 if %errorlevel% equ 0 (
     Reg add "HKCU\Control Panel\Desktop" /v "WallPaper" /t REG_SZ /d "C:\Windows\Web\Wallpaper\ThemeD\img32.jpg" /f >nul 2>&1
     Reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation" /v "Model" /t REG_SZ /d "Windows 11 LTSC" /f >nul 2>&1
     Reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation" /v "Manufacturer" /t REG_SZ /d "Windows 11 LTSC" /f >nul 2>&1
     Reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation" /v "SupportURL" /t REG_SZ /d "https://github.com/LSX285/Windows11-LTSC" /f >nul 2>&1
 ) else (
-    systeminfo | findstr /i /c:"OS Name" | findstr /i /c:"Server" >nul
-    if %errorlevel% equ 0 (
-        Reg add "HKCU\Control Panel\Desktop" /v "WallPaper" /t REG_SZ /d "C:\Windows\Web\Wallpaper\ThemeD\img34.jpg" /f >nul 2>&1
-        Reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation" /v "Model" /t REG_SZ /d "Windows 11 LTSC Server" /f >nul 2>&1
-        Reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation" /v "Manufacturer" /t REG_SZ /d "Windows 11 LTSC Server" /f >nul 2>&1
+        Reg add "HKCU\Control Panel\Desktop" /v "WallPaper" /t REG_SZ /d "C:\Windows\Web\Wallpaper\ThemeD\img33.jpg" /f >nul 2>&1
+        Reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation" /v "Model" /t REG_SZ /d "Windows 11 LTSC Insider" /f >nul 2>&1
+        Reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation" /v "Manufacturer" /t REG_SZ /d "Windows 11 LTSC Insider" /f >nul 2>&1
         Reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation" /v "SupportURL" /t REG_SZ /d "https://github.com/LSX285/Windows11-LTSC" /f >nul 2>&1
-    ) else (
-         Reg add "HKCU\Control Panel\Desktop" /v "WallPaper" /t REG_SZ /d "C:\Windows\Web\Wallpaper\ThemeD\img33.jpg" /f >nul 2>&1
-         Reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation" /v "Model" /t REG_SZ /d "Windows 11 LTSC Insider" /f >nul 2>&1
-         Reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation" /v "Manufacturer" /t REG_SZ /d "Windows 11 LTSC Insider" /f >nul 2>&1
-         Reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation" /v "SupportURL" /t REG_SZ /d "https://github.com/LSX285/Windows11-LTSC" /f >nul 2>&1
     )
 )
 
