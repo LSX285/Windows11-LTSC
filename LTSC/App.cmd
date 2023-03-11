@@ -40,7 +40,7 @@ REG Add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V Prom
 :: Note - Welcome Page
 :Welcome
 mode con: cols=76 lines=20
-Title APP v1.0.3.7
+Title APP v1.0.3.8
 @ECHO OFF
 CLS
 @ECHO.   
@@ -1731,11 +1731,11 @@ CLS
 @ECHO [36m____________________________________________________________________________[0m
 @ECHO.
 ECHO [[1mA[0m] Repair Windows     [[1mB[0m] Repair Windows (.WIM)   [[1mC[0m] Clean Temp Files
-ECHO [[1mD[0m] Placeholder        [[1mE[0m] MS Activation           [[1mF[0m] Update APP
+ECHO [[1mD[0m] Placeholder        [[1mE[0m] Windows activation      [[1mF[0m] Update APP
 ECHO [[1mG[0m] Rebuild Icon Cache [[1mH[0m] Flush DNS Cache         [[1mI[0m] Clear Thumbnail cache
 ECHO [[1mJ[0m] Repair MS Store    [[1mK[0m] Enable builtin Admin    [[1mL[0m] Disable builtin Admin
 ECHO.[[1mM[0m] Disable TPM Checks [[1mN[0m] Disable Modern Standby  [[1mO[0m] Reapply LTSC scripts
-ECHO.[[1mP[0m] Update Win Security[[1mQ[0m] MS Server Activation    [[1mR[0m] Placeholder
+ECHO.[[1mP[0m] Update Win Security[[1mQ[0m] Placeholder             [[1mR[0m] Placeholder
 ECHO.
 @ECHO                          [42m[S]LTSC Insider Features[0m
 @ECHO [36m____________________________________________________________________________[0m
@@ -1749,7 +1749,7 @@ IF ERRORLEVEL 21 GOTO RestartWindows
 IF ERRORLEVEL 20 GOTO GoBack
 IF ERRORLEVEL 19 GOTO InsiderFeaturesMenu
 IF ERRORLEVEL 18 GOTO Placeholder
-IF ERRORLEVEL 17 GOTO MSServerActivation
+IF ERRORLEVEL 17 GOTO Placeholder
 IF ERRORLEVEL 16 GOTO UpdateWinSecurity
 IF ERRORLEVEL 15 GOTO ReapplyLTSC
 IF ERRORLEVEL 14 GOTO DisableModernStandby
@@ -1761,7 +1761,7 @@ IF ERRORLEVEL 9 GOTO ClearThumbnailCache
 IF ERRORLEVEL 8 GOTO FlushDNS
 IF ERRORLEVEL 7 GOTO RebuildIconCache
 IF ERRORLEVEL 6 GOTO UpdateAPP
-IF ERRORLEVEL 5 GOTO MSActivation
+IF ERRORLEVEL 5 GOTO WindowsActivation
 IF ERRORLEVEL 4 GOTO Placeholder
 IF ERRORLEVEL 3 GOTO CleanTempFiles
 IF ERRORLEVEL 2 GOTO RepairWindowsAdvanced
@@ -1797,7 +1797,7 @@ GOTO DebugMenu
 powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Placeholder.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO DebugMenu
 
-:MSActivation
+:WindowsActivation
 powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/activate.cmd', 'C:\Program Files\LTSC\Scripts\activate.cmd')" >nul 2>&1
 start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\activate.cmd" >nul 2>&1
 GOTO DebugMenu
@@ -1869,9 +1869,8 @@ MpCmdRun -SignatureUpdate >nul 2>&1
 powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Windows Security has been updated.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO DebugMenu
 
-:MSServerActivation
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/activate_server.cmd', 'C:\Program Files\LTSC\Scripts\activate_server.cmd')" >nul 2>&1
-start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\activate_server.cmd" >nul 2>&1
+:Placeholder
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Placeholder.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO DebugMenu
 
 :Placeholder
