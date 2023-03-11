@@ -296,7 +296,6 @@ winget install Nvidia.GeForceExperience %wingetsilent% >nul 2>&1
 GOTO More
 
 :GeforceNOW
-ECHO [[93m-[0m] Downloading [93mGeforce Now[0m ...
 %downloadfile%'https://download.nvidia.com/gfnpc/GeForceNOW-release.exe', '%desktop%\GeForceNOW-Setup.exe')" >nul 2>&1
 %notify%'APP','Geforce Now has been downloaded. Please run the installer manually.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More
