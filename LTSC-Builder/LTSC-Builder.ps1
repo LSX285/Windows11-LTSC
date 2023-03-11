@@ -220,6 +220,6 @@ Remove-Item -Path $mountFolder -Recurse -Force | Out-Null
 
 #Building LTSC iso
 .\tools\oscdimg.exe -m -o -u2 -udfver102 -bootdata:("2#p0,e,b" + $isoFolder + "boot\etfsboot.com#pEF,e,b" + $isoFolder + "efi\microsoft\boot\efisys.bin") $isoFolder c:\LTSC.iso | Out-Null
-[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'LTSC Creator','Done. Your LTSC Iso is ready.',[system.windows.forms.tooltipicon]::None) | Out-Null
+[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'LTSC Builder','Done. Your LTSC Iso is ready.',[system.windows.forms.tooltipicon]::None) | Out-Null
 Remove-Item -Path $rootWorkdir -Recurse -Force | Out-Null
 exit
