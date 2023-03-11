@@ -1827,6 +1827,9 @@ powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.
 GOTO DebugMenu
 
 :ReapplyLTSC
+powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'Warning','Reapplying LTSC changes will delete Edge, all inbox apps and more. If you want to continue, press any key in APP or close it.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+ECHO [[91m![0m] Press any Key to continue.
+pause >nul 2>&1
 start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\reapplyLTSC.cmd" >nul 2>&1
 GOTO DebugMenu
 
