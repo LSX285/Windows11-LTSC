@@ -7,13 +7,14 @@ How to run LTSC-Builder.ps1
 - cd $env:userprofile\Downloads\LTSC-Builder
 - .\LTSC-Builder.ps1
 
-If you get an error message that you cannot run scripts, go tod developer settings in Settings and enable "Change execution policy 
-to allow local powershell scripts to run without signing."
-
 The process takes about 10-60 minutes depending on your hardware configuration. 
-Don't touch your computer during that process.
 
 
 
-- Note: You may notice error messages when LTSC Builder tries to remove some Windows Packages.
+- Notes: 
+
+You may notice error messages when LTSC Builder tries to remove some Windows Packages.
 Thats totally fine and intented behaviour. Please make sure you stay connected to the internet.
+
+If you get an error message that you cannot run scripts, go to Developer Settings in Settings and enable "Change execution policy 
+to allow local powershell scripts to run without signing."
