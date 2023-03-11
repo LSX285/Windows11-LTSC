@@ -21,6 +21,9 @@ CD /D "%~dp0"
 :skipAdmin
 
 set version=v1.0.4.4
+set notify=powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,
+set downloadfile=powershell -command "(New-Object Net.WebClient).DownloadFile(
+set vivetool="C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe"
 
 :: Note - Welcome Page
 :Welcome
@@ -96,63 +99,63 @@ IF ERRORLEVEL 1 GOTO Chrome
 
 :Chrome
 winget install Google.Chrome --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Google Chrome has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Google Chrome has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AppDLMenu
 
 :Discord
 winget install Discord.Discord --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Discord has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Discord has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AppDLMenu
 
 :Spotify
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://download.scdn.co/SpotifySetup.exe', 'C:\Users\%USERNAME%\Desktop\SpotifySetup.exe')" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Spotify has been downloaded. Please run the setup manually.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%downloadfile%'https://download.scdn.co/SpotifySetup.exe', 'C:\Users\%USERNAME%\Desktop\SpotifySetup.exe')" >nul 2>&1
+%notify%'APP','Spotify has been downloaded. Please run the setup manually.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AppDLMenu
 
 :Steam
 winget install Valve.Steam --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Steam has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Steam has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AppDLMenu
 
 :EpicGames
 winget install EpicGames.EpicGamesLauncher --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Epic Games Launcher has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Epic Games Launcher has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AppDLMenu
 
 :Mullvad
 winget install MullvadVPN.MullvadVPN --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Mullvad has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Mullvad has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AppDLMenu
 
 :Wireguard
 winget install WireGuard.WireGuard --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Wireguard has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Wireguard has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AppDLMenu
 
 :LibreOffice
 winget install TheDocumentFoundation.LibreOffice --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','LibreOffice has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','LibreOffice has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AppDLMenu
 
 :Paintnet
 winget install dotPDNLLC.paintdotnet --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Paint.net has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Paint.net has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AppDLMenu
 
 
 :VlcPlayer
 winget install VideoLAN.VLC --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','VLC Player has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','VLC Player has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AppDLMenu
 
 :MSIAfterburner
 ECHO [[93m-[0m] Downloading [93mMSI Afterburner[0m ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://ftp.nluug.nl/pub/games/PC/guru3d/afterburner/[Guru3D.com]-MSIAfterburnerSetup465Beta4Build16358.zip', 'C:\Users\%USERNAME%\Desktop\MSIAfterburner.zip')" >nul 2>&1
+%downloadfile%'https://ftp.nluug.nl/pub/games/PC/guru3d/afterburner/[Guru3D.com]-MSIAfterburnerSetup465Beta4Build16358.zip', 'C:\Users\%USERNAME%\Desktop\MSIAfterburner.zip')" >nul 2>&1
 ECHO [[93m-[0m] Extracting [93mMSI Afterburner[0m ...
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\MSIAfterburner.zip' 'C:\Users\%USERNAME%\Desktop'"
 ECHO [[93m-[0m] Installing [93mMSI Afterburner[0m ...
 "C:\Users\%USERNAME%\Desktop\MSIAfterburnerSetup465Beta4.exe" /S
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','MSI Afterburner has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','MSI Afterburner has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\MSIAfterburner.zip" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\MSIAfterburnerSetup465Beta4.exe" >nul 2>&1
 rmdir /S /Q "C:\Users\%USERNAME%\Desktop\Guru3D.com" >nul 2>&1
@@ -162,26 +165,26 @@ GOTO AppDLMenu
 
 :NZXTCam
 winget install NZXT.CAM --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','NZXT CAM has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','NZXT CAM has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AppDLMenu
 
 :VSCode
 winget install Microsoft.VisualStudioCode --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','VS Code has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','VS Code has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AppDLMenu
 
 :Blender
 winget install BlenderFoundation.Blender --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Blender has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Blender has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AppDLMenu
 
 :Hwinfo
 winget install REALiX.HWiNFO --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','HWINFO has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','HWINFO has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AppDLMenu
 
 :Updates
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Searching for Updates ...',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Searching for Updates ...',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 winget upgrade --all >nul 2>&1
 GOTO AppDLMenu
 
@@ -232,86 +235,84 @@ IF ERRORLEVEL 1 GOTO OperaGX
 
 :OperaGX
 winget install Opera.OperaGX --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Opera GX has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Opera GX has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More
 
 :Brave
 winget install Brave.Brave --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Brave has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Brave has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More
 
 :EADesktop
 winget install ElectronicArts.EADesktop --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','EA Desktop App has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','EA Desktop App has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More
 
 :GOGGalaxy
 winget install GOG.Galaxy --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','GOG Galaxy has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','GOG Galaxy has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More
 
 :BattleNet
-ECHO [[93m-[0m] Downloading [93mBattle.net[0m ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://www.battle.net/download/getInstallerForGame?os=win&gameProgram=BATTLENET_APP&version=Live&id=undefined', 'C:\Users\%USERNAME%\Desktop\Battle.net-Setup.exe')" >nul 2>&1
-ECHO [[93m-[0m] Installing [93mBattle.net[0m ...
+%downloadfile%'https://www.battle.net/download/getInstallerForGame?os=win&gameProgram=BATTLENET_APP&version=Live&id=undefined', 'C:\Users\%USERNAME%\Desktop\Battle.net-Setup.exe')" >nul 2>&1
 "C:\Users\%USERNAME%\Desktop\Battle.net-Setup.exe" --lang=enUS --installpath="C:\Program Files (x86)\Battle.net"
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Battle.net Launcher has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Battle.net Launcher has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Battle.net-Setup.exe" >nul 2>&1
 GOTO More
 
 :UbisoftConnect
 winget install Ubisoft.Connect --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Ubisoft Connect has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Ubisoft Connect has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More
 
 :GIMP 
 winget install GIMP.GIMP --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','GIMP has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','GIMP has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More
 
 :GPUZ
 winget install TechPowerUp.GPU-Z --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','GPU-Z has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','GPU-Z has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More
 
 :OneDrive
 winget install  Microsoft.OneDrive --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','OneDrive has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','OneDrive has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More
 
 :OBSStudio
 winget install OBSProject.OBSStudio --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','OBS Studio has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','OBS Studio has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More
 
 :GeforceExperience
 winget install Nvidia.GeForceExperience --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Geforce Experience has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Geforce Experience has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More
 
 :GeforceNOW
 ECHO [[93m-[0m] Downloading [93mGeforce Now[0m ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://download.nvidia.com/gfnpc/GeForceNOW-release.exe', 'C:\Users\%USERNAME%\Desktop\GeForceNOW-Setup.exe')" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Geforce Now has been downloaded. Please run the installer manually.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%downloadfile%'https://download.nvidia.com/gfnpc/GeForceNOW-release.exe', 'C:\Users\%USERNAME%\Desktop\GeForceNOW-Setup.exe')" >nul 2>&1
+%notify%'APP','Geforce Now has been downloaded. Please run the installer manually.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More
 
 :PostgreSQL
 winget install PostgreSQL.PostgreSQL --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','POSTgreSQL has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','POSTgreSQL has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More
 
 :Dropbox
 winget install Dropbox.Dropbox --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Dropbox has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Dropbox has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More
 
 :Teams
 winget install Microsoft.Teams --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Teams has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Teams has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More
 
 :Updates
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Searching for Updates ...',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Searching for Updates ...',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 winget upgrade --all >nul 2>&1
 GOTO More
 
@@ -362,81 +363,81 @@ IF ERRORLEVEL 1 GOTO Zoom
 
 :Zoom
 winget install Zoom.Zoom --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Zoom has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Zoom has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More2
 
 :SublimeText
 winget install SublimeHQ.SublimeText.4 --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Sublime Text has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Sublime Text has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More2
 
 :Notepadplusplus
 winget install Notepad++.Notepad++ --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Notepad PlusPlus has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Notepad PlusPlus has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More2
 
 :Corsairicue
 winget install Corsair.iCUE.4 --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Corsair iCUE has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Corsair iCUE has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More2
 
 :Firefox
 winget install Mozilla.Firefox --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Firefox has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Firefox has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More2
 
 :VisualStudio
 winget install Microsoft.VisualStudio.2022.Community --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Visual Studio 2022 Community has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Visual Studio 2022 Community has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More2
 
 :Radiograph
 winget install 9NH1P86H06CG --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Radiograph has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Radiograph has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More2
 
 :qBittorrent
 winget install qBittorrent.qBittorrent --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','qBittorrent has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','qBittorrent has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More2
 
 :Picotorrent
 winget install PicoTorrent.PicoTorrent --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Picotorrent has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Picotorrent has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More2
 
 :GooglePlayGames
 winget install Google.PlayGames.Beta --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Google Play Games has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Google Play Games has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More2
 
 :Audacity
 winget install Audacity.Audacity --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Audacity has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Audacity has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More2
 
 :Cinebench
 winget install 9PGZKJC81Q7J --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Cinebench has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Cinebench has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More2
 
 :iTunes
 winget install Apple.iTunes --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','iTunes has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','iTunes has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More2
 
 :Rufus
 winget install Rufus.Rufus --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Rufus has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Rufus has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More2
 
 :Aida64
 winget install FinalWire.AIDA64.Extreme --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Aida64 has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Aida64 has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More2
 
 :Updates
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Searching for Updates ...',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Searching for Updates ...',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 winget upgrade --all >nul 2>&1
 GOTO More2
 
@@ -487,81 +488,81 @@ IF ERRORLEVEL 1 GOTO NordVPN
 
 :NordVPN
 winget install NordVPN.NordVPN --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','NordVPN has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','NordVPN has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More3
 
 :ExpressVPN
 winget install ExpressVPN.ExpressVPN --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','ExpressVPN has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','ExpressVPN has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More3
 
 :Surfshark
 winget install Surfshark.Surfshark --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Surfshark has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Surfshark has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More3
 
 :WinSCP
 winget install WinSCP.WinSCP --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','WinSCP has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','WinSCP has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More3
 
 :WindowsTerminal
 winget install Microsoft.WindowsTerminal --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Windows Terminal has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Windows Terminal has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More3
 
 :LogitechGHUB
 winget install Logitech.GHUB --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Logitech G Hub has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Logitech G Hub has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More3
 
 :VSCodium
 winget install VSCodium.VSCodium --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','VS Codium has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','VS Codium has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More3
 
 :NVCleanstall
 winget install TechPowerUp.NVCleanstall --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','NVCleanstall has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','NVCleanstall has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More3
 
 :BlueStacks
 winget install BlueStack.BlueStacks --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Bluestacks has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Bluestacks has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More3
 
 :Powershell
 winget install Microsoft.PowerShell --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Powershell has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Powershell has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More3
 
 :Teamviewer
 winget install TeamViewer.TeamViewer --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Teamviewer has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Teamviewer has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More3
 
 :Parsec
 winget install Parsec.Parsec --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Parsec has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Parsec has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More3
 
 :Vivaldi
 winget install VivaldiTechnologies.Vivaldi --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Vivaldi has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Vivaldi has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More3
 
 :Virtualbox
 winget install Oracle.VirtualBox --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Virtualbox has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Virtualbox has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More3
 
 :VMWare
 winget install VMware.WorkstationPlayer --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','VMWare has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','VMWare has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More3
 
 :Updates
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Searching for Updates ...',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Searching for Updates ...',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 winget upgrade --all >nul 2>&1
 GOTO More3
 
@@ -612,81 +613,81 @@ IF ERRORLEVEL 1 GOTO Sunshine
 
 :Sunshine
 winget install LizardByte.Sunshine --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','NVIDIA Sunshine has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','NVIDIA Sunshine has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More4
 
 :Foobar2000
 winget install PeterPawlowski.foobar2000 --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Foobar 2000 has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Foobar 2000 has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More4
 
 :CPUZ
 winget install CPUID.CPU-Z --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','CPU-Z has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','CPU-Z has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More4
 
 :ChromeBeta
 winget install Google.Chrome.Beta --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Google Chrome Beta has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Google Chrome Beta has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More4
 
 :ChromeDev
 winget install Google.Chrome.Dev --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Google Chrome Dev has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Google Chrome Dev has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More4
 
 :ChromeCanary
 winget install Google.Chrome.Canary --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Google Chrome Canary has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Google Chrome Canary has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More4
 
 :UngoogledChromium
 winget install eloston.ungoogled-chromium --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Ungoogled Chromium has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Ungoogled Chromium has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More4
 
 :Edge
 winget install Microsoft.Edge --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Microsoft Edge has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Microsoft Edge has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More4
 
 :EdgeBeta
 winget install Microsoft.Edge.Beta --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Microsoft Edge Beta has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Microsoft Edge Beta has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More4
 
 :EdgeDev
 winget install Microsoft.Edge.Dev --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Microsoft Edge Dev has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Microsoft Edge Dev has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More4
 
 :AdobeAcrobatReader
 winget install Adobe.Acrobat.Reader.64-bit --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Adobe Acrobat Reader has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Adobe Acrobat Reader has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More4
 
 :WhatsApp
 winget install WhatsApp.WhatsApp --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','WhatsApp has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','WhatsApp has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More4
 
 :Telegram
 winget install Telegram.TelegramDesktop --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Telegram has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Telegram has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More4
 
 :MSPCManager
 winget install Microsoft.PCManager --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Microsoft PC Manager has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Microsoft PC Manager has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More4
 
 :Winamp
 winget install Winamp.Winamp --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','WinAMP has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','WinAMP has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More4
 
 :Updates
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Searching for Updates ...',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Searching for Updates ...',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 winget upgrade --all >nul 2>&1
 GOTO More4
 
@@ -737,83 +738,83 @@ IF ERRORLEVEL 1 GOTO Skype
 
 :Skype
 winget install Microsoft.Skype --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Skype has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Skype has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More5
 
 :Thunderbird
 winget install Mozilla.Thunderbird --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Mozilla Thunderbird has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Mozilla Thunderbird has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More5
 
 :Slack
 winget install SlackTechnologies.Slack --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Slack has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Slack has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More5
 
 :ShareX
 winget install ShareX.ShareX --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','ShareX has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','ShareX has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More5
 
 :Lightshot
 winget install Skillbrains.Lightshot --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Lightshot has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Lightshot has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More5
 
 :Eartrumpet
 winget install File-New-Project.EarTrumpet --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Eartrumpet has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Eartrumpet has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More5
 
 :Files
 winget install FilesCommunity.Files --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Files has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Files has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More5
 
 :GoogleDrive
 winget install Google.Drive --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Google Drive has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Google Drive has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More5
 
 :WinRar
 winget install RARLab.WinRAR --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','WinRar has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','WinRar has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More5
 
 :7zip
 winget install 7zip.7zip --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','7Zip has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','7Zip has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More5
 
 :Dolphin
 winget install DolphinEmulator.Dolphin --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Dolphin Emulator has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Dolphin Emulator has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More5
 
 :ppsspp
 winget install PPSSPPTeam.PPSSPP --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','ppsspp Emulator has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','ppsspp Emulator has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More5
 
 :rpcs3
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/RPCS3/rpcs3-binaries-win/releases/download/build-39760189804d59315ab9f304d3cebddfb5d72f63/rpcs3-v0.0.26-14712-39760189_win64.7z', 'C:\Users\%USERNAME%\Desktop\rpcs3.7z')" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','rpcs3 has been downloaded. Extract the 7zip file and run the installer manually.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%downloadfile%'https://github.com/RPCS3/rpcs3-binaries-win/releases/download/build-39760189804d59315ab9f304d3cebddfb5d72f63/rpcs3-v0.0.26-14712-39760189_win64.7z', 'C:\Users\%USERNAME%\Desktop\rpcs3.7z')" >nul 2>&1
+%notify%'APP','rpcs3 has been downloaded. Extract the 7zip file and run the installer manually.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More5
 
 :Ryujinx
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/Ryujinx/release-channel-master/releases/download/1.1.617/ryujinx-1.1.617-win_x64.zip', 'C:\Users\%USERNAME%\Desktop\ryujinx.zip')" >nul 2>&1
+%downloadfile%'https://github.com/Ryujinx/release-channel-master/releases/download/1.1.617/ryujinx-1.1.617-win_x64.zip', 'C:\Users\%USERNAME%\Desktop\ryujinx.zip')" >nul 2>&1
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\ryujinx.zip' 'C:\Users\%USERNAME%\Desktop\ryujinx'" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Ryujinx has been downloaded. Run the installer manually.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Ryujinx has been downloaded. Run the installer manually.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\ryujinx.zip" >nul 2>&1
 GOTO More5
 
 :AppleDevices
 winget install 9NP83LWLPZ9K --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Apple Devices has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Apple Devices has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More5
 
 :Updates
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Searching for Updates ...',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Searching for Updates ...',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 winget upgrade --all >nul 2>&1
 GOTO More5
 
@@ -863,47 +864,47 @@ IF ERRORLEVEL 2 GOTO MicrosoftStorePurchaseApp
 IF ERRORLEVEL 1 GOTO MicrosoftStore
 
 :MicrosoftStore
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Apps/Microsoft_Store.Msixbundle', 'C:\Users\%USERNAME%\Desktop\Microsoft_Store.Msixbundle')" >nul 2>&1
+%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Apps/Microsoft_Store.Msixbundle', 'C:\Users\%USERNAME%\Desktop\Microsoft_Store.Msixbundle')" >nul 2>&1
 PowerShell -ExecutionPolicy Unrestricted -Command "add-appxpackage -path 'C:\Users\%USERNAME%\Desktop\Microsoft_Store.Msixbundle'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Microsoft_Store.Msixbundle" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Microsoft Store has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Microsoft Store has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More6
 
 :MicrosoftStorePurchaseApp
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Apps/Microsoft_Store-PurchaseApp.Msixbundle', 'C:\Users\%USERNAME%\Desktop\Microsoft_Store-PurchaseApp.Msixbundle')" >nul 2>&1
+%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Apps/Microsoft_Store-PurchaseApp.Msixbundle', 'C:\Users\%USERNAME%\Desktop\Microsoft_Store-PurchaseApp.Msixbundle')" >nul 2>&1
 PowerShell -ExecutionPolicy Unrestricted -Command "add-appxpackage -path 'C:\Users\%USERNAME%\Desktop\Microsoft_Store-PurchaseApp.Msixbundle'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Microsoft_Store-PurchaseApp.Msixbundle" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Microsoft Store Purchase App has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Microsoft Store Purchase App has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More6
 
 :SnippingTool
 winget install 9MZ95KL8MR0L --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Snipping Tool has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Snipping Tool has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More6
 
 :Notepad
 winget install 9MSMLRH6LZF3 --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Notepad has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Notepad has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More6
 
 :Nanazip
 winget install M2Team.NanaZip --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Nanazip has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Nanazip has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More6
 
 :XboxIdentityProvider
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Apps/XboxIdentityProvider.appx', 'C:\Users\%USERNAME%\Desktop\XboxIdentityProvider.appx')" >nul 2>&1
+%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Apps/XboxIdentityProvider.appx', 'C:\Users\%USERNAME%\Desktop\XboxIdentityProvider.appx')" >nul 2>&1
 PowerShell -ExecutionPolicy Unrestricted -Command "add-appxpackage -path 'C:\Users\%USERNAME%\Desktop\XboxIdentityProvider.appx'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\XboxIdentityProvider.appx" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Xbox Identity Provider has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Xbox Identity Provider has been installed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More6
 
 :Placeholder
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Placeholder.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Placeholder.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO More6
 
 :Updates
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Searching for Updates ...',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Searching for Updates ...',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 winget upgrade --all >nul 2>&1
 GOTO More6
 
@@ -979,7 +980,7 @@ powershell -command "Get-AppxPackage *Microsoft.GamingApp* | Remove-AppxPackage"
 powershell -command "Get-AppxPackage *Microsoft.BingWeather* | Remove-AppxPackage" >nul 2>&1
 powershell -command "Get-AppxPackage *Microsoft.BingNews* | Remove-AppxPackage" >nul 2>&1
 powershell -command "Get-AppxPackage *Clipchamp.Clipchamp* | Remove-AppxPackage" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','All preinstalled programs have been removed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','All preinstalled programs have been removed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO DebloatMenu
 
 :RemoveMicrosoftEdge
@@ -1047,71 +1048,71 @@ IF ERRORLEVEL 1 GOTO DisableDefender
 
 
 :DisableDefender
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Please go to Windows Security and turn off Tamper Protection. Press any Key to continue then.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Please go to Windows Security and turn off Tamper Protection. Press any Key to continue then.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 ECHO [[91m![0m] Press any Key to continue.
 pause >nul 2>&1
 start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\AntiDefender.cmd" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Windows Defender has been turned off.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Windows Defender has been turned off.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
 
 :EnableDefender
 start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\AntiDefenderUndo.cmd" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Windows Defender has been turned on.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Windows Defender has been turned on.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
 :EnableDarkMode
 REG Add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" /V SystemUsesLightTheme /T REG_DWORD /D 0 /F >nul 2>&1
 REG Add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" /V AppsUseLightTheme /T REG_DWORD /D 0 /F >nul 2>&1
 taskkill /F /IM explorer.exe & start explorer >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Windows is now using Dark Mode.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Windows is now using Dark Mode.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
 :EnableLightMode
 REG Add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" /V SystemUsesLightTheme /T REG_DWORD /D 1 /F >nul 2>&1
 REG Add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" /V AppsUseLightTheme /T REG_DWORD /D 1 /F >nul 2>&1
 taskkill /F /IM explorer.exe & start explorer >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Windows is now using Light Mode.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Windows is now using Light Mode.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
 :ModernContextMenu
 reg add "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" /f /ve >nul 2>&1
 winget install Nilesoft.Shell --accept-source-agreements --accept-package-agreements >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Windows is now using a modern legacy context menu.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Windows is now using a modern legacy context menu.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
 :Windows11ContextMenu
 reg delete "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" /f /ve >nul 2>&1
 winget uninstall Nilesoft.Shell >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Default Windows context menu has been restored.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Default Windows context menu has been restored.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
 :Placeholder
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Placeholder.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Placeholder.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
 :Placeholder
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Placeholder.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Placeholder.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
 :DisableSmartscreen
 REG add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v "SmartScreenEnabled" /t REG_SZ /d "Off" /f >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Windows Smartscreen has been turned off.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Windows Smartscreen has been turned off.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
 :EnableSmartscreen
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v "SmartScreenEnabled" /t REG_SZ /d "Warn" /f >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Windows Smartscreen has been turned on.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Windows Smartscreen has been turned on.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
 :DisableFirewall
 netsh advfirewall set allprofiles state off >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Windows Firewall has been turned off.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Windows Firewall has been turned off.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
 :EnableFirewall
 netsh advfirewall set allprofiles state on >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Windows Firewall has been turned on.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Windows Firewall has been turned on.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
 :DisableWindowsUpdate
@@ -1137,7 +1138,7 @@ Reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "UseWUSer
 Reg add "HKLM\SYSTEM\ControlSet001\Services\wuauserv" /v "Start" /t REG_DWORD /d "3" /f >nul 2>&1
 Reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "SettingsPageVisibility" /t REG_SZ /d "hide:quiethours;crossdevice;troubleshoot;project;remotedesktop;activation;multitasking;mobile-devices;pen;usb;autoplay;network-dialup;network-proxy;network-vpn;personalization-textinput;maps;appsforwebsites;sync;ms-settings;otherusers;speech;gaming-gamebar;gaming-gamedvr;gaming-gamemode;easeofaccess-eyecontrol;easeofaccess-narrator;easeofaccess-highcontrast;easeofaccess-magnifier;easeofaccess-cursor;easeofaccess-colorfilter;privacy-feedback;findmydevice;windowsdefender;privacy-speech;privacy-speechtyping;cortana-windowssearch;windowsupdate" /f >nul 2>&1
 Reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "SettingsPageVisibility" /t REG_SZ /d "hide:quiethours;crossdevice;troubleshoot;project;remotedesktop;activation;multitasking;mobile-devices;pen;usb;autoplay;network-dialup;network-proxy;network-vpn;personalization-textinput;maps;appsforwebsites;sync;ms-settings;otherusers;speech;gaming-gamebar;gaming-gamedvr;gaming-gamemode;easeofaccess-eyecontrol;easeofaccess-narrator;easeofaccess-highcontrast;easeofaccess-magnifier;easeofaccess-cursor;easeofaccess-colorfilter;privacy-feedback;findmydevice;windowsdefender;privacy-speech;privacy-speechtyping;cortana-windowssearch;windowsupdate" /f >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Windows Update has been disabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Windows Update has been disabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
 :EnableWindowsUpdate
@@ -1164,17 +1165,17 @@ Reg delete "HKLM\SYSTEM\ControlSet001\Services\wuauserv" /v "Start" /f >nul 2>&1
 Reg add "HKLM\SYSTEM\ControlSet001\Services\wuauserv" /v "Start" /t REG_DWORD /d "2" /f >nul 2>&1
 Reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "SettingsPageVisibility" /t REG_SZ /d "hide:quiethours;crossdevice;troubleshoot;project;remotedesktop;activation;multitasking;mobile-devices;pen;usb;autoplay;network-dialup;network-proxy;network-vpn;personalization-textinput;maps;appsforwebsites;sync;ms-settings;otherusers;speech;gaming-gamebar;gaming-gamedvr;gaming-gamemode;easeofaccess-eyecontrol;easeofaccess-narrator;easeofaccess-highcontrast;easeofaccess-magnifier;easeofaccess-cursor;easeofaccess-colorfilter;privacy-feedback;findmydevice;windowsdefender;privacy-speech;privacy-speechtyping;cortana-windowssearch" /f >nul 2>&1
 Reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "SettingsPageVisibility" /t REG_SZ /d "hide:quiethours;crossdevice;troubleshoot;project;remotedesktop;activation;multitasking;mobile-devices;pen;usb;autoplay;network-dialup;network-proxy;network-vpn;personalization-textinput;maps;appsforwebsites;sync;ms-settings;otherusers;speech;gaming-gamebar;gaming-gamedvr;gaming-gamemode;easeofaccess-eyecontrol;easeofaccess-narrator;easeofaccess-highcontrast;easeofaccess-magnifier;easeofaccess-cursor;easeofaccess-colorfilter;privacy-feedback;findmydevice;windowsdefender;privacy-speech;privacy-speechtyping;cortana-windowssearch" /f >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Windows Update has been enabled. You might need to restart Windows.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Windows Update has been enabled. You might need to restart Windows.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
 :EnableEduThemes
 REG add "HKLM\SOFTWARE\Microsoft\PolicyManager\current\device\Education" /v "EnableEduThemes" /t REG_DWORD /d "1" /f >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Education themes have been enabled. Rebooting into Safeboot may display a hard error message which can be ignored.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Education themes have been enabled. Rebooting into Safeboot may display a hard error message which can be ignored.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
 :DisableEduThemes
 REG add "HKLM\SOFTWARE\Microsoft\PolicyManager\current\device\Education" /v "EnableEduThemes" /t REG_DWORD /d "0" /f >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Education themes have been disabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Education themes have been disabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
 :EnableWebSearch
@@ -1191,7 +1192,7 @@ REG Add "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /V DisableWebS
 REG Add "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /V EnableDynamicContentInWSB /T REG_DWORD /D 1 /F >nul 2>&1
 timeout 1 >nul 2>&1
 start explorer.exe >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Web results for Search box have been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Web results for Search box have been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
 :DisableWebSearch
@@ -1208,37 +1209,37 @@ REG Add "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /V DisableWebS
 REG Add "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /V EnableDynamicContentInWSB /T REG_DWORD /D 0 /F >nul 2>&1
 timeout 1 >nul 2>&1
 start explorer.exe >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Web results for Search box have been disabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Web results for Search box have been disabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
 :LeftTaskbar
 REG Add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V TaskbarAl /T REG_DWORD /D 0 /F >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Taskbar alignment set to left.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Taskbar alignment set to left.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
 :CenterTaskbar
 REG Add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V TaskbarAl /T REG_DWORD /D 1 /F >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Taskbar alignment set to center.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Taskbar alignment set to center.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
 :DisableSnapAssistFlyout
 REG Add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V EnableSnapAssistFlyout /T REG_DWORD /D 0 /F >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Snap Assist Flyout has been disabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Snap Assist Flyout has been disabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
 :EnableSnapAssistFlyout
 REG Add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V EnableSnapAssistFlyout /T REG_DWORD /D 1 /F >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Snap Assist Flyout has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Snap Assist Flyout has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
 :DisableStartupSound
 REG Add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\EditionOverrides" /V UserSetting_DisableStartupSound /T REG_DWORD /D 1 /F >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Windows startup sound has been disabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Windows startup sound has been disabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
 :EnableStartupSound
 REG Add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\EditionOverrides" /V UserSetting_DisableStartupSound /T REG_DWORD /D 0 /F >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Windows startup sound has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Windows startup sound has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO SettingsMenu
 
 :GoBack
@@ -1296,23 +1297,23 @@ IF ERRORLEVEL 2 GOTO Intel1213
 IF ERRORLEVEL 1 GOTO IntelLegacy
 
 :IntelLegacy
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Chipset/Intel_Chipset_Legacy.exe', 'C:\Users\%USERNAME%\Desktop\Intel_Legacy_Chipset.exe')" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Chipset/Intel_Chipset_Legacy.exe', 'C:\Users\%USERNAME%\Desktop\Intel_Legacy_Chipset.exe')" >nul 2>&1
+%notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO ChipsetMenu
 
 :Intel1213
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Chipset/Intel_Chipset.exe', 'C:\Users\%USERNAME%\Desktop\Intel_Chipset.exe')" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Chipset/Intel_Chipset.exe', 'C:\Users\%USERNAME%\Desktop\Intel_Chipset.exe')" >nul 2>&1
+%notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO ChipsetMenu
 
 :AMDLegacy
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Chipset/AMD_Chipset_Legacy.exe', 'C:\Users\%USERNAME%\Desktop\AMD_Legacy_Chipset.exe')" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Chipset/AMD_Chipset_Legacy.exe', 'C:\Users\%USERNAME%\Desktop\AMD_Legacy_Chipset.exe')" >nul 2>&1
+%notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO ChipsetMenu
 
 :AMDRyzen
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Chipset/AMD_Chipset.exe', 'C:\Users\%USERNAME%\Desktop\AMD_Chipset.exe')" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Chipset/AMD_Chipset.exe', 'C:\Users\%USERNAME%\Desktop\AMD_Chipset.exe')" >nul 2>&1
+%notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO ChipsetMenu
 
 :GoBack
@@ -1351,41 +1352,41 @@ IF ERRORLEVEL 1 GOTO NvidiaGeforce1
 
 :NvidiaGeforce1
 ECHO [[93m-[0m] Downloading [93mNVIDIA drivers for 900-4000 series[0m ...
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://international.download.nvidia.com/Windows/531.26hf/531.26-desktop-notebook-win10-win11-64bit-international-dch.hf.exe', 'C:\Users\%USERNAME%\Desktop\NVIDIA.exe')" >nul 2>&1
+%downloadfile%'https://international.download.nvidia.com/Windows/531.26hf/531.26-desktop-notebook-win10-win11-64bit-international-dch.hf.exe', 'C:\Users\%USERNAME%\Desktop\NVIDIA.exe')" >nul 2>&1
 ECHO [[92m+[0m] Done.
 timeout 3 >nul 2>&1
 GOTO GraphicsMenu
 
 :NvidiaGeforce2
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://international.download.nvidia.com/Windows/474.14/474.14-desktop-win10-win11-64bit-international-dch-whql.exe', 'C:\Users\%USERNAME%\Desktop\NVIDIA.exe')" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%downloadfile%'https://international.download.nvidia.com/Windows/474.14/474.14-desktop-win10-win11-64bit-international-dch-whql.exe', 'C:\Users\%USERNAME%\Desktop\NVIDIA.exe')" >nul 2>&1
+%notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO GraphicsMenu
 
 :NvidiaGeforce3
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://international.download.nvidia.com/Windows/391.35/391.35-desktop-win10-64bit-international-whql.exe', 'C:\Users\%USERNAME%\Desktop\NVIDIA.exe')" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%downloadfile%'https://international.download.nvidia.com/Windows/391.35/391.35-desktop-win10-64bit-international-whql.exe', 'C:\Users\%USERNAME%\Desktop\NVIDIA.exe')" >nul 2>&1
+%notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO GraphicsMenu
 
 :NvidiaGeforce4
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://international.download.nvidia.com/Windows/342.01/342.01-desktop-win10-64bit-international.exe', 'C:\Users\%USERNAME%\Desktop\NVIDIA.exe')" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%downloadfile%'https://international.download.nvidia.com/Windows/342.01/342.01-desktop-win10-64bit-international.exe', 'C:\Users\%USERNAME%\Desktop\NVIDIA.exe')" >nul 2>&1
+%notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO GraphicsMenu
 
 :AMDRadeon4007000
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://www.mediafire.com/file_premium/ywvzw2aaojrxpjd/whql-amd-software-adrenalin-edition-23.3.1-win10-win11-mar7-VideoCardz.exe', 'C:\Users\%USERNAME%\Desktop\AMD_Radeon.exe')" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%downloadfile%'https://www.mediafire.com/file_premium/ywvzw2aaojrxpjd/whql-amd-software-adrenalin-edition-23.3.1-win10-win11-mar7-VideoCardz.exe', 'C:\Users\%USERNAME%\Desktop\AMD_Radeon.exe')" >nul 2>&1
+%notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO GraphicsMenu
 
 :IntelArc
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://downloadmirror.intel.com/772016/gfx_win_101.4146.exe', 'C:\Users\%USERNAME%\Desktop\Intel_ARC.exe')" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%downloadfile%'https://downloadmirror.intel.com/772016/gfx_win_101.4146.exe', 'C:\Users\%USERNAME%\Desktop\Intel_ARC.exe')" >nul 2>&1
+%notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO GraphicsMenu
 
 :InteliGPU
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://downloadmirror.intel.com/751359/gfx_win_101.3790_101.2114.zip', 'C:\Users\%USERNAME%\Desktop\Intel_iGPU.zip')" >nul 2>&1
+%downloadfile%'https://downloadmirror.intel.com/751359/gfx_win_101.3790_101.2114.zip', 'C:\Users\%USERNAME%\Desktop\Intel_iGPU.zip')" >nul 2>&1
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Intel_iGPU.zip' 'C:\Users\%USERNAME%\Desktop\InteliGPU'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Intel_iGPU.zip" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO GraphicsMenu
 
 :GoBack
@@ -1427,64 +1428,64 @@ IF ERRORLEVEL 2 GOTO RealtekMSI
 IF ERRORLEVEL 1 GOTO RealtekAsus
 
 :RealtekAsus
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Audio/Audio_Realtek_ASUS.zip', 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_ASUS.zip')" >nul 2>&1
+%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Audio/Audio_Realtek_ASUS.zip', 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_ASUS.zip')" >nul 2>&1
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_ASUS.zip' 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_ASUS'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Audio_Realtek_ASUS.zip" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AudioMenu
 
 :RealtekMSI
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Audio/Audio_Realtek_MSI.zip', 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_MSI.zip')" >nul 2>&1
+%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Audio/Audio_Realtek_MSI.zip', 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_MSI.zip')" >nul 2>&1
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_MSI.zip' 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_MSI'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Audio_Realtek_MSI.zip" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AudioMenu
 
 :RealtekGigaByte
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Audio/Audio_Realtek_Gigabyte.zip', 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Gigabyte.zip')" >nul 2>&1
+%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Audio/Audio_Realtek_Gigabyte.zip', 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Gigabyte.zip')" >nul 2>&1
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Gigabyte.zip' 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_GigaByte'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Audio_Realtek_Gigabyte.zip" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AudioMenu
 
 :RealtekAsrock
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Audio/Audio_Realtek_Asrock.zip', 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Asrock.zip')" >nul 2>&1
+%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Audio/Audio_Realtek_Asrock.zip', 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Asrock.zip')" >nul 2>&1
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Asrock.zip' 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Asrock'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Audio_Realtek_Asrock.zip" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AudioMenu
 
 :RealtekEVGA
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://cdn.evga.com/driver/Z690/E698/Audio.zip', 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_EVGA.zip')" >nul 2>&1
+%downloadfile%'https://cdn.evga.com/driver/Z690/E698/Audio.zip', 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_EVGA.zip')" >nul 2>&1
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_EVGA.zip' 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_EVGA'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Audio_Realtek_EVGA.zip" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AudioMenu
 
 :RealtekDell
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Audio/Audio_Realtek_Dell.zip', 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Dell.zip')" >nul 2>&1
+%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Audio/Audio_Realtek_Dell.zip', 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Dell.zip')" >nul 2>&1
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Dell.zip' 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Dell'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Audio_Realtek_Dell.zip" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AudioMenu
 
 :RealtekLenovo
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Audio/Audio_Realtek_Lenovo.exe', 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Lenovo.exe')" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Audio/Audio_Realtek_Lenovo.exe', 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Lenovo.exe')" >nul 2>&1
+%notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AudioMenu
 
 :RealtekHP
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Audio/Audio_Realtek_HP.zip', 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_HP.zip')" >nul 2>&1
+%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Audio/Audio_Realtek_HP.zip', 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_HP.zip')" >nul 2>&1
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_HP.zip' 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_HP'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Audio_Realtek_HP.zip" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AudioMenu
 
 :RealtekAllOEM
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Audio/Audio_Realtek_Others.zip', 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Others.zip')" >nul 2>&1
+%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Audio/Audio_Realtek_Others.zip', 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Others.zip')" >nul 2>&1
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Others.zip' 'C:\Users\%USERNAME%\Desktop\Audio_Realtek_Others'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Audio_Realtek_Others.zip" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO AudioMenu
 
 :GoBack
@@ -1536,129 +1537,129 @@ IF ERRORLEVEL 2 GOTO RealtekEthernet
 IF ERRORLEVEL 1 GOTO IntelEthernet
 
 :IntelEthernet
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Intel_Ethernet.zip', 'C:\Users\%USERNAME%\Desktop\Intel_Ethernet.zip')" >nul 2>&1
+%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Intel_Ethernet.zip', 'C:\Users\%USERNAME%\Desktop\Intel_Ethernet.zip')" >nul 2>&1
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Intel_Ethernet.zip' 'C:\Users\%USERNAME%\Desktop\Intel_Ethernet'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Intel_Ethernet.zip" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :RealtekEthernet
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Realtek_Ethernet.zip', 'C:\Users\%USERNAME%\Desktop\Realtek_Ethernet.zip')" >nul 2>&1
+%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Realtek_Ethernet.zip', 'C:\Users\%USERNAME%\Desktop\Realtek_Ethernet.zip')" >nul 2>&1
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Realtek_Ethernet.zip' 'C:\Users\%USERNAME%\Desktop\Realtek_Ethernet'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Realtek_Ethernet.zip" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :MediatekEthernet
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Mediatek_Ethernet.zip', 'C:\Users\%USERNAME%\Desktop\Mediatek_Ethernet.zip')" >nul 2>&1
+%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Mediatek_Ethernet.zip', 'C:\Users\%USERNAME%\Desktop\Mediatek_Ethernet.zip')" >nul 2>&1
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Mediatek_Ethernet.zip' 'C:\Users\%USERNAME%\Desktop\Mediatek_Ethernet'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Mediatek_Ethernet.zip" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :IntelWifi
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Intel_Wifi.zip', 'C:\Users\%USERNAME%\Desktop\Intel_Wifi.zip')" >nul 2>&1
+%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Intel_Wifi.zip', 'C:\Users\%USERNAME%\Desktop\Intel_Wifi.zip')" >nul 2>&1
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Intel_Wifi.zip' 'C:\Users\%USERNAME%\Desktop}Intel_Wifi'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Intel_Wifi.zip" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :RealtekWifi
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Realtek_Wifi.zip', 'C:\Users\%USERNAME%\Desktop\Realtek_Wifi.zip')" >nul 2>&1
+%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Realtek_Wifi.zip', 'C:\Users\%USERNAME%\Desktop\Realtek_Wifi.zip')" >nul 2>&1
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Realtek_Wifi.zip' 'C:\Users\%USERNAME%\Desktop\Realtek_Wifi'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Realtek_Wifi.zip" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :MediatekWifi
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Mediatek_Wifi.zip', 'C:\Users\%USERNAME%\Desktop\Mediatek_Wifi.zip')" >nul 2>&1
+%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Mediatek_Wifi.zip', 'C:\Users\%USERNAME%\Desktop\Mediatek_Wifi.zip')" >nul 2>&1
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Mediatek_Wifi.zip' 'C:\Users\%USERNAME%\Desktop\Mediatek_Wifi'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Mediatek_Wifi.zip" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :IntelBluetooth
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Intel_Bluetooth.zip', 'C:\Users\%USERNAME%\Desktop\Intel_Bluetooth.zip')" >nul 2>&1
+%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Intel_Bluetooth.zip', 'C:\Users\%USERNAME%\Desktop\Intel_Bluetooth.zip')" >nul 2>&1
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Intel_Bluetooth.zip' 'C:\Users\%USERNAME%\Desktop\Intel_Bluetooth'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Intel_Bluetooth.zip" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :RealtekBluetooth
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Realtek_Bluetooth.zip', 'C:\Users\%USERNAME%\Desktop\Realtek_Bluetooth.zip')" >nul 2>&1
+%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Realtek_Bluetooth.zip', 'C:\Users\%USERNAME%\Desktop\Realtek_Bluetooth.zip')" >nul 2>&1
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Realtek_Bluetooth.zip' 'C:\Users\%USERNAME%\Desktop\Realtek_Bluetooth'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Realtek_Bluetooth.zip" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :MediatekBluetooth
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Mediatek_Bluetooth.zip', 'C:\Users\%USERNAME%\Desktop\Mediatek_Bluetooth.zip')" >nul 2>&1
+%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Mediatek_Bluetooth.zip', 'C:\Users\%USERNAME%\Desktop\Mediatek_Bluetooth.zip')" >nul 2>&1
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Mediatek_Bluetooth.zip' 'C:\Users\%USERNAME%\Desktop\Mediatek_Bluetooth'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Mediatek_Bluetooth.zip" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :QualcommEthernet
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Qualcomm_Ethernet.zip', 'C:\Users\%USERNAME%\Desktop\Qualcomm_Ethernet.zip')" >nul 2>&1
+%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Qualcomm_Ethernet.zip', 'C:\Users\%USERNAME%\Desktop\Qualcomm_Ethernet.zip')" >nul 2>&1
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Qualcomm_Ethernet.zip' 'C:\Users\%USERNAME%\Desktop\Qualcomm_Ethernet'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Qualcomm_Ethernet.zip" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :MarvellEthernet
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Marvell_Ethernet.zip', 'C:\Users\%USERNAME%\Desktop\Marvell_Ethernet.zip')" >nul 2>&1
+%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Marvell_Ethernet.zip', 'C:\Users\%USERNAME%\Desktop\Marvell_Ethernet.zip')" >nul 2>&1
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Marvell_Ethernet.zip' 'C:\Users\%USERNAME%\Desktop\Marvell_Ethernet'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Marvell_Ethernet.zip" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :BroadcomEthernet
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Broadcom_Ethernet.zip', 'C:\Users\%USERNAME%\Desktop\Broadcom_Ethernet.zip')" >nul 2>&1
+%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Broadcom_Ethernet.zip', 'C:\Users\%USERNAME%\Desktop\Broadcom_Ethernet.zip')" >nul 2>&1
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Broadcom_Ethernet.zip' 'C:\Users\%USERNAME%\Desktop\Broadcam_Ethernet'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Broadcom_Ethernet.zip" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :QualcommWifi
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Qualcomm_Wifi.zip', 'C:\Users\%USERNAME%\Desktop\Qualcomm_Wifi.zip')" >nul 2>&1
+%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Qualcomm_Wifi.zip', 'C:\Users\%USERNAME%\Desktop\Qualcomm_Wifi.zip')" >nul 2>&1
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Qualcomm_Wifi.zip' 'C:\Users\%USERNAME%\Desktop\Qualcomm_Wifi'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Qualcomm_Wifi.zip" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :MarvellWifi
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Marvell_Wifi.zip', 'C:\Users\%USERNAME%\Desktop\Marvell_Wifi.zip')" >nul 2>&1
+%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Marvell_Wifi.zip', 'C:\Users\%USERNAME%\Desktop\Marvell_Wifi.zip')" >nul 2>&1
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Marvell_Wifi.zip' 'C:\Users\%USERNAME%\Desktop\Marvell_Wifi'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Marvell_Wifi.zip" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :BroadcomWifi
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Broadcom_Wifi.zip', 'C:\Users\%USERNAME%\Desktop\Broadcom_Wifi.zip')" >nul 2>&1
+%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Broadcom_Wifi.zip', 'C:\Users\%USERNAME%\Desktop\Broadcom_Wifi.zip')" >nul 2>&1
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Broadcom_Wifi.zip' 'C:\Users\%USERNAME%\Desktop\Broadcom_Wifi'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Broadcom_Wifi.zip" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :QualcommBluetooth
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Qualcomm_Bluetooth.zip', 'C:\Users\%USERNAME%\Desktop\Qualcomm_Bluetooth.zip')" >nul 2>&1
+%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Qualcomm_Bluetooth.zip', 'C:\Users\%USERNAME%\Desktop\Qualcomm_Bluetooth.zip')" >nul 2>&1
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Qualcomm_Bluetooth.zip' 'C:\Users\%USERNAME%\Desktop\Qualcomm_Bluetooth'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Qualcomm_Bluetooth.zip" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :MarvellBluetooth
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Marvell_Bluetooth.zip', 'C:\Users\%USERNAME%\Desktop\Marvell_Bluetooth.zip')" >nul 2>&1
+%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Marvell_Bluetooth.zip', 'C:\Users\%USERNAME%\Desktop\Marvell_Bluetooth.zip')" >nul 2>&1
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Marvell_Bluetooth.zip' 'C:\Users\%USERNAME%\Desktop\Marvell_Bluetooth'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Marvell_Bluetooth.zip" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :BroadcomBluetooth
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Broadcom_Bluetooth.zip', 'C:\Users\%USERNAME%\Desktop\Broadcom_Bluetooth.zip')" >nul 2>&1
+%downloadfile%'https://github.com/LSX285/Windows11-LTSC/raw/main/Drivers/Networking/Broadcom_Bluetooth.zip', 'C:\Users\%USERNAME%\Desktop\Broadcom_Bluetooth.zip')" >nul 2>&1
 powershell -command "Expand-Archive -Force 'C:\Users\%USERNAME%\Desktop\Broadcom_Bluetooth.zip' 'C:\Users\%USERNAME%\Desktop\Broadcom_Bluetooth'" >nul 2>&1
 del /f "C:\Users\%USERNAME%\Desktop\Broadcom_Bluetooth.zip" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Driver download completed. Check your Desktop.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO NetworkingMenu
 
 :GoBack
@@ -1717,11 +1718,11 @@ SFC /Scannow >nul 2>&1
 DISM /Online /Cleanup-Image /CheckHealth >nul 2>&1
 DISM /Online /Cleanup-Image /ScanHealth >nul 2>&1
 DISM /Online /Cleanup-Image /RestoreHealth >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Repair finished. Please restart Windows.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Repair finished. Please restart Windows.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO DebugMenu
 
 :RepairWindowsAdvanced
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Please move the install.wim to C:\Program Files\LTSC\AdditionalFiles\RepairWin and press any Key to continue.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Please move the install.wim to C:\Program Files\LTSC\AdditionalFiles\RepairWin and press any Key to continue.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 ECHO [[91m![0m] Press any key to continue.
 pause >nul 2>&1
 SFC /Scannow >nul 2>&1
@@ -1729,7 +1730,7 @@ DISM /Online /Cleanup-Image /CheckHealth >nul 2>&1
 DISM /Online /Cleanup-Image /ScanHealth >nul 2>&1
 DISM /Online /Cleanup-Image /RestoreHealth >nul 2>&1
 DISM /Online /Cleanup-Image /RestoreHealth /Source:"C:\Program Files\LTSC\AdditionalFiles\RepairWin\install.wim"
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Repair finished. Please restart Windows.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Repair finished. Please restart Windows.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO DebugMenu
 
 :CleanTemp
@@ -1737,8 +1738,8 @@ start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\CleanFiles.cmd" >nul 2>&1
 GOTO DebugMenu
 
 :UpdateHostsFile
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/hosts', 'C:\Windows\System32\drivers\etc\hosts')" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Hosts file has been updated.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%downloadfile%'https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/hosts', 'C:\Windows\System32\drivers\etc\hosts')" >nul 2>&1
+%notify%'APP','Hosts file has been updated.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO DebugMenu
 
 :WindowsActivation
@@ -1746,19 +1747,19 @@ start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\activate.cmd" >nul 2>&1
 GOTO DebugMenu
 
 :UpdateAPP
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/setup.cmd', 'C:\Program Files\LTSC\setup.cmd')" >nul 2>&1
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/activate.cmd', 'C:\Program Files\LTSC\Scripts\activate.cmd')" >nul 2>&1
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/AntiDefender.cmd', 'C:\Program Files\LTSC\Scripts\AntiDefender.cmd')" >nul 2>&1
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/AntiDefenderUndo.cmd', 'C:\Program Files\LTSC\Scripts\AntiDefenderUndo.cmd')" >nul 2>&1
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/CleanFiles.cmd', 'C:\Program Files\LTSC\Scripts\CleanFiles.cmd')" >nul 2>&1
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/Edge_Uninstall.cmd', 'C:\Program Files\LTSC\Scripts\Edge_Uninstall.cmd')" >nul 2>&1
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/reapplyLTSC.cmd', 'C:\Program Files\LTSC\Scripts\reapplyLTSC.cmd')" >nul 2>&1
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/tweaks.reg', 'C:\Program Files\LTSC\Scripts\tweaks.reg')" >nul 2>&1
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/UpdateAPP.cmd', 'C:\Program Files\LTSC\Scripts\UpdateAPP.cmd')" >nul 2>&1
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/ViveTool/Albacore.ViVe.dll', 'C:\Program Files\LTSC\Scripts\ViveTool\Albacore.ViVe.dll')" >nul 2>&1
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/ViveTool/FeatureDictionary.pfs', 'C:\Program Files\LTSC\Scripts\ViveTool\FeatureDictionary.pfs')" >nul 2>&1
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/ViveTool/Newtonsoft.Json.dll', 'C:\Program Files\LTSC\Scripts\ViveTool\Newtonsoft.Json.dll')" >nul 2>&1
-powershell -command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/ViveTool/ViVeTool.exe', 'C:\Program Files\LTSC\Scripts\ViveTool\ViVeTool.exe')" >nul 2>&1
+%downloadfile%'https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/setup.cmd', 'C:\Program Files\LTSC\setup.cmd')" >nul 2>&1
+%downloadfile%'https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/activate.cmd', 'C:\Program Files\LTSC\Scripts\activate.cmd')" >nul 2>&1
+%downloadfile%'https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/AntiDefender.cmd', 'C:\Program Files\LTSC\Scripts\AntiDefender.cmd')" >nul 2>&1
+%downloadfile%'https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/AntiDefenderUndo.cmd', 'C:\Program Files\LTSC\Scripts\AntiDefenderUndo.cmd')" >nul 2>&1
+%downloadfile%'https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/CleanFiles.cmd', 'C:\Program Files\LTSC\Scripts\CleanFiles.cmd')" >nul 2>&1
+%downloadfile%'https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/Edge_Uninstall.cmd', 'C:\Program Files\LTSC\Scripts\Edge_Uninstall.cmd')" >nul 2>&1
+%downloadfile%'https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/reapplyLTSC.cmd', 'C:\Program Files\LTSC\Scripts\reapplyLTSC.cmd')" >nul 2>&1
+%downloadfile%'https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/tweaks.reg', 'C:\Program Files\LTSC\Scripts\tweaks.reg')" >nul 2>&1
+%downloadfile%'https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/UpdateAPP.cmd', 'C:\Program Files\LTSC\Scripts\UpdateAPP.cmd')" >nul 2>&1
+%downloadfile%'https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/ViveTool/Albacore.ViVe.dll', 'C:\Program Files\LTSC\Scripts\ViveTool\Albacore.ViVe.dll')" >nul 2>&1
+%downloadfile%'https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/ViveTool/FeatureDictionary.pfs', 'C:\Program Files\LTSC\Scripts\ViveTool\FeatureDictionary.pfs')" >nul 2>&1
+%downloadfile%'https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/ViveTool/Newtonsoft.Json.dll', 'C:\Program Files\LTSC\Scripts\ViveTool\Newtonsoft.Json.dll')" >nul 2>&1
+%downloadfile%'https://raw.githubusercontent.com/LSX285/Windows11-LTSC/main/LTSC/Scripts/ViveTool/ViVeTool.exe', 'C:\Program Files\LTSC\Scripts\ViveTool\ViVeTool.exe')" >nul 2>&1
 start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\UpdateAPP.cmd" >nul 2>&1
 exit
 
@@ -1768,12 +1769,12 @@ taskkill /IM explorer.exe /F >nul 2>&1
 DEL /A /Q "%localappdata%\IconCache.db" >nul 2>&1
 DEL /A /F /Q "%localappdata%\Microsoft\Windows\Explorer\iconcache*" >nul 2>&1
 start explorer.exe
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Icon cache has been rebuilt. Please restart Windows.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Icon cache has been rebuilt. Please restart Windows.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO DebugMenu
 
 :FlushDNS
 ipconfig /flushdns >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','DNS resolver cache has been flushed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','DNS resolver cache has been flushed.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO DebugMenu
 
 :ClearThumbnailCache
@@ -1782,39 +1783,39 @@ timeout 2 >nul 2>&1
 DEL /F /S /Q /A "%LocalAppData%\Microsoft\Windows\Explorer\thumbcache_*.db" >nul 2>&1
 timeout 2 >nul 2>&1
 start explorer.exe >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Thumbnail cache has been cleared.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Thumbnail cache has been cleared.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO DebugMenu
 
 :RepairMSStore
 PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage -AllUsers 'WindowsStore' | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register '$($_.InstallLocation)\AppXManifest.xml'}" >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Microsoft Store has been repaired.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Microsoft Store has been repaired.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO DebugMenu
 
 :EnableBuiltinAdmin
 net user Administrator /active:yes >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Built-In Administrator Account has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Built-In Administrator Account has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO DebugMenu
 
 :DisableBuiltinAdmin
 net user Administrator /active:no >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Built-In Administrator Account has been disabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Built-In Administrator Account has been disabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO DebugMenu
 
 :DisableChecks
 reg delete "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\vdsldr.exe" /f >nul 2>&1
 wmic /namespace:"\\root\subscription" path __EventFilter where Name="Skip TPM Check on Dynamic Update" delete >nul 2>&1
 REG Add "HKLM\SYSTEM\Setup\MoSetup" /V AllowUpgradesWithUnsupportedTPMOrCPU /T REG_DWORD /D 1 /F >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Hardware compatibility checks have been disabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Hardware compatibility checks have been disabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO DebugMenu
 
 :DisableModernStandby
 POWERCFG -SETDCVALUEINDEX SCHEME_CURRENT SUB_NONE CONNECTIVITYINSTANDBY 0 >nul 2>&1
 POWERCFG -SETACVALUEINDEX SCHEME_CURRENT SUB_NONE CONNECTIVITYINSTANDBY 0 >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Modern Standby connectivity has been disabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Modern Standby connectivity has been disabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO DebugMenu
 
 :ReapplyLTSC
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'Warning','Reapplying LTSC changes will delete Edge, all inbox apps and more. If you want to continue, press any key in APP or close it.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'Warning','Reapplying LTSC changes will delete Edge, all inbox apps and more. If you want to continue, press any key in APP or close it.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 ECHO [[91m![0m] Press any Key to continue.
 pause >nul 2>&1
 start cmd.exe @cmd /C "C:\Program Files\LTSC\Scripts\reapplyLTSC.cmd" >nul 2>&1
@@ -1823,26 +1824,26 @@ GOTO DebugMenu
 :UpdateWinSecurity
 cd C:\ProgramData\Microsoft\Windows Defender\Platform\4.18* >nul 2>&1
 MpCmdRun -SignatureUpdate >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Windows Security has been updated.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Windows Security has been updated.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO DebugMenu
 
 :Placeholder
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Placeholder.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Placeholder.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO DebugMenu
 
 :Placeholder
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Placeholder.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Placeholder.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO DebugMenu
 
 :GoBack
 GOTO Welcome
 
 :RestartWindows
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Windows will restart shortly.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Windows will restart shortly.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 shutdown /r /f /t 05 >nul 2>&1
 
 :RestartBIOS
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Your PC will restart into UEFI/BIOS shortly.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Your PC will restart into UEFI/BIOS shortly.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 shutdown /r /fw /t 05 >nul 2>&1
 
 :InsiderFeaturesMenu
@@ -1896,133 +1897,133 @@ IF ERRORLEVEL 2 GOTO Feature2
 IF ERRORLEVEL 1 GOTO Feature1
 
 :Feature1
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:41736838 >nul 2>&1
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:42057226 >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Windows and App services microphone privacy setting has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%vivetool% /enable /id:41736838 >nul 2>&1
+%vivetool% /enable /id:42057226 >nul 2>&1
+%notify%'APP','Windows and App services microphone privacy setting has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO InsiderFeaturesMenu
 
 :Feature2
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:42106010 >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','New Volume Mixer has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%vivetool% /enable /id:42106010 >nul 2>&1
+%notify%'APP','New Volume Mixer has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO InsiderFeaturesMenu
 
 :Feature3
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:38890980 >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Nearby Sharing UX improvements have been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%vivetool% /enable /id:38890980 >nul 2>&1
+%notify%'APP','Nearby Sharing UX improvements have been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO InsiderFeaturesMenu
 
 :Feature4
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:42922989 >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Custom color search box has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%vivetool% /enable /id:42922989 >nul 2>&1
+%notify%'APP','Custom color search box has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO InsiderFeaturesMenu
 
 :Feature5
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:41734715 >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Remove Add Device Button if your PC doesnt have Bluetooth has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%vivetool% /enable /id:41734715 >nul 2>&1
+%notify%'APP','Remove Add Device Button if your PC doesnt have Bluetooth has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO InsiderFeaturesMenu
 
 :Feature6
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:42916428 >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Show recommendations for tips, shortcuts, new apps and more has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%vivetool% /enable /id:42916428 >nul 2>&1
+%notify%'APP','Show recommendations for tips, shortcuts, new apps and more has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO InsiderFeaturesMenu
 
 :Feature7
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:40347509 >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','ReFS Developer Volumes have been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%vivetool% /enable /id:40347509 >nul 2>&1
+%notify%'APP','ReFS Developer Volumes have been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO InsiderFeaturesMenu
 
 :Feature8
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:39880030 >nul 2>&1
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:40268500 >nul 2>&1
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:40522394 >nul 2>&1
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:41744267 >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','New Spotlight UIs have been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%vivetool% /enable /id:39880030 >nul 2>&1
+%vivetool% /enable /id:40268500 >nul 2>&1
+%vivetool% /enable /id:40522394 >nul 2>&1
+%vivetool% /enable /id:41744267 >nul 2>&1
+%notify%'APP','New Spotlight UIs have been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO InsiderFeaturesMenu
 
 :Feature9
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:40851068 >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','New Snap Assist Layout has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%vivetool% /enable /id:40851068 >nul 2>&1
+%notify%'APP','New Snap Assist Layout has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO InsiderFeaturesMenu
 
 :Feature10
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:37007953 >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Touch keyboard dropdown menu has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%vivetool% /enable /id:37007953 >nul 2>&1
+%notify%'APP','Touch keyboard dropdown menu has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO InsiderFeaturesMenu
 
 :Feature11
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:36371531 >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Auto Color Management has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%vivetool% /enable /id:36371531 >nul 2>&1
+%notify%'APP','Auto Color Management has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO InsiderFeaturesMenu
 
 :Feature12
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:36435151 /variant:1 /variantpayloadkind:1 /variantpayload:1121 >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Start Menu Account badge has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%vivetool% /enable /id:36435151 /variant:1 /variantpayloadkind:1 /variantpayload:1121 >nul 2>&1
+%notify%'APP','Start Menu Account badge has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO InsiderFeaturesMenu
 
 :Feature13
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:40729001 >nul 2>&1
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:40731912 >nul 2>&1
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:41969252 >nul 2>&1
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:42922424 >nul 2>&1
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:41040327 >nul 2>&1
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:42295138 >nul 2>&1
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:39661369 >nul 2>&1
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:38613007 >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','WinAppSDK File Explorer has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%vivetool% /enable /id:40729001 >nul 2>&1
+%vivetool% /enable /id:40731912 >nul 2>&1
+%vivetool% /enable /id:41969252 >nul 2>&1
+%vivetool% /enable /id:42922424 >nul 2>&1
+%vivetool% /enable /id:41040327 >nul 2>&1
+%vivetool% /enable /id:42295138 >nul 2>&1
+%vivetool% /enable /id:39661369 >nul 2>&1
+%vivetool% /enable /id:38613007 >nul 2>&1
+%notify%'APP','WinAppSDK File Explorer has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO InsiderFeaturesMenu
 
 :Feature14
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:38579715 >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','The ability to uninstall apps which have interdependencies has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%vivetool% /enable /id:38579715 >nul 2>&1
+%notify%'APP','The ability to uninstall apps which have interdependencies has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO InsiderFeaturesMenu
 
 :Feature15
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:38612934 >nul 2>&1
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:34912776 >nul 2>&1
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:40618079 >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','New Keyboard Layout Settings UX has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%vivetool% /enable /id:38612934 >nul 2>&1
+%vivetool% /enable /id:34912776 >nul 2>&1
+%vivetool% /enable /id:40618079 >nul 2>&1
+%notify%'APP','New Keyboard Layout Settings UX has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO InsiderFeaturesMenu
 
 :Feature16
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:40213648 >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Emoji 15 support has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%vivetool% /enable /id:40213648 >nul 2>&1
+%notify%'APP','Emoji 15 support has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO InsiderFeaturesMenu
 
 :Feature17
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:42592269 >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','End Task Option has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%vivetool% /enable /id:42592269 >nul 2>&1
+%notify%'APP','End Task Option has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO InsiderFeaturesMenu
 
 :Feature18
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:41561445 >nul 2>&1
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:41561454 >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Widgets no Account mandatory has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%vivetool% /enable /id:41561445 >nul 2>&1
+%vivetool% /enable /id:41561454 >nul 2>&1
+%notify%'APP','Widgets no Account mandatory has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO InsiderFeaturesMenu
 
 :Feature19
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:35262205 >nul 2>&1
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:41355275 >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Ambient Device Lighting has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%vivetool% /enable /id:35262205 >nul 2>&1
+%vivetool% /enable /id:41355275 >nul 2>&1
+%notify%'APP','Ambient Device Lighting has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO InsiderFeaturesMenu
 
 :Feature20
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:36390579 >nul 2>&1
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:42739793 >nul 2>&1
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:42733866 >nul 2>&1
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:41670003 >nul 2>&1
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:41598133 >nul 2>&1
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:38228963 >nul 2>&1
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:39811196 >nul 2>&1
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:40112637 >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','New Settings UIs have been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%vivetool% /enable /id:36390579 >nul 2>&1
+%vivetool% /enable /id:42739793 >nul 2>&1
+%vivetool% /enable /id:42733866 >nul 2>&1
+%vivetool% /enable /id:41670003 >nul 2>&1
+%vivetool% /enable /id:41598133 >nul 2>&1
+%vivetool% /enable /id:38228963 >nul 2>&1
+%vivetool% /enable /id:39811196 >nul 2>&1
+%vivetool% /enable /id:40112637 >nul 2>&1
+%notify%'APP','New Settings UIs have been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO InsiderFeaturesMenu
 
 :Feature21
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:41058795 >nul 2>&1
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:41539325 >nul 2>&1
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:42623125 >nul 2>&1
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:41424794 >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Suggested actions have been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%vivetool% /enable /id:41058795 >nul 2>&1
+%vivetool% /enable /id:41539325 >nul 2>&1
+%vivetool% /enable /id:42623125 >nul 2>&1
+%vivetool% /enable /id:41424794 >nul 2>&1
+%notify%'APP','Suggested actions have been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO InsiderFeaturesMenu
 
 :GoBack
@@ -2078,108 +2079,108 @@ IF ERRORLEVEL 2 GOTO Feature23
 IF ERRORLEVEL 1 GOTO Feature22
 
 :Feature22
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:42533185 >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Replacing Recommended with For You in Start Menu has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%vivetool% /enable /id:42533185 >nul 2>&1
+%notify%'APP','Replacing Recommended with For You in Start Menu has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO FeaturesPage2
 
 :Feature23
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:38811930 >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Multiple Languages support for Live Captions have been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%vivetool% /enable /id:38811930 >nul 2>&1
+%notify%'APP','Multiple Languages support for Live Captions have been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO FeaturesPage2
 
 :Feature24
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:42550315 >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','New option for Inplace Upgrade without reinstall has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%vivetool% /enable /id:42550315 >nul 2>&1
+%notify%'APP','New option for Inplace Upgrade without reinstall has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO FeaturesPage2
 
 :Feature25
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:40430431 >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Live Kernel Dump has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%vivetool% /enable /id:40430431 >nul 2>&1
+%notify%'APP','Live Kernel Dump has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO FeaturesPage2
 
 :Feature26
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:40733296 >nul 2>&1
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:41540372 >nul 2>&1
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:41562961 >nul 2>&1
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:41061894 >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','New Visuals for Microsoft Cloud Storage have been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%vivetool% /enable /id:40733296 >nul 2>&1
+%vivetool% /enable /id:41540372 >nul 2>&1
+%vivetool% /enable /id:41562961 >nul 2>&1
+%vivetool% /enable /id:41061894 >nul 2>&1
+%notify%'APP','New Visuals for Microsoft Cloud Storage have been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO FeaturesPage2
 
 :Feature27
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:40887771 >nul 2>&1
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:38937525 >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','New Windows Search has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%vivetool% /enable /id:40887771 >nul 2>&1
+%vivetool% /enable /id:38937525 >nul 2>&1
+%notify%'APP','New Windows Search has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO FeaturesPage2
 
 :Feature28
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:36165848 >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Sticker drawing has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%vivetool% /enable /id:36165848 >nul 2>&1
+%notify%'APP','Sticker drawing has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO FeaturesPage2
 
 :Feature29
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:38113452 >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Network VPN Indicator has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%vivetool% /enable /id:38113452 >nul 2>&1
+%notify%'APP','Network VPN Indicator has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO FeaturesPage2
 
 :Feature30
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:39731733 >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Tradein or Recycle PC option has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%vivetool% /enable /id:39731733 >nul 2>&1
+%notify%'APP','Tradein or Recycle PC option has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO FeaturesPage2
 
 :Feature31
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:37969115 >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Desktop Search Box has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%vivetool% /enable /id:37969115 >nul 2>&1
+%notify%'APP','Desktop Search Box has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO FeaturesPage2
 
 :Feature32
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:41314201 >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Taskbar Seconds have been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%vivetool% /enable /id:41314201 >nul 2>&1
+%notify%'APP','Taskbar Seconds have been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO FeaturesPage2
 
 :Feature33
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:34878152 >nul 2>&1
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Animated Settings Icons have been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%vivetool% /enable /id:34878152 >nul 2>&1
+%notify%'APP','Animated Settings Icons have been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO FeaturesPage2
 
 :Feature34
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:38664959
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:40064642
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:41070380
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','File Explorer recommendations have been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%vivetool% /enable /id:38664959
+%vivetool% /enable /id:40064642
+%vivetool% /enable /id:41070380
+%notify%'APP','File Explorer recommendations have been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO FeaturesPage2
 
 :Feature35
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:39305332
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','USB4 domain viewer has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%vivetool% /enable /id:39305332
+%notify%'APP','USB4 domain viewer has been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO FeaturesPage2
 
 :Feature36
-"C:\Program Files\LTSC\Scripts\Vivetool\ViVeTool.exe" /enable /id:39696859
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','File Explorer new access keys have been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%vivetool% /enable /id:39696859
+%notify%'APP','File Explorer new access keys have been enabled.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO FeaturesPage2
 
 :Feature37
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Placeholder.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Placeholder.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO FeaturesPage2
 
 :Feature38
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Placeholder.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Placeholder.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO FeaturesPage2
 
 :Feature39
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Placeholder.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Placeholder.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO FeaturesPage2
 
 :Feature40
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Placeholder.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Placeholder.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO FeaturesPage2
 
 :Feature41
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Placeholder.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Placeholder.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO FeaturesPage2
 
 :Feature42
-powershell -Command "[reflection.assembly]::loadwithpartialname('System.Windows.Forms'); [reflection.assembly]::loadwithpartialname('System.Drawing'); $notify = new-object system.windows.forms.notifyicon; $notify.icon = [System.Drawing.SystemIcons]::WinLogo; $notify.visible = $true; $notify.showballoontip(10,'APP','Placeholder.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
+%notify%'APP','Placeholder.',[system.windows.forms.tooltipicon]::None)" >nul 2>&1
 GOTO FeaturesPage2
 
 :GoBack
